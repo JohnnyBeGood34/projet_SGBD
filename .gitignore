@@ -1,6 +1,7 @@
+/SGBD/nbproject
 *.class
-
 # Package Files #
 *.jar
 *.war
 *.ear
+/SGBD/nbproject/private/
