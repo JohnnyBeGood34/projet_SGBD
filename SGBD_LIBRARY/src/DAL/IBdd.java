@@ -18,5 +18,5 @@ public interface IBdd
     public void update(Object objet);
     public void delete(Object objet);
     public Object selectOne(int id);
-    public ArrayList<Object> selectAll(Object objet);
+    //public ArrayList<Object> selectAll(Object objet);
 }

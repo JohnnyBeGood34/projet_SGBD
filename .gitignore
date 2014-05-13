@@ -1,8 +1,10 @@
-*.class
-# Package Files #
-*.jar
-*.war
-*.ear
 /SGBD/nbproject/private/
 /SGBD_LIBRARY/nbproject/private/
 /nbproject/private/
+/SGBD/nbproject/nbproject/private/
+/SGBD/Caddie/nbproject/private/
+/SGBD/Caddie/build/
+/SGBD/DPDécorateur/nbproject/private/
+/SGBD/DPDécorateur/build/
+/SGBD/TDJSP/nbproject/private/
+/SGBD/TDJSP/build/
