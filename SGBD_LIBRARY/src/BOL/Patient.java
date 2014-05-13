@@ -19,6 +19,7 @@ public class Patient extends Partenaires{
      */
     public String getNumeroSecu() {
         return numeroSecu;
+        
     }
 
     /**
