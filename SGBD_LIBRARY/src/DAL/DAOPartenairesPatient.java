@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Kevin
  */
-public class DAOPartenairesPatient implements IBdd{
+public class DAOPartenairesPatient extends DAO{
 
     @Override
     public void insert(Object objet) {
