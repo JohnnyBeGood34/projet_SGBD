@@ -105,8 +105,7 @@ public class Request_factory_oracle implements IBDD
               {
                 champs = champs + field + ",";
                 values = values + "?,";
-              } 
-              else
+              } else
               {
                 champs = champs + field;
                 values = values + "?";
@@ -145,7 +144,7 @@ public class Request_factory_oracle implements IBDD
         String table = classe;
         //Base pour la requete d'update
         String where = " WHERE ";//Sous chaine clause where
-        String sql = "UPDATE "+ table +" SET ";
+        String sql = "UPDATE " + table + " SET ";
         Class nomClasse = objet.getClass();
         //Array de nom d'attributs de la classe de l'objet recut
         ArrayList<Field[]> fields = new ArrayList();
@@ -166,20 +165,46 @@ public class Request_factory_oracle implements IBDD
         int compteur = 0;
         for (String field : fieldsString)
           {
-            /*A FINIR, il faut arriver à écarter l'id pour construire la requete*/
+            String nomMethode = "get_" + field;
+            if (!field.subSequence(0, 2).equals("id")) //On écarte l'id PAR CONTRE A REVOIR
+              {
+                //Tant qu'on est pas au dernier tour de boucle
+                if (compteur != fieldsString.size() - 1)
+                  {
+                    sql = sql + field + "=?,";
+                  } 
+                else //Quand on arrive au dernier tour de boucle on enleve la virgule apres le ?
+                  {
+                    sql = sql + field + "=?";
+                  }
+              } else
+              {
+                where = where + field + "=?";
+              }
+
+            try
+              {
+                methode = nomClasse.getMethod(nomMethode);
+                this._parametres.add(String.valueOf(methode.invoke(objet)));
+              } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
+              {
+                Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            compteur++;
           }
+        sql = sql + where;
+        this._requete = sql;
       }
 
     @Override
-    public void requeteSupprimer(String classe, ArrayList<String> fields,ArrayList<String> value)
+    public void requeteSupprimer(String classe, ArrayList<String> fields, ArrayList<String> value)
       {
         String table = classe;
         String sql;
-        if(value == null && fields == null)
+        if (value == null && fields == null)
           {
-            sql = "DELETE FROM "+ table;
-          }
-        else
+            sql = "DELETE FROM " + table;
+          } else
           {
             String whereClause = " WHERE ";
             for (int i = 0; i < fields.size(); i++) //Pour chaque entrée de fields
@@ -203,7 +228,7 @@ public class Request_factory_oracle implements IBDD
         ArrayList<String> array = new ArrayList();
         for (Field[] arrayFields : fields)
           {
-            for(Field field : arrayFields)
+            for (Field field : arrayFields)
               {
                 array.add(field.getName());
               }

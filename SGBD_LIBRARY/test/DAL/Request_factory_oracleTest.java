@@ -105,12 +105,13 @@ public class Request_factory_oracleTest
     @Test
     public void testRequeteMiseAJour()
       {
-        System.out.println("requeteMiseAJour");
-        Object objet = null;
+        System.out.println("TEST requete mise a jour---------");
+        Date date = new Date();
+        Object objet = new Prescripteurs(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteMiseAJour(objet);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+          System.out.println("REQUETE+++++++++"+instance.getRequeteString());
+          System.out.println("PARAMETRES++++++++"+instance.getParametres().toString());
       }
 
     /**
