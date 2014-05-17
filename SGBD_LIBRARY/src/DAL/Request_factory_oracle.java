@@ -81,19 +81,18 @@ public class Request_factory_oracle implements IBDD
         String sql = "INSERT INTO " + classe;
         String champs = "(";
         String values = "VALUES(";
-        Class nomClasse;
+        Class nomClasse = objet.getClass();
         //Array de nom d'attributs de la classe de l'objet recut
-        Field[] fields;
+        ArrayList<Field[]> fields = new ArrayList();
         //Si l'objet recut n'hérite d'aucunes classes on récupère ses attributs, sinon onrécupère ses attributs
         //Et ceux de sa classe mère.
         if (!objet.getClass().getSuperclass().getSimpleName().equals("Object"))
           {
-            nomClasse = objet.getClass().getSuperclass();
-            fields = objet.getClass().getSuperclass().getDeclaredFields();
+            fields.add(objet.getClass().getSuperclass().getDeclaredFields());
+            fields.add(objet.getClass().getDeclaredFields());
           } else
           {
-            nomClasse = objet.getClass();
-            fields = objet.getClass().getDeclaredFields();
+            fields.add(objet.getClass().getDeclaredFields());
           }
         //Construction d'un arrayList d'attributs sous forme de string
         //Pour les utiliser dans la construction de la requete
@@ -118,7 +117,7 @@ public class Request_factory_oracle implements IBDD
                 methode = nomClasse.getMethod(nomMethode);
                 try
                   {
-                    this._parametres.add((String) methode.invoke(methode));
+                    this._parametres.add(String.valueOf(methode.invoke(objet)));
                   } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
                   {
                     Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
@@ -147,12 +146,15 @@ public class Request_factory_oracle implements IBDD
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
       }
 
-    private ArrayList<String> getFieldstoString(Field[] fields)
+    private ArrayList<String> getFieldstoString(ArrayList<Field[]> fields)
       {
         ArrayList<String> array = new ArrayList();
-        for (Field field : fields)
+        for (Field[] arrayFields : fields)
           {
-            array.add(field.getName());
+            for(Field field : arrayFields)
+              {
+                array.add(field.getName());
+              }
           }
         return array;
       }
