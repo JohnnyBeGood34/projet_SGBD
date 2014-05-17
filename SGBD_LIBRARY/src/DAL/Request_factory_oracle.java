@@ -15,14 +15,17 @@ import java.util.logging.Logger;
 /**
  *
  * @author JOHNNY Fabrique de requetes pour le DAO_Manager
+ * Implémente l'interface BDD
  */
 public class Request_factory_oracle implements IBDD
   {
     /*
      *Contient la requete sous forme de string
      */
-
     private String _requete;
+    /*
+     * Contient les parametres pour les requetes préparées
+     */
     private ArrayList<String> _parametres = new ArrayList();
 
     public String getRequeteString()
@@ -134,7 +137,9 @@ public class Request_factory_oracle implements IBDD
         sql = sql + champs + values; // construction de la requete complete
         this._requete = sql;
       }
-
+    /*
+     * Permet la construction dynamique de requete d'update 
+     */
     @Override
     public void requeteMiseAJour(Object objet)
       {

@@ -6,7 +6,6 @@
 
 package DAL;
 
-import BOL.MaterielAchete;
 import BOL.Prescripteurs;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,21 +45,6 @@ public class Request_factory_oracleTest
     @After
     public void tearDown()
       {
-      }
-
-    /**
-     * Test of getRequeteString method, of class Request_factory_oracle.
-     */
-    @Test
-    public void testGetRequeteString()
-      {
-        System.out.println("getRequeteString");
-        Request_factory_oracle instance = new Request_factory_oracle();
-        String expResult = "";
-        String result = instance.getRequeteString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
       }
 
     /**
