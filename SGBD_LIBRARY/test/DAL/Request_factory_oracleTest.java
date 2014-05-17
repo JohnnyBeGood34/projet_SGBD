@@ -9,6 +9,7 @@ package DAL;
 import BOL.MaterielAchete;
 import BOL.Prescripteurs;
 import java.util.ArrayList;
+import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
@@ -90,9 +91,12 @@ public class Request_factory_oracleTest
     public void testRequeteAjouter()
       {
         System.out.println("TEST requeteAjouter---------");
-        Object objet = new Prescripteurs();
+        Date date = new Date();
+        Object objet = new Prescripteurs(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteAjouter(objet);
+          System.out.println("REQUETE+++++++++"+instance.getRequeteString());
+          System.out.println("PARAMETRES++++++++"+instance.getParametres().toString());
       }
 
     /**

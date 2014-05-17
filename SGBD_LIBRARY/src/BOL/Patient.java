@@ -6,6 +6,8 @@
 
 package BOL;
 
+import java.util.Date;
+
 /**
  *
  * @author Kevin
@@ -13,6 +15,13 @@ package BOL;
 public class Patient extends Partenaires{
     private String numeroSecu;
     private String numeroMutuelle;
+
+    public Patient(int id, String nom, String prenom, Date dateNaissance, String telephone, String mail,String numeroSecu,String numeroMutuelle)
+      {
+        super(id, nom, prenom, dateNaissance, telephone, mail);
+        this.numeroMutuelle = numeroMutuelle;
+        this.numeroSecu = numeroSecu;
+      }
 
     /**
      * @return the numeroSecu

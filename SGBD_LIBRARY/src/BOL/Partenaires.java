@@ -19,7 +19,16 @@ public abstract class Partenaires {
     private Date dateDeNaissance;
     private String telephonePartenaires;
     private String mail;
-
+    
+    public Partenaires(int id,String nom, String prenom,Date dateNaissance,String telephone,String mail)
+      {
+        this.idPartenaire = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateDeNaissance = dateNaissance;
+        this.telephonePartenaires = telephone;
+        this.mail = mail;
+      }
     /**
      * @return the idPartenaire
      */
