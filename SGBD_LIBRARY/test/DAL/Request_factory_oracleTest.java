@@ -6,13 +6,15 @@
 
 package DAL;
 
+import BOL.MaterielAchete;
+import BOL.Prescripteurs;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -87,12 +89,10 @@ public class Request_factory_oracleTest
     @Test
     public void testRequeteAjouter()
       {
-        System.out.println("requeteAjouter");
-        Object objet = null;
+        System.out.println("TEST requeteAjouter---------");
+        Object objet = new Prescripteurs();
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteAjouter(objet);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
       }
 
     /**

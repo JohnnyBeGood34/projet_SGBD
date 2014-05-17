@@ -15,7 +15,7 @@ import java.util.Date;
 public abstract class Partenaires {
     private int idPartenaire;
     private String nom;
-    private String Prenom;
+    private String prenom;
     private Date dateDeNaissance;
     private String telephonePartenaires;
     private String mail;
@@ -23,7 +23,7 @@ public abstract class Partenaires {
     /**
      * @return the idPartenaire
      */
-    public int getIdPartenaire() {
+    public int get_idPartenaire() {
         return idPartenaire;
     }
 
@@ -37,7 +37,7 @@ public abstract class Partenaires {
     /**
      * @return the nom
      */
-    public String getNom() {
+    public String get_nom() {
         return nom;
     }
 
@@ -51,21 +51,21 @@ public abstract class Partenaires {
     /**
      * @return the Prenom
      */
-    public String getPrenom() {
-        return Prenom;
+    public String get_prenom() {
+        return prenom;
     }
 
     /**
      * @param Prenom the Prenom to set
      */
     public void setPrenom(String Prenom) {
-        this.Prenom = Prenom;
+        this.prenom = Prenom;
     }
 
     /**
      * @return the dateDeNaissance
      */
-    public Date getDateDeNaissance() {
+    public Date get_dateDeNaissance() {
         return dateDeNaissance;
     }
 
@@ -79,7 +79,7 @@ public abstract class Partenaires {
     /**
      * @return the telephonePartenaires
      */
-    public String getTelephonePartenaires() {
+    public String get_telephonePartenaires() {
         return telephonePartenaires;
     }
 
@@ -93,7 +93,7 @@ public abstract class Partenaires {
     /**
      * @return the mail
      */
-    public String getMail() {
+    public String get_mail() {
         return mail;
     }
 

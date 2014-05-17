@@ -17,7 +17,7 @@ public class Prescripteurs extends Partenaires{
     /**
      * @return the specialite
      */
-    public String getSpecialite() {
+    public String get_specialite() {
         return specialite;
     }
 
@@ -31,7 +31,7 @@ public class Prescripteurs extends Partenaires{
     /**
      * @return the numeroAdeli
      */
-    public String getNumeroAdeli() {
+    public String get_numeroAdeli() {
         return numeroAdeli;
     }
 

@@ -5,7 +5,12 @@
  */
 package DAL;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,11 +21,18 @@ public class Request_factory_oracle implements IBDD
     /*
      *Contient la requete sous forme de string
      */
+
     private String _requete;
+    private ArrayList<String> _parametres = new ArrayList();
 
     public String getRequeteString()
       {
         return this._requete;
+      }
+
+    public ArrayList<String> getParametres()
+      {
+        return this._parametres;
       }
     /*
      * Construction de requete pour lister 1 ou plusiseurs enregistrements
@@ -53,13 +65,74 @@ public class Request_factory_oracle implements IBDD
           }
         this._requete = sql;
       }
+    /*
+     * Construit une requete d'insertion préparée
+     * prete à l'emploi pour ojdbc
+     */
 
     @Override
     public void requeteAjouter(Object objet)
       {
+        Method methode;
         //Récupération du nom de la classe de l'objet recut
-        String classe = objet.getClass().getName();
-        
+        String classe = objet.getClass().getSimpleName();
+        String table = classe;
+        //Base de la requetes insert
+        String sql = "INSERT INTO " + classe;
+        String champs = "(";
+        String values = "VALUES(";
+        Class nomClasse;
+        //Array de nom d'attributs de la classe de l'objet recut
+        Field[] fields;
+        //Si l'objet recut n'hérite d'aucunes classes on récupère ses attributs, sinon onrécupère ses attributs
+        //Et ceux de sa classe mère.
+        if (!objet.getClass().getSuperclass().getSimpleName().equals("Object"))
+          {
+            nomClasse = objet.getClass().getSuperclass();
+            fields = objet.getClass().getSuperclass().getDeclaredFields();
+          } else
+          {
+            nomClasse = objet.getClass();
+            fields = objet.getClass().getDeclaredFields();
+          }
+        //Construction d'un arrayList d'attributs sous forme de string
+        //Pour les utiliser dans la construction de la requete
+        ArrayList<String> fieldsString = getFieldstoString(fields);
+        int compteur = 0;
+        for (String field : fieldsString)
+          {
+            if (compteur != fieldsString.size() - 1)
+              {
+                champs = champs + field + ",";
+                values = values + "?,";
+              } 
+              else
+              {
+                champs = champs + field;
+                values = values + "?";
+              }
+            String nomMethode = "get_" + field;
+            System.out.println("NOM METHODE ----------------"+nomMethode);
+            try
+              {
+                methode = nomClasse.getMethod(nomMethode);
+                try
+                  {
+                    this._parametres.add((String) methode.invoke(methode));
+                  } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
+                  {
+                    Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+              } catch (NoSuchMethodException | SecurityException ex)
+              {
+                Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            compteur++;
+          }
+        values = values + ")"; //Fermer les values
+        champs = champs + ")"; // fermer la liste de champs
+        sql = sql + champs + values; // construction de la requete complete
+        this._requete = sql;
       }
 
     @Override
@@ -72,5 +145,15 @@ public class Request_factory_oracle implements IBDD
     public void requeteSupprimer(Object objet)
       {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      }
+
+    private ArrayList<String> getFieldstoString(Field[] fields)
+      {
+        ArrayList<String> array = new ArrayList();
+        for (Field field : fields)
+          {
+            array.add(field.getName());
+          }
+        return array;
       }
   }
