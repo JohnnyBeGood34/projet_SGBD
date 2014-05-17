@@ -14,10 +14,17 @@ public class MaterielLoue extends MaterielMedical{
     private String etat;
     private int qteMaterielLoue;
 
+    public MaterielLoue(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,String etat,int qte)
+      {
+        super(idMateriel, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poid, uniteVente, description);
+        this.etat = etat;
+        this.qteMaterielLoue = qte;
+      }
+
     /**
      * @return the etat
      */
-    public String getEtat() {
+    public String get_etat() {
         return etat;
     }
 
@@ -31,7 +38,7 @@ public class MaterielLoue extends MaterielMedical{
     /**
      * @return the QteMaterielLoue
      */
-    public int getQteMaterielLoue() {
+    public int get_qteMaterielLoue() {
         return qteMaterielLoue;
     }
 

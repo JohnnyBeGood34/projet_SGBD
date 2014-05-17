@@ -13,10 +13,16 @@ package BOL;
 public class MaterielAchete extends MaterielMedical{
     private int qteMaterielAchete;
 
+    public MaterielAchete(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,int qte)
+      {
+        super(idMateriel, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poid, uniteVente, description);
+        this.qteMaterielAchete = qte;
+      }
+
     /**
      * @return the qteMaterielAchete
      */
-    public int getQteMaterielAchete() {
+    public int get_qteMaterielAchete() {
         return qteMaterielAchete;
     }
 

@@ -11,8 +11,8 @@ package BOL;
  * @author Kevin
  */
 public abstract class MaterielMedical {
-    private int IdMateriel;
-    private String LibelleMaterielMedical;
+    private int idMateriel;
+    private String libelleMaterielMedical;
     private String marque;
     private Float prixHT;
     private String numeroSerie;
@@ -21,38 +21,51 @@ public abstract class MaterielMedical {
     private String uniteVente;
     private String description;
 
+    public MaterielMedical(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description)
+      {
+        this.idMateriel = idMateriel;
+        this.libelleMaterielMedical = libelleMaterielMedical;
+        this.marque = marque;
+        this.prixHT = prixHT;
+        this.numeroSerie = numeroSerie;
+        this.dimensions = dimensions;
+        this.poid = poid;
+        this.uniteVente = uniteVente;
+        this.description = description;
+      }
+    
     /**
      * @return the IdMateriel
      */
-    public int getIdMateriel() {
-        return IdMateriel;
+    public int get_idMateriel() {
+        return idMateriel;
     }
 
     /**
      * @param IdMateriel the IdMateriel to set
      */
     public void setIdMateriel(int IdMateriel) {
-        this.IdMateriel = IdMateriel;
+        this.idMateriel = IdMateriel;
     }
 
     /**
      * @return the LibelleMaterielMedical
      */
-    public String getLibelleMaterielMedical() {
-        return LibelleMaterielMedical;
+    public String get_libelleMaterielMedical() {
+        return libelleMaterielMedical;
     }
 
     /**
      * @param LibelleMaterielMedical the LibelleMaterielMedical to set
      */
-    public void setLibelleMaterielMedical(String LibelleMaterielMedical) {
-        this.LibelleMaterielMedical = LibelleMaterielMedical;
+    public void set_libelleMaterielMedical(String LibelleMaterielMedical) {
+        this.libelleMaterielMedical = LibelleMaterielMedical;
     }
 
     /**
      * @return the marque
      */
-    public String getMarque() {
+    public String get_marque() {
         return marque;
     }
 
@@ -66,7 +79,7 @@ public abstract class MaterielMedical {
     /**
      * @return the prixHT
      */
-    public Float getPrixHT() {
+    public Float get_prixHT() {
         return prixHT;
     }
 
@@ -80,7 +93,7 @@ public abstract class MaterielMedical {
     /**
      * @return the numeroSerie
      */
-    public String getNumeroSerie() {
+    public String get_numeroSerie() {
         return numeroSerie;
     }
 
@@ -94,7 +107,7 @@ public abstract class MaterielMedical {
     /**
      * @return the dimensions
      */
-    public String getDimensions() {
+    public String get_dimensions() {
         return dimensions;
     }
 
@@ -108,7 +121,7 @@ public abstract class MaterielMedical {
     /**
      * @return the poid
      */
-    public String getPoid() {
+    public String get_poid() {
         return poid;
     }
 
@@ -122,7 +135,7 @@ public abstract class MaterielMedical {
     /**
      * @return the uniteVente
      */
-    public String getUniteVente() {
+    public String get_uniteVente() {
         return uniteVente;
     }
 
@@ -136,7 +149,7 @@ public abstract class MaterielMedical {
     /**
      * @return the description
      */
-    public String getDescription() {
+    public String get_description() {
         return description;
     }
 
