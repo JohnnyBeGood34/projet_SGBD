@@ -120,11 +120,18 @@ public class Request_factory_oracleTest
     public void testRequeteSupprimer()
       {
         System.out.println("requeteSupprimer");
-        Object objet = null;
+        String classe = "patient";
+        String expResult = "SELECT * FROM patient WHERE numero = '1' AND date = '0';";
+        ArrayList<String> fields = new ArrayList();
+        ArrayList<String> value = new ArrayList();
+        fields.add("numero");
+        fields.add("date");
+        value.add("1");
+        value.add("0");
         Request_factory_oracle instance = new Request_factory_oracle();
-        instance.requeteSupprimer(objet);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.requeteSupprimer(classe, fields, value);
+        //instance.requeteSupprimer(objet);
+          System.out.println(instance.getRequeteString());
       }
     
   }
