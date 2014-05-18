@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet EPSI Montpellier 2014.
+ * Jonathan Affre, Stephane Dupre, Kevin Salles, Cyrille Chanssang.
  */
 package DAL;
 
@@ -13,9 +12,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author JOHNNY Fabrique de requetes pour le DAO_Manager
- * Implémente l'interface BDD
+ * @author JOHN
+ * Request_factory_oracle implémente l'interface BDD
+ * Cette classe est une fabrique de requetes pour la base de données Oracle.
+ * Pour la construction dynamique de requetes, la classe se base sur le principe que
+ * les classes ont le même nom que la table en base de données, et que les attributs ont le même nom que les champs de la table en base de données.
  */
 public class Request_factory_oracle implements IBDD
   {
@@ -27,7 +28,9 @@ public class Request_factory_oracle implements IBDD
      * Contient les parametres pour les requetes préparées
      */
     private ArrayList<String> _parametres = new ArrayList();
-
+    /**
+     * @return _requete, qui contient la requete que l'on vient de construire
+     */
     public String getRequeteString()
       {
         return this._requete;
@@ -37,11 +40,12 @@ public class Request_factory_oracle implements IBDD
       {
         return this._parametres;
       }
-    /*
-     * Construction de requete pour lister 1 ou plusiseurs enregistrements
-     * Parametre d'entrée, un nom de classe, un arrayList de champs avec leurs clauses respectives
+    /**
+     * requeteLister sert à construire une requete de selection dynamique avec
+     * @param classe type String, qui est le nom de la classe (table) que l'on veut attaquer en base.
+     * @param fields type ArrayList<String>, peut être null, représente les champs de restriction
+     * @param value  type ArrayList<String>, peut être null, représente les valeurs de restriction correspondant aux champs
      */
-
     @Override
     public void requeteLister(String classe, ArrayList<String> fields, ArrayList<String> value)
       {
@@ -68,11 +72,12 @@ public class Request_factory_oracle implements IBDD
           }
         this._requete = sql;
       }
-    /*
-     * Construit une requete d'insertion préparée
-     * prete à l'emploi pour ojdbc
+    /**
+     * @param objet, est un objet métier.
+     * La méthode requeteAjouter permet de construire une requete d'insertion (préparées) en fonction de l'objet reçut.
+     * Peu importe l'objet reçut, la methode créé la bonne requete.
+     * Il faut que la classe de l'objet respecte les règles de construction pour la factory.
      */
-
     @Override
     public void requeteAjouter(Object objet)
       {
@@ -81,7 +86,7 @@ public class Request_factory_oracle implements IBDD
         String classe = objet.getClass().getSimpleName();
         String table = classe;
         //Base de la requetes insert
-        String sql = "INSERT INTO " + classe;
+        String sql = "INSERT INTO " + table;
         String champs = "(";
         String values = "VALUES(";
         Class nomClasse = objet.getClass();
@@ -120,13 +125,15 @@ public class Request_factory_oracle implements IBDD
                 methode = nomClasse.getMethod(nomMethode);
                 try
                   {
-                    //methode.invoke permet d'appeller une pethode construite en string
+                    //methode.invoke permet d'appeller une methode construite en string
                     this._parametres.add(String.valueOf(methode.invoke(objet)));
-                  } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
+                  } 
+                catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
                   {
                     Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
                   }
-              } catch (NoSuchMethodException | SecurityException ex)
+              } 
+            catch (NoSuchMethodException | SecurityException ex)
               {
                 Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
               }
@@ -137,8 +144,9 @@ public class Request_factory_oracle implements IBDD
         sql = sql + champs + values; // construction de la requete complete
         this._requete = sql;
       }
-    /*
-     * Permet la construction dynamique de requete d'update 
+    /**
+     * @param objet est un objet métier.
+     * La methode requeteMiseAJour, permet de construire une requete d'update (préparées) en fonction de l'objet reçut.
      */
     @Override
     public void requeteMiseAJour(Object objet)
@@ -200,7 +208,12 @@ public class Request_factory_oracle implements IBDD
         sql = sql + where;
         this._requete = sql;
       }
-
+    /**
+     * requeteSupprimer sert à construire une requete de suppression dynamique avec
+     * @param classe type String, qui est le nom de la classe (table) que l'on veut attaquer en base.
+     * @param fields type ArrayList<String>, peut être null, représente les champs de restriction
+     * @param value  type ArrayList<String>, peut être null, représente les valeurs de restriction correspondant aux champs
+     */
     @Override
     public void requeteSupprimer(String classe, ArrayList<String> fields, ArrayList<String> value)
       {
@@ -227,7 +240,10 @@ public class Request_factory_oracle implements IBDD
           }
         this._requete = sql;
       }
-
+    /**
+     * @param fields, est un ArrayList de tableau de champs (Fields).
+     * @return ArrayList<Srting>, contenant les champs sous forme de Strings.
+     */
     private ArrayList<String> getFieldstoString(ArrayList<Field[]> fields)
       {
         ArrayList<String> array = new ArrayList();

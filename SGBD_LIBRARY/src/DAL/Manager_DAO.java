@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet EPSI Montpellier 2014.
+ * Jonathan Affre, Stephane Dupre, Kevin Salles, Cyrille Chanssang.
  */
 
 package DAL;
@@ -25,6 +24,7 @@ public class Manager_DAO
         //Initilisation de la factory pour oracle
         this.requestFactory = new Request_factory_oracle();
       }
+    
     public void setRequestFactory(IBDD requestFactory)
       {
         this.requestFactory = requestFactory;

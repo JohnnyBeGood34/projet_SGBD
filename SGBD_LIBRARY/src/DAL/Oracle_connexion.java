@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet EPSI Montpellier 2014.
+ * Jonathan Affre, Stephane Dupre, Kevin Salles, Cyrille Chanssang.
  */
 
 package DAL;
@@ -26,9 +25,13 @@ public class Oracle_connexion
     private final static String _BDDACCESS = "jdbc:oracle:thin:@svroracle.montpellier.epsi.fr:1521";
     private final static String _BDDUSER = "BD_MM";
     private final static String _BDDPASSWORD = "mmACDS2014";
+    /**
+     * Singleton de connexion.
+     */
     private static Connection connection;
-    /*
-     *Retourne une unique instance de connexion
+    /**
+     * 
+     * @return une unique instance de l'objet Connexion.
      */
     public static Connection getInstance()
       {
