@@ -61,20 +61,6 @@ public class Manager_DAOTest
       }
 
     /**
-     * Test of setConnexion method, of class Manager_DAO.
-     */
-    @Test
-    public void testSetConnexion() throws Exception
-      {
-        System.out.println("setConnexion");
-        Connection connexion = null;
-        Manager_DAO instance = new Manager_DAO("Oracle");
-        instance.setConnexion(connexion);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-      }
-
-    /**
      * Test of lister method, of class Manager_DAO.
      */
     @Test
@@ -82,7 +68,7 @@ public class Manager_DAOTest
       {
         System.out.println("lister");
         Manager_DAO manager = new Manager_DAO("Oracle");
-        String classe = "MATERIELMEDICAL";
+        String classe = "PARTENAIRE";
         ArrayList<String> fields = null;
         ArrayList<String> values = null;
         ArrayList<Object> expResult = null;

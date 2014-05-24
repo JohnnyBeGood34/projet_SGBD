@@ -25,7 +25,7 @@ public class Manager_DAO
     //requestFactory, oracle par defaut.
     private IBDD requestFactory;
     //Connexion Singleton
-    private Connection connexion = Oracle_connexion.getInstance();;
+    private String bddType;
 
     //File d'attente de requetes, resultats <requete,resultat requete>
     //Permet, de ne pas refaire un appel à la base si on a déjà utilisé la requete
@@ -34,6 +34,7 @@ public class Manager_DAO
       {
         if(bddTypeName.equals("Oracle"))
           {
+            this.bddType = bddTypeName;
             this.requestFactory = new Request_factory_oracle();
           }
       }
@@ -43,14 +44,17 @@ public class Manager_DAO
         this.requestFactory = requestFactory;
       }
 
-    public void setConnexion(Connection connexion) throws SQLException
+    private Connection getConnexion()
       {
-        //On ferme la connexion courante
-        this.connexion.close();
-        //On affecte une nouvelle connexion
-        this.connexion = connexion;
+        Connection connexion = null;
+        switch(this.bddType)
+          {
+            case "Oracle":
+                connexion = Oracle_connexion.getInstance();
+                break;
+          }
+        return connexion;
       }
-
     /**
      * Permet d'executer une requete lister et de renvoyer une liste d'objet
      * dans un ArrayList
@@ -62,6 +66,7 @@ public class Manager_DAO
      */
     public ArrayList<Object> lister(String classe, ArrayList<String> fields, ArrayList<String> values) throws ClassNotFoundException
       {
+        Connection connexion  = this.getConnexion();
         //Récupération de la classe
         //Class classeSelection = Class.forName(classe);
         ArrayList<Object> arrayResult = new ArrayList();
@@ -81,7 +86,7 @@ public class Manager_DAO
               }
           } catch (SQLException ex)
           {
-            Logger.getLogger(Manager_DAO.class.getName()).log(Level.SEVERE, null, ex);
+              System.out.println("ERRUR LISTER SQL---------"+ex.toString());
           }
         return arrayResult;
       }
