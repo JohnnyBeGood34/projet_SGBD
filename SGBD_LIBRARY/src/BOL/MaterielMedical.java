@@ -20,7 +20,7 @@ public abstract class MaterielMedical {
     private String poid;
     private String uniteVente;
     private String description;
-
+    
     public MaterielMedical(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description)
       {
         this.idMateriel = idMateriel;

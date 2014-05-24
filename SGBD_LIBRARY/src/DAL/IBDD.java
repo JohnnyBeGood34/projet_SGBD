@@ -5,6 +5,7 @@
 
 package DAL;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
@@ -17,4 +18,6 @@ public interface IBDD {
     public abstract void requeteAjouter(Object objet);
     public abstract void requeteMiseAJour(Object objet);
     public abstract void requeteSupprimer(String classe, ArrayList<String> fields,ArrayList<String> value);
+    public abstract String getRequeteString();
+    public abstract ArrayList<String> getParametres();
 }

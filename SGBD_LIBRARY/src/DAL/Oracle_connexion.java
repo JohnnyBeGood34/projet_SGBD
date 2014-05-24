@@ -22,13 +22,13 @@ public class Oracle_connexion
      *Identifients de connexion pour bdd Oracle
      */
 
-    private final static String _BDDACCESS = "jdbc:oracle:thin:@svroracle.montpellier.epsi.fr:1521";
+    private final static String _BDDACCESS = "jdbc:oracle:thin:@svroracle.montpellier.epsi.fr:4521:bdaolap";
     private final static String _BDDUSER = "BD_MM";
     private final static String _BDDPASSWORD = "mmACDS2014";
     /**
      * Singleton de connexion.
      */
-    private static Connection connection;
+    private static Connection connection = null;
     /**
      * 
      * @return une unique instance de l'objet Connexion.
