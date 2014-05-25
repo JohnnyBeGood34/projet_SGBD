@@ -6,7 +6,7 @@
 
 package DAL;
 
-import BOL.Prescripteurs;
+import BOL.PartenairePrescripteur;
 import java.util.ArrayList;
 import java.util.Date;
 import org.junit.After;
@@ -76,7 +76,7 @@ public class Request_factory_oracleTest
       {
         System.out.println("TEST requeteAjouter---------");
         Date date = new Date();
-        Object objet = new Prescripteurs(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
+        Object objet = new PartenairePrescripteur(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteAjouter(objet);
           System.out.println("REQUETE+++++++++"+instance.getRequeteString());
@@ -91,7 +91,7 @@ public class Request_factory_oracleTest
       {
         System.out.println("TEST requete mise a jour---------");
         Date date = new Date();
-        Object objet = new Prescripteurs(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
+        Object objet = new PartenairePrescripteur(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteMiseAJour(objet);
           System.out.println("REQUETE+++++++++"+instance.getRequeteString());

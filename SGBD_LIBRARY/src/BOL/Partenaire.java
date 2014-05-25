@@ -12,21 +12,21 @@ import java.util.Date;
  *
  * @author Kevin
  */
-public abstract class Partenaires {
+public abstract class Partenaire {
     private int idPartenaire;
     private String nom;
     private String prenom;
     private Date dateDeNaissance;
-    private String telephonePartenaires;
+    private String telephonePartenaire;
     private String mail;
     
-    public Partenaires(int id,String nom, String prenom,Date dateNaissance,String telephone,String mail)
+    public Partenaire(int id,String nom, String prenom,Date dateNaissance,String telephone,String mail)
       {
         this.idPartenaire = id;
         this.nom = nom;
         this.prenom = prenom;
         this.dateDeNaissance = dateNaissance;
-        this.telephonePartenaires = telephone;
+        this.telephonePartenaire = telephone;
         this.mail = mail;
       }
     /**
@@ -88,15 +88,15 @@ public abstract class Partenaires {
     /**
      * @return the telephonePartenaires
      */
-    public String get_telephonePartenaires() {
-        return telephonePartenaires;
+    public String get_telephonePartenaire() {
+        return telephonePartenaire;
     }
 
     /**
      * @param telephonePartenaires the telephonePartenaires to set
      */
-    public void setTelephonePartenaires(String telephonePartenaires) {
-        this.telephonePartenaires = telephonePartenaires;
+    public void setTelephonePartenaire(String telephonePartenaires) {
+        this.telephonePartenaire = telephonePartenaires;
     }
 
     /**

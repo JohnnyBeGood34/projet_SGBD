@@ -6,23 +6,24 @@
 
 package BOL;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  *
  * @author Kevin
  */
-public class Patient extends Partenaires{
+public class PartenairePatient extends Partenaire{
     private String numeroSecu;
     private String numeroMutuelle;
 
-    public Patient(int id, String nom, String prenom, Date dateNaissance, String telephone, String mail,String numeroSecu,String numeroMutuelle)
+    public PartenairePatient(int id, String nom, String prenom, Date dateNaissance, String telephone, String mail,String numeroSecu,String numeroMutuelle)
       {
         super(id, nom, prenom, dateNaissance, telephone, mail);
         this.numeroMutuelle = numeroMutuelle;
         this.numeroSecu = numeroSecu;
       }
-
     /**
      * @return the numeroSecu
      */

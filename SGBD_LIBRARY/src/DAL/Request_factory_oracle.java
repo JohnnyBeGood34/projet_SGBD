@@ -78,10 +78,10 @@ public class Request_factory_oracle implements IBDD
                 //Tant que l'on est pas au dernier tour de boucle
                 if (i != fields.size() - 1)
                   {
-                    whereClause += fields.get(i) + " = '" + value.get(i) + "' AND ";
+                    whereClause += fields.get(i) + " LIKE '" + value.get(i) + "' AND ";
                   } else
                   {
-                    whereClause = whereClause + fields.get(i) + " = '" + value.get(i) + "';";
+                    whereClause = whereClause + fields.get(i) + " LIKE '" + value.get(i) + "'";
                   }
               }
             sql = "SELECT * FROM " + table + whereClause;
@@ -255,7 +255,7 @@ public class Request_factory_oracle implements IBDD
                     whereClause += fields.get(i) + " = '" + value.get(i) + "' AND ";
                   } else
                   {
-                    whereClause = whereClause + fields.get(i) + " = '" + value.get(i) + "';";
+                    whereClause = whereClause + fields.get(i) + " = '" + value.get(i) + "'";
                   }
               }
             sql = "DELETE FROM " + table + whereClause;

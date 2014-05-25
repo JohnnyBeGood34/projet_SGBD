@@ -12,11 +12,11 @@ import java.util.Date;
  *
  * @author Kevin
  */
-public class Prescripteurs extends Partenaires{
+public class PartenairePrescripteur extends Partenaire{
     private String specialite;
     private String numeroAdeli;
     
-    public Prescripteurs(int id,String nom, String prenom,Date dateNaissance,String telephone,String mail,String specialite,String adeli)
+    public PartenairePrescripteur(int id,String nom, String prenom,Date dateNaissance,String telephone,String mail,String specialite,String adeli)
       {
         super(id, nom,prenom,dateNaissance,telephone,mail);
         this.specialite = specialite;
