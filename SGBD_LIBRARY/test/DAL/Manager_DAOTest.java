@@ -71,13 +71,11 @@ public class Manager_DAOTest
       {
         System.out.println("lister");
         Manager_DAO manager = new Manager_DAO("Oracle");
-        String classe = "PartenairePatient";
+        String classe = "Partenaire";
         ArrayList<String> fields = new ArrayList();
-        fields.add("nom");
-        fields.add("prenom");
+        fields.add("datenaissance");
         ArrayList<String> values = new ArrayList();
-        values.add("Brady");
-        values.add("Ingram");
+        values.add("02/06/82");
         JSONObject result = manager.select(classe, fields, values);
 
         System.out.println("JSON RESULTAT" + result.toJSONString());
@@ -95,7 +93,7 @@ public class Manager_DAOTest
         Manager_DAO manager = new Manager_DAO("Oracle");
         Date date = new Date();
         Object objet = new PartenairePrescripteur(1, "nom", "prenom", date, "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        manager.insert(objet);
+        //manager.insert(objet);
         //assertEquals(expResult, result);
       }
 
@@ -109,7 +107,7 @@ public class Manager_DAOTest
         Manager_DAO manager = new Manager_DAO("Oracle");
         Date date = new Date();
         Object objet = new PartenairePrescripteur(1, "nom", "prenom", date, "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        manager.update(objet);
+        //manager.update(objet);
         //assertEquals(expResult, result);
         
       }

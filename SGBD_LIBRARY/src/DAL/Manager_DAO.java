@@ -32,21 +32,35 @@ public class Manager_DAO
 
     /*
      //File d'attente de requetes, resultats <requete,resultat requete>
-     private static HashMap<String, ArrayList<Object>> _requestQueue;*/
+     private static HashMap<String, ArrayList<Object>> _requestQueue;
+    */
+    /**
+     * Constructeur de la classe Manager_DAO.
+     * @param bddTypeName String, qui est le nom de la base de données que l'on veut utiliser
+     */
     public Manager_DAO(String bddTypeName)
       {
+        /**
+         * La request factory spécifique est chargée en fonction du type de base de données
+         */
         if (bddTypeName.equals("Oracle"))
           {
             this.bddType = bddTypeName;
             this.requestFactory = new Request_factory_oracle();
           }
       }
-
+    /**
+     * SetrequestFactory, permet de changer le type de fabrique de requete
+     * @param requestFactory une fabrique de requetes de type InterfaceBDD
+     */
     public void setRequestFactory(IBDD requestFactory)
       {
         this.requestFactory = requestFactory;
       }
-
+    /**
+     * Fonction privée permettant de renvoyer l'instance de connexion courante.
+     * @return instance de la connexion courante
+     */
     private Connection getConnexion()
       {
         Connection connexion = null;
@@ -60,9 +74,7 @@ public class Manager_DAO
       }
 
     /**
-     * Permet d'executer une requete lister et de renvoyer une liste d'objet
-     * dans un ArrayList
-     *
+     * Permet d'executer une requete lister et de renvoyer une liste de résultats dans un objet JSON.
      * @param classe un nom de classe sur laquelle on veut faire la requete
      * @param fields un arrayList de champs pour les restrictions
      * @param values un arraylist de valeur pour les restrictions
@@ -112,7 +124,15 @@ public class Manager_DAO
         connexion = null;
         return resultat;
       }
-
+    /**
+     * Fonction permettant de faire une requete d'insertion à partir d'un objet.
+     * Cela implique que les classes portent le même nom que les tables en base de données.
+     * Les attributs de classes doivent aussi porter le même nom que les champs en base de données.
+     * Les accesseurs doivent être écrits sous la forme get_nomAttribut.
+     * @param objet, un objet métier.
+     * @return Un JSON contenant l'id de l'objet inséré.
+     * @throws SQLException 
+     */
     public JSONObject insert(Object objet) throws SQLException
       {
         //REMPLIR LE RESULTAT AVEC LE LAST INSERTED ID
@@ -161,7 +181,15 @@ public class Manager_DAO
           }
         return resultat;
       }
-    
+    /**
+     * Fonction permettant d'effectuer un update sur la base de données en fonction de l'objet reçut en parametre.
+     * Cela implique que les classes portent le même nom que les tables en base de données.
+     * Les attributs de classes doivent aussi porter le même nom que les champs en base de données.
+     * Les accesseurs doivent être écrits sous la forme get_nomAttribut
+     * @param objet, un objet métier.
+     * @return
+     * @throws SQLException 
+     */
     public JSONObject update(Object objet) throws SQLException
       {
 
@@ -213,11 +241,11 @@ public class Manager_DAO
         return resultat;
       }
     /**
-     * 
+     * Permet de faire un DELETE en base de données en focntion des paramètres reçuts.
      * @param classe, le nom de la classe de l'objet que l'on veut supprimer
-     * @param fields, 
-     * @param values
-     * @return 
+     * @param fields, un ArrayList de champs sur lesquels on veut faire la restriction
+     * @param values, un arrayList de valeurs, correspondants aux champs permettant de faire la restriction
+     * @return un JSON disant si le delete s'est bien passé.
      */
     public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> values) throws SQLException
       {
@@ -227,7 +255,9 @@ public class Manager_DAO
         String requete = requestFactory.getRequeteString();
         Statement statement = connexion.createStatement();
         ResultSet resultSet = statement.executeQuery(requete);
+        /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OK*/
         resultat.put("result","ok");
+        
         return resultat;
       }
   }
