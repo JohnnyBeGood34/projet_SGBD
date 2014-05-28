@@ -131,7 +131,8 @@ public class Request_factory_oracle implements IBDD
               {
                 champs = champs + field + ",";
                 values = values + "?,";
-              } else
+              } 
+            else
               {
                 champs = champs + field;
                 values = values + "?";
