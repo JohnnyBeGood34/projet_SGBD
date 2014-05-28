@@ -76,7 +76,7 @@ public class Request_factory_oracleTest
       {
         System.out.println("TEST requeteAjouter---------");
         Date date = new Date();
-        Object objet = new PartenairePrescripteur(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
+        Object objet = new PartenairePrescripteur(1,"nom","prenom","16/04/1990","0612457889","jonatyhan@gmail.com","aze","azeaz");
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteAjouter(objet);
           System.out.println("REQUETE+++++++++"+instance.getRequeteString());
@@ -91,7 +91,7 @@ public class Request_factory_oracleTest
       {
         System.out.println("TEST requete mise a jour---------");
         Date date = new Date();
-        Object objet = new PartenairePrescripteur(1,"nom","prenom",date,"0612457889","jonatyhan@gmail.com","aze","azeaz");
+        Object objet = new PartenairePrescripteur(1,"nom","prenom","18/02/1996","0612457889","jonatyhan@gmail.com","aze","azeaz");
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteMiseAJour(objet);
           System.out.println("REQUETE+++++++++"+instance.getRequeteString());
