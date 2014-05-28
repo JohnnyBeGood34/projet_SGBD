@@ -54,11 +54,11 @@ public class Request_factory_oracleTest
     public void testRequeteLister()
       {
         System.out.println("requeteLister test junit");
-        String classe = "Partenaire";
+        String classe = "PartenairePatient";
         String expResult = "SELECT * FROM patient WHERE numero = '1' AND date = '0';";
         ArrayList<String> fields = new ArrayList();
         ArrayList<String> value = new ArrayList();
-        fields.add("datenaissance");
+        fields.add("datedenaissance");
         value.add("02/06/82");
         ArrayList<String> restriction = new ArrayList();
         restriction.add(">");
@@ -74,8 +74,11 @@ public class Request_factory_oracleTest
     @Test
     public void testRequeteAjouter()
       {
-        System.out.println("TEST requeteAjouter---------");        
-        Object objet = new PartenairePrescripteur(1,"nom","prenom","28/05/2014","0612457889","jonatyhan@gmail.com","aze","azeaz");
+        System.out.println("TEST requeteAjouter---------");
+        Date date = new Date();
+        Object objet = new PartenairePrescripteur(1,"nom","prenom","19/02/1658","0612457889","jonatyhan@gmail.com","aze","azeaz");
+
+
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteAjouter(objet);
           System.out.println("REQUETE+++++++++"+instance.getRequeteString());
@@ -88,8 +91,11 @@ public class Request_factory_oracleTest
     @Test
     public void testRequeteMiseAJour()
       {
-        System.out.println("TEST requete mise a jour---------");       
-        Object objet = new PartenairePrescripteur(1,"nom","prenom","28/05/2014","0612457889","jonatyhan@gmail.com","aze","azeaz");
+        System.out.println("TEST requete mise a jour---------");
+        Date date = new Date();
+        Object objet = new PartenairePrescripteur(1,"nom","prenom","19/02/1658","0612457889","jonatyhan@gmail.com","aze","azeaz");
+
+
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteMiseAJour(objet);
           System.out.println("REQUETE+++++++++"+instance.getRequeteString());
@@ -104,7 +110,6 @@ public class Request_factory_oracleTest
       {
         System.out.println("requeteSupprimer");
         String classe = "patient";
-        String expResult = "SELECT * FROM patient WHERE numero = '1' AND date = '0';";
         ArrayList<String> fields = new ArrayList();
         ArrayList<String> value = new ArrayList();
         ArrayList<String> restriction = new ArrayList();

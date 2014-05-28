@@ -90,6 +90,7 @@ public class Manager_DAO {
         requestFactory.requeteLister(classe, fields, restriction, values);
         //Récupération de la requete
         String requete = requestFactory.getRequeteString();
+          System.out.println("REQUETE DAO--------------------"+requete);
         //Creation du statement bdd
         Statement statement = connexion.createStatement();
         //Exécution de la requete lister
@@ -240,7 +241,7 @@ public class Manager_DAO {
      *
      * @param classe, le nom de la classe de l'objet que l'on veut supprimer
      * @param fields, un ArrayList de champs sur lesquels on veut faire la
-     * restriction
+     * @param restriction, arrayList de restriction pour la construction de la requete
      * @param values, un arrayList de valeurs, correspondants aux champs
      * permettant de faire la restriction
      * @return un JSON disant si le delete s'est bien passé.

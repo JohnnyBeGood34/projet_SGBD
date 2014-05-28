@@ -73,11 +73,11 @@ public class Manager_DAOTest
       {
         System.out.println("lister");
         Manager_DAO manager = new Manager_DAO("Oracle");
-        String classe = "Partenaire";
+        String classe = "PartenairePatient";
         ArrayList<String> fields = new ArrayList();
         fields.add("datedenaissance");
         ArrayList<String> restriction = new ArrayList();
-        restriction.add("LIKE");
+        restriction.add(">");
         ArrayList<String> values = new ArrayList();
         values.add("02/06/82");
         JSONObject result = manager.select(classe, fields, restriction, values);

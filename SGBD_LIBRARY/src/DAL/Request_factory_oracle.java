@@ -198,7 +198,7 @@ public class Request_factory_oracle implements IBDD
           {
               
             String nomMethode = "get_" + field;
-            if (!field.subSequence(0, 2).equals("id")) //On écarte l'id PAR CONTRE A REVOIR
+            if (!field.equals(fieldsString.get(0)))
               {
                 //Tant qu'on est pas au dernier tour de boucle
                 if (compteur != fieldsString.size() - 1)
