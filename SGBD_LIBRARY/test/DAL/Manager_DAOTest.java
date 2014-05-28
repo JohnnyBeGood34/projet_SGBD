@@ -7,6 +7,7 @@ package DAL;
 
 import BOL.PartenairePrescripteur;
 import java.sql.Connection;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -74,7 +75,7 @@ public class Manager_DAOTest
         Manager_DAO manager = new Manager_DAO("Oracle");
         String classe = "Partenaire";
         ArrayList<String> fields = new ArrayList();
-        fields.add("datenaissance");
+        fields.add("datedenaissance");
         ArrayList<String> restriction = new ArrayList();
         restriction.add("LIKE");
         ArrayList<String> values = new ArrayList();
@@ -94,9 +95,8 @@ public class Manager_DAOTest
       {
         System.out.println("Ajouter");
         Manager_DAO manager = new Manager_DAO("Oracle");
-        Date date = new Date();
-        Object objet = new PartenairePrescripteur(50, "nom", "prenom", date, "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        manager.insert(objet);
+        Object objet = new PartenairePrescripteur(50, "nom", "prenom", "16/04/1667", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
+        //manager.insert(objet);
         //assertEquals(expResult, result);
       }
 
@@ -107,10 +107,10 @@ public class Manager_DAOTest
     public void testUpdate() throws Exception
       {
         System.out.println("Update");
-        Manager_DAO manager = new Manager_DAO("Oracle");
-        Date date = new Date();
-        Object objet = new PartenairePrescripteur(1, "nom", "prenom", date, "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        //manager.update(objet);
+        Manager_DAO manager = new Manager_DAO("Oracle");               
+              
+        Object objet = new PartenairePrescripteur(1, "nom", "prenom","28/05/2014", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
+        manager.update(objet);
         //assertEquals(expResult, result);
 
       }

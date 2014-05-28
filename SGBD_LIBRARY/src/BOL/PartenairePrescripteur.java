@@ -16,7 +16,7 @@ public class PartenairePrescripteur extends Partenaire{
     private String specialite;
     private String numeroAdeli;
     
-    public PartenairePrescripteur(int id,String nom, String prenom,Date dateNaissance,String telephone,String mail,String specialite,String adeli)
+    public PartenairePrescripteur(int id,String nom, String prenom,String dateNaissance,String telephone,String mail,String specialite,String adeli)
       {
         super(id, nom,prenom,dateNaissance,telephone,mail);
         this.specialite = specialite;
