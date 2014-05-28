@@ -55,12 +55,13 @@ public class Manager_DAOTest
     @Test
     public void testSetRequestFactory()
       {
-        System.out.println("setRequestFactory");
+       /* System.out.println("setRequestFactory");
         IBDD requestFactory = null;
         Manager_DAO instance = new Manager_DAO("Oracle");
         instance.setRequestFactory(requestFactory);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
+          */
       }
 
     /**
@@ -92,8 +93,8 @@ public class Manager_DAOTest
         System.out.println("Ajouter");
         Manager_DAO manager = new Manager_DAO("Oracle");
         Date date = new Date();
-        Object objet = new PartenairePrescripteur(1, "nom", "prenom", date, "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        //manager.insert(objet);
+        Object objet = new PartenairePrescripteur(50, "nom", "prenom", date, "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
+        manager.insert(objet);
         //assertEquals(expResult, result);
       }
 

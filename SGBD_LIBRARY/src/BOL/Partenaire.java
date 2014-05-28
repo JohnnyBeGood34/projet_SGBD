@@ -17,7 +17,7 @@ public abstract class Partenaire {
     private String nom;
     private String prenom;
     private Date dateDeNaissance;
-    private String telephonePartenaire;
+    private String telephone;
     private String mail;
     
     public Partenaire(int id,String nom, String prenom,Date dateNaissance,String telephone,String mail)
@@ -26,7 +26,7 @@ public abstract class Partenaire {
         this.nom = nom;
         this.prenom = prenom;
         this.dateDeNaissance = dateNaissance;
-        this.telephonePartenaire = telephone;
+        this.telephone = telephone;
         this.mail = mail;
       }
     /**
@@ -89,14 +89,14 @@ public abstract class Partenaire {
      * @return the telephonePartenaires
      */
     public String get_telephonePartenaire() {
-        return telephonePartenaire;
+        return telephone;
     }
 
     /**
      * @param telephonePartenaires the telephonePartenaires to set
      */
     public void setTelephonePartenaire(String telephonePartenaires) {
-        this.telephonePartenaire = telephonePartenaires;
+        this.telephone = telephonePartenaires;
     }
 
     /**
