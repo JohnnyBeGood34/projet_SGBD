@@ -18,7 +18,7 @@ public class PartenairePatient extends Partenaire{
     private String numeroSecu;
     private String numeroMutuelle;
 
-    public PartenairePatient(int id, String nom, String prenom, Date dateNaissance, String telephone, String mail,String numeroSecu,String numeroMutuelle)
+    public PartenairePatient(int id, String nom, String prenom, String dateNaissance, String telephone, String mail,String numeroSecu,String numeroMutuelle)
       {
         super(id, nom, prenom, dateNaissance, telephone, mail);
         this.numeroMutuelle = numeroMutuelle;
