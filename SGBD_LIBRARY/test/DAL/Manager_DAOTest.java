@@ -74,9 +74,11 @@ public class Manager_DAOTest
         String classe = "Partenaire";
         ArrayList<String> fields = new ArrayList();
         fields.add("datenaissance");
+        ArrayList<String> restriction = new ArrayList();
+        restriction.add("LIKE");
         ArrayList<String> values = new ArrayList();
         values.add("02/06/82");
-        JSONObject result = manager.select(classe, fields, values);
+        JSONObject result = manager.select(classe, fields, restriction, values);
 
         System.out.println("JSON RESULTAT" + result.toJSONString());
 
@@ -109,6 +111,6 @@ public class Manager_DAOTest
         Object objet = new PartenairePrescripteur(1, "nom", "prenom", date, "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
         //manager.update(objet);
         //assertEquals(expResult, result);
-        
+
       }
   }

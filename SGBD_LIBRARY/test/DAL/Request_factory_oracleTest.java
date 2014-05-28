@@ -60,8 +60,10 @@ public class Request_factory_oracleTest
         ArrayList<String> value = new ArrayList();
         fields.add("datenaissance");
         value.add("02/06/82");
+        ArrayList<String> restriction = new ArrayList();
+        restriction.add(">");
         Request_factory_oracle instance = new Request_factory_oracle();
-        instance.requeteLister(classe, fields, value);
+        instance.requeteLister(classe, fields,restriction, value);
         System.out.println(instance.getRequeteString());
         //assertTrue(instance.getRequeteString().equals(expResult));
       }
@@ -107,12 +109,15 @@ public class Request_factory_oracleTest
         String expResult = "SELECT * FROM patient WHERE numero = '1' AND date = '0';";
         ArrayList<String> fields = new ArrayList();
         ArrayList<String> value = new ArrayList();
+        ArrayList<String> restriction = new ArrayList();
         fields.add("numero");
         fields.add("date");
         value.add("1");
         value.add("0");
+        restriction.add("=");
+        restriction.add("=");
         Request_factory_oracle instance = new Request_factory_oracle();
-        instance.requeteSupprimer(classe, fields, value);
+        instance.requeteSupprimer(classe, fields,restriction, value);
         //instance.requeteSupprimer(objet);
           System.out.println(instance.getRequeteString());
       }
