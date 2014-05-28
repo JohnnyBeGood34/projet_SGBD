@@ -131,8 +131,7 @@ public class Request_factory_oracle implements IBDD
               {
                 champs = champs + field + ",";
                 values = values + "?,";
-              } 
-            else
+              } else
               {
                 champs = champs + field;
                 values = values + "?";
@@ -150,8 +149,7 @@ public class Request_factory_oracle implements IBDD
                   {
                     Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
                   }
-              } 
-            catch (NoSuchMethodException | SecurityException ex)
+              } catch (NoSuchMethodException | SecurityException ex)
               {
                 Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
               }
@@ -198,7 +196,7 @@ public class Request_factory_oracle implements IBDD
         for (String field : fieldsString)
           {
             String nomMethode = "get_" + field;
-            if (!field.subSequence(0, 2).equals("id")) //On écarte l'id PAR CONTRE A REVOIR
+            if (!field.equals(fieldsString.get(0)))
               {
                 //Tant qu'on est pas au dernier tour de boucle
                 if (compteur != fieldsString.size() - 1)
