@@ -51,7 +51,6 @@ public class Request_factory_oracle implements IBDD
         return this._parametres;
       }
 
-
     /**
      * requeteLister sert à construire une requete de selection dynamique avec
      *
@@ -59,15 +58,16 @@ public class Request_factory_oracle implements IBDD
      * veut attaquer en base.
      * @param fields type ArrayList<String>, peut être null, représente les
      * champs de restriction
+     * @param restriction
      * @param value type ArrayList<String>, peut être null, représente les
      * valeurs de restriction correspondant aux champs
      */
     @Override
-    public void requeteLister(String classe, ArrayList<String> fields, ArrayList<String> value)
+    public void requeteLister(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> value)
       {
         String sql;
         String table = classe; //Nom de la table, qui correspond au nom de la classe et inversement.
-        if (value == null && fields == null)//fields contient les champs sur lesquels va se faire la restriction where
+        if (value == null && fields == null && restriction == null)//fields contient les champs sur lesquels va se faire la restriction where
           {
             sql = "SELECT * FROM " + table;
           } else
@@ -78,10 +78,10 @@ public class Request_factory_oracle implements IBDD
                 //Tant que l'on est pas au dernier tour de boucle
                 if (i != fields.size() - 1)
                   {
-                    whereClause += fields.get(i) + " LIKE '" + value.get(i) + "' AND ";
+                    whereClause += fields.get(i) + " " + restriction.get(i) + " '" + value.get(i) + "' AND ";
                   } else
                   {
-                    whereClause = whereClause + fields.get(i) + " LIKE '" + value.get(i) + "'";
+                    whereClause = whereClause + fields.get(i) + " " + restriction.get(i) + " '" + value.get(i) + "'";
                   }
               }
             sql = "SELECT * FROM " + table + whereClause;
@@ -237,7 +237,7 @@ public class Request_factory_oracle implements IBDD
      * valeurs de restriction correspondant aux champs
      */
     @Override
-    public void requeteSupprimer(String classe, ArrayList<String> fields, ArrayList<String> value)
+    public void requeteSupprimer(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> value)
       {
         String table = classe;
         String sql;
@@ -252,10 +252,10 @@ public class Request_factory_oracle implements IBDD
                 //Tant que l'on est pas au dernier tour de boucle
                 if (i != fields.size() - 1)
                   {
-                    whereClause += fields.get(i) + " = '" + value.get(i) + "' AND ";
+                    whereClause += fields.get(i) + " " + restriction.get(i) + " '" + value.get(i) + "' AND ";
                   } else
                   {
-                    whereClause = whereClause + fields.get(i) + " = '" + value.get(i) + "'";
+                    whereClause = whereClause + fields.get(i) + " " + restriction.get(i) + " '" + value.get(i) + "'";
                   }
               }
             sql = "DELETE FROM " + table + whereClause;

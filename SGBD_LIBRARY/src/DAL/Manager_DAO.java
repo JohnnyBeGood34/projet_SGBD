@@ -22,6 +22,7 @@ public class Manager_DAO
   {
 
     //requestFactory, oracle par defaut.
+
     private IBDD requestFactory;
     //Connexion Singleton
     private String bddType;
@@ -29,15 +30,18 @@ public class Manager_DAO
     /*
      //File d'attente de requetes, resultats <requete,resultat requete>
      private static HashMap<String, ArrayList<Object>> _requestQueue;
-    */
+     */
     /**
      * Constructeur de la classe Manager_DAO.
-     * @param bddTypeName String, qui est le nom de la base de données que l'on veut utiliser
+     *
+     * @param bddTypeName String, qui est le nom de la base de données que l'on
+     * veut utiliser
      */
     public Manager_DAO(String bddTypeName)
       {
         /**
-         * La request factory spécifique est chargée en fonction du type de base de données
+         * La request factory spécifique est chargée en fonction du type de base
+         * de données
          */
         if (bddTypeName.equals("Oracle"))
           {
@@ -45,16 +49,20 @@ public class Manager_DAO
             this.requestFactory = new Request_factory_oracle();
           }
       }
+
     /**
      * SetrequestFactory, permet de changer le type de fabrique de requete
+     *
      * @param requestFactory une fabrique de requetes de type InterfaceBDD
      */
     public void setRequestFactory(IBDD requestFactory)
       {
         this.requestFactory = requestFactory;
       }
+
     /**
      * Fonction privée permettant de renvoyer l'instance de connexion courante.
+     *
      * @return instance de la connexion courante
      */
     private Connection getConnexion()
@@ -70,20 +78,23 @@ public class Manager_DAO
       }
 
     /**
-     * Permet d'executer une requete lister et de renvoyer une liste de résultats dans un objet JSON.
+     * Permet d'executer une requete lister et de renvoyer une liste de
+     * résultats dans un objet JSON.
+     *
      * @param classe un nom de classe sur laquelle on veut faire la requete
      * @param fields un arrayList de champs pour les restrictions
+     * @param restriction
      * @param values un arraylist de valeur pour les restrictions
      * @return Objet JSON avec les resultats de la requete
      */
-    public JSONObject select(String classe, ArrayList<String> fields, ArrayList<String> values) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException
+    public JSONObject select(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException
       {
         //Récupération de la connexion
         Connection connexion = this.getConnexion();
         //Objet JSON qui contiendra le résultat
         JSONObject resultat = new JSONObject();
         //Creation de la requete lister
-        requestFactory.requeteLister(classe, fields, values);
+        requestFactory.requeteLister(classe, fields, restriction, values);
         //Récupération de la requete
         String requete = requestFactory.getRequeteString();
         //Creation du statement bdd
@@ -120,14 +131,17 @@ public class Manager_DAO
         connexion = null;
         return resultat;
       }
+
     /**
      * Fonction permettant de faire une requete d'insertion à partir d'un objet.
-     * Cela implique que les classes portent le même nom que les tables en base de données.
-     * Les attributs de classes doivent aussi porter le même nom que les champs en base de données.
-     * Les accesseurs doivent être écrits sous la forme get_nomAttribut.
+     * Cela implique que les classes portent le même nom que les tables en base
+     * de données. Les attributs de classes doivent aussi porter le même nom que
+     * les champs en base de données. Les accesseurs doivent être écrits sous la
+     * forme get_nomAttribut.
+     *
      * @param objet, un objet métier.
      * @return Un JSON contenant l'id de l'objet inséré.
-     * @throws SQLException 
+     * @throws SQLException
      */
     public JSONObject insert(Object objet) throws SQLException
       {
@@ -157,8 +171,7 @@ public class Manager_DAO
             System.out.println("AFTER PREPARE----------" + prepare.toString());
             prepare.executeUpdate();
             prepare.close();
-          } 
-        catch (SQLException e)
+          } catch (SQLException e)
           {
 
             System.out.println(e.getMessage());
@@ -177,14 +190,17 @@ public class Manager_DAO
           }
         return resultat;
       }
+
     /**
-     * Fonction permettant d'effectuer un update sur la base de données en fonction de l'objet reçut en parametre.
-     * Cela implique que les classes portent le même nom que les tables en base de données.
-     * Les attributs de classes doivent aussi porter le même nom que les champs en base de données.
-     * Les accesseurs doivent être écrits sous la forme get_nomAttribut
+     * Fonction permettant d'effectuer un update sur la base de données en
+     * fonction de l'objet reçut en parametre. Cela implique que les classes
+     * portent le même nom que les tables en base de données. Les attributs de
+     * classes doivent aussi porter le même nom que les champs en base de
+     * données. Les accesseurs doivent être écrits sous la forme get_nomAttribut
+     *
      * @param objet, un objet métier.
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
     public JSONObject update(Object objet) throws SQLException
       {
@@ -215,14 +231,12 @@ public class Manager_DAO
             System.out.println("AFTER PREPARE----------" + prepare.toString());
             prepare.executeUpdate();
             prepare.close();
-          } 
-        catch (SQLException e)
+          } catch (SQLException e)
           {
 
             System.out.println(e.getMessage());
 
-          } 
-        finally
+          } finally
           {
             if (prepare != null)
               {
@@ -236,24 +250,29 @@ public class Manager_DAO
           }
         return resultat;
       }
+
     /**
-     * Permet de faire un DELETE en base de données en focntion des paramètres reçuts.
+     * Permet de faire un DELETE en base de données en focntion des paramètres
+     * reçuts.
+     *
      * @param classe, le nom de la classe de l'objet que l'on veut supprimer
-     * @param fields, un ArrayList de champs sur lesquels on veut faire la restriction
-     * @param values, un arrayList de valeurs, correspondants aux champs permettant de faire la restriction
+     * @param fields, un ArrayList de champs sur lesquels on veut faire la
+     * restriction
+     * @param values, un arrayList de valeurs, correspondants aux champs
+     * permettant de faire la restriction
      * @return un JSON disant si le delete s'est bien passé.
      */
-    public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> values) throws SQLException
+    public JSONObject delete(String classe, ArrayList<String> fields,ArrayList<String> restriction, ArrayList<String> values) throws SQLException
       {
         JSONObject resultat = new JSONObject();
         Connection connexion = this.getConnexion();
-        requestFactory.requeteLister(classe, fields, values);
+        requestFactory.requeteSupprimer(classe, fields,restriction, values);
         String requete = requestFactory.getRequeteString();
         Statement statement = connexion.createStatement();
         ResultSet resultSet = statement.executeQuery(requete);
         /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OKù*/
-        resultat.put("result","ok");
-        
+        resultat.put("result", "ok");
+
         return resultat;
       }
   }
