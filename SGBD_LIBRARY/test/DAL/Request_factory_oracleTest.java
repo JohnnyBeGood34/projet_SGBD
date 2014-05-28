@@ -54,11 +54,11 @@ public class Request_factory_oracleTest
     public void testRequeteLister()
       {
         System.out.println("requeteLister test junit");
-        String classe = "Partenaire";
+        String classe = "PartenairePatient";
         String expResult = "SELECT * FROM patient WHERE numero = '1' AND date = '0';";
         ArrayList<String> fields = new ArrayList();
         ArrayList<String> value = new ArrayList();
-        fields.add("datenaissance");
+        fields.add("datedenaissance");
         value.add("02/06/82");
         ArrayList<String> restriction = new ArrayList();
         restriction.add(">");
@@ -106,7 +106,6 @@ public class Request_factory_oracleTest
       {
         System.out.println("requeteSupprimer");
         String classe = "patient";
-        String expResult = "SELECT * FROM patient WHERE numero = '1' AND date = '0';";
         ArrayList<String> fields = new ArrayList();
         ArrayList<String> value = new ArrayList();
         ArrayList<String> restriction = new ArrayList();
