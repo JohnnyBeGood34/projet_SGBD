@@ -131,7 +131,8 @@ public class Request_factory_oracle implements IBDD
               {
                 champs = champs + field + ",";
                 values = values + "?,";
-              } else
+              } 
+            else
               {
                 champs = champs + field;
                 values = values + "?";
@@ -149,7 +150,8 @@ public class Request_factory_oracle implements IBDD
                   {
                     Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
                   }
-              } catch (NoSuchMethodException | SecurityException ex)
+              } 
+            catch (NoSuchMethodException | SecurityException ex)
               {
                 Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
               }
