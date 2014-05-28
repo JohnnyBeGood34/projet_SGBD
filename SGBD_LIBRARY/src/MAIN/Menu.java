@@ -66,11 +66,14 @@ public class Menu {
             if (_intChoixMethode == 1) {
 
             } else if (_intChoixMethode == 2) {
-                ArrayList<String> newVariable = new ArrayList<>();
+                ArrayList<String> listChampsClass = new ArrayList<>();
                 for (int j = 0, m = fieldsSuperClass.length; j < m; j++) {
-                    newVariable.add(ConsoleReader.readString(fieldsSuperClass[j].getName()));
+                    listChampsClass.add(ConsoleReader.readString(fieldsSuperClass[j].getName()));
                 }
-
+                for (int i = 0, k = fieldsClass.length; i < k; i++) {
+                    listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
+                }
+                /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
             } else if (_intChoixMethode == 3) {
             } else if (_intChoixMethode == 4) {
             } else if (_intChoixMethode == 5) {
