@@ -10,11 +10,11 @@ package BOL;
  *
  * @author Kevin
  */
-public class MaterielLoue extends MaterielMedical{
+public class MaterielMedicalMaterielLoue extends MaterielMedical{
     private String etat;
     private int qteMaterielLoue;
 
-    public MaterielLoue(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,String etat,int qte)
+    public MaterielMedicalMaterielLoue(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,String etat,int qte)
       {
         super(idMateriel, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poid, uniteVente, description);
         this.etat = etat;
