@@ -4,7 +4,6 @@
  */
 package DAL;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,9 +12,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.json.simple.JSONObject;
 
 /**
@@ -255,7 +251,7 @@ public class Manager_DAO
         String requete = requestFactory.getRequeteString();
         Statement statement = connexion.createStatement();
         ResultSet resultSet = statement.executeQuery(requete);
-        /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OK*/
+        /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OKù*/
         resultat.put("result","ok");
         
         return resultat;
