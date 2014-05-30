@@ -77,12 +77,12 @@ public class Manager_DAOTest
         ArrayList<String> fields = new ArrayList();
         fields.add("datedenaissance");
         ArrayList<String> restriction = new ArrayList();
-        restriction.add(">");
+        restriction.add("like");
         ArrayList<String> values = new ArrayList();
         values.add("02/06/82");
         JSONObject result = manager.select(classe, fields, restriction, values);
-
-       // System.out.println("JSON RESULTAT" + result.toJSONString());
+        
+        //System.out.println("JSON RESULTAT" + result.toJSONString());
         //assertEquals(expResult, result);
       }
 
@@ -94,8 +94,8 @@ public class Manager_DAOTest
       {
         System.out.println("Ajouter");
         Manager_DAO manager = new Manager_DAO("Oracle");
-        Object objet = new PartenairePrescripteur(50, "nom", "prenom", "16/04/1667", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        manager.insert(objet);
+        Object objet = new PartenairePrescripteur(50, "stef", "dupre", "20/09/1983", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
+        //manager.insert(objet);
         //assertEquals(expResult, result);
       }
 
@@ -108,8 +108,30 @@ public class Manager_DAOTest
         System.out.println("Update");
         Manager_DAO manager = new Manager_DAO("Oracle");               
               
-        Object objet = new PartenairePrescripteur(102, "test", "test","28/05/2014", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        manager.update(objet);
+        Object objet = new PartenairePrescripteur(102, "stef", "stef","30/05/2014", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
+        
+        //manager.update(objet);
+        //assertEquals(expResult, result);
+
+      }
+    
+    /**
+     * Test of lister method, of class Manager_DAO.
+     */
+    @Test
+    public void testDelete() throws Exception
+      {
+        System.out.println("Delete");
+        Manager_DAO manager = new Manager_DAO("Oracle");  
+        
+        ArrayList<String> champs= new ArrayList();
+        ArrayList<String> valeurs=new ArrayList();
+        ArrayList<String> restriction=new ArrayList();
+        champs.add("NOM");
+        valeurs.add("stef");
+        restriction.add("LIKE");
+        JSONObject result=manager.delete("PartenairePrescripteur",champs,restriction,valeurs);
+        System.out.println(result);
         //assertEquals(expResult, result);
 
       }

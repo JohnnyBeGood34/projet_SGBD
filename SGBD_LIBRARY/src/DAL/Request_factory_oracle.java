@@ -264,7 +264,9 @@ public class Request_factory_oracle implements IBDD
           }
         this._requete = sql;
       }
-
+    
+    
+    
     /**
      * @param fields, est un ArrayList de tableau de champs (Fields).
      * @return ArrayList<Srting>, contenant les champs sous forme de Strings.

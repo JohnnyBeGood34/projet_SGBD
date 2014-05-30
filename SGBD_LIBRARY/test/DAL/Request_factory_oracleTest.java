@@ -7,6 +7,7 @@
 package DAL;
 
 import BOL.PartenairePrescripteur;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import org.junit.After;
@@ -64,7 +65,7 @@ public class Request_factory_oracleTest
         restriction.add(">");
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteLister(classe, fields,restriction, value);
-        System.out.println(instance.getRequeteString());
+        //System.out.println(instance.getRequeteString());
         //assertTrue(instance.getRequeteString().equals(expResult));
       }
 
@@ -81,8 +82,8 @@ public class Request_factory_oracleTest
 
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteAjouter(objet);
-          System.out.println("REQUETE+++++++++"+instance.getRequeteString());
-          System.out.println("PARAMETRES++++++++"+instance.getParametres().toString());
+          //System.out.println("REQUETE+++++++++"+instance.getRequeteString());
+          //System.out.println("PARAMETRES++++++++"+instance.getParametres().toString());
       }
 
     /**
@@ -98,8 +99,8 @@ public class Request_factory_oracleTest
 
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteMiseAJour(objet);
-          System.out.println("REQUETE+++++++++"+instance.getRequeteString());
-          System.out.println("PARAMETRES++++++++"+instance.getParametres().toString());
+         // System.out.println("REQUETE+++++++++"+instance.getRequeteString());
+         // System.out.println("PARAMETRES++++++++"+instance.getParametres().toString());
       }
 
     /**
@@ -122,7 +123,8 @@ public class Request_factory_oracleTest
         Request_factory_oracle instance = new Request_factory_oracle();
         instance.requeteSupprimer(classe, fields,restriction, value);
         //instance.requeteSupprimer(objet);
-          System.out.println(instance.getRequeteString());
+        System.out.println(instance.getRequeteString());
       }
     
+       
   }
