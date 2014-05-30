@@ -75,20 +75,24 @@ public class Menu {
             System.out.println("4 - Supprimer");
             System.out.println("5 - Retour aux choix des classes");
             _intChoixMethode = ConsoleReader.readInt("Choix numéro ");
+            /******************************************************METHODE LISTER**************************************************************************/
             if (_intChoixMethode == 1) {
 
-            } else if (_intChoixMethode == 2) {
+            } 
+            /******************************************************METHODE AJOUTER**************************************************************************/
+            else if (_intChoixMethode == 2) {
                 for (int j = 0, m = fieldsSuperClass.length; j < m; j++) {
                     listChampsClass.add(ConsoleReader.readString(fieldsSuperClass[j].getName()));
                 }
                 for (int i = 0, k = fieldsClass.length; i < k; i++) {
                     listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
                 }
+                /************ SI MaterielMedicalMaterielAchat *********************/
                 if (_intChoixClasse == 1) {
                    MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(0, Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
                            listChampsClass.get(3), listChampsClass.get(4), 
-                            Float.parseFloat(listChampsClass.get(5)), listChampsClass.get(6), listChampsClass.get(7), listChampsClass.get(8), listChampsClass.get(9),
-                            listChampsClass.get(10),  Integer.parseInt(listChampsClass.get(11)));
+                            Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
+                            Integer.parseInt(listChampsClass.get(10)),  Integer.parseInt(listChampsClass.get(11)));
                     try {
                         manager.insert(objet);
                         /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
@@ -96,11 +100,12 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                /************ SI MaterielMedicalMaterielLoue *********************/
                 if (_intChoixClasse == 2) {
                     MaterielMedicalMaterielLoue objet = new MaterielMedicalMaterielLoue(0, Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
                            listChampsClass.get(3), listChampsClass.get(4), 
-                            Float.parseFloat(listChampsClass.get(5)), listChampsClass.get(6), listChampsClass.get(7), listChampsClass.get(8), listChampsClass.get(9),
-                            listChampsClass.get(10), listChampsClass.get(11), Integer.parseInt(listChampsClass.get(12)));
+                            Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
+                            Integer.parseInt(listChampsClass.get(10)), listChampsClass.get(11), Integer.parseInt(listChampsClass.get(12)));
                     try {
                         manager.insert(objet);
                         /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
@@ -108,6 +113,7 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                /************ SI PartenairePatient *********************/
                 if (_intChoixClasse == 3) {
                     PartenairePatient objet = new PartenairePatient(0, listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5),
                             listChampsClass.get(6),listChampsClass.get(7));
@@ -118,6 +124,7 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                /************ SI PartenairePrescripteur *********************/
                 if (_intChoixClasse == 4) {
                     PartenairePrescripteur objet = new PartenairePrescripteur(0, listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5),
                             listChampsClass.get(6),listChampsClass.get(7));
@@ -128,9 +135,12 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            } else if (_intChoixMethode == 3) {
+                listChampsClass.clear();
+            } 
+            /******************************************************METHODE MODIFIER**************************************************************************/
+            else if (_intChoixMethode == 3) {
                 int idSaisi = ConsoleReader.readInt("Quel id voulez-vous modifier?  ");
-                
+                /************ SI MaterielMedicalMaterielAchat *********************/
                 if (_intChoixClasse == 1) {
                     System.out.println("CHOIX CLASSE UN ON PASSE");
                     ArrayList<String> values = new ArrayList();
@@ -143,9 +153,9 @@ public class Menu {
                         JSONObject objetJsonSelect = manager.select("MaterielMedicalMaterielAchat", fields, restriction, values);
                         System.out.println(objetJsonSelect.toJSONString());
                         /*MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(idSaisi, Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
-                        listChampsClass.get(3), listChampsClass.get(4),
-                        Float.parseFloat(listChampsClass.get(5)), listChampsClass.get(6), listChampsClass.get(7), listChampsClass.get(8), listChampsClass.get(9),
-                        listChampsClass.get(10),  Integer.parseInt(listChampsClass.get(11)));
+                           listChampsClass.get(3), listChampsClass.get(4), 
+                            Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
+                            Integer.parseInt(listChampsClass.get(10)),  Integer.parseInt(listChampsClass.get(11)));
                         try {
                         manager.update(objet);
                         //IL fau maintenant appeller la méthode avec les valeurs rentré
@@ -166,11 +176,12 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                /************ SI MaterielMedicalMaterielLoue *********************/
                 if (_intChoixClasse == 2) {
                     MaterielMedicalMaterielLoue objet = new MaterielMedicalMaterielLoue(0, Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
                            listChampsClass.get(3), listChampsClass.get(4), 
-                            Float.parseFloat(listChampsClass.get(5)), listChampsClass.get(6), listChampsClass.get(7), listChampsClass.get(8), listChampsClass.get(9),
-                            listChampsClass.get(10), listChampsClass.get(11), Integer.parseInt(listChampsClass.get(12)));
+                            Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
+                            Integer.parseInt(listChampsClass.get(10)), listChampsClass.get(11), Integer.parseInt(listChampsClass.get(12)));
                     try {
                         manager.update(objet);
                         /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
@@ -178,6 +189,7 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                /************ SI PartenairePatient *********************/
                 if (_intChoixClasse == 3) {
                     PartenairePatient objet = new PartenairePatient(0, listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5),
                             listChampsClass.get(6),listChampsClass.get(7));
@@ -188,6 +200,7 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                /************ SI PartenairePrescripteur *********************/
                 if (_intChoixClasse == 4) {
                     PartenairePrescripteur objet = new PartenairePrescripteur(0, listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5),
                             listChampsClass.get(6),listChampsClass.get(7));
@@ -198,10 +211,17 @@ public class Menu {
                         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            } else if (_intChoixMethode == 4) {
-            } else if (_intChoixMethode == 5) {
+                listChampsClass.clear();
+            } 
+            /******************************************************METHODE SUPPRIMER**************************************************************************/
+            else if (_intChoixMethode == 4) {
+            } 
+            /******************************************************RETOUR EN ARRIERE**************************************************************************/
+            else if (_intChoixMethode == 5) {
                 ChoixClasse();
-            } else {
+            }
+            /******************************************************GESTION D'ERREUR SAISI**************************************************************************/
+            else {
                 erreur();
                 ChoixMethode();
             }

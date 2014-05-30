@@ -14,9 +14,9 @@ public class MaterielMedicalMaterielLoue extends MaterielMedical{
     private String etat;
     private int quantite;
 
-    public MaterielMedicalMaterielLoue(int idMateriel, int idTVA, int idTypeMaterielMedical, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,String etat,int quantite)
+    public MaterielMedicalMaterielLoue(int idMateriel, int idTVA, int idTypeMaterielMedical, String libelleMaterielMedical, String marque, Float prixHT, int numeroSerie, String dimensions, Float poids, String description, int uniteVente,String etat,int quantite)
       {
-        super(idMateriel, idTVA, idTypeMaterielMedical, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poid, uniteVente, description);
+        super(idMateriel, idTVA, idTypeMaterielMedical, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poids, description , uniteVente);
         this.etat = etat;
         this.quantite = quantite;
       }

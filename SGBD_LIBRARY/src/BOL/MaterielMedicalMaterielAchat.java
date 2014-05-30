@@ -13,9 +13,9 @@ package BOL;
 public class MaterielMedicalMaterielAchat extends MaterielMedical{
     private int quantite;
 
-    public MaterielMedicalMaterielAchat(int IDMateriel, int idTVA, int idTypeMaterielMedical,  String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,int quantite)
+    public MaterielMedicalMaterielAchat(int IDMateriel, int idTVA, int idTypeMaterielMedical,  String libelleMaterielMedical, String marque, Float prixHT, int numeroSerie, String dimensions, Float poids, String description, int uniteVente,int quantite)
       {
-        super(IDMateriel, idTVA, idTypeMaterielMedical, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poid, uniteVente, description);
+        super(IDMateriel, idTVA, idTypeMaterielMedical, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poids, description, uniteVente);
         this.quantite = quantite;
       }
 

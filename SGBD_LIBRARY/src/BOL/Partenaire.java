@@ -17,16 +17,16 @@ public abstract class Partenaire {
     private String nom;
     private String prenom;
     private String dateDeNaissance;
-    private String telephone;
+    private String telephonePartenaire;
     private String mail;
     
-    public Partenaire(int id,String nom, String prenom,String dateNaissance,String telephone,String mail)
+    public Partenaire(int id,String nom, String prenom,String dateNaissance,String telephonePartenaire,String mail)
       {
         this.idPartenaire = id;
         this.nom = nom;
         this.prenom = prenom;
         this.dateDeNaissance = dateNaissance;
-        this.telephone = telephone;
+        this.telephonePartenaire = telephonePartenaire;
         this.mail = mail;
       }
     /**
@@ -86,17 +86,17 @@ public abstract class Partenaire {
     }
 
     /**
-     * @return the telephonePartenaires
+     * @return the telephonePartenaire
      */
-    public String get_telephone() {
-        return telephone;
+    public String get_telephonePartenaire() {
+        return telephonePartenaire;
     }
 
     /**
-     * @param telephonePartenaires the telephonePartenaires to set
+     * @param telephonePartenaire the telephonePartenaire to set
      */
-    public void setTelephone(String telephonePartenaires) {
-        this.telephone = telephonePartenaires;
+    public void setTelephonePartenaire(String telephonePartenaire) {
+        this.telephonePartenaire = telephonePartenaire;
     }
 
     /**
