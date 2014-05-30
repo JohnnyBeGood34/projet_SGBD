@@ -11,7 +11,9 @@ package BOL;
  * @author Kevin
  */
 public abstract class MaterielMedical {
-    private int idMateriel;
+    private int IDMateriel;
+    private int idTVA;
+    private int idTypeMaterielMedical;
     private String libelleMaterielMedical;
     private String marque;
     private Float prixHT;
@@ -21,9 +23,11 @@ public abstract class MaterielMedical {
     private String uniteVente;
     private String description;
     
-    public MaterielMedical(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description)
+    public MaterielMedical(int IDMateriel, int idTVA, int idTypeMaterielMedical, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description)
       {
-        this.idMateriel = idMateriel;
+        this.IDMateriel = IDMateriel;
+        this.idTVA = idTVA;
+        this.idTypeMaterielMedical = idTypeMaterielMedical;
         this.libelleMaterielMedical = libelleMaterielMedical;
         this.marque = marque;
         this.prixHT = prixHT;
@@ -33,33 +37,33 @@ public abstract class MaterielMedical {
         this.uniteVente = uniteVente;
         this.description = description;
       }
-    
+
     /**
-     * @return the IdMateriel
+     * @return the idMateriel
      */
-    public int get_idMateriel() {
-        return idMateriel;
+    public int get_IDMateriel() {
+        return IDMateriel;
     }
 
     /**
-     * @param IdMateriel the IdMateriel to set
+     * @return the idTVA
      */
-    public void setIdMateriel(int IdMateriel) {
-        this.idMateriel = IdMateriel;
+    public int get_idTVA() {
+        return idTVA;
     }
 
     /**
-     * @return the LibelleMaterielMedical
+     * @return the idTypeMaterielMedical
+     */
+    public int get_idTypeMaterielMedical() {
+        return idTypeMaterielMedical;
+    }
+
+    /**
+     * @return the libelleMaterielMedical
      */
     public String get_libelleMaterielMedical() {
         return libelleMaterielMedical;
-    }
-
-    /**
-     * @param LibelleMaterielMedical the LibelleMaterielMedical to set
-     */
-    public void set_libelleMaterielMedical(String LibelleMaterielMedical) {
-        this.libelleMaterielMedical = LibelleMaterielMedical;
     }
 
     /**
@@ -70,24 +74,10 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param marque the marque to set
-     */
-    public void setMarque(String marque) {
-        this.marque = marque;
-    }
-
-    /**
      * @return the prixHT
      */
     public Float get_prixHT() {
         return prixHT;
-    }
-
-    /**
-     * @param prixHT the prixHT to set
-     */
-    public void setPrixHT(Float prixHT) {
-        this.prixHT = prixHT;
     }
 
     /**
@@ -98,24 +88,10 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param numeroSerie the numeroSerie to set
-     */
-    public void setNumeroSerie(String numeroSerie) {
-        this.numeroSerie = numeroSerie;
-    }
-
-    /**
      * @return the dimensions
      */
     public String get_dimensions() {
         return dimensions;
-    }
-
-    /**
-     * @param dimensions the dimensions to set
-     */
-    public void setDimensions(String dimensions) {
-        this.dimensions = dimensions;
     }
 
     /**
@@ -126,24 +102,10 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param poid the poid to set
-     */
-    public void setPoid(String poid) {
-        this.poid = poid;
-    }
-
-    /**
      * @return the uniteVente
      */
     public String get_uniteVente() {
         return uniteVente;
-    }
-
-    /**
-     * @param uniteVente the uniteVente to set
-     */
-    public void setUniteVente(String uniteVente) {
-        this.uniteVente = uniteVente;
     }
 
     /**
@@ -154,10 +116,81 @@ public abstract class MaterielMedical {
     }
 
     /**
+     * @param IDMateriel the idMateriel to set
+     */
+    public void setIDMateriel(int IDMateriel) {
+        this.IDMateriel = IDMateriel;
+    }
+
+    /**
+     * @param idTVA the idTVA to set
+     */
+    public void setIdTVA(int idTVA) {
+        this.idTVA = idTVA;
+    }
+
+    /**
+     * @param idTypeMaterielMedical the idTypeMaterielMedical to set
+     */
+    public void setIdTypeMaterielMedical(int idTypeMaterielMedical) {
+        this.idTypeMaterielMedical = idTypeMaterielMedical;
+    }
+
+    /**
+     * @param libelleMaterielMedical the libelleMaterielMedical to set
+     */
+    public void setLibelleMaterielMedical(String libelleMaterielMedical) {
+        this.libelleMaterielMedical = libelleMaterielMedical;
+    }
+
+    /**
+     * @param marque the marque to set
+     */
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    /**
+     * @param prixHT the prixHT to set
+     */
+    public void setPrixHT(Float prixHT) {
+        this.prixHT = prixHT;
+    }
+
+    /**
+     * @param numeroSerie the numeroSerie to set
+     */
+    public void setNumeroSerie(String numeroSerie) {
+        this.numeroSerie = numeroSerie;
+    }
+
+    /**
+     * @param dimensions the dimensions to set
+     */
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    /**
+     * @param poid the poid to set
+     */
+    public void setPoid(String poid) {
+        this.poid = poid;
+    }
+
+    /**
+     * @param uniteVente the uniteVente to set
+     */
+    public void setUniteVente(String uniteVente) {
+        this.uniteVente = uniteVente;
+    }
+
+    /**
      * @param description the description to set
      */
     public void setDescription(String description) {
         this.description = description;
     }
+    
     
 }
