@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
 import java.util.ArrayList;
 import org.json.simple.JSONObject;
 
@@ -18,11 +19,9 @@ import org.json.simple.JSONObject;
  *
  * @author JOHN
  */
-public class Manager_DAO
-  {
+public class Manager_DAO {
 
     //requestFactory, oracle par defaut.
-
     private IBDD requestFactory;
     //Connexion Singleton
     private String bddType;
@@ -37,45 +36,40 @@ public class Manager_DAO
      * @param bddTypeName String, qui est le nom de la base de données que l'on
      * veut utiliser
      */
-    public Manager_DAO(String bddTypeName)
-      {
+    public Manager_DAO(String bddTypeName) {
         /**
          * La request factory spécifique est chargée en fonction du type de base
          * de données
          */
-        if (bddTypeName.equals("Oracle"))
-          {
+        if (bddTypeName.equals("Oracle")) {
             this.bddType = bddTypeName;
             this.requestFactory = new Request_factory_oracle();
-          }
-      }
+        }
+    }
 
     /**
      * SetrequestFactory, permet de changer le type de fabrique de requete
      *
      * @param requestFactory une fabrique de requetes de type InterfaceBDD
      */
-    public void setRequestFactory(IBDD requestFactory)
-      {
+    public void setRequestFactory(IBDD requestFactory) {
         this.requestFactory = requestFactory;
-      }
+    }
 
     /**
      * Fonction privée permettant de renvoyer l'instance de connexion courante.
      *
      * @return instance de la connexion courante
      */
-    private Connection getConnexion()
-      {
+    private Connection getConnexion() {
         Connection connexion = null;
-        switch (this.bddType)
-          {
+        switch (this.bddType) {
             case "Oracle":
                 connexion = Oracle_connexion.getInstance();
                 break;
-          }
+        }
         return connexion;
-      }
+    }
 
     /**
      * Permet d'executer une requete lister et de renvoyer une liste de
@@ -87,8 +81,7 @@ public class Manager_DAO
      * @param values un arraylist de valeur pour les restrictions
      * @return Objet JSON avec les resultats de la requete
      */
-    public JSONObject select(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException
-      {
+    public JSONObject select(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException {
         //Récupération de la connexion
         Connection connexion = this.getConnexion();
         //Objet JSON qui contiendra le résultat
@@ -108,30 +101,27 @@ public class Manager_DAO
         int columnCount = metadata.getColumnCount();
         ArrayList<String> columns = new ArrayList();
         //On récupère le nom des colonnes avec les metadatas
-        for (int i = 1; i < columnCount; i++)
-          {
+        for (int i = 1; i < columnCount; i++) {
             String columnName = metadata.getColumnName(i);
             columns.add(columnName);
-          }
+        }
         //Tant qu'il y a des enregistrements
         int compteur = 0;
-        while (resultSet.next())
-          {
+        while (resultSet.next()) {
             //On déclare un objet JSON qui va récupérer les résultats
             JSONObject jsonResult = new JSONObject();
-            for (String columnName : columns)
-              {
+            for (String columnName : columns) {
                 //On récupère le résultat pour la colonne
                 String value = resultSet.getString(columnName);
                 //On met dans la JSON déclaré au dessus nomColonne : Valeur
                 jsonResult.put(columnName, value);
-              }
+            }
             resultat.put(compteur, jsonResult);
             compteur++;
-          }
+        }
         connexion = null;
         return resultat;
-      }
+    }
 
     /**
      * Fonction permettant de faire une requete d'insertion à partir d'un objet.
@@ -144,14 +134,12 @@ public class Manager_DAO
      * @return Un JSON contenant l'id de l'objet inséré.
      * @throws SQLException
      */
-    public JSONObject insert(Object objet) throws SQLException
-      {
+    public JSONObject insert(Object objet) throws SQLException {
         //REMPLIR LE RESULTAT AVEC LE LAST INSERTED ID
         JSONObject resultat = new JSONObject();
         Connection connexion = null;
         PreparedStatement prepare = null;
-        try
-          {
+        try {
             connexion = this.getConnexion();
             //La factory renvoi la requete insert préparée avec les valeurs dans un array
             requestFactory.requeteAjouter(objet);
@@ -165,32 +153,31 @@ public class Manager_DAO
             prepare = connexion.prepareStatement(requete);
             System.out.println("BEFORE PREPARE----------" + prepare.toString());
             //Pour chaque entrée de l'array de parametres
-            for (int i = 1; i <= parametresRequete.size(); i++)
-              {
+            for (int i = 1; i <= parametresRequete.size(); i++) {
                 prepare.setString(i, parametresRequete.get(i - 1));
-              }
+            }
             System.out.println("AFTER PREPARE----------" + prepare.toString());
             prepare.executeUpdate();
+            /* On récupère le dernier ID inséré */
+            //ResultSet rs = prepare.executeQuery("SELECT MAX(");
+            //if(rs.next()) System.out.println("LAST ID :"+rs.getInt(1));
+
             prepare.close();
-          } catch (SQLException e)
-          {
+        } catch (SQLException e) {
 
             System.out.println(e.getMessage());
 
-          } finally
-          {
-            if (prepare != null)
-              {
+        } finally {
+            if (prepare != null) {
                 prepare.close();
-              }
+            }
 
-            if (connexion != null)
-              {
+            if (connexion != null) {
                 connexion = null;
-              }
-          }
+            }
+        }
         return resultat;
-      }
+    }
 
     /**
      * Fonction permettant d'effectuer un update sur la base de données en
@@ -203,14 +190,12 @@ public class Manager_DAO
      * @return
      * @throws SQLException
      */
-    public JSONObject update(Object objet) throws SQLException
-      {
+    public JSONObject update(Object objet) throws SQLException {
 
         JSONObject resultat = new JSONObject();
         Connection connexion = null;
         PreparedStatement prepare = null;
-        try
-          {
+        try {
             connexion = this.getConnexion();
             //La factory renvoi la requete insert préparée avec les valeurs dans un array
             requestFactory.requeteMiseAJour(objet);
@@ -223,34 +208,32 @@ public class Manager_DAO
 
             prepare = connexion.prepareStatement(requete);
             System.out.println("BEFORE PREPARE----------" + prepare.toString());
+
+            //On enlève l'id pour le mettre en dernier de la liste
+            String id = parametresRequete.get(0);
+            parametresRequete.remove(0);
+            parametresRequete.add(id);
             //Pour chaque entrée de l'array de parametres
-            //REVOIR POUR L'ID QUI EST AU DEBUT DU TABLEAU MAIS A LA FIN DES PARAMETRES
-            for (int i = 1; i <= parametresRequete.size(); i++)
-              {
+            for (int i = 1; i <= parametresRequete.size(); i++) {
                 prepare.setString(i, parametresRequete.get(i - 1));
-              }
+            }
             System.out.println("AFTER PREPARE----------" + prepare.toString());
             prepare.executeUpdate();
             prepare.close();
-          } catch (SQLException e)
-          {
-
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
 
-          } finally
-          {
-            if (prepare != null)
-              {
+        } finally {
+            if (prepare != null) {
                 prepare.close();
-              }
+            }
 
-            if (connexion != null)
-              {
+            if (connexion != null) {
                 connexion = null;
-              }
-          }
+            }
+        }
         return resultat;
-      }
+    }
 
     /**
      * Permet de faire un DELETE en base de données en focntion des paramètres
@@ -263,11 +246,10 @@ public class Manager_DAO
      * permettant de faire la restriction
      * @return un JSON disant si le delete s'est bien passé.
      */
-    public JSONObject delete(String classe, ArrayList<String> fields,ArrayList<String> restriction, ArrayList<String> values) throws SQLException
-      {
+    public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws SQLException {
         JSONObject resultat = new JSONObject();
         Connection connexion = this.getConnexion();
-        requestFactory.requeteSupprimer(classe, fields,restriction, values);
+        requestFactory.requeteSupprimer(classe, fields, restriction, values);
         String requete = requestFactory.getRequeteString();
         Statement statement = connexion.createStatement();
         ResultSet resultSet = statement.executeQuery(requete);
@@ -275,5 +257,5 @@ public class Manager_DAO
         resultat.put("result", "ok");
 
         return resultat;
-      }
-  }
+    }
+}

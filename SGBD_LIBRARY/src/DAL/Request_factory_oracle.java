@@ -192,9 +192,11 @@ public class Request_factory_oracle implements IBDD
         //Construction d'un arrayList d'attributs sous forme de string
         //Pour les utiliser dans la construction de la requete
         ArrayList<String> fieldsString = getFieldstoString(fields);
+      
         int compteur = 0;
         for (String field : fieldsString)
           {
+              
             String nomMethode = "get_" + field;
             if (!field.equals(fieldsString.get(0)))
               {

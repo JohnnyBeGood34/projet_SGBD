@@ -82,8 +82,7 @@ public class Manager_DAOTest
         values.add("02/06/82");
         JSONObject result = manager.select(classe, fields, restriction, values);
 
-        System.out.println("JSON RESULTAT" + result.toJSONString());
-
+       // System.out.println("JSON RESULTAT" + result.toJSONString());
         //assertEquals(expResult, result);
       }
 
@@ -96,7 +95,7 @@ public class Manager_DAOTest
         System.out.println("Ajouter");
         Manager_DAO manager = new Manager_DAO("Oracle");
         Object objet = new PartenairePrescripteur(50, "nom", "prenom", "16/04/1667", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        //manager.insert(objet);
+        manager.insert(objet);
         //assertEquals(expResult, result);
       }
 
@@ -109,7 +108,7 @@ public class Manager_DAOTest
         System.out.println("Update");
         Manager_DAO manager = new Manager_DAO("Oracle");               
               
-        Object objet = new PartenairePrescripteur(1, "nom", "prenom","28/05/2014", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
+        Object objet = new PartenairePrescripteur(102, "test", "test","28/05/2014", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
         manager.update(objet);
         //assertEquals(expResult, result);
 
