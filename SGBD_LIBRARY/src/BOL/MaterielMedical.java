@@ -11,55 +11,60 @@ package BOL;
  * @author Kevin
  */
 public abstract class MaterielMedical {
-    private int idMateriel;
-    private String libelleMaterielMedical;
+    private int IDMateriel;
+    private int idTVA;
+    private int idTypeMateriel;
+    private String libelle;
     private String marque;
     private Float prixHT;
-    private String numeroSerie;
+    private int numeroSerie;
     private String dimensions;
-    private String poid;
-    private String uniteVente;
+    private Float poids;
     private String description;
+    private int uniteVente;
     
-    public MaterielMedical(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description)
+    public MaterielMedical(int IDMateriel, int idTVA, int idTypeMateriel, String libelle, String marque, Float prixHT, int numeroSerie,
+            String dimensions, Float poids, String description, int uniteVente)
       {
-        this.idMateriel = idMateriel;
-        this.libelleMaterielMedical = libelleMaterielMedical;
+        this.IDMateriel = IDMateriel;
+        this.idTVA = idTVA;
+        this.idTypeMateriel = idTypeMateriel;
+        this.libelle = libelle;
         this.marque = marque;
         this.prixHT = prixHT;
         this.numeroSerie = numeroSerie;
         this.dimensions = dimensions;
-        this.poid = poid;
-        this.uniteVente = uniteVente;
+        this.poids = poids;
         this.description = description;
+        this.uniteVente = uniteVente;
       }
-    
+
     /**
-     * @return the IdMateriel
+     * @return the idMateriel
      */
-    public int get_idMateriel() {
-        return idMateriel;
+    public int get_IDMateriel() {
+        return IDMateriel;
     }
 
     /**
-     * @param IdMateriel the IdMateriel to set
+     * @return the idTVA
      */
-    public void setIdMateriel(int IdMateriel) {
-        this.idMateriel = IdMateriel;
+    public int get_idTVA() {
+        return idTVA;
     }
 
     /**
-     * @return the LibelleMaterielMedical
+     * @return the idTypeMateriel
      */
-    public String get_libelleMaterielMedical() {
-        return libelleMaterielMedical;
+    public int get_idTypeMateriel() {
+        return idTypeMateriel;
     }
 
     /**
-     * @param LibelleMaterielMedical the LibelleMaterielMedical to set
+     * @return the libelle
      */
-    public void set_libelleMaterielMedical(String LibelleMaterielMedical) {
-        this.libelleMaterielMedical = LibelleMaterielMedical;
+    public String get_libelle() {
+        return libelle;
     }
 
     /**
@@ -70,13 +75,6 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param marque the marque to set
-     */
-    public void setMarque(String marque) {
-        this.marque = marque;
-    }
-
-    /**
      * @return the prixHT
      */
     public Float get_prixHT() {
@@ -84,24 +82,10 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param prixHT the prixHT to set
-     */
-    public void setPrixHT(Float prixHT) {
-        this.prixHT = prixHT;
-    }
-
-    /**
      * @return the numeroSerie
      */
-    public String get_numeroSerie() {
+    public int get_numeroSerie() {
         return numeroSerie;
-    }
-
-    /**
-     * @param numeroSerie the numeroSerie to set
-     */
-    public void setNumeroSerie(String numeroSerie) {
-        this.numeroSerie = numeroSerie;
     }
 
     /**
@@ -112,38 +96,17 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param dimensions the dimensions to set
-     */
-    public void setDimensions(String dimensions) {
-        this.dimensions = dimensions;
-    }
-
-    /**
      * @return the poid
      */
-    public String get_poid() {
-        return poid;
-    }
-
-    /**
-     * @param poid the poid to set
-     */
-    public void setPoid(String poid) {
-        this.poid = poid;
+    public Float get_poids() {
+        return poids;
     }
 
     /**
      * @return the uniteVente
      */
-    public String get_uniteVente() {
+    public int get_uniteVente() {
         return uniteVente;
-    }
-
-    /**
-     * @param uniteVente the uniteVente to set
-     */
-    public void setUniteVente(String uniteVente) {
-        this.uniteVente = uniteVente;
     }
 
     /**
@@ -154,10 +117,82 @@ public abstract class MaterielMedical {
     }
 
     /**
+     * @param IDMateriel
+     * the idMateriel to set
+     */
+    public void setIDMateriel(int IDMateriel) {
+        this.IDMateriel = IDMateriel;
+    }
+
+    /**
+     * @param idTVA the idTVA to set
+     */
+    public void setIdTVA(int idTVA) {
+        this.idTVA = idTVA;
+    }
+
+    /**
+     * @param idTypeMateriel the idTypeMateriel to set
+     */
+    public void setIdTypeMateriel(int idTypeMateriel) {
+        this.idTypeMateriel = idTypeMateriel;
+    }
+
+    /**
+     * @param libelle the libelleMaterielMedical to set
+     */
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    /**
+     * @param marque the marque to set
+     */
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    /**
+     * @param prixHT the prixHT to set
+     */
+    public void setPrixHT(Float prixHT) {
+        this.prixHT = prixHT;
+    }
+
+    /**
+     * @param numeroSerie the numeroSerie to set
+     */
+    public void setNumeroSerie(int numeroSerie) {
+        this.numeroSerie = numeroSerie;
+    }
+
+    /**
+     * @param dimensions the dimensions to set
+     */
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    /**
+     * @param poids the poid to set
+     */
+    public void setPoids(Float poids) {
+        this.poids = poids;
+    }
+
+    /**
+     * @param uniteVente the uniteVente to set
+     */
+    public void setUniteVente(int uniteVente) {
+        this.uniteVente = uniteVente;
+    }
+
+    /**
      * @param description the description to set
      */
     public void setDescription(String description) {
         this.description = description;
     }
+    
     
 }

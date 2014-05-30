@@ -11,25 +11,25 @@ package BOL;
  * @author Kevin
  */
 public class MaterielMedicalMaterielAchat extends MaterielMedical{
-    private int qteMaterielAchete;
+    private int quantite;
 
-    public MaterielMedicalMaterielAchat(int idMateriel, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,int qte)
+    public MaterielMedicalMaterielAchat(int IDMateriel, int idTVA, int idTypeMaterielMedical,  String libelleMaterielMedical, String marque, Float prixHT, int numeroSerie, String dimensions, Float poids, String description, int uniteVente,int quantite)
       {
-        super(idMateriel, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poid, uniteVente, description);
-        this.qteMaterielAchete = qte;
+        super(IDMateriel, idTVA, idTypeMaterielMedical, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poids, description, uniteVente);
+        this.quantite = quantite;
       }
 
     /**
-     * @return the qteMaterielAchete
+     * @return the quantite
      */
-    public int get_qteMaterielAchete() {
-        return qteMaterielAchete;
+    public int get_quantite() {
+        return quantite;
     }
 
     /**
-     * @param qteMaterielAchete the qteMaterielAchete to set
+     * @param quantite the quantite to set
      */
-    public void setQteMaterielAchete(int qteMaterielAchete) {
-        this.qteMaterielAchete = qteMaterielAchete;
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 }

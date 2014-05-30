@@ -1,3 +1,7 @@
+/*
+ * Projet EPSI Montpellier 2014.
+ * Jonathan Affre, Stephane Dupre, Kevin Salles, Cyrille Chanssang.
+ */
 package DAL;
 
 import MAIN.Menu;

@@ -27,7 +27,7 @@ public class PartenairePatient extends Partenaire{
     /**
      * @return the numeroSecu
      */
-    public String getNumeroSecu() {
+    public String get_numeroSecu() {
         return numeroSecu;
         
     }
@@ -42,7 +42,7 @@ public class PartenairePatient extends Partenaire{
     /**
      * @return the numeroMutuelle
      */
-    public String getNumeroMutuelle() {
+    public String get_numeroMutuelle() {
         return numeroMutuelle;
     }
 
