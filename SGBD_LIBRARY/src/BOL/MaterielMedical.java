@@ -116,7 +116,8 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param IDMateriel the idMateriel to set
+     * @param IDMateriel
+     * the idMateriel to set
      */
     public void setIDMateriel(int IDMateriel) {
         this.IDMateriel = IDMateriel;

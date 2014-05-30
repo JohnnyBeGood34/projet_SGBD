@@ -12,13 +12,13 @@ package BOL;
  */
 public class MaterielMedicalMaterielLoue extends MaterielMedical{
     private String etat;
-    private int qteMaterielLoue;
+    private int quantite;
 
-    public MaterielMedicalMaterielLoue(int idMateriel, int idTVA, int idTypeMaterielMedical, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,String etat,int qte)
+    public MaterielMedicalMaterielLoue(int idMateriel, int idTVA, int idTypeMaterielMedical, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description,String etat,int quantite)
       {
         super(idMateriel, idTVA, idTypeMaterielMedical, libelleMaterielMedical, marque, prixHT, numeroSerie, dimensions, poid, uniteVente, description);
         this.etat = etat;
-        this.qteMaterielLoue = qte;
+        this.quantite = quantite;
       }
 
     /**
@@ -36,16 +36,16 @@ public class MaterielMedicalMaterielLoue extends MaterielMedical{
     }
 
     /**
-     * @return the QteMaterielLoue
+     * @return the quantite
      */
-    public int get_qteMaterielLoue() {
-        return qteMaterielLoue;
+    public int get_quantite() {
+        return quantite;
     }
 
     /**
-     * @param QteMaterielLoue the QteMaterielLoue to set
+     * @param quantite the QteMaterielLoue to set
      */
-    public void setQteMaterielLoue(int QteMaterielLoue) {
-        this.qteMaterielLoue = QteMaterielLoue;
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 }
