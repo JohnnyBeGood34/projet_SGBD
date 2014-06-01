@@ -6,6 +6,7 @@ package DAL;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class DumpOracleDB
         String creation = "";
         String insertion = "\n\n";
         ArrayList<String> listeTables = listerTables();
+        System.out.println(listeTables);
         //Statement
         Statement statement = connexion.createStatement();
         //Pour chaque tables
@@ -46,17 +48,29 @@ public class DumpOracleDB
                 creation += resultSet.getString(1) + "\n\n";
               }
             //Récupération des enregistrements de la table en question
-            ResultSet resultSetSelect = statement.executeQuery("SELECT * FROM "+table);
+            ResultSet resultSetSelect = statement.executeQuery("SELECT * FROM " + table);
             insertion += "-- -------------\n";
-            insertion += "-- insertion dans la table "+table+" --\n";
+            insertion += "-- insertion dans la table " + table + " --\n";
             insertion += "---------------------\n";
             //Pour chaque enregistrements
-            while(resultSetSelect.next())
+            ResultSetMetaData meta = resultSetSelect.getMetaData();
+            int nbColonnes = meta.getColumnCount();
+            while (resultSetSelect.next())
               {
-                insertion += "INSERT INTO "+table+" VALUES(";
-                
+                insertion += "INSERT INTO " + table + " VALUES(";
+                for (int compteur = 1; compteur < nbColonnes; compteur++)
+                  {
+                    if (compteur != 1)
+                      {
+                        insertion += ",";
+                      }
+                    insertion += "'" + resultSetSelect.getString(compteur) + "'";
+                  }
+                insertion += ");\n";
               }
           }
+        insertion += "\n";
+        System.out.println(entete + "\n" + creation + "\n" + insertion);
         return "yoyo les couilles a Jeano";
       }
 
