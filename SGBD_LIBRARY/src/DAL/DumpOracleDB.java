@@ -17,13 +17,26 @@ import java.util.ArrayList;
  */
 public class DumpOracleDB
   {
-
+    
     //Get instance du singleton de connexion
     private Connection connexion = Oracle_connexion.getInstance();
 
     public String dumpOracleDB() throws SQLException
       {
+        String entete = "-------------------\n";
+        entete += "--Dump de la base--\n";
+        entete += "------------------\n\n\n";
+        String creation = "";
+        String insertion = "\n\n";
         ArrayList<String> listeTables = listerTables();
+        //Pour chaque tables
+        for(String table : listeTables)
+          {
+            creation = "-- -----------------\n";
+            creation += "-- creation de la table --"+table+" --\n";
+            creation += "----------------------\n";
+            
+          }
         return "yoyo les couilles a Jeano";
       }
 
