@@ -13,29 +13,30 @@ package BOL;
 public abstract class MaterielMedical {
     private int IDMateriel;
     private int idTVA;
-    private int idTypeMaterielMedical;
-    private String libelleMaterielMedical;
+    private int idTypeMateriel;
+    private String libelle;
     private String marque;
     private Float prixHT;
-    private String numeroSerie;
+    private int numeroSerie;
     private String dimensions;
-    private String poid;
-    private String uniteVente;
+    private Float poids;
     private String description;
+    private int uniteVente;
     
-    public MaterielMedical(int IDMateriel, int idTVA, int idTypeMaterielMedical, String libelleMaterielMedical, String marque, Float prixHT, String numeroSerie, String dimensions, String poid, String uniteVente, String description)
+    public MaterielMedical(int IDMateriel, int idTVA, int idTypeMateriel, String libelle, String marque, Float prixHT, int numeroSerie,
+            String dimensions, Float poids, String description, int uniteVente)
       {
         this.IDMateriel = IDMateriel;
         this.idTVA = idTVA;
-        this.idTypeMaterielMedical = idTypeMaterielMedical;
-        this.libelleMaterielMedical = libelleMaterielMedical;
+        this.idTypeMateriel = idTypeMateriel;
+        this.libelle = libelle;
         this.marque = marque;
         this.prixHT = prixHT;
         this.numeroSerie = numeroSerie;
         this.dimensions = dimensions;
-        this.poid = poid;
-        this.uniteVente = uniteVente;
+        this.poids = poids;
         this.description = description;
+        this.uniteVente = uniteVente;
       }
 
     /**
@@ -53,17 +54,17 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @return the idTypeMaterielMedical
+     * @return the idTypeMateriel
      */
-    public int get_idTypeMaterielMedical() {
-        return idTypeMaterielMedical;
+    public int get_idTypeMateriel() {
+        return idTypeMateriel;
     }
 
     /**
-     * @return the libelleMaterielMedical
+     * @return the libelle
      */
-    public String get_libelleMaterielMedical() {
-        return libelleMaterielMedical;
+    public String get_libelle() {
+        return libelle;
     }
 
     /**
@@ -83,7 +84,7 @@ public abstract class MaterielMedical {
     /**
      * @return the numeroSerie
      */
-    public String get_numeroSerie() {
+    public int get_numeroSerie() {
         return numeroSerie;
     }
 
@@ -97,14 +98,14 @@ public abstract class MaterielMedical {
     /**
      * @return the poid
      */
-    public String get_poid() {
-        return poid;
+    public Float get_poids() {
+        return poids;
     }
 
     /**
      * @return the uniteVente
      */
-    public String get_uniteVente() {
+    public int get_uniteVente() {
         return uniteVente;
     }
 
@@ -131,17 +132,17 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param idTypeMaterielMedical the idTypeMaterielMedical to set
+     * @param idTypeMateriel the idTypeMateriel to set
      */
-    public void setIdTypeMaterielMedical(int idTypeMaterielMedical) {
-        this.idTypeMaterielMedical = idTypeMaterielMedical;
+    public void setIdTypeMateriel(int idTypeMateriel) {
+        this.idTypeMateriel = idTypeMateriel;
     }
 
     /**
-     * @param libelleMaterielMedical the libelleMaterielMedical to set
+     * @param libelle the libelleMaterielMedical to set
      */
-    public void setLibelleMaterielMedical(String libelleMaterielMedical) {
-        this.libelleMaterielMedical = libelleMaterielMedical;
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
     /**
@@ -161,7 +162,7 @@ public abstract class MaterielMedical {
     /**
      * @param numeroSerie the numeroSerie to set
      */
-    public void setNumeroSerie(String numeroSerie) {
+    public void setNumeroSerie(int numeroSerie) {
         this.numeroSerie = numeroSerie;
     }
 
@@ -173,16 +174,16 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param poid the poid to set
+     * @param poids the poid to set
      */
-    public void setPoid(String poid) {
-        this.poid = poid;
+    public void setPoids(Float poids) {
+        this.poids = poids;
     }
 
     /**
      * @param uniteVente the uniteVente to set
      */
-    public void setUniteVente(String uniteVente) {
+    public void setUniteVente(int uniteVente) {
         this.uniteVente = uniteVente;
     }
 

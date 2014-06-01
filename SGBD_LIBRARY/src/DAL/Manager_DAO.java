@@ -135,7 +135,7 @@ public class Manager_DAO {
      * @throws SQLException
      */
     public JSONObject insert(Object objet) throws SQLException {
-        //REMPLIR LE RESULTAT AVEC LE LAST INSERTED ID
+       
         JSONObject resultat = new JSONObject();
         Connection connexion = null;
         PreparedStatement prepare = null;
@@ -159,9 +159,15 @@ public class Manager_DAO {
             System.out.println("AFTER PREPARE----------" + prepare.toString());
             prepare.executeUpdate();
             /* On récupère le dernier ID inséré */
-            //ResultSet rs = prepare.executeQuery("SELECT MAX(");
-            //if(rs.next()) System.out.println("LAST ID :"+rs.getInt(1));
-
+            Statement statement=connexion.createStatement();
+            String lastId="SELECT * FROM ( SELECT * FROM "+objet.getClass().getSimpleName()+" ORDER BY 1 DESC ) WHERE ROWNUM = 1 ";            
+            ResultSet rs= statement.executeQuery(lastId);
+            
+            while(rs.next()){           
+            resultat.put("last_id",rs.getLong(1));
+            }
+           
+            statement.close();
             prepare.close();
         } catch (SQLException e) {
 
@@ -251,9 +257,11 @@ public class Manager_DAO {
         Connection connexion = this.getConnexion();
         requestFactory.requeteSupprimer(classe, fields, restriction, values);
         String requete = requestFactory.getRequeteString();
+        System.out.println("Requete .... :"+requete);
         Statement statement = connexion.createStatement();
         ResultSet resultSet = statement.executeQuery(requete);
-        /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OKù*/
+        
+        /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OK*/
         resultat.put("result", "ok");
 
         return resultat;
