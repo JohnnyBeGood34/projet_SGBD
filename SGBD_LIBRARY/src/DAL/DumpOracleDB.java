@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class DumpOracleDB
   {
-    
+
     //Get instance du singleton de connexion
     private Connection connexion = Oracle_connexion.getInstance();
 
@@ -29,13 +29,23 @@ public class DumpOracleDB
         String creation = "";
         String insertion = "\n\n";
         ArrayList<String> listeTables = listerTables();
+        //Statement
+        Statement statement = connexion.createStatement();
         //Pour chaque tables
-        for(String table : listeTables)
+        for (String table : listeTables)
           {
             creation = "-- -----------------\n";
-            creation += "-- creation de la table --"+table+" --\n";
+            creation += "-- creation de la table --" + table + " --\n";
             creation += "----------------------\n";
-            
+            /* Requête permettant de récupérer tous les create table */
+            ResultSet resultSet = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','" + table + "')from dual");
+            //Pour chaques create table
+            while (resultSet.next())
+              {
+                //On récupère le create table et on le concatene
+                creation += resultSet.getString(1) + "\n\n";
+              }
+                
           }
         return "yoyo les couilles a Jeano";
       }
@@ -56,7 +66,7 @@ public class DumpOracleDB
           {
             /* Requête permettant de récupérer tous les noms de table */
             ResultSet resultSet = statement.executeQuery("SELECT table_name FROM user_tables");
-            
+
             while (resultSet.next())
               {
                 String nomTable = resultSet.getString("TABLE_NAME");
@@ -64,29 +74,5 @@ public class DumpOracleDB
               }
           }
         return listeTables;
-      }
-
-    /**
-     * Méthode retournant la liste des colonnes d'une table
-     *
-     * @param table type String, nom de la table
-     * @return ArrayList<String>
-     */
-    private ArrayList<String> listerColonnes(String table) throws SQLException
-      {
-        ArrayList<String> listeColonnes = new ArrayList();
-        //select dbms_metadata.get_ddl('TABLE','MATERIELMEDICAL')from dual
-        try (Statement statement = connexion.createStatement())
-          {
-            /* Requête permettant de récupérer tous les noms de table */
-            ResultSet resultSet = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','"+table+"')from dual");
-            
-            while (resultSet.next())
-              {
-                String nomTable = resultSet.getString(1);
-                listeColonnes.add(nomTable);
-              }
-          }
-        return listeColonnes;
       }
   }
