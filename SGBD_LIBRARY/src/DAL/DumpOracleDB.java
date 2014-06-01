@@ -21,17 +21,11 @@ import java.util.logging.Logger;
  */
 public class DumpOracleDB
   {
-<<<<<<< HEAD
-    public static String dumpOracleDB()
-=======
     
       //Get instance du singleton de connexion
       private  Connection connexion = Oracle_connexion.getInstance();
-      
-    public String dumpOracleDB()
->>>>>>> d56582458eb00800a95dac932754909094f4ce67
+    public static String dumpOracleDB()
       {
-      
         //Requete renvoyant le nom des tables de la base de données
         //select dbms_metadata.get_ddl('TABLE','MATERIELMEDICAL')from dual
         String requeteTables = "SELECT table_name FROM user_tables;";
@@ -45,7 +39,7 @@ public class DumpOracleDB
     * @return ArrayList<String> la liste des tables de la BD
      * @throws java.sql.SQLException
     */
-    public   ArrayList<String> listerTables(Connection connection) throws SQLException{
+    public ArrayList<String> listerTables(Connection connection) throws SQLException{
         
         ArrayList<String> listeTables=new ArrayList<>();
         Statement statement=connection.createStatement();
@@ -71,21 +65,5 @@ public class DumpOracleDB
         
         return listeColonnes;
     }
-    
-    
-     public static void main(String[] args)  {
-         
-         DumpOracleDB dump=new DumpOracleDB();
-         
-        try {
-           ArrayList<String> list= dump.listerTables(Oracle_connexion.getInstance());
-            for(String table:list){
-                System.out.println(table);
-        }
-        } catch (SQLException ex) {
-            System.out.println("Erreur :"+ex.getMessage());
-        }
-        
-       
     }
-  }
+  
