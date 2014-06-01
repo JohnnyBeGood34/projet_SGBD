@@ -23,8 +23,6 @@ public class DumpOracleDB
 
     public String dumpOracleDB() throws SQLException
       {
-        //Requete renvoyant le nom des tables de la base de données
-        //select dbms_metadata.get_ddl('TABLE','MATERIELMEDICAL')from dual
         ArrayList<String> listeTables = listerTables();
         return "yoyo les couilles a Jeano";
       }
@@ -40,17 +38,18 @@ public class DumpOracleDB
       {
 
         ArrayList<String> listeTables = new ArrayList<>();
-        Statement statement = connexion.createStatement();
-
         /* Requête permettant de récupérer tous les noms de table */
-        ResultSet resultSet = statement.executeQuery("SELECT table_name FROM user_tables");
-
-        while (resultSet.next())
+        try (Statement statement = connexion.createStatement())
           {
-            String nomTable = resultSet.getString("TABLE_NAME");
-            listeTables.add(nomTable);
+            /* Requête permettant de récupérer tous les noms de table */
+            ResultSet resultSet = statement.executeQuery("SELECT table_name FROM user_tables");
+            
+            while (resultSet.next())
+              {
+                String nomTable = resultSet.getString("TABLE_NAME");
+                listeTables.add(nomTable);
+              }
           }
-
         return listeTables;
       }
 
@@ -60,10 +59,21 @@ public class DumpOracleDB
      * @param table type String, nom de la table
      * @return ArrayList<String>
      */
-    public ArrayList<String> listerColonnes(String table)
+    private ArrayList<String> listerColonnes(String table) throws SQLException
       {
         ArrayList<String> listeColonnes = new ArrayList();
-
+        //select dbms_metadata.get_ddl('TABLE','MATERIELMEDICAL')from dual
+        try (Statement statement = connexion.createStatement())
+          {
+            /* Requête permettant de récupérer tous les noms de table */
+            ResultSet resultSet = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','"+table+"')from dual");
+            
+            while (resultSet.next())
+              {
+                String nomTable = resultSet.getString(1);
+                listeColonnes.add(nomTable);
+              }
+          }
         return listeColonnes;
       }
   }
