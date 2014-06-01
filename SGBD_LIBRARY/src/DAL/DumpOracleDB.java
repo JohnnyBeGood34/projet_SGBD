@@ -45,7 +45,17 @@ public class DumpOracleDB
                 //On récupère le create table et on le concatene
                 creation += resultSet.getString(1) + "\n\n";
               }
+            //Récupération des enregistrements de la table en question
+            ResultSet resultSetSelect = statement.executeQuery("SELECT * FROM "+table);
+            insertion += "-- -------------\n";
+            insertion += "-- insertion dans la table "+table+" --\n";
+            insertion += "---------------------\n";
+            //Pour chaque enregistrements
+            while(resultSetSelect.next())
+              {
+                insertion += "INSERT INTO "+table+" VALUES(";
                 
+              }
           }
         return "yoyo les couilles a Jeano";
       }
