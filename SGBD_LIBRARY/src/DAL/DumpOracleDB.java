@@ -30,22 +30,24 @@ public class DumpOracleDB
         String creation = "";
         String insertion = "\n\n";
         ArrayList<String> listeTables = listerTables();
-        System.out.println(listeTables);
         //Statement
         Statement statement = connexion.createStatement();
         //Pour chaque tables
         for (String table : listeTables)
           {
-            creation = "-- -----------------\n";
+            creation += "-- -----------------\n";
             creation += "-- creation de la table --" + table + " --\n";
             creation += "----------------------\n";
             /* Requête permettant de récupérer tous les create table */
-            ResultSet resultSet = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','" + table + "')from dual");
+            ResultSet resultSetTable = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','" + table + "')from dual");
+            ResultSetMetaData metaTable = resultSetTable.getMetaData();
+            int nbColonnesTable = metaTable.getColumnCount();
+            System.out.println("NB COLONNES-------------" + nbColonnesTable);
             //Pour chaques create table
-            while (resultSet.next())
+            while (resultSetTable.next())
               {
                 //On récupère le create table et on le concatene
-                creation += resultSet.getString(1) + "\n\n";
+                creation += resultSetTable.getString(1) + "\n\n";
               }
             //Récupération des enregistrements de la table en question
             ResultSet resultSetSelect = statement.executeQuery("SELECT * FROM " + table);
@@ -68,8 +70,8 @@ public class DumpOracleDB
                   }
                 insertion += ");\n";
               }
+            insertion += "\n";
           }
-        insertion += "\n";
         System.out.println(entete + "\n" + creation + "\n" + insertion);
         return "yoyo les couilles a Jeano";
       }
