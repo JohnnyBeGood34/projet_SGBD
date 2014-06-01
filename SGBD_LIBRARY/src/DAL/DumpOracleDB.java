@@ -12,7 +12,7 @@ import java.sql.Connection;
  */
 public class DumpOracleDB
   {
-    public String dumpOracleDB()
+    public static String dumpOracleDB()
       {
         //Get instance du singleton de connexion
         Connection connexion = Oracle_connexion.getInstance();
