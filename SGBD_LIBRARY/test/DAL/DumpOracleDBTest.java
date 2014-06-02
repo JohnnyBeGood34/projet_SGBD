@@ -6,6 +6,10 @@
 
 package DAL;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -53,10 +57,33 @@ public class DumpOracleDBTest
         System.out.println("dumpOracleDB");
         DumpOracleDB instance = new DumpOracleDB();
         String expResult = "";
-        String result = instance.dumpOracleDB();
+        //String result = instance.dumpOracleDB();
+          //System.out.println(result);
         //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
       }
+
+    /**
+     * Test of writeDumpFile method, of class DumpOracleDB.
+     */
+    @Test
+    public void testWriteDumpFile() {
+        System.out.println("writeDumpFile");
+        //String = "";
+        DumpOracleDB instance = new DumpOracleDB();
+        
+        try {
+            String dump=instance.dumpOracleDB();
+            instance.writeDumpFile(dump,"c:/Users/Easy/Desktop/");
+            // instance.writeDumpFile(<error>);
+            //fail("The test case is a prototype.");
+            //fail("The test case is a prototype.");
+        } catch (IOException ex) {
+            Logger.getLogger(DumpOracleDBTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DumpOracleDBTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
   }
