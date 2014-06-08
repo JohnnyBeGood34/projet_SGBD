@@ -123,12 +123,10 @@ public class Menu {
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
            MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(0, Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
-                   listChampsClass.get(3), listChampsClass.get(4), 
-                    Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
-                    Integer.parseInt(listChampsClass.get(10)),  Integer.parseInt(listChampsClass.get(11)));
+                   listChampsClass.get(3), listChampsClass.get(4), Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7),
+                   Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),Integer.parseInt(listChampsClass.get(10)),  Integer.parseInt(listChampsClass.get(11)));
             try {
                 manager.insert(objet);
-                /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -141,7 +139,6 @@ public class Menu {
                     Integer.parseInt(listChampsClass.get(10)), listChampsClass.get(11), Integer.parseInt(listChampsClass.get(12)));
             try {
                 manager.insert(objet);
-                /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -152,7 +149,6 @@ public class Menu {
                     listChampsClass.get(6),listChampsClass.get(7));
             try {
                 manager.insert(objet);
-                /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -163,7 +159,6 @@ public class Menu {
                     listChampsClass.get(6),listChampsClass.get(7));
             try {
                 manager.insert(objet);
-                /*IL fau maintenant appeller la méthode avec les valeurs rentré*/
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -172,39 +167,59 @@ public class Menu {
     }
 /******************************************************FONCTION MODIFIER**************************************************************************/
     private void methodeModifier() throws ClassNotFoundException{
-        saisiFields();
-        saisiRestriction();
         saisiValues();
+        Class classCourante = Class.forName("BOL." + _nomClasse);
+        Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
+        Field[] fieldsClass = classCourante.getDeclaredFields();
+        for (int j = 1, m = fieldsSuperClass.length; j < m; j++) {
+            listChampsClass.add(ConsoleReader.readString(fieldsSuperClass[j].getName()));
+        }
+        for (int i = 1, k = fieldsClass.length; i < k; i++) {
+            listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
+        }
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
-            fields.add("IDMateriel");
-            try {
-                JSONObject objetJsonSelect = manager.select(_nomClasse, fields, restriction, values);
-                System.out.println(objetJsonSelect.toJSONString());
-                MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(Integer.parseInt(fields.get(0)), Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
-                   listChampsClass.get(3), listChampsClass.get(4), 
+                MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
+                    listChampsClass.get(3), listChampsClass.get(4), 
                     Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
                     Integer.parseInt(listChampsClass.get(10)),  Integer.parseInt(listChampsClass.get(11)));
                 try {
-                manager.update(objet);
+                    manager.update(objet);
                 } catch (SQLException ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SQLException ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
         /************ SI MaterielMedicalMaterielLoue *********************/
         if (_intChoixClasse == 2) {
-
+            MaterielMedicalMaterielLoue objet = new MaterielMedicalMaterielLoue(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
+                listChampsClass.get(3), listChampsClass.get(4), 
+                Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
+                Integer.parseInt(listChampsClass.get(10)), listChampsClass.get(11),Integer.parseInt(listChampsClass.get(12)));
+            try {
+                manager.update(objet);
+            } catch (SQLException ex) {
+                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         /************ SI PartenairePatient *********************/
         if (_intChoixClasse == 3) {
-
+            PartenairePatient objet = new PartenairePatient(Integer.parseInt(values.get(0)), listChampsClass.get(1), listChampsClass.get(2),
+                listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6), listChampsClass.get(7));
+            try {
+                manager.update(objet);
+            } catch (SQLException ex) {
+                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         /************ SI PartenairePrescripteur *********************/
         if (_intChoixClasse == 4) {
-
+            PartenairePrescripteur objet = new PartenairePrescripteur(Integer.parseInt(values.get(0)), listChampsClass.get(1), listChampsClass.get(2),
+                listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6), listChampsClass.get(7));
+            try {
+                manager.update(objet);
+            } catch (SQLException ex) {
+                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         //Je nettoie la listChampsClass pour de prochaine modification
         clearList();
