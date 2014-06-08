@@ -34,6 +34,7 @@ public class Menu {
     private final ArrayList<String> values = new ArrayList();
     private final ArrayList<String> fields = new ArrayList();
     private final ArrayList<String> listChampsClass = new ArrayList<>();
+    private Manager_DAO manager = new Manager_DAO("Oracle");
     
     
     public void ChoixClasse() throws ClassNotFoundException {
@@ -85,7 +86,8 @@ public class Menu {
             else if (_intChoixMethode == 2) {methodeAjouter();}
             else if (_intChoixMethode == 3) {methodeModifier();}
             else if (_intChoixMethode == 4) {methodeSupprimer();}
-            else if (_intChoixMethode == 5) {erreur(); menuChoixMethode();}
+            else if (_intChoixMethode == 5) {ChoixClasse();}
+            else{erreur(); menuChoixMethode();}
         } while (_intChoixMethode != 5);
     }
     
@@ -96,10 +98,19 @@ public class Menu {
         saisiFields();
         saisiRestriction();
         saisiValues();
+        JSONObject resultat = new JSONObject();
+        
+        try {
+            resultat = manager.select(_nomClasse, fields, restriction, values);
+        } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("JSON RESULTAT" + resultat.toJSONString());
+        
+        clearList();
     }
 /******************************************************FONCTION AJOUTER**************************************************************************/
     private void methodeAjouter() throws ClassNotFoundException{
-        Manager_DAO manager = new Manager_DAO("Oracle");
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
         Field[] fieldsClass = classCourante.getDeclaredFields();
@@ -164,7 +175,6 @@ public class Menu {
         saisiFields();
         saisiRestriction();
         saisiValues();
-        Manager_DAO manager = new Manager_DAO("Oracle");
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
             fields.add("IDMateriel");
@@ -180,17 +190,7 @@ public class Menu {
                 } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (NoSuchMethodException ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalArgumentException ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (InvocationTargetException ex) {
-                Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -211,7 +211,6 @@ public class Menu {
     }
 /******************************************************FONCTION SUPPRIMER**************************************************************************/
     private void methodeSupprimer(){
-        Manager_DAO manager = new Manager_DAO("Oracle");
         saisiFields();
         saisiRestriction();
         saisiValues();
