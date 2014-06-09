@@ -37,6 +37,8 @@ public class Menu {
     private Manager_DAO manager = new Manager_DAO("Oracle");
     
     
+/*******************************************************************FONCTION DE MENU ******************************************************/
+    
     public void ChoixClasse() throws ClassNotFoundException {
         clearList();
         do {
@@ -70,7 +72,7 @@ public class Menu {
         } while (_intChoixClasse != 5);
     }
     
-/*******************************************************************FONCTION DE MENU ******************************************************/
+/*******************************************************************FONCTION DE SOUS MENU ******************************************************/
     
     // Fonction permettande de choisir la modif à faire en base
     private void menuChoixMethode() throws ClassNotFoundException{
@@ -94,6 +96,8 @@ public class Menu {
     
     
 /******************************************************FONCTION LISTER**************************************************************************/
+/******************************************CA MARCHE POUR UN RESULTAT DE SORTIE MAIS PAS POUR UNE LISTE*******************************************/
+    
     private void methodeLister(){
         saisiFields();
         saisiRestriction();
@@ -109,7 +113,11 @@ public class Menu {
         
         clearList();
     }
+    
+    
 /******************************************************FONCTION AJOUTER**************************************************************************/
+/*******************************Ne marche pas car pas de trigger insert**************************************************/
+    
     private void methodeAjouter() throws ClassNotFoundException{
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
@@ -165,24 +173,31 @@ public class Menu {
         }
         clearList();
     }
+    
+    
 /******************************************************FONCTION MODIFIER**************************************************************************/
+/************************MaterielMedicalMaterielAchat et MaterielMedicalMaterielLoue marche pas, LES AUTRES MARCHENT************************************/
+    
     private void methodeModifier() throws ClassNotFoundException{
         saisiValues();
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
         Field[] fieldsClass = classCourante.getDeclaredFields();
+        // j = 1 pour ne pas afficher l'ID de la classe mère
         for (int j = 1, m = fieldsSuperClass.length; j < m; j++) {
             listChampsClass.add(ConsoleReader.readString(fieldsSuperClass[j].getName()));
         }
-        for (int i = 1, k = fieldsClass.length; i < k; i++) {
+        // i = 0 car il s'agit de la classe fille donc pas d'id
+        for (int i = 0, k = fieldsClass.length; i < k; i++) {
             listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
         }
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
-                MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
-                    listChampsClass.get(3), listChampsClass.get(4), 
-                    Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
-                    Integer.parseInt(listChampsClass.get(10)),  Integer.parseInt(listChampsClass.get(11)));
+                MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(0)), 
+                        Integer.parseInt(listChampsClass.get(1)),listChampsClass.get(2), listChampsClass.get(3), 
+                    Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6), 
+                        Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),
+                    Integer.parseInt(listChampsClass.get(9)),  Integer.parseInt(listChampsClass.get(10)));
                 try {
                     manager.update(objet);
                 } catch (SQLException ex) {
@@ -191,10 +206,11 @@ public class Menu {
         }
         /************ SI MaterielMedicalMaterielLoue *********************/
         if (_intChoixClasse == 2) {
-            MaterielMedicalMaterielLoue objet = new MaterielMedicalMaterielLoue(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
-                listChampsClass.get(3), listChampsClass.get(4), 
-                Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
-                Integer.parseInt(listChampsClass.get(10)), listChampsClass.get(11),Integer.parseInt(listChampsClass.get(12)));
+            MaterielMedicalMaterielLoue objet = new MaterielMedicalMaterielLoue(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(0)),
+                    Integer.parseInt(listChampsClass.get(1)), listChampsClass.get(2), listChampsClass.get(3), 
+                Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6), Float.parseFloat(listChampsClass.get(7)),
+                    listChampsClass.get(8),
+                Integer.parseInt(listChampsClass.get(9)), listChampsClass.get(10),Integer.parseInt(listChampsClass.get(11)));
             try {
                 manager.update(objet);
             } catch (SQLException ex) {
@@ -202,9 +218,10 @@ public class Menu {
             }
         }
         /************ SI PartenairePatient *********************/
+        /**********CA MARCHE************/
         if (_intChoixClasse == 3) {
-            PartenairePatient objet = new PartenairePatient(Integer.parseInt(values.get(0)), listChampsClass.get(1), listChampsClass.get(2),
-                listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6), listChampsClass.get(7));
+            PartenairePatient objet = new PartenairePatient(Integer.parseInt(values.get(0)), listChampsClass.get(0), listChampsClass.get(1),
+                listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6));
             try {
                 manager.update(objet);
             } catch (SQLException ex) {
@@ -212,9 +229,10 @@ public class Menu {
             }
         }
         /************ SI PartenairePrescripteur *********************/
+        /**********CA MARCHE************/
         if (_intChoixClasse == 4) {
-            PartenairePrescripteur objet = new PartenairePrescripteur(Integer.parseInt(values.get(0)), listChampsClass.get(1), listChampsClass.get(2),
-                listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6), listChampsClass.get(7));
+            PartenairePrescripteur objet = new PartenairePrescripteur(Integer.parseInt(values.get(0)), listChampsClass.get(0), listChampsClass.get(1),
+                listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6));
             try {
                 manager.update(objet);
             } catch (SQLException ex) {
@@ -224,7 +242,11 @@ public class Menu {
         //Je nettoie la listChampsClass pour de prochaine modification
         clearList();
     }
+    
+    
 /******************************************************FONCTION SUPPRIMER**************************************************************************/
+/************************************LA FONCTION et trigger marche mais le code_behind ne marche pas, JohnY à toi de jouer :-)************************************/
+    
     private void methodeSupprimer(){
         saisiFields();
         saisiRestriction();
@@ -236,6 +258,10 @@ public class Menu {
         }
         clearList();
     }
+    
+/******************************TOUT LE RESTE SONT DES FONCTIONS D'APPEL GENERALISER**********************************************/
+    
+    
 /*******************************************************************FONCTION DE SAISI DE VALEUR ******************************************************/
     //Fonction d'enregistrement du champs saisi par l'utilisateur
     private void saisiFields(){
@@ -253,6 +279,7 @@ public class Menu {
         restriction.add(_restrictionSaisi);
     }
     
+    
 /*******************************************************************FONCTION DE NETTOYAGE ******************************************************/
     //Fonction qui nettoie toutes les listes pour les prochaines utilisations.
     private void clearList(){
@@ -261,6 +288,8 @@ public class Menu {
         restriction.clear();
         values.clear();
     }
+    
+    
 /*******************************************************************FONCTION DE GESTION D'ERREUR ******************************************************/
     //Fonction qui génère à l'utilisateur une erreur de saisie
     private void erreur() {
