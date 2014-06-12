@@ -73,6 +73,7 @@ public class DumpOracleDB
             insertion += "\n";
           }
         System.out.println(entete + "\n" + creation + "\n" + insertion);
+        String nomfichier = "dump.sql";
         return "yoyo les couilles a Jeano";
       }
 
