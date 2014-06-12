@@ -74,11 +74,8 @@ public class DumpOracleDBTest
         DumpOracleDB instance = new DumpOracleDB();
         
         try {
-            String dump=instance.dumpOracleDB();
-            instance.writeDumpFile(dump,"c:/Users/Easy/Desktop/");
-            // instance.writeDumpFile(<error>);
-            //fail("The test case is a prototype.");
-            //fail("The test case is a prototype.");
+            instance.dumpOracleDB();
+                        
         } catch (IOException ex) {
             Logger.getLogger(DumpOracleDBTest.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
