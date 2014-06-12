@@ -4,12 +4,18 @@
  */
 package DAL;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Classe permettant de faire un export de la base de données oracle
@@ -24,20 +30,20 @@ public class DumpOracleDB
 
     public String dumpOracleDB() throws SQLException
       {
-        String entete = "-------------------\n";
-        entete += "--Dump de la base--\n";
-        entete += "------------------\n\n\n";
+        String entete = "-------------------\r\n";
+        entete += "--Dump de la base--\r\n";
+        entete += "------------------\r\n\n\n";
         String creation = "";
-        String insertion = "\n\n";
+        String insertion = "\r\n\n";
         ArrayList<String> listeTables = listerTables();
         //Statement
         Statement statement = connexion.createStatement();
         //Pour chaque tables
         for (String table : listeTables)
           {
-            creation += "-- -----------------\n";
-            creation += "-- creation de la table --" + table + " --\n";
-            creation += "----------------------\n";
+            creation += "-- -----------------\r\n";
+            creation += "-- creation de la table --" + table + " --\r\n";
+            creation += "----------------------\r\n";
             /* Requête permettant de récupérer tous les create table */
             ResultSet resultSetTable = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','" + table + "')from dual");
             ResultSetMetaData metaTable = resultSetTable.getMetaData();
@@ -47,13 +53,13 @@ public class DumpOracleDB
             while (resultSetTable.next())
               {
                 //On récupère le create table et on le concatene
-                creation += resultSetTable.getString(1) + "\n\n";
+                creation += resultSetTable.getString(1) + "\r\n\n";
               }
             //Récupération des enregistrements de la table en question
             ResultSet resultSetSelect = statement.executeQuery("SELECT * FROM " + table);
-            insertion += "-- -------------\n";
-            insertion += "-- insertion dans la table " + table + " --\n";
-            insertion += "---------------------\n";
+            insertion += "-- -------------\r\n";
+            insertion += "-- insertion dans la table " + table + " --\r\n";
+            insertion += "---------------------\r\n";
             //Pour chaque enregistrements
             ResultSetMetaData meta = resultSetSelect.getMetaData();
             int nbColonnes = meta.getColumnCount();
@@ -68,19 +74,42 @@ public class DumpOracleDB
                       }
                     insertion += "'" + resultSetSelect.getString(compteur) + "'";
                   }
-                insertion += ");\n";
+                insertion += ");\r\n";
               }
-            insertion += "\n";
+            insertion += "\r\n";
           }
+<<<<<<< HEAD
         System.out.println(entete + "\n" + creation + "\n" + insertion);
         String nomfichier = "dump.sql";
         return "yoyo les couilles a Jeano";
+=======
+        //System.out.println(entete + "\n" + creation + "\n" + insertion);
+        return (entete + "\r\n" + creation + "\r\n" + insertion);
+>>>>>>> 8b513632e497c75c5e22e8a01cbcbde3a04ccbc0
       }
+    
+    /**
+     * Méthode permettant d'écrire le fichier de dump de la BD
+     * @param contenu type String Contenu du fichier à écrire
+     * @param chemin type String Chemin où enregitrer le fichier
+    */
+    public void writeDumpFile (String contenu,String chemin) throws IOException{
+      
+      Date date =new Date(); 
+      String dateFichier=new SimpleDateFormat("dd-MM-yyyy").format(date);
+      File fichier = new File(chemin+"dump_"+dateFichier+".sql");  
+      
+      FileWriter filewriter=new FileWriter(fichier);
+        try (BufferedWriter bufferwriter = new BufferedWriter(filewriter)) {
+            bufferwriter.write(contenu);
+        }
+       
+    }
 
     /**
      * Methode retournant la liste des Tables de la BD
      *
-     * @param connection type Connection, la connection pour la BD
+     * 
      * @return ArrayList<String> la liste des tables de la BD
      * @throws java.sql.SQLException
      */

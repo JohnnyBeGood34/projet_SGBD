@@ -127,9 +127,9 @@ public class Manager_DAOTest
         ArrayList<String> champs= new ArrayList();
         ArrayList<String> valeurs=new ArrayList();
         ArrayList<String> restriction=new ArrayList();
-        champs.add("NOM");
-        valeurs.add("stef");
-        restriction.add("LIKE");
+        champs.add("idPartenaire");
+        valeurs.add("337");
+        restriction.add("=");
         JSONObject result=manager.delete("PartenairePrescripteur",champs,restriction,valeurs);
         System.out.println(result);
         //assertEquals(expResult, result);

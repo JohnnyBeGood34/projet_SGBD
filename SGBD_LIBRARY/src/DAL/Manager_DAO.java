@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
 import java.util.ArrayList;
 import org.json.simple.JSONObject;
 
@@ -154,7 +153,9 @@ public class Manager_DAO {
             System.out.println("BEFORE PREPARE----------" + prepare.toString());
             //Pour chaque entrée de l'array de parametres
             for (int i = 1; i <= parametresRequete.size(); i++) {
-                prepare.setString(i, parametresRequete.get(i - 1));
+                //Je transforme tout les  "." pour que le "." des floats devienne "," pour que oracle le reconnaise en tant que float
+                String nouveauFloat = parametresRequete.get(i - 1).replaceAll("\\.", ",");
+                prepare.setString(i, nouveauFloat);
             }
             System.out.println("AFTER PREPARE----------" + prepare.toString());
             prepare.executeUpdate();
@@ -221,7 +222,9 @@ public class Manager_DAO {
             parametresRequete.add(id);
             //Pour chaque entrée de l'array de parametres
             for (int i = 1; i <= parametresRequete.size(); i++) {
-                prepare.setString(i, parametresRequete.get(i - 1));
+                //Je transforme tout les  "." pour que le "." des floats devienne "," pour que oracle le reconnaise en tant que float
+                String nouveauFloat = parametresRequete.get(i - 1).replaceAll("\\.", ",");
+                prepare.setString(i, nouveauFloat);
             }
             System.out.println("AFTER PREPARE----------" + prepare.toString());
             prepare.executeUpdate();

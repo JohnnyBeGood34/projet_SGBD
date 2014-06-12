@@ -6,8 +6,6 @@
 
 package BOL;
 
-import java.util.Date;
-
 /**
  *
  * @author Kevin
@@ -20,12 +18,12 @@ public abstract class Partenaire {
     private String telephonePartenaire;
     private String mail;
     
-    public Partenaire(int id,String nom, String prenom,String dateNaissance,String telephonePartenaire,String mail)
+    public Partenaire(int idPartenaire,String nom, String prenom,String dateDeNaissance,String telephonePartenaire,String mail)
       {
-        this.idPartenaire = id;
+        this.idPartenaire = idPartenaire;
         this.nom = nom;
         this.prenom = prenom;
-        this.dateDeNaissance = dateNaissance;
+        this.dateDeNaissance = dateDeNaissance;
         this.telephonePartenaire = telephonePartenaire;
         this.mail = mail;
       }

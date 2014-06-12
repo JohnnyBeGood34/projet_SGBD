@@ -11,7 +11,7 @@ package BOL;
  * @author Kevin
  */
 public abstract class MaterielMedical {
-    private int IDMateriel;
+    private int idMateriel;
     private int idTVA;
     private int idTypeMateriel;
     private String libelle;
@@ -23,10 +23,10 @@ public abstract class MaterielMedical {
     private String description;
     private int uniteVente;
     
-    public MaterielMedical(int IDMateriel, int idTVA, int idTypeMateriel, String libelle, String marque, Float prixHT, int numeroSerie,
+    public MaterielMedical(int idMateriel, int idTVA, int idTypeMateriel, String libelle, String marque, Float prixHT, int numeroSerie,
             String dimensions, Float poids, String description, int uniteVente)
       {
-        this.IDMateriel = IDMateriel;
+        this.idMateriel = idMateriel;
         this.idTVA = idTVA;
         this.idTypeMateriel = idTypeMateriel;
         this.libelle = libelle;
@@ -42,8 +42,8 @@ public abstract class MaterielMedical {
     /**
      * @return the idMateriel
      */
-    public int get_IDMateriel() {
-        return IDMateriel;
+    public int get_idMateriel() {
+        return idMateriel;
     }
 
     /**
@@ -117,11 +117,11 @@ public abstract class MaterielMedical {
     }
 
     /**
-     * @param IDMateriel
+     * @param idMateriel
      * the idMateriel to set
      */
-    public void setIDMateriel(int IDMateriel) {
-        this.IDMateriel = IDMateriel;
+    public void setIdMateriel(int idMateriel) {
+        this.idMateriel = idMateriel;
     }
 
     /**
