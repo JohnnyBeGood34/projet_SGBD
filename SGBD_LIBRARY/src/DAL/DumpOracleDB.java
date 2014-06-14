@@ -86,6 +86,7 @@ public class DumpOracleDB
      * Méthode permettant d'écrire le fichier de dump de la BD
      * @param contenu type String Contenu du fichier à écrire
      * @param chemin type String Chemin où enregitrer le fichier
+     * @throws java.io.IOException
     */
     public void writeDumpFile (String contenu,String chemin) throws IOException{
       
