@@ -1,4 +1,5 @@
-<?xml version="1.0"?>   
+<?xml version="1.0"?>  
+<!--BUILD.XML POUR LES TESTS JUNIT!--> 
 <project name="java-junit-sgbd-library" default="test" basedir=".">
   <property name="main.build.dir" value="SGBD_LIBRARY/build/main" />  
   <property name="main.src.dir" value="SGBD_LIBRARY/src" />
