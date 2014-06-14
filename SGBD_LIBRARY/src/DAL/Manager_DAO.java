@@ -185,6 +185,9 @@ public class Manager_DAO
             prepare.executeUpdate();
             try ( /* On récupère le dernier ID inséré */Statement statement = connexion.createStatement())
               {
+                /**
+                 * A METTRE DANS UN TRANSACTION
+                 */
                 String lastId = "SELECT * FROM ( SELECT * FROM " + objet.getClass().getSimpleName() + " ORDER BY 1 DESC ) WHERE ROWNUM = 1 ";
                 ResultSet rs = statement.executeQuery(lastId);
 
