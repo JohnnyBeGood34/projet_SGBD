@@ -16,14 +16,14 @@
   </path>
 
   <target name="test" depends="run, clean" />
-
+<!--Compile le tout!-->
   <target name="compile">
     <mkdir dir="${main.build.dir}"/>
     <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false">
       <classpath refid="classpath.base"/>
     </javac>
   </target>
-
+<!--Build le tout!-->
   <target name="build" depends="compile">
     <mkdir dir="${test.build.dir}"/>
     <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
