@@ -7,9 +7,7 @@
   <property name="test.src.dir" value="SGBD_LIBRARY/test" />
 
   <path id="classpath.base" />
-  <path id="compile.classpath">
-      <fileset dir="SGBD_LIBRARY/lib" includes="**/*.jar"/>
-  </path>
+    
   <path id="classpath.test">
     <pathelement location="SGBD_LIBRARY/lib/junit-4.10.jar" />
     <pathelement location="${main.build.dir}"/>
@@ -28,7 +26,9 @@
   <target name="build" depends="compile">
     <mkdir dir="${test.build.dir}"/>
     <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
-        <classpath refid="classpath.test"/>
+        <classpath refid="classpath.test"> 
+            <pathelement path="lib/json-simple-1.1.1.jar"/>
+        </classpath>
     </javac>
     <echo message="Build done" />
   </target>
