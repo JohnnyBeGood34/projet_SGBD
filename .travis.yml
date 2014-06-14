@@ -1,2 +1,1 @@
 language: java
-script: "./SGBD_LIBRARY/SGBD_LIBRARY.java"
