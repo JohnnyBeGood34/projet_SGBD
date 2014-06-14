@@ -45,8 +45,6 @@
     </junit>
   </target>
    
-  <!-- delete all class files -->
-  <!-- To run this: use "ant clean" -->
   <target name="clean">
     <delete>
         <fileset dir="${basedir}" includes="**/*.class" />
