@@ -215,7 +215,10 @@ public class DumpOracleDB
           }
         return listeTables;
       }
-
+    /**
+     * @return liste des vues de la base de données
+     * @throws SQLException 
+     */
     private ArrayList<String> listerVues() throws SQLException
       {
         ArrayList<String> listeVues = new ArrayList();
@@ -230,7 +233,10 @@ public class DumpOracleDB
           }
         return listeVues;
       }
-
+    /**
+     * @return liste des triggers de la base de données
+     * @throws SQLException 
+     */
     private ArrayList<String> listerTriggers() throws SQLException
       {
         ArrayList<String> listeTriggers = new ArrayList();
@@ -246,7 +252,10 @@ public class DumpOracleDB
 
         return listeTriggers;
       }
-
+    /**
+     * @return liste s"quences de la base de données
+     * @throws SQLException 
+     */
     private ArrayList<String> listerSequences() throws SQLException
       {
         ArrayList<String> listeSequence = new ArrayList();
@@ -261,7 +270,10 @@ public class DumpOracleDB
           }
         return listeSequence;
       }
-
+    /**
+     * @return liste des procédures de la base de données
+     * @throws SQLException 
+     */
     private ArrayList<String> listerProcedures() throws SQLException
       {
         ArrayList<String> listeProcedures = new ArrayList();
