@@ -8,7 +8,7 @@
 
   <path id="classpath.base" />
   <path id="compile.classpath">
-      <fileset dir="SGBD_LIBRARY/lib" includes="**/jar"/>
+      <fileset dir="SGBD_LIBRARY/lib" includes="**/*.jar"/>
   </path>
   <path id="classpath.test">
     <pathelement location="SGBD_LIBRARY/lib/junit-4.10.jar" />
