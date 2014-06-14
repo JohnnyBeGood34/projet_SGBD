@@ -74,8 +74,8 @@ public class DumpOracleDBTest
         DumpOracleDB instance = new DumpOracleDB();
         
         try {
-            instance.dumpOracleDB();
-                        
+            String dump = instance.dumpOracleDB();
+            instance.writeDumpFile(dump, "c:/projet");
         } catch (IOException ex) {
             Logger.getLogger(DumpOracleDBTest.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

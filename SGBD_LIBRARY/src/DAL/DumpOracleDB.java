@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -29,7 +28,7 @@ public class DumpOracleDB
     //Get instance du singleton de connexion
     private Connection connexion = Oracle_connexion.getInstance();
 
-    public void dumpOracleDB() throws SQLException, IOException
+    public String dumpOracleDB() throws SQLException, IOException
       {
         String entete = "-------------------\r\n";
         entete += "--Dump de la base--\r\n";
@@ -49,7 +48,7 @@ public class DumpOracleDB
             creation += "----------------------\r\n";
             /* Requête permettant de récupérer tous les create table */
             ResultSet resultSetTable = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','" + table + "')from dual");
-            ResultSetMetaData metaTable = resultSetTable.getMetaData();
+            
             //Pour chaques create table
             while (resultSetTable.next())
               {
@@ -121,7 +120,6 @@ public class DumpOracleDB
                   }
               }
           }
-
         String creationSequence = "";
         ArrayList<String> listeSequences = listerSequences();
         /*
@@ -163,10 +161,10 @@ public class DumpOracleDB
                   }
               }
           }
-
+        statement.close();;
+        //Construction de la chaine de requete
         String dumpDb = entete + "\n" + creation + "\n" + insertion + "\n" + creationVue + "\n" + creationSequence + "\n" + creationTrigger + "\n" + creationProcedure + "\n";
-        System.out.println(dumpDb);
-        //writeDumpFile(contenu,"C:/dumpDB");
+        return dumpDb;
       }
 
     /**
@@ -175,9 +173,8 @@ public class DumpOracleDB
      * @param contenu type String Contenu du fichier à écrire
      * @param chemin type String Chemin où enregitrer le fichier
      */
-    private void writeDumpFile(String contenu, String chemin) throws IOException
+    public void writeDumpFile(String contenu, String chemin) throws IOException
       {
-
         Date date = new Date();
         String dateFichier = new SimpleDateFormat("dd-MM-yyyy").format(date);
         File fichier = new File(chemin + "dump_" + dateFichier + ".sql");
@@ -212,6 +209,7 @@ public class DumpOracleDB
                 String nomTable = resultSet.getString("TABLE_NAME");
                 listeTables.add(nomTable);
               }
+            statement.close();
           }
         return listeTables;
       }
@@ -230,6 +228,7 @@ public class DumpOracleDB
                 String nomVue = resultSet.getString("VIEW_NAME");
                 listeVues.add(nomVue);
               }
+            statement.close();
           }
         return listeVues;
       }
@@ -248,6 +247,7 @@ public class DumpOracleDB
                 String nomVue = resultSet.getString("TRIGGER_NAME");
                 listeTriggers.add(nomVue);
               }
+            statement.close();
           }
 
         return listeTriggers;
@@ -267,6 +267,7 @@ public class DumpOracleDB
                 String nomSequence = resultSet.getString("SEQUENCE_NAME");
                 listeSequence.add(nomSequence);
               }
+            statement.close();
           }
         return listeSequence;
       }
@@ -285,6 +286,7 @@ public class DumpOracleDB
                 String nomProcedure = resultSet.getString("PROCEDURE_NAME");
                 listeProcedures.add(nomProcedure);
               }
+            statement.close();
           }
         return listeProcedures;
       }

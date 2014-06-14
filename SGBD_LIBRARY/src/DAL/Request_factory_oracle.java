@@ -4,9 +4,11 @@
  */
 package DAL;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,7 +52,40 @@ public class Request_factory_oracle implements IBDD
       {
         return this._parametres;
       }
-
+    /*
+     * Fonction permettant de creer le fichier .sql du dump de la base de données
+    */
+    @Override
+    public void dumpDb(String chemin)
+      {
+        DumpOracleDB dumpClass = new DumpOracleDB();
+        try
+          {
+            String dump = dumpClass.dumpOracleDB();
+            dumpClass.writeDumpFile(dump, chemin);
+          } catch (SQLException | IOException ex)
+          {
+            Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        
+      }
+    /*
+     * Fonction permettant d'obtenir le dump de la base de données sous forme de String
+    */
+    @Override
+    public String getDumpDb()
+      {
+        String dump = "";
+        DumpOracleDB dumpClass = new DumpOracleDB();
+        try
+          {
+            dump = dumpClass.dumpOracleDB();
+          } catch (SQLException | IOException ex)
+          {
+            Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        return dump;
+      }
     /**
      * requeteLister sert à construire une requete de selection dynamique avec
      *
@@ -143,8 +178,19 @@ public class Request_factory_oracle implements IBDD
                 methode = nomClasse.getMethod(nomMethode);
                 try
                   {
+                    String resultMethode;
                     //methode.invoke permet d'appeller une methode construite en string
-                    this._parametres.add(String.valueOf(methode.invoke(objet)));
+                    //Remplace les . par des virgules si il y en a, permettant à la base de données oracle d'interpreter correctement les float
+                    //Si l'attribut est de type Float, on enleve le point on le remplace par une virgule
+                    if (methode.invoke(objet) instanceof Float)
+                      {
+                        resultMethode = String.valueOf(methode.invoke(objet)).replaceAll("\\.", ",");
+                      } else
+                      {
+                        resultMethode = String.valueOf(methode.invoke(objet));
+                      }
+
+                    this._parametres.add(resultMethode);
                   } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
                   {
                     Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
@@ -192,11 +238,11 @@ public class Request_factory_oracle implements IBDD
         //Construction d'un arrayList d'attributs sous forme de string
         //Pour les utiliser dans la construction de la requete
         ArrayList<String> fieldsString = getFieldstoString(fields);
-      
+
         int compteur = 0;
         for (String field : fieldsString)
           {
-              
+
             String nomMethode = "get_" + field;
             if (!field.equals(fieldsString.get(0)))
               {
@@ -264,9 +310,7 @@ public class Request_factory_oracle implements IBDD
           }
         this._requete = sql;
       }
-    
-    
-    
+
     /**
      * @param fields, est un ArrayList de tableau de champs (Fields).
      * @return ArrayList<Srting>, contenant les champs sous forme de Strings.
