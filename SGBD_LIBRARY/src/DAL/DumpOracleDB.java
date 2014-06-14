@@ -22,22 +22,25 @@ import java.util.Date;
  *
  * @author JOHN
  */
-public class DumpOracleDB
+public class DumpOracleDB implements IDumpDb
   {
 
     //Get instance du singleton de connexion
     private Connection connexion = Oracle_connexion.getInstance();
-
-    public String dumpOracleDB() throws SQLException
+    
+    @Override
+    public String dumpDb() throws SQLException, IOException      
       {
         String entete = "-------------------\r\n";
         entete += "--Dump de la base--\r\n";
         entete += "------------------\r\n\n\n";
+
         String creation = "";
         String insertion = "\r\n\n";
         ArrayList<String> listeTables = listerTables();
         //Statement
         Statement statement = connexion.createStatement();
+
         //Pour chaque tables
         for (String table : listeTables)
           {
@@ -46,9 +49,7 @@ public class DumpOracleDB
             creation += "----------------------\r\n";
             /* Requête permettant de récupérer tous les create table */
             ResultSet resultSetTable = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','" + table + "')from dual");
-            ResultSetMetaData metaTable = resultSetTable.getMetaData();
-            int nbColonnesTable = metaTable.getColumnCount();
-            System.out.println("NB COLONNES-------------" + nbColonnesTable);
+            
             //Pour chaques create table
             while (resultSetTable.next())
               {
@@ -78,15 +79,102 @@ public class DumpOracleDB
               }
             insertion += "\r\n";
           }
-        //System.out.println(entete + "\n" + creation + "\n" + insertion);
-        return (entete + "\r\n" + creation + "\r\n" + insertion);
+
+        String creationVue = "";
+        ArrayList<String> listeVues = listerVues();
+        /*
+         * Pour chaque vue
+         */
+        for (String vue : listeVues)
+          {
+            if (vue != null)
+              {
+                creationVue += "-- -----------------\r\n";
+                creationVue += "-- creation de la vue --" + vue + " --\r\n";
+                creationVue += "----------------------\r\n";
+                ResultSet resultSetVue = statement.executeQuery("select dbms_metadata.get_ddl('VIEW','" + vue + "')from dual");
+                while (resultSetVue.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationVue += resultSetVue.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+
+        String creationTrigger = "";
+        ArrayList<String> listeTriggers = listerTriggers();
+        /*
+         * Pour chaque trigger
+         */
+        for (String trigger : listeTriggers)
+          {
+            if (trigger != null)
+              {
+                creationTrigger += "-- -----------------\r\n";
+                creationTrigger += "-- creation du trigger --" + trigger + " --\r\n";
+                creationTrigger += "----------------------\r\n";
+                ResultSet resultSetTrigger = statement.executeQuery("select dbms_metadata.get_ddl('TRIGGER','" + trigger + "')from dual");
+                while (resultSetTrigger.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationTrigger += resultSetTrigger.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+        String creationSequence = "";
+        ArrayList<String> listeSequences = listerSequences();
+        /*
+         * Pour chaque sequence
+         */
+        for (String sequence : listeSequences)
+          {
+            if (sequence != null)
+              {
+                creationSequence += "-- -----------------\r\n";
+                creationSequence += "-- creation de la sequence --" + sequence + " --\r\n";
+                creationSequence += "----------------------\r\n";
+                ResultSet resultSetSequence = statement.executeQuery("select dbms_metadata.get_ddl('SEQUENCE','" + sequence + "')from dual");
+                while (resultSetSequence.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationSequence += resultSetSequence.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+
+        String creationProcedure = "";
+        ArrayList<String> listeProcedures = listerProcedures();
+        /*
+         * Pour chaque sequence
+         */
+        for (String procedure : listeProcedures)
+          {
+            if (procedure != null)
+              {
+                creationProcedure += "-- -----------------\r\n";
+                creationProcedure += "-- creation de la procedure --" + procedure + " --\r\n";
+                creationProcedure += "----------------------\r\n";
+                ResultSet resultSetProcedure = statement.executeQuery("select dbms_metadata.get_ddl('PROCEDURE','" + procedure + "')from dual");
+                while (resultSetProcedure.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationProcedure += resultSetProcedure.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+        statement.close();
+        //Construction de la chaine de requete
+        String dumpDb = entete + "\n" + creation + "\n" + insertion + "\n" + creationVue + "\n" + creationSequence + "\n" + creationTrigger + "\n" + creationProcedure + "\n";
+        return dumpDb;
       }
-    
+
     /**
      * Méthode permettant d'écrire le fichier de dump de la BD
+     *
      * @param contenu type String Contenu du fichier à écrire
      * @param chemin type String Chemin où enregitrer le fichier
      * @throws java.io.IOException
+
     */
     public void writeDumpFile (String contenu,String chemin) throws IOException{
       
@@ -96,19 +184,20 @@ public class DumpOracleDB
       
       FileWriter filewriter=new FileWriter(fichier);
         try (BufferedWriter bufferwriter = new BufferedWriter(filewriter)) {
-            bufferwriter.write(contenu);
-        }
-       
-    }
+
+          }
+
+      }
 
     /**
      * Methode retournant la liste des Tables de la BD
      *
-     * 
+     *
      * @return ArrayList<String> la liste des tables de la BD
      * @throws java.sql.SQLException
      */
-    private ArrayList<String> listerTables() throws SQLException
+    @Override
+    public ArrayList<String> listerTables() throws SQLException
       {
 
         ArrayList<String> listeTables = new ArrayList<>();
@@ -123,7 +212,90 @@ public class DumpOracleDB
                 String nomTable = resultSet.getString("TABLE_NAME");
                 listeTables.add(nomTable);
               }
+            statement.close();
           }
         return listeTables;
       }
+    /**
+     * @return liste des vues de la base de données
+     * @throws SQLException 
+     */
+    @Override
+    public ArrayList<String> listerVues() throws SQLException
+      {
+        ArrayList<String> listeVues = new ArrayList();
+        try (Statement statement = connexion.createStatement())
+          {
+            ResultSet resultSet = statement.executeQuery("select view_name from user_views");
+            while (resultSet.next())
+              {
+                String nomVue = resultSet.getString("VIEW_NAME");
+                listeVues.add(nomVue);
+              }
+            statement.close();
+          }
+        return listeVues;
+      }
+    /**
+     * @return liste des triggers de la base de données
+     * @throws SQLException 
+     */
+    @Override
+    public ArrayList<String> listerTriggers() throws SQLException
+      {
+        ArrayList<String> listeTriggers = new ArrayList();
+        try (Statement statement = connexion.createStatement())
+          {
+            ResultSet resultSet = statement.executeQuery("select trigger_name from user_triggers");
+            while (resultSet.next())
+              {
+                String nomVue = resultSet.getString("TRIGGER_NAME");
+                listeTriggers.add(nomVue);
+              }
+            statement.close();
+          }
+
+        return listeTriggers;
+      }
+    /**
+     * @return liste s"quences de la base de données
+     * @throws SQLException 
+     */
+    @Override
+    public ArrayList<String> listerSequences() throws SQLException
+      {
+        ArrayList<String> listeSequence = new ArrayList();
+        try (Statement statement = connexion.createStatement())
+          {
+            ResultSet resultSet = statement.executeQuery("select sequence_name from user_sequences");
+            while (resultSet.next())
+              {
+                String nomSequence = resultSet.getString("SEQUENCE_NAME");
+                listeSequence.add(nomSequence);
+              }
+            statement.close();
+          }
+        return listeSequence;
+      }
+    /**
+     * @return liste des procédures de la base de données
+     * @throws SQLException 
+     */
+    @Override
+    public ArrayList<String> listerProcedures() throws SQLException
+      {
+        ArrayList<String> listeProcedures = new ArrayList();
+        try (Statement statement = connexion.createStatement())
+          {
+            ResultSet resultSet = statement.executeQuery("select procedure_name from user_procedures");
+            while (resultSet.next())
+              {
+                String nomProcedure = resultSet.getString("PROCEDURE_NAME");
+                listeProcedures.add(nomProcedure);
+              }
+            statement.close();
+          }
+        return listeProcedures;
+      }
+
   }

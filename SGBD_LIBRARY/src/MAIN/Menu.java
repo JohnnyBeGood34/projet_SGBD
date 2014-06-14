@@ -34,7 +34,7 @@ public class Menu {
     private final ArrayList<String> values = new ArrayList();
     private final ArrayList<String> fields = new ArrayList();
     private final ArrayList<String> listChampsClass = new ArrayList<>();
-    private Manager_DAO manager = new Manager_DAO("Oracle");
+    private Manager_DAO manager ;
     
     
 /*******************************************************************FONCTION DE MENU ******************************************************/
@@ -77,6 +77,8 @@ public class Menu {
     // Fonction permettande de choisir la modif à faire en base
     private void menuChoixMethode() throws ClassNotFoundException{
         do {
+            //Je déclare ici mon manager afin de le réinstancié à chaque chargement du sous menu pour de pas concaténer les objets
+            manager = new Manager_DAO("Oracle");
             System.out.println(_nomClasse);
             System.out.println("1 - Lister");
             System.out.println("2 - Ajouter");
@@ -122,7 +124,8 @@ public class Menu {
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
         Field[] fieldsClass = classCourante.getDeclaredFields();
-        for (int j = 0, m = fieldsSuperClass.length; j < m; j++) {
+        // j = 1 pour ne pas afficher l'ID de la classe mère
+        for (int j = 1, m = fieldsSuperClass.length; j < m; j++) {
             listChampsClass.add(ConsoleReader.readString(fieldsSuperClass[j].getName()));
         }
         for (int i = 0, k = fieldsClass.length; i < k; i++) {
@@ -130,9 +133,9 @@ public class Menu {
         }
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
-           MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(0, Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
-                   listChampsClass.get(3), listChampsClass.get(4), Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7),
-                   Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),Integer.parseInt(listChampsClass.get(10)),  Integer.parseInt(listChampsClass.get(11)));
+           MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(0, Integer.parseInt(listChampsClass.get(0)), Integer.parseInt(listChampsClass.get(1)),
+                   listChampsClass.get(2), listChampsClass.get(3), Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6),
+                   Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),Integer.parseInt(listChampsClass.get(9)),  Integer.parseInt(listChampsClass.get(10)));
             try {
                 manager.insert(objet);
             } catch (SQLException ex) {
@@ -141,10 +144,10 @@ public class Menu {
         }
         /************ SI MaterielMedicalMaterielLoue *********************/
         if (_intChoixClasse == 2) {
-            MaterielMedicalMaterielLoue objet = new MaterielMedicalMaterielLoue(0, Integer.parseInt(listChampsClass.get(1)), Integer.parseInt(listChampsClass.get(2)),
-                   listChampsClass.get(3), listChampsClass.get(4), 
-                    Float.parseFloat(listChampsClass.get(5)), Integer.parseInt(listChampsClass.get(6)), listChampsClass.get(7), Float.parseFloat(listChampsClass.get(8)), listChampsClass.get(9),
-                    Integer.parseInt(listChampsClass.get(10)), listChampsClass.get(11), Integer.parseInt(listChampsClass.get(12)));
+            MaterielMedicalMaterielLoue objet = new MaterielMedicalMaterielLoue(0, Integer.parseInt(listChampsClass.get(0)), Integer.parseInt(listChampsClass.get(1)),
+                   listChampsClass.get(2), listChampsClass.get(3), 
+                    Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6), Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),
+                    Integer.parseInt(listChampsClass.get(9)), listChampsClass.get(10), Integer.parseInt(listChampsClass.get(11)));
             try {
                 manager.insert(objet);
             } catch (SQLException ex) {
@@ -153,8 +156,8 @@ public class Menu {
         }
         /************ SI PartenairePatient *********************/
         if (_intChoixClasse == 3) {
-            PartenairePatient objet = new PartenairePatient(0, listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5),
-                    listChampsClass.get(6),listChampsClass.get(7));
+            PartenairePatient objet = new PartenairePatient(0, listChampsClass.get(0), listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4),
+                    listChampsClass.get(5),listChampsClass.get(6));
             try {
                 manager.insert(objet);
             } catch (SQLException ex) {
@@ -163,8 +166,8 @@ public class Menu {
         }
         /************ SI PartenairePrescripteur *********************/
         if (_intChoixClasse == 4) {
-            PartenairePrescripteur objet = new PartenairePrescripteur(0, listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5),
-                    listChampsClass.get(6),listChampsClass.get(7));
+            PartenairePrescripteur objet = new PartenairePrescripteur(0, listChampsClass.get(0), listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4),
+                    listChampsClass.get(5),listChampsClass.get(6));
             try {
                 manager.insert(objet);
             } catch (SQLException ex) {
@@ -265,12 +268,12 @@ public class Menu {
 /*******************************************************************FONCTION DE SAISI DE VALEUR ******************************************************/
     //Fonction d'enregistrement du champs saisi par l'utilisateur
     private void saisiFields(){
-        _fieldsSaisi = ConsoleReader.readString("Quel champ voulez-vous utiliser?  ");
+        _fieldsSaisi = ConsoleReader.readString("Quel champ de la table voulez-vous utiliser?  ");
         fields.add(_fieldsSaisi);
     }
     //Fonction d'enregistrement de la values saisi par l'utilisateur
     private void saisiValues(){
-        _valuesSaisi = ConsoleReader.readString("Quel valeur voulez-vous utiliser?  ");
+        _valuesSaisi = ConsoleReader.readString("Quel valeur du champ voulez-vous utiliser?  ");
         values.add(_valuesSaisi);
     }
     //Fonction d'enregistrement de la restriction saisi par l'utilisateur

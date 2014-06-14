@@ -5,7 +5,6 @@
 
 package DAL;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
@@ -19,4 +18,10 @@ public interface IBDD {
     public abstract void requeteSupprimer(String classe, ArrayList<String> fields,ArrayList<String> restriction,ArrayList<String> value);
     public abstract String getRequeteString();
     public abstract ArrayList<String> getParametres();
+    public abstract void dumpDb(String chemin);
+    public abstract String getDumpDb();
+    public abstract void procedureLister(String classe,ArrayList<String> values);
+    public abstract void procedureAjouter(Object objet);
+    public abstract void procedureModifier(Object objet);
+    public abstract void procedureSupprimer(String classe,ArrayList<String> values);
 }
