@@ -1,4 +1,5 @@
 <?xml version="1.0"?>   
+<!--BUILD.XML POUR LES TESTS UNITAIRES!-->
 <project name="java-junit-sgbd-library" default="test" basedir=".">
   <property name="main.build.dir" value="SGBD_LIBRARY/build/main" />  
   <property name="main.src.dir" value="SGBD_LIBRARY/src" />
@@ -9,6 +10,7 @@
 
   <path id="classpath.test">
     <pathelement location="SGBD_LIBRARY/lib/junit-4.10.jar" />
+    <pathelement location="SGBD_LIBRARY/lib/json-simple-1.1.1.jar" />
     <pathelement location="${main.build.dir}"/>
     <path refid="classpath.base" />
   </path>
@@ -30,8 +32,7 @@
     <echo message="Build done" />
   </target>
    
-  <!-- Test and build all files  -->
-  <!-- To run this: use "ant" (default) or "ant run" -->
+  
   <target name="run" depends="build">
     <junit printsummary="on" haltonfailure="yes">
         <classpath>
@@ -45,12 +46,4 @@
     </junit>
   </target>
    
-  <!-- delete all class files -->
-  <!-- To run this: use "ant clean" -->
-  <target name="clean">
-    <delete>
-        <fileset dir="${basedir}" includes="**/*.class" />
-    </delete>
-    <echo message="clean done" />
-  </target>
 </project>
