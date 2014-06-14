@@ -19,6 +19,7 @@ import java.util.logging.Logger;
  * construction dynamique de requetes, la classe se base sur le principe que les
  * classes ont le même nom que la table en base de données, et que les attributs
  * ont le même nom que les champs de la table en base de données.
+ * Elle facilite l'appel de procédures stockées par déduction de leurs noms (verbe + classe) ex : supprimerClient
  */
 public class Request_factory_oracle implements IBDD
   {
