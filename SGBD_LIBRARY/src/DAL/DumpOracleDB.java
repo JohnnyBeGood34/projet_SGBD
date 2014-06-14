@@ -174,18 +174,17 @@ public class DumpOracleDB implements IDumpDb
      * @param contenu type String Contenu du fichier à écrire
      * @param chemin type String Chemin où enregitrer le fichier
      * @throws java.io.IOException
-     */
-    @Override
-    public void writeDumpFile(String contenu, String chemin) throws IOException
-      {
-        Date date = new Date();
-        String dateFichier = new SimpleDateFormat("dd-MM-yyyy").format(date);
-        File fichier = new File(chemin + "dump_db_" + dateFichier + ".sql");
 
-        FileWriter filewriter = new FileWriter(fichier);
-        try (BufferedWriter bufferwriter = new BufferedWriter(filewriter))
-          {
-            bufferwriter.write(contenu);
+    */
+    public void writeDumpFile (String contenu,String chemin) throws IOException{
+      
+      Date date =new Date(); 
+      String dateFichier=new SimpleDateFormat("dd-MM-yyyy").format(date);
+      File fichier = new File(chemin+"dump_"+dateFichier+".sql");  
+      
+      FileWriter filewriter=new FileWriter(fichier);
+        try (BufferedWriter bufferwriter = new BufferedWriter(filewriter)) {
+
           }
 
       }
