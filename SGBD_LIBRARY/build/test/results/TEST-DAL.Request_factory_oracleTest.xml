@@ -1,0 +1,4192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Stef" name="DAL.Request_factory_oracleTest" skipped="0" tests="5" time="29.78" timestamp="2014-05-30T14:43:11">
+  <properties>
+    <property name="libs.jsp-compiler.javadoc" value="" />
+    <property name="netbeans.autoupdate.country" value="FR" />
+    <property name="javac.test.classpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar:build/classes:C:\Program Files\NetBeans 7.4\java\modules\ext\junit-3.8.2.jar:C:\Program Files\NetBeans 7.4\platform\modules\ext\junit-4.10.jar" />
+    <property name="libs.jsf20.maven-pom" value="" />
+    <property name="libs.j2me_ant_ext.javadoc" value="" />
+    <property name="ant.file.SGBD_LIBRARY-impl" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\nbproject\build-impl.xml" />
+    <property name="libs.junit.javadoc" value="C:\Program Files\NetBeans 7.4\java\docs\junit-3.8.2-api.zip" />
+    <property name="javac.includes" value="DAL/Request_factory_oracleTest.java" />
+    <property name="libs.nokiaS80-ant-utils.javadoc" value="" />
+    <property name="ant.core.lib" value="C:\Program Files\NetBeans 7.4\extide\ant\lib\ant.jar" />
+    <property name="libs.jakarta_slide_ant_webdav.javadoc" value="" />
+    <property name="javadoc.windowtitle" value="" />
+    <property name="libs.jsp-compilation.javadoc" value="" />
+    <property name="user.dir" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY" />
+    <property name="libs.javaee-api-7.0.src" value="" />
+    <property name="libs.hibernate-persistence.javadoc" value="" />
+    <property name="libs.JMUnit4CLDC10.javadoc" value="C:\Program Files\NetBeans 7.4\mobility\modules\docs\jmunit-1.2.1-api.zip" />
+    <property name="java.vm.version" value="24.0-b56" />
+    <property name="libs.MySQLDriver.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar" />
+    <property name="libs.eclipselinkmodelgen.src" value="" />
+    <property name="javadoc.notree" value="false" />
+    <property name="netbeans.autoupdate.version" value="1.23" />
+    <property name="libs.EclipseLink-GlassFish-v3.classpath" value="C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.antlr.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.asm.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.core.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.dbws.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.jpa.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.jpa.jpql.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.jpa.modelgen.processor.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.moxy.jar;C:\Program Files\glassfish-4.0\glassfish\modules\org.eclipse.persistence.oracle.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.persistence.jar" />
+    <property name="libs.javaee-web-api-6.0.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee-web-api-6.0.jar" />
+    <property name="libs.hibernate-support.maven-pom" value="" />
+    <property name="libs.hibernate-support.javadoc" value="" />
+    <property name="libs.Java-EE-GlassFish-v3-Prelude.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="javac.profile.cmd.line.arg" value="" />
+    <property name="jdk.home" value="C:\Program Files\Java\jdk1.7.0_40" />
+    <property name="libs.javac-api.src" value="" />
+    <property name="javadoc.noindex" value="false" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="libs.Java-EE-GlassFish-v3-Prelude.src" value="" />
+    <property name="do.archive+manifest.available" value="true" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="libs.semc-ant-utils.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-semc.jar" />
+    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
+    <property name="libs.nokiadeployment.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\org-netbeans-modules-mobility-deployment-nokia.jar" />
+    <property name="netbeans.autoupdate.variant" value="" />
+    <property name="have.tests" value="true" />
+    <property name="libs.nokiaS80-ant-utils.maven-pom" value="" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
+    <property name="libs.javac-api.javadoc" value="" />
+    <property name="os.name" value="Windows 8" />
+    <property name="libs.beans-binding.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\beansbinding-1.2.1.jar" />
+    <property name="libs.javaee-endorsed-api-7.0.maven-pom" value="" />
+    <property name="ap.proc.none.internal" value="" />
+    <property name="libs.restapi.javadoc" value="" />
+    <property name="libs.JWSAntTasks.maven-pom" value="" />
+    <property name="libs.jstl.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jstl-api.jar" />
+    <property name="libs.testng.src" value="" />
+    <property name="libs.ojec-ant-utils.src" value="" />
+    <property name="libs.spring-webmvc3.0.src" value="" />
+    <property name="libs.restapi.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jaxrs-2.0\javax.ws.rs-api-2.0.jar" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="libs.jaxb.maven-pom" value="" />
+    <property name="os.arch" value="amd64" />
+    <property name="libs.eclipselink.src" value="" />
+    <property name="user.name" value="Easy" />
+    <property name="libs.jsf12.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.Comet-GlassFish-v3.javadoc" value="" />
+    <property name="copylibs.rebase" value="true" />
+    <property name="libs.spring-webmvc3.0.maven-pom" value="" />
+    <property name="libs.swing-layout.maven-pom" value="" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner DAL.Request_factory_oracleTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\test\results\TEST-DAL.Request_factory_oracleTest.xml crashfile=C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\junitvmwatcher913309129693680241.properties propsfile=C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\junit1357226736092856336.properties" />
+    <property name="build.classes.dir" value="build/classes" />
+    <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
+    <property name="build.sysclasspath" value="ignore" />
+    <property name="ap.supported.internal" value="true" />
+    <property name="libs.javaee-endorsed-api-7.0.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.jaxws21.javadoc" value="C:\Program Files\NetBeans 7.4\java\docs\jaxws-api-doc.zip" />
+    <property name="includes" value="**" />
+    <property name="libs.ojec-ant-utils.maven-pom" value="" />
+    <property name="user.country" value="FR" />
+    <property name="manifest.file" value="manifest.mf" />
+    <property name="libs.JMUnit4CLDC11.src" value="" />
+    <property name="javadoc.encoding" value="UTF-8" />
+    <property name="javac.classpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar" />
+    <property name="libs.jsp-compilation-syscp.src" value="" />
+    <property name="libs.JAVADB_DRIVER_LABEL.src" value="" />
+    <property name="debug-transport" value="dt_shmem" />
+    <property name="netbeans.home" value="C:\Program Files\NetBeans 7.4\platform" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="libs.javaee-web-api-6.0.src" value="" />
+    <property name="libs.ejb3-persistence.src" value="" />
+    <property name="libs.jsp-compilation-syscp.classpath" value="C:\Program Files\NetBeans 7.4\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
+    <property name="libs.nokiaS80-ant-utils.src" value="" />
+    <property name="libs.cdc-pp-awt-layout.javadoc" value="" />
+    <property name="libs.j2me_ant_ext.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\org-netbeans-modules-mobility-antext.jar;C:\Program Files\NetBeans 7.4\java\modules\org-netbeans-modules-classfile.jar" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_40\jre\lib\endorsed" />
+    <property name="libs.hibernate-persistencemodelgen.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-jpamodelgen-1.1.1.Final.jar" />
+    <property name="libs.Comet-GlassFish-v3.maven-pom" value="" />
+    <property name="libs.groovy-all.src" value="" />
+    <property name="ant.file.SGBD_LIBRARY" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build.xml" />
+    <property name="test.includes" value="DAL/Request_factory_oracleTest.java" />
+    <property name="&gt;&gt;&gt;&gt;&gt;&gt;&gt;" value="66de75967d1b23e0ad1381ba928455c2386a2c3e" />
+    <property name="netbeans.dynamic.classpath" value="C:\Program Files\NetBeans 7.4\platform\core\core.jar;C:\Program Files\NetBeans 7.4\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\core_ja.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\core_pt_BR.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\core_ru.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\core_zh_CN.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\org-openide-filesystems_ja.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\org-openide-filesystems_ru.jar;C:\Program Files\NetBeans 7.4\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files\NetBeans 7.4\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\core_nb_ja.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\core_nb_pt_BR.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\core_nb_ru.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\org-netbeans-upgrader_ja.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\org-netbeans-upgrader_pt_BR.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\org-netbeans-upgrader_ru.jar;C:\Program Files\NetBeans 7.4\nb\core\locale\org-netbeans-upgrader_zh_CN.jar" />
+    <property name="libs.cdc-agui-swing-layout.maven-pom" value="" />
+    <property name="libs.cdc-pp-awt-layout.src" value="C:\Program Files\NetBeans 7.4\mobility\sources\cdc-pp-awt-layout-src.zip" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="libs.jakarta_slide_ant_webdav.src" value="" />
+    <property name="libs.primefaces.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\primefaces\primefaces-3.5.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\commons-fileupload-1.3.jar" />
+    <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee-api-6.0.jar" />
+    <property name="libs.sjmc-ant-utils.maven-pom" value="" />
+    <property name="libs.groovy-all.maven-pom" value="" />
+    <property name="libs.JMUnit4CLDC10.maven-pom" value="" />
+    <property name="netbeans.productversion" value="NetBeans IDE 7.4 (Build 201310111528)" />
+    <property name="libs.hibernate-persistence.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\antlr-2.7.6.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\cglib-2.2.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\commons-collections-3.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\dom4j-1.6.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\jta-1.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-core-3.6.10.Final.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-commons-annotations-3.2.0.Final.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-entitymanager-3.6.10.Final.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-tools-3.6.0.CR1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\javassist-3.12.0.GA.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\c3p0-0.9.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\oscache-2.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <property name="libs.jaxws21.src" value="" />
+    <property name="application.title" value="SGBD_LIBRARY" />
+    <property name="do.archive" value="true" />
+    <property name="file.reference.json-simple-1.1.1.jar" value="../../../json-simple-1.1.1.jar" />
+    <property name="netbeans.autoupdate.language" value="fr" />
+    <property name="libs.jakarta_slide_ant_webdav.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\commons-httpclient-3.0.1.jar;C:\Program Files\NetBeans 7.4\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 7.4\mobility\modules\ext\jdom-1.0.jar;C:\Program Files\NetBeans 7.4\mobility\modules\ext\jakarta-slide-webdavlib-2.1.jar;C:\Program Files\NetBeans 7.4\mobility\modules\ext\jakarta-slide-ant-webdav-2.1.jar" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="libs.JMUnit4CLDC10.src" value="" />
+    <property name="libs.javaee-api-6.0.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="jar.index.metainf" value="false" />
+    <property name="ant.file.type.SGBD_LIBRARY-impl" value="file" />
+    <property name="javac.debug" value="true" />
+    <property name="javadoc.splitindex" value="true" />
+    <property name="file.separator" value="\" />
+    <property name="libs.Java-EE-GlassFish-v3-Prelude.maven-pom" value="" />
+    <property name="javac.includesfile.binary" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\null1472931017" />
+    <property name="libs.junit_4.maven-pom" value="" />
+    <property name="mkdist.disabled" value="false" />
+    <property name="javac.test.processorpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar:build/classes:C:\Program Files\NetBeans 7.4\java\modules\ext\junit-3.8.2.jar:C:\Program Files\NetBeans 7.4\platform\modules\ext\junit-4.10.jar" />
+    <property name="netbeans.buildnumber" value="201310111528" />
+    <property name="libs.JWSAntTasks.javadoc" value="" />
+    <property name="build.generated.sources.dir" value="build/generated-sources" />
+    <property name="user.variant" value="" />
+    <property name="libs.eclipselinkmodelgen.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen_2.5.1.v20130918-f2b9fc5.jar" />
+    <property name="libs.javaee-endorsed-api-7.0.src" value="" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="libs.junit.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\junit-3.8.2.jar" />
+    <property name="libs.jaxb.javadoc" value="C:\Program Files\NetBeans 7.4\ide\docs\jaxb-api-doc.zip" />
+    <property name="libs.struts.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\antlr-2.7.2.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\bsf-2.3.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\commons-chain-1.2.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\commons-digester-1.8.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\commons-io-1.1.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\jstl-1.0.2.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\oro-2.0.8.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\standard-1.0.6.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-core-1.3.10.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-el-1.3.10.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
+    <property name="javac.includes.binary" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\test\classes\DAL\Request_factory_oracleTest.class" />
+    <property name="ant.home" value="C:\Program Files\NetBeans 7.4\extide\ant" />
+    <property name="libs.junit_4.src" value="C:\Program Files\NetBeans 7.4\java\docs\junit-4.10-sources.jar" />
+    <property name="libs.testng.classpath" value="C:\Program Files\NetBeans 7.4\platform\modules\ext\testng-6.8.1-dist.jar" />
+    <property name="libs.absolutelayout.maven-pom" value="" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_40\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;c:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files\nodejs\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Java\jdk1.7.0_40\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Ruby200-x64\bin;C:\Users\Easy\AppData\Roaming\npm;C:\Program Files (x86)\Nmap;C:\adt-bundle-windows-x86_64-20130911\sdk\tools;C:\adt-bundle-windows-x86_64-20130911\sdk\platform-tools;%JAVA_HOME\bin;%ANT_HOME\bin;C:\Program Files (x86)\WinAnt\bin;." />
+    <property name="javadoc.author" value="false" />
+    <property name="libs.metro.maven-pom" value="" />
+    <property name="libs.EclipseLink-GlassFish-v3.src" value="" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="libs.PostgreSQLDriver.src" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="basedir" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY" />
+    <property name="libs.jpa20-persistence.maven-pom" value="" />
+    <property name="jar.compress" value="false" />
+    <property name="libs.javaee-web-api-7.0.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee-web-api-7.0.jar" />
+    <property name="path.separator" value=";" />
+    <property name="libs.javaee-web-api-6.0.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="ant.junit.enabletestlistenerevents" value="true" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="libs.semc-ant-utils.javadoc" value="" />
+    <property name="libs.jaxws21.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\jaxb-impl.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\jaxb-xjc.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\FastInfoset.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\gmbal-api-only.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\ha-api.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\javax.mail_1.4.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\jaxws-rt.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\jaxws-tools.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\management-api.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\mimepull.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\policy.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\saaj-impl.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\stax-ex.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\stax2-api.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\streambuffer.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\woodstox-core-asl.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\api\jaxws-api.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\api\jsr181-api.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\api\javax.annotation.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\jaxws22\api\saaj-api.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\api\jaxb-api.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
+    <property name="libs.struts.src" value="" />
+    <property name="compile.on.save" value="false" />
+    <property name="apple.awt.graphics.UseQuartz" value="true" />
+    <property name="user.language" value="fr" />
+    <property name="testng.mode" value="testng" />
+    <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
+    <property name="libs.spring-framework.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring\spring-2.5.6.SEC03.jar" />
+    <property name="libs.eclipselink.maven-pom" value="" />
+    <property name="application.vendor" value="Kevin" />
+    <property name="test.binaryincludes" value="&lt;nothing&gt;" />
+    <property name="manifest.available" value="true" />
+    <property name="libs.primefaces.javadoc" value="" />
+    <property name="libs.spring-framework300.maven-pom" value="" />
+    <property name="run.test.classpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar:build/classes:C:\Program Files\NetBeans 7.4\java\modules\ext\junit-3.8.2.jar:C:\Program Files\NetBeans 7.4\platform\modules\ext\junit-4.10.jar:build/test/classes" />
+    <property name="ant.project.invoked-targets" value="test-single" />
+    <property name="test.binaryexcludes" value="" />
+    <property name="libs.swing-layout.javadoc" value="C:\Program Files\NetBeans 7.4\platform\docs\swing-layout-1.0.4-doc.zip" />
+    <property name="sun.java2d.dpiaware" value="true" />
+    <property name="libs.ejb3-persistence.maven-pom" value="" />
+    <property name="file.reference.SGBD_LIBRARY-src" value="src" />
+    <property name="https.nonProxyHosts" value="localhost|127.0.0.1|Stef" />
+    <property name="libs.PostgreSQLDriver.maven-pom" value="" />
+    <property name="java.class.version" value="51.0" />
+    <property name="libs.JAVADB_DRIVER_LABEL.classpath" value="C:\Program Files\Java\jdk1.7.0_40\db\lib\derby.jar;C:\Program Files\Java\jdk1.7.0_40\db\lib\derbyclient.jar;C:\Program Files\Java\jdk1.7.0_40\db\lib\derbynet.jar" />
+    <property name="file.reference.ojdbc5.jar" value="src/LIBRARY/ojdbc5.jar" />
+    <property name="libs.javaee-endorsed-api-6.0.src" value="" />
+    <property name="libs.cdc-ant-utils.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project.jar" />
+    <property name="libs.eclipselink.javadoc" value="" />
+    <property name="libs.jsp-compilation.maven-pom" value="" />
+    <property name="user.properties.file" value="C:\Users\Easy\AppData\Roaming\NetBeans\7.4\build.properties" />
+    <property name="runtime.encoding" value="UTF-8" />
+    <property name="libs.spring-framework.src" value="" />
+    <property name="libs.javac-api.maven-pom" value="" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="libs.JAXB-ENDORSED.javadoc" value="" />
+    <property name="libs.JWSAntTasks.classpath" value="C:\Program Files\NetBeans 7.4\java\ant\extra\org-netbeans-modules-javawebstart-anttasks.jar" />
+    <property name="libs.spring-framework300.src" value="" />
+    <property name="libs.ant-contrib.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\ant-contrib-1.0b3.jar" />
+    <property name="libs.jstl.src" value="" />
+    <property name="empty.dir" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\empty" />
+    <property name="file.reference.json-simple-1.1.1.jar-2" value="C:\Projet_SGBD\json-simple-1.1.1.jar" />
+    <property name="file.reference.json-simple-1.1.1.jar-1" value="C:\Users\Easy\Downloads\json-simple-1.1.1.jar" />
+    <property name="&lt;&lt;&lt;&lt;&lt;&lt;&lt;" value="HEAD" />
+    <property name="version-output" value="java version &quot;1.7" />
+    <property name="test.binarytestincludes" value="" />
+    <property name="javadoc.preview" value="true" />
+    <property name="libs.jpa20-persistence.javadoc" value="" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_40\jre" />
+    <property name="libs.ojec-ant-utils.javadoc" value="" />
+    <property name="libs.jsp-compilation.src" value="" />
+    <property name="libs.spring-webmvc.src" value="" />
+    <property name="libs.ant-contrib.javadoc" value="" />
+    <property name="debug.test.classpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar:build/classes:C:\Program Files\NetBeans 7.4\java\modules\ext\junit-3.8.2.jar:C:\Program Files\NetBeans 7.4\platform\modules\ext\junit-4.10.jar:build/test/classes" />
+    <property name="libs.javaee-endorsed-api-6.0.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee6-endorsed\javax.annotation.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee6-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee6-endorsed\webservices-api-osgi.jar" />
+    <property name="libs.javaee-api-6.0.src" value="" />
+    <property name="${file.reference.json-simple-1.1.1.jar-1}" value="" />
+    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
+    <property name="ant.project.default-target" value="default" />
+    <property name="annotation.processing.run.all.processors" value="true" />
+    <property name="libs.savaje-ant-utils.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-savaje.jar" />
+    <property name="libs.PostgreSQLDriver.javadoc" value="" />
+    <property name="libs.restlib.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\asm-all-repackaged-2.1.88.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\cglib-2.1.88.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\guava-14.0.1.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\hk2-api-2.1.88.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\hk2-locator-2.1.88.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\hk2-utils-2.1.88.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\javax.annotation-api-1.2.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\javax.inject-2.1.88.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\javax.servlet-api-3.1.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\jaxb-api-2.2.7.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\org.osgi.core-4.2.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\osgi-resource-locator-1.0.1.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\persistence-api-1.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\ext\validation-api-1.1.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\jersey-client.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\jersey-common.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\jersey-container-servlet.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\jersey-container-servlet-core.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\jersey-server.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\extensions\jackson-core-asl-1.9.11.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\extensions\jackson-jaxrs-1.9.11.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\extensions\jackson-mapper-asl-1.9.11.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\extensions\jackson-xc-1.9.11.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\extensions\jersey-media-json-jackson-2.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\extensions\jersey-media-json-jettison-2.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jersey2\extensions\jettison-1.3.3.jar" />
+    <property name="libs.JMUnit4CLDC11.javadoc" value="C:\Program Files\NetBeans 7.4\mobility\modules\docs\jmunit-1.2.1-api.zip" />
+    <property name="libs.MySQLDriver.maven-pom" value="" />
+    <property name="libs.savaje-ant-utils.src" value="" />
+    <property name="http.nonProxyHosts" value="localhost|127.0.0.1|Stef" />
+    <property name="ant.file.type.SGBD_LIBRARY" value="file" />
+    <property name="libs.junit_4.javadoc" value="C:\Program Files\NetBeans 7.4\java\docs\junit-4.10-javadoc.jar" />
+    <property name="libs.spring-webmvc.javadoc" value="" />
+    <property name="libs.EclipseLink-GlassFish-v3.maven-pom" value="" />
+    <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
+    <property name="libs.cdc-pp-awt-layout.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\cdc-pp-awt-layout.jar" />
+    <property name="libs.cdc-agui-swing-layout.src" value="C:\Program Files\NetBeans 7.4\mobility\sources\cdc-agui-swing-layout-src.zip" />
+    <property name="run.classpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar:build/classes" />
+    <property name="libs.hibernate-support.src" value="" />
+    <property name="jna.boot.library.name" value="jnidispatch-340" />
+    <property name="libs.javaee-endorsed-api-6.0.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.javaee-api-7.0.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee-api-7.0.jar" />
+    <property name="libs.JMUnit4CLDC11.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\jmunit4cldc11-1.2.1.jar" />
+    <property name="sun.awt.datatransfer.timeout" value="1000" />
+    <property name="libs.spring-webmvc3.0.javadoc" value="" />
+    <property name="annotation.processing.enabled.in.editor" value="false" />
+    <property name="libs.semc-ant-utils.maven-pom" value="" />
+    <property name="nb.native.filechooser" value="false" />
+    <property name="libs.nokiadeployment.maven-pom" value="" />
+    <property name="libs.restapi.src" value="" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="javac.deprecation" value="false" />
+    <property name="javadoc.use" value="true" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="libs.jsp-compiler.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\ant\extra\jspcompile.jar" />
+    <property name="javac.processorpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar" />
+    <property name="libs.spring-webmvc.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\spring\spring-webmvc-2.5.6.SEC03.jar" />
+    <property name="javac.compilerargs" value="" />
+    <property name="ant.file" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build.xml" />
+    <property name="libs.beans-binding.maven-pom" value="" />
+    <property name="libs.jsf12.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-1_2\commons-beanutils.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-1_2\commons-collections.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-1_2\commons-digester.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-1_2\commons-logging.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-1_2\jsf-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-1_2\jsf-impl.jar" />
+    <property name="libs.Java-EE-GlassFish-v3-Prelude.classpath" value="C:\Program Files\glassfish-4.0\mq\lib\jaxm-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\endorsed\javax.annotation-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\endorsed\jaxb-api-osgi.jar;C:\Program Files\glassfish-4.0\glassfish\modules\endorsed\webservices-api-osgi.jar;C:\Program Files\glassfish-4.0\glassfish\modules\bean-validator.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.batch-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.ejb-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.el.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.enterprise.concurrent-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.enterprise.concurrent.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.enterprise.deploy-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.faces.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.inject.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.interceptor-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.jms-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.json.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.mail.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.management.j2ee-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.persistence.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.resource-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.security.auth.message-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.security.jacc-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.servlet-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.servlet.jsp-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.servlet.jsp.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.servlet.jsp.jstl-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.servlet.jsp.jstl.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.transaction-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.websocket-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.ws.rs-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.xml.registry-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\javax.xml.rpc-api.jar;C:\Program Files\glassfish-4.0\glassfish\modules\jaxb-osgi.jar;C:\Program Files\glassfish-4.0\glassfish\modules\webservices-osgi.jar;C:\Program Files\glassfish-4.0\glassfish\modules\weld-osgi-bundle.jar" />
+    <property name="libs.jstl.maven-pom" value="" />
+    <property name="libs.restapi.maven-pom" value="" />
+    <property name="libs.beans-binding.src" value="" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.swing-layout.src" value="C:\Program Files\NetBeans 7.4\platform\docs\swing-layout-1.0.4-src.zip" />
+    <property name="libs.j2me_ant_ext.src" value="" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="${file.reference.json-simple-1.1.1.jar}" value="C:\Users\Easy\Downloads\json-simple-1.1.1.jar:C:\Projet_SGBD\json-simple-1.1.1.jar" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="netbeans.user" value="C:\Users\Easy\AppData\Roaming\NetBeans\7.4" />
+    <property name="javadoc.additionalparam" value="" />
+    <property name="java.io.tmpdir" value="C:\Users\Easy\AppData\Local\Temp\" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="endorsed.classpath.cmd.line.arg" value="" />
+    <property name="junit.available" value="true" />
+    <property name="libs.jsp-compiler.src" value="" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_40\jre\bin" />
+    <property name="have.sources" value="true" />
+    <property name="debug.classpath" value="src/LIBRARY/ojdbc5.jar:&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:C:\Projet_SGBD\json-simple-1.1.1.jar:C:\Users\Easy\Downloads\json-simple-1.1.1.jar:build/classes" />
+    <property name="javadoc.private" value="false" />
+    <property name="test.src.dir" value="test" />
+    <property name="file.reference.SGBD_LIBRARY-test" value="test" />
+    <property name="libs.jsf20.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
+    <property name="ap.processors.internal" value="" />
+    <property name="meta.inf.dir" value="src/META-INF" />
+    <property name="javadoc.encoding.used" value="UTF-8" />
+    <property name="dist.jar" value="dist/SGBD_LIBRARY.jar" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.project.name" value="SGBD_LIBRARY" />
+    <property name="netbeans.hash.code" value="unique=NB_CND_EXTIDE_GROOVY_JAVA_JC_MOB_PHP_TOMCAT_WEBCOMMON_WEBEE041c07316-01c3-4f43-852e-50da097c9865_afb36011-3d25-45e8-9e73-6531e850b59e" />
+    <property name="libs.jsp-compilation-syscp.maven-pom" value="" />
+    <property name="netbeans.default_userdir_root" value="C:\Users\Easy\AppData\Roaming\NetBeans" />
+    <property name="libs.j2me_ant_ext.maven-pom" value="" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="libs.CopyLibs.javadoc" value="" />
+    <property name="libs.hibernate-persistencemodelgen.maven-pom" value="" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="libs.hibernate-support.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\dom4j-1.6.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\antlr-2.7.6.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\cglib-2.2.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\commons-collections-3.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\jta-1.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-core-3.6.10.Final.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-commons-annotations-3.2.0.Final.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-entitymanager-3.6.10.Final.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-tools-3.6.0.CR1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\javassist-3.12.0.GA.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\c3p0-0.9.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\oscache-2.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\slf4j-simple-1.6.1.jar" />
+    <property name="user.home" value="C:\Users\Easy" />
+    <property name="annotation.processing.processors.list" value="" />
+    <property name="debug-args-line" value="-Xdebug" />
+    <property name="libs.primefaces.maven-pom" value="" />
+    <property name="libs.javaee-api-6.0.maven-pom" value="" />
+    <property name="libs.JWSAntTasks.src" value="" />
+    <property name="libs.CopyLibs.maven-pom" value="" />
+    <property name="jar.index" value="false" />
+    <property name="libs.hibernate-persistence.maven-pom" value="" />
+    <property name="libs.spring-framework300.javadoc" value="" />
+    <property name="libs.absolutelayout.javadoc" value="" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="libs.jakarta_slide_ant_webdav.maven-pom" value="" />
+    <property name="do.archive+main.class.available" value="true" />
+    <property name="libs.sjmc-ant-utils.src" value="" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.cdc-agui-swing-layout.javadoc" value="" />
+    <property name="libs.javac-api.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\nb-javac-api.jar" />
+    <property name="java.version" value="1.7.0_40" />
+    <property name="libs.nokiaS80-ant-utils.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-nokiaS80.jar" />
+    <property name="javadoc.version" value="false" />
+    <property name="run.jvmargs.ide" value="" />
+    <property name="libs.MySQLDriver.javadoc" value="" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="platform.java" value="C:\Program Files\Java\jdk1.7.0_40\jre/bin/java" />
+    <property name="source.encoding" value="UTF-8" />
+    <property name="ap.cmd.line.internal" value="" />
+    <property name="libs.eclipselinkmodelgen.maven-pom" value="" />
+    <property name="libs.jsp-compilation-syscp.javadoc" value="" />
+    <property name="libs.junit.maven-pom" value="" />
+    <property name="libs.javaee-endorsed-api-7.0.classpath" value="C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee7-endorsed\javax.annotation-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee7-endorsed\javax.xml.soap-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee7-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee7-endorsed\jaxws-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\javaee7-endorsed\jsr181-api.jar" />
+    <property name="libs.eclipselinkmodelgen.javadoc" value="" />
+    <property name="libs.metro.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\metro-1.4-doc.zip" />
+    <property name="libs.struts.maven-pom" value="" />
+    <property name="netbeans.home+have.tests" value="true" />
+    <property name="annotation.processing.processor.options" value="" />
+    <property name="libs.testng.maven-pom" value="" />
+    <property name="libs.jaxb.src" value="" />
+    <property name="work.dir" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY" />
+    <property name="libs.cdc-ant-utils.src" value="" />
+    <property name="libs.jaxb.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\jaxb-impl.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\jaxb-xjc.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\jaxb1-impl.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\api\jaxb-api.jar;C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
+    <property name="php.global.include.path" value="" />
+    <property name="do.depend" value="false" />
+    <property name="dist.javadoc.dir" value="dist/javadoc" />
+    <property name="libs.spring-webmvc3.0.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-webmvc-3.2.3.RELEASE.jar" />
+    <property name="libs.swing-layout.classpath" value="C:\Program Files\NetBeans 7.4\platform\modules\ext\swing-layout-1.0.4.jar" />
+    <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
+    <property name="libs.restlib.src" value="" />
+    <property name="build.generated.dir" value="build/generated" />
+    <property name="javac.source" value="1.7" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="libs.hibernate-persistence.src" value="" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="libs.jaxws21.maven-pom" value="" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="libs.cdc-ant-utils.javadoc" value="" />
+    <property name="nb.junit.batch" value="true" />
+    <property name="junit.forkmode" value="perTest" />
+    <property name="libs.ojec-ant-utils.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-ojec.jar" />
+    <property name="libs.spring-framework.maven-pom" value="" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_40\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_40\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_40\jre\classes" />
+    <property name="javac.target" value="1.7" />
+    <property name="built-jar.properties" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\built-jar.properties" />
+    <property name="build.test.classes.dir" value="build/test/classes" />
+    <property name="src.dir" value="src" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
+    <property name="annotation.processing.enabled" value="true" />
+    <property name="libs.jsf20.src" value="" />
+    <property name="libs.jpa20-persistence.src" value="" />
+    <property name="libs.jsf12.src" value="" />
+    <property name="libs.nokiadeployment.src" value="" />
+    <property name="libs.savaje-ant-utils.javadoc" value="" />
+    <property name="libs.JAVADB_DRIVER_LABEL.maven-pom" value="" />
+    <property name="libs.struts.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\struts-1.3.10-javadoc.zip" />
+    <property name="libs.Comet-GlassFish-v3.classpath" value="" />
+    <property name="libs.cdc-ant-utils.maven-pom" value="" />
+    <property name="libs.javaee-web-api-7.0.src" value="" />
+    <property name="libs.primefaces.src" value="" />
+    <property name="libs.cdc-agui-swing-layout.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\cdc-agui-swing-layout.jar" />
+    <property name="dist.dir" value="dist" />
+    <property name="libs.groovy-all.javadoc" value="" />
+    <property name="testng.debug.mode" value="" />
+    <property name="libs.groovy-all.classpath" value="C:\Program Files\NetBeans 7.4\groovy\modules\ext\groovy-all.jar" />
+    <property name="javac.fork" value="false" />
+    <property name="libs.sjmc-ant-utils.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
+    <property name="libs.JMUnit4CLDC10.classpath" value="C:\Program Files\NetBeans 7.4\mobility\modules\ext\jmunit4cldc10-1.2.1.jar" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="default.javac.source" value="1.7" />
+    <property name="debug-transport-by-os" value="dt_shmem" />
+    <property name="libs.MySQLDriver.src" value="" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="libs.ant-contrib.maven-pom" value="" />
+    <property name="libs.nokiadeployment.javadoc" value="" />
+    <property name="build.test.results.dir" value="build/test/results" />
+    <property name="java.runtime.version" value="1.7.0_40-b43" />
+    <property name="libs.ejb3-persistence.javadoc" value="" />
+    <property name="libs.sjmc-ant-utils.javadoc" value="" />
+    <property name="default.javac.target" value="1.7" />
+    <property name="libs.junit_4.classpath" value="C:\Program Files\NetBeans 7.4\platform\modules\ext\junit-4.10.jar" />
+    <property name="user.timezone" value="" />
+    <property name="nb.junit.single" value="false" />
+    <property name="do.jar" value="true" />
+    <property name="libs.ant-contrib.src" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
+    <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
+    <property name="netbeans.dirs" value="C:\Program Files\NetBeans 7.4\nb;C:\Program Files\NetBeans 7.4\ergonomics;C:\Program Files\NetBeans 7.4\ide;C:\Program Files\NetBeans 7.4\extide;C:\Program Files\NetBeans 7.4\java;C:\Program Files\NetBeans 7.4\apisupport;C:\Program Files\NetBeans 7.4\webcommon;C:\Program Files\NetBeans 7.4\websvccommon;C:\Program Files\NetBeans 7.4\enterprise;C:\Program Files\NetBeans 7.4\mobility;C:\Program Files\NetBeans 7.4\profiler;C:\Program Files\NetBeans 7.4\python;C:\Program Files\NetBeans 7.4\php;C:\Program Files\NetBeans 7.4\identity;C:\Program Files\NetBeans 7.4\harness;C:\Program Files\NetBeans 7.4\cnd;C:\Program Files\NetBeans 7.4\dlight;C:\Program Files\NetBeans 7.4\groovy;C:\Program Files\NetBeans 7.4\extra;C:\Program Files\NetBeans 7.4\javacard;C:\Program Files\NetBeans 7.4\javafx" />
+    <property name="libs.jsf20.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.jstl.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_40\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="libs.metro.src" value="" />
+    <property name="libs.savaje-ant-utils.maven-pom" value="" />
+    <property name="endorsed.classpath" value="" />
+    <property name="libs.semc-ant-utils.src" value="" />
+    <property name="libs.absolutelayout.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\AbsoluteLayout.jar" />
+    <property name="excludes" value="" />
+    <property name="libs.metro.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\metro\webservices-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\metro\webservices-extra.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\metro\webservices-rt.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\metro\webservices-tools.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="java.class.path" value="C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\src\LIBRARY\ojdbc5.jar;C:\Users\Easy\Downloads\json-simple-1.1.1.jar;C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\classes;C:\Program Files\NetBeans 7.4\java\modules\ext\junit-3.8.2.jar;C:\Program Files\NetBeans 7.4\platform\modules\ext\junit-4.10.jar;C:\projet_SGBD\projet_SGBD\SGBD_LIBRARY\build\test\classes;C:\Program Files\NetBeans 7.4\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 7.4\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 7.4\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 7.4\extide\ant\lib\ant-junit4.jar" />
+    <property name="do.mkdist" value="true" />
+    <property name="libs.absolutelayout.src" value="" />
+    <property name="libs.jpa20-persistence.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar" />
+    <property name="libs.cdc-pp-awt-layout.maven-pom" value="" />
+    <property name="os.version" value="6.2" />
+    <property name="application.args" value="" />
+    <property name="libs.hibernate-persistencemodelgen.src" value="" />
+    <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.javaee-api-7.0.maven-pom" value="" />
+    <property name="libs.JMUnit4CLDC11.maven-pom" value="" />
+    <property name="main.class.available" value="true" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="sun.desktop" value="windows" />
+    <property name="libs.Comet-GlassFish-v3.src" value="" />
+    <property name="libs.restlib.javadoc" value="" />
+    <property name="nb.internal.action.name" value="run.single" />
+    <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\ext\jaxb\api\jaxb-api.jar" />
+    <property name="libs.javaee-api-7.0.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.1.v20130918-f2b9fc5.jar" />
+    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 7.4\java\docs\beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 7.4\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
+    <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-aop-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-aspects-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-beans-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-build-src-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-context-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-context-support-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-core-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-expression-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-instrument-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-jdbc-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-jms-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-orm-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-oxm-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-struts-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-test-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-tx-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-web-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-webmvc-3.2.3.RELEASE.jar;C:\Program Files\NetBeans 7.4\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.3.RELEASE.jar" />
+    <property name="libs.jsp-compiler.maven-pom" value="" />
+    <property name="libs.spring-webmvc.maven-pom" value="" />
+    <property name="run.jvmargs" value="" />
+    <property name="libs.ejb3-persistence.classpath" value="C:\Program Files\NetBeans 7.4\java\modules\ext\hibernate\hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <property name="libs.hibernate-persistencemodelgen.javadoc" value="" />
+    <property name="libs.JAXB-ENDORSED.src" value="" />
+    <property name="libs.spring-framework.javadoc" value="" />
+    <property name="dist.archive.excludes" value="" />
+    <property name="libs.testng.javadoc" value="C:\Program Files\NetBeans 7.4\platform\docs\testng-6.8.1-javadoc.zip" />
+    <property name="user.script" value="" />
+    <property name="libs.PostgreSQLDriver.classpath" value="C:\Program Files\NetBeans 7.4\ide\modules\ext\postgresql-9.2-1002.jdbc4.jar" />
+    <property name="libs.jsf12.maven-pom" value="" />
+    <property name="libs.junit.src" value="" />
+    <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
+    <property name="main.class" value="MAIN.SGBD_LIBRARY" />
+    <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
+    <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans 7.4\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files\NetBeans 7.4\enterprise\modules\ext\jstl-api.jar;C:\Program Files\NetBeans 7.4\extide\ant\lib\ant-launcher.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.1 compiled on May 15 2013" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
+    <property name="javadoc.nonavbar" value="false" />
+    <property name="jdkBug6558476" value="false" />
+    <property name="platform.active" value="default_platform" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 7.4\enterprise\docs\javaee-doc-api.jar" />
+    <property name="" value="======" />
+  </properties>
+  <testcase classname="DAL.Request_factory_oracleTest" name="testListTable" time="29.641" />
+  <testcase classname="DAL.Request_factory_oracleTest" name="testRequeteLister" time="0.001" />
+  <testcase classname="DAL.Request_factory_oracleTest" name="testRequeteSupprimer" time="0.0" />
+  <testcase classname="DAL.Request_factory_oracleTest" name="testRequeteMiseAJour" time="0.003" />
+  <testcase classname="DAL.Request_factory_oracleTest" name="testRequeteAjouter" time="0.001" />
+  <system-out><![CDATA[Table :ADHERER
+Table :CATEGORIE
+Table :COULEURS
+Table :DUREE
+Table :DUREELOCATION
+Table :EXEMPLAIRE
+Table :FACTURE
+Table :FRANCHISE
+Table :LOUER
+Table :MARQUES
+Table :MATERIEL
+Table :MATERIELLOUE
+Table :MATERIELVENDU
+Table :PATIENT
+Table :PERSONNE
+Table :PRESCRIPTEUR
+Table :PRESCRIRE
+Table :PRIX
+Table :SITE
+Table :TVA
+Table :VENDRE
+Table :SYS_IOT_OVER_70794
+Table :WWV_COLUMN_EXCEPTIONS
+Table :WWV_FLOW_ACTIVITY_LOG_NUMBER$
+Table :WWV_FLOW_ACTIVITY_LOG1$
+Table :WWV_FLOW_ACTIVITY_LOG2$
+Table :WWV_FLOW_ALT_CONFIG_DETAIL
+Table :WWV_FLOW_ALT_CONFIG_PICK
+Table :WWV_FLOW_ALTERNATE_CONFIG
+Table :WWV_FLOW_APP_BUILD_PREF
+Table :WWV_FLOW_APP_COMMENTS
+Table :WWV_FLOW_APPLICATION_GROUPS
+Table :WWV_FLOW_BANNER
+Table :WWV_FLOW_BUILDER_AUDIT_TRAIL
+Table :WWV_FLOW_BUTTON_TEMPLATES
+Table :WWV_FLOW_CALS
+Table :WWV_FLOW_CAL_TEMPLATES
+Table :WWV_FLOW_CHARSETS
+Table :WWV_FLOW_CLICKTHRU_LOG$
+Table :WWV_FLOW_CLICKTHRU_LOG_NUMBER$
+Table :WWV_FLOW_CLICKTHRU_LOG2$
+Table :WWV_FLOW_COLLECTION_MEMBERS$
+Table :WWV_FLOW_COLLECTIONS$
+Table :WWV_FLOW_COMPANIES
+Table :WWV_FLOW_COMPANY_SCHEMAS
+Table :WWV_FLOW_COMPANY_TYPES
+Table :WWV_FLOW_COMPOUND_CONDITIONS
+Table :WWV_FLOW_COMPUTATIONS
+Table :WWV_FLOW_COUNTRIES
+Table :WWV_FLOW_CSS_REPOSITORY
+Table :WWV_FLOW_CUSTOM_AUTH_SETUPS
+Table :WWV_FLOW_CUSTOMIZED_TASKS
+Table :WWV_FLOW_DATA
+Table :WWV_FLOW_DATA_LOAD_BAD_LOG
+Table :WWV_FLOW_DATA_LOAD_UNLOAD
+Table :WWV_FLOW_DB_AUTH
+Table :WWV_FLOW_DEBUG
+Table :WWV_FLOW_DEVELOPER_ROLES
+Table :WWV_FLOW_DEVELOPERS
+Table :WWV_FLOW_DICTIONARY$
+Table :WWV_FLOW_DUAL100
+Table :WWV_FLOW_DYNAMIC_TRANSLATIONS$
+Table :WWV_FLOW_EFFECTIVE_USERID_MAP
+Table :WWV_FLOW_ENTRY_POINT_ARGS
+Table :WWV_FLOW_ENTRY_POINTS
+Table :WWV_FLOW_FIELD_TEMPLATES
+Table :WWV_FLOW_FILE_OBJECTS$PART
+Table :WWV_FLOW_FLASH_CHARTS
+Table :WWV_FLOW_FLASH_CHART_SERIES
+Table :WWV_FLOW_FND_GROUP_USERS
+Table :WWV_FLOW_FND_USER
+Table :WWV_FLOW_FND_USER_GROUPS
+Table :WWV_FLOW_FOLDERS
+Table :WWV_FLOW_HNT_ARGUMENT_INFO
+Table :WWV_FLOW_HNT_COLUMN_INFO
+Table :WWV_FLOW_HNT_LOV_DATA
+Table :WWV_FLOW_HNT_PROCEDURE_INFO
+Table :WWV_FLOW_HNT_TABLE_INFO
+Table :WWV_FLOW_HTML_REPOSITORY
+Table :WWV_FLOW_ICON_BAR
+Table :WWV_FLOW_ICON_BAR_ATTRIBUTES
+Table :WWV_FLOW_IMAGE_REPOSITORY
+Table :WWV_FLOW_IMPORT_EXPORT
+Table :WWV_FLOW_INSTALL
+Table :WWV_FLOW_INSTALL_BUILD_OPT
+Table :WWV_FLOW_INSTALL_CHECKS
+Table :WWV_FLOW_INSTALL_SCRIPTS
+Table :WWV_FLOW_ITEMS
+Table :WWV_FLOW_JOB_BIND_VALUES
+Table :WWV_FLOW_JOBS
+Table :WWV_FLOW_LANGUAGE_MAP
+Table :WWV_FLOW_LANGUAGES
+Table :WWV_FLOW_LIST_ITEMS
+Table :WWV_FLOW_LIST_OF_VALUES_DATA
+Table :WWV_FLOW_LISTS
+Table :WWV_FLOW_LISTS_OF_VALUES$
+Table :WWV_FLOW_LIST_TEMPLATES
+Table :WWV_FLOW_LOCK_PAGE
+Table :WWV_FLOW_LOCK_PAGE_LOG
+Table :WWV_FLOW_LOV_TEMP
+Table :WWV_FLOW_LOV_VALUES
+Table :WWV_FLOW_MAIL_ATTACHMENTS
+Table :WWV_FLOW_MAIL_LOG
+Table :WWV_FLOW_MAIL_QUEUE
+Table :WWV_FLOW_MENU_OPTIONS
+Table :WWV_FLOW_MENUS
+Table :WWV_FLOW_MENU_TEMPLATES
+Table :WWV_FLOW_MESSAGES$
+Table :WWV_FLOW_MODEL_PAGE_COLS
+Table :WWV_FLOW_MODEL_PAGE_REGIONS
+Table :WWV_FLOW_MODEL_PAGES
+Table :WWV_FLOW_MODELS
+Table :WWV_FLOW_ONLINE_HELP
+Table :WWV_FLOW_ONLINE_HELP_JA
+Table :WWV_FLOW_PAGE_CACHE
+Table :WWV_FLOW_PAGE_GENERIC_ATTR
+Table :WWV_FLOW_PAGE_GROUPS
+Table :WWV_FLOW_PAGE_PLUGS
+Table :WWV_FLOW_PAGE_PLUG_TEMPLATES
+Table :WWV_FLOW_PAGES_RESERVED
+Table :WWV_FLOW_PAGE_SUBMISSIONS
+Table :WWV_FLOW_PASSWORD_HISTORY
+Table :WWV_FLOW_PATCHES
+Table :WWV_FLOW_PICK_DATABASE_SIZE
+Table :WWV_FLOW_PICK_END_USERS
+Table :WWV_FLOW_PICK_PAGE_VIEWS
+Table :WWV_FLOW_PLATFORM_PREF
+Table :WWV_FLOW_PLATFORM_PREFS
+Table :WWV_FLOW_POPUP_LOV_TEMPLATE
+Table :WWV_FLOW_PREFERENCES$
+Table :WWV_FLOW_PROCESSING
+Table :WWV_FLOW_PROVISION_COMPANY
+Table :WWV_FLOW_PROVISION_SERICE_MOD
+Table :WWV_FLOW_PURGED_SESSIONS$
+Table :WWV_FLOW_QB_SAVED_COND
+Table :WWV_FLOW_QB_SAVED_JOIN
+Table :WWV_FLOW_QB_SAVED_QUERY
+Table :WWV_FLOW_QB_SAVED_TABS
+Table :WWV_FLOW_QUERY_COLUMN
+Table :WWV_FLOW_QUERY_CONDITION
+Table :WWV_FLOW_QUERY_DEFINITION
+Table :WWV_FLOW_QUERY_OBJECT
+Table :WWV_FLOW_RANDOM_IMAGES
+Table :WWV_FLOW_REGION_CHART_SER_ATTR
+Table :WWV_FLOW_REGION_REPORT_COLUMN
+Table :WWV_FLOW_REGION_REPORT_FILTER
+Table :WWV_FLOW_REGION_UPD_RPT_COLS
+Table :WWV_FLOW_REPORT_LAYOUTS
+Table :WWV_FLOW_REQUEST_VERIFICATIONS
+Table :WWV_FLOW_REQUIRED_ROLES
+Table :WWV_FLOW_RESTRICTED_SCHEMAS
+Table :WWV_FLOW_ROW_TEMPLATES
+Table :WWV_FLOW_RSCHEMA_EXCEPTIONS
+Table :WWV_FLOWS
+Table :WWV_FLOW_SC_TRANS
+Table :WWV_FLOW_SECURITY_SCHEMES
+Table :WWV_FLOW_SESSIONS$
+Table :WWV_FLOW_SHARED_QRY_SQL_STMTS
+Table :WWV_FLOW_SHARED_QUERIES
+Table :WWV_FLOW_SHARED_WEB_SERVICES
+Table :WWV_FLOW_SHORTCUTS
+Table :WWV_FLOW_SHORTCUT_USAGE_MAP
+Table :WWV_FLOWS_RESERVED
+Table :WWV_FLOW_STANDARD_CSS
+Table :WWV_FLOW_STANDARD_ICONS
+Table :WWV_FLOW_STANDARD_JS
+Table :WWV_FLOW_STEP_BRANCH_ARGS
+Table :WWV_FLOW_STEP_BRANCHES
+Table :WWV_FLOW_STEP_BUTTONS
+Table :WWV_FLOW_STEP_COMPUTATIONS
+Table :WWV_FLOW_STEP_ITEM_HELP
+Table :WWV_FLOW_STEP_ITEMS
+Table :WWV_FLOW_STEP_PROCESSING
+Table :WWV_FLOW_STEPS
+Table :WWV_FLOW_STEP_VALIDATIONS
+Table :WWV_FLOW_SW_BINDS
+Table :WWV_FLOW_SW_CREATE_KEYWORDS
+Table :WWV_FLOW_SW_DETAIL_RESULTS
+Table :WWV_FLOW_SW_MAIN_KEYWORDS
+Table :WWV_FLOW_SW_RESULTS
+Table :WWV_FLOW_SW_SET_KEYWORDS
+Table :WWV_FLOW_SW_SQL_CMDS
+Table :WWV_FLOW_SW_SQLPLUS_CMD
+Table :WWV_FLOW_SW_STMTS
+Table :WWV_FLOW_TABS
+Table :WWV_FLOW_TEMPLATE_PREFERENCES
+Table :WWV_FLOW_TEMPLATES
+Table :WWV_FLOW_TEMPLATES$
+Table :WWV_FLOW_TEMPLATE_THEMES$
+Table :WWV_FLOW_TEMP_TABLE
+Table :WWV_FLOW_TEMP_TREES
+Table :WWV_FLOW_THEMES
+Table :WWV_FLOW_TOPLEVEL_TABS
+Table :WWV_FLOW_TRANSLATABLE_COLS$
+Table :WWV_FLOW_TRANSLATABLE_TEXT$
+Table :WWV_FLOW_TREES
+Table :WWV_FLOW_TREE_STATE
+Table :WWV_FLOW_UPG_COL_NAME_CHANGES
+Table :WWV_FLOW_UPGRADE_PROGRESS
+Table :WWV_FLOW_UPG_TAB_NAME_CHANGES
+Table :WWV_FLOW_UPG_TAB_OBSOLETE
+Table :WWV_FLOW_USER_ACCESS_LOG_NUM$
+Table :WWV_FLOW_USER_ACCESS_LOG1$
+Table :WWV_FLOW_USER_ACCESS_LOG2$
+Table :WWV_FLOW_VERSION$
+Table :WWV_FLOW_WEB_PAGES
+Table :WWV_FLOW_WEB_PG_LIST_ENTRIES
+Table :WWV_FLOW_WEB_PG_REGIONS
+Table :WWV_FLOW_WORKSHEET_CATEGORIES
+Table :WWV_FLOW_WORKSHEET_COL_GROUPS
+Table :WWV_FLOW_WORKSHEET_COLUMNS
+Table :WWV_FLOW_WORKSHEET_COMPUTATION
+Table :WWV_FLOW_WORKSHEET_CONDITIONS
+Table :WWV_FLOW_WORKSHEET_DOCS
+Table :WWV_FLOW_WORKSHEET_GEOCACHE
+Table :WWV_FLOW_WORKSHEET_HISTORY
+Table :WWV_FLOW_WORKSHEET_LINKS
+Table :WWV_FLOW_WORKSHEET_LOV_ENTRIES
+Table :WWV_FLOW_WORKSHEET_LOVS
+Table :WWV_FLOW_WORKSHEET_PRIVS
+Table :WWV_FLOW_WORKSHEET_ROWS
+Table :WWV_FLOW_WORKSHEET_RPTS
+Table :WWV_FLOW_WORKSHEETS
+Table :WWV_FLOW_WORKSHEET_STICK
+Table :WWV_FLOW_WORKSPACE_REQ_SIZE
+Table :WWV_FLOW_WS_OPERATIONS
+Table :WWV_FLOW_WS_PARAMETERS
+Table :WWV_FLOW_WS_PROCESS_PARMS_MAP
+Table :WWV_MIG_ACC_COLUMNS
+Table :WWV_MIG_ACCESS
+Table :WWV_MIG_ACC_FORMS
+Table :WWV_MIG_ACC_FORMS_CONTROLS
+Table :WWV_MIG_ACC_FORMS_MODULES
+Table :WWV_MIG_ACC_FORMS_PERM
+Table :WWV_MIG_ACC_GROUPS
+Table :WWV_MIG_ACC_GRPSMEMBERS
+Table :WWV_MIG_ACC_INDEXES
+Table :WWV_MIG_ACC_INDEXES_COLS
+Table :WWV_MIG_ACC_MODULES
+Table :WWV_MIG_ACC_MODULES_PERM
+Table :WWV_MIG_ACC_PAGES
+Table :WWV_MIG_ACC_QUERIES
+Table :WWV_MIG_ACC_RELATION_COLS
+Table :WWV_MIG_ACC_RELATIONS
+Table :WWV_MIG_ACC_REPORTS
+Table :WWV_MIG_ACC_RPT_PERMS
+Table :WWV_MIG_ACC_RPTS_CONTROLS
+Table :WWV_MIG_ACC_RPTS_MODULES
+Table :WWV_MIG_ACC_TABLES
+Table :WWV_MIG_ACC_TAB_PERM
+Table :WWV_MIG_ACC_USERS
+Table :WWV_MIG_EXPORTER
+Table :WWV_MIG_FORMS
+Table :WWV_MIG_FRM_ALERTS
+Table :WWV_MIG_FRM_ATTACHEDLIBRARY
+Table :WWV_MIG_FRM_BLK_DSA
+Table :WWV_MIG_FRM_BLK_DSC
+Table :WWV_MIG_FRM_BLK_ITEM_LIE
+Table :WWV_MIG_FRM_BLK_ITEM_RADIO
+Table :WWV_MIG_FRM_BLK_ITEMS
+Table :WWV_MIG_FRM_BLK_ITEM_TRIGGERS
+Table :WWV_MIG_FRM_BLK_RELATIONS
+Table :WWV_MIG_FRM_BLK_TRIGGERS
+Table :WWV_MIG_FRM_BLOCKS
+Table :WWV_MIG_FRM_CANVAS
+Table :WWV_MIG_FRM_CNVG_COMPOUNDTEXT
+Table :WWV_MIG_FRM_CNVS_GRAPHICS
+Table :WWV_MIG_FRM_CNVS_TABPAGE
+Table :WWV_MIG_FRM_COORDINATES
+Table :WWV_MIG_FRM_CPDTXT_TEXTSEGMENT
+Table :WWV_MIG_FRM_EDITOR
+Table :WWV_MIG_FRM_FMB_MENU
+Table :WWV_MIG_FRM_FMB_MENUITEM_ROLE
+Table :WWV_MIG_FRM_FMB_MENU_MENUITEM
+Table :WWV_MIG_FRM_FORMMODULES
+Table :WWV_MIG_FRM_LOV
+Table :WWV_MIG_FRM_LOVCOLUMNMAPPING
+Table :WWV_MIG_FRM_MENU
+Table :WWV_MIG_FRM_MENUITEM_ROLE
+Table :WWV_MIG_FRM_MENU_MENUITEM
+Table :WWV_MIG_FRM_MENUS
+Table :WWV_MIG_FRM_MENUS_MENUMODULES
+Table :WWV_MIG_FRM_MENUSMODULEROLES
+Table :WWV_MIG_FRM_MENUS_MODULES
+Table :WWV_MIG_FRM_MENUS_PROGRAMUNIT
+Table :WWV_MIG_FRM_MODULEPARAMETER
+Table :WWV_MIG_FRM_MODULES
+Table :WWV_MIG_FRM_OBJECTGROUP
+Table :WWV_MIG_FRM_OBJECTGROUPCHILD
+Table :WWV_MIG_FRM_OLB_XMLTAGTABLEMAP
+Table :WWV_MIG_FRM_PROGRAMUNIT
+Table :WWV_MIG_FRM_PROPERTYCLASS
+Table :WWV_MIG_FRM_RECORDGROUPCOLUMN
+Table :WWV_MIG_FRM_RECORDGROUPS
+Table :WWV_MIG_FRM_REPORT
+Table :WWV_MIG_FRM_REV_APEX_APP
+Table :WWV_MIG_FRM_REV_BLK_ITEMS
+Table :WWV_MIG_FRM_REV_BLOCKS
+Table :WWV_MIG_FRM_REV_FORMMODULES
+Table :WWV_MIG_FRM_REV_LOV
+Table :WWV_MIG_FRM_REV_LOVCOLMAPS
+Table :WWV_MIG_FRM_TRIGGERS
+Table :WWV_MIG_FRM_VISUALATTRIBUTES
+Table :WWV_MIG_FRM_WINDOWS
+Table :WWV_MIG_FRM_XMLTAGTABLEMAP
+Table :WWV_MIG_GENERATED_APPLICATIONS
+Table :WWV_MIG_MENU_XMLTAGTABLEMAP
+Table :WWV_MIG_OLB
+Table :WWV_MIG_OLB_BLK_DATASOURCECOL
+Table :WWV_MIG_OLB_BLK_ITEM
+Table :WWV_MIG_OLB_BLK_ITEM_LIE
+Table :WWV_MIG_OLB_BLK_ITEM_TRIGGER
+Table :WWV_MIG_OLB_BLK_TRIGGER
+Table :WWV_MIG_OLB_BLOCK
+Table :WWV_MIG_OLB_CANVAS
+Table :WWV_MIG_OLB_CG_COMPOUNDTEXT
+Table :WWV_MIG_OLB_CG_CT_TEXTSEGMENT
+Table :WWV_MIG_OLB_CNVS_GRAPHICS
+Table :WWV_MIG_OLB_MODULES
+Table :WWV_MIG_OLB_OBJECTLIBRARY
+Table :WWV_MIG_OLB_OBJECTLIBRARYTAB
+Table :WWV_MIG_OLB_OLT_ALERT
+Table :WWV_MIG_OLB_OLT_BLK_ITEM
+Table :WWV_MIG_OLB_OLT_BLK_ITEM_TRIGR
+Table :WWV_MIG_OLB_OLT_BLOCK
+Table :WWV_MIG_OLB_OLT_CANVAS
+Table :WWV_MIG_OLB_OLT_CNVS_GRAPHICS
+Table :WWV_MIG_OLB_OLT_GRAPHICS
+Table :WWV_MIG_OLB_OLT_ITEM
+Table :WWV_MIG_OLB_OLT_MENU
+Table :WWV_MIG_OLB_OLT_MENU_MENUITEM
+Table :WWV_MIG_OLB_OLT_OBJECTGROUP
+Table :WWV_MIG_OLB_OLT_OB_OBJGRPCHILD
+Table :WWV_MIG_OLB_OLT_REPORT
+Table :WWV_MIG_OLB_OLT_TABPAGE
+Table :WWV_MIG_OLB_OLT_TABPG_GRAPHICS
+Table :WWV_MIG_OLB_OLT_VISUALATTRBUTE
+Table :WWV_MIG_OLB_OLT_WINDOW
+Table :WWV_MIG_OLB_PROGRAMUNIT
+Table :WWV_MIG_OLB_PROPERTYCLASS
+Table :WWV_MIG_OLB_T_TP_GG_CPDTXT
+Table :WWV_MIG_OLB_T_TP_GG_CT_TXTSGT
+Table :WWV_MIG_OLB_T_TP_GGG_CPDTXT
+Table :WWV_MIG_OLB_T_TP_GGG_CT_TXTSGT
+Table :WWV_MIG_OLB_T_TP_GGGG_CPDTXT
+Table :WWV_MIG_OLB_T_TP_GGGG_CT_TXSGT
+Table :WWV_MIG_OLB_T_TP_GGGGG_CPDTXT
+Table :WWV_MIG_OLB_T_TP_GGGGG_CT_TXST
+Table :WWV_MIG_OLB_T_TP_GGGG_GRAPHICS
+Table :WWV_MIG_OLB_T_TP_GGG_GRAPHICS
+Table :WWV_MIG_OLB_T_TP_GG_GRAPHICS
+Table :WWV_MIG_OLB_T_TP_G_GRAPHICS
+Table :WWV_MIG_OLB_VISUALATTRIBUTE
+Table :WWV_MIG_OLB_WINDOW
+Table :WWV_MIG_PLSQL_LIBS
+Table :WWV_MIG_PROJECT_COMPONENTS
+Table :WWV_MIG_PROJECTS
+Table :WWV_MIG_PROJECT_TRIGGERS
+Table :WWV_MIG_REPORT
+Table :WWV_MIG_RESERVED_WORDS
+Table :WWV_MIG_REV_APEXAPP
+Table :WWV_MIG_REV_FORMS
+Table :WWV_MIG_REV_QUERIES
+Table :WWV_MIG_REV_REPORTS
+Table :WWV_MIG_REV_TABLES
+Table :WWV_MIG_RPT_DATA
+Table :WWV_MIG_RPT_DATASRC
+Table :WWV_MIG_RPT_DATASRC_GRP
+Table :WWV_MIG_RPT_DATASRC_SELECT
+Table :WWV_MIG_RPT_DATA_SUMMARY
+Table :WWV_MIG_RPT_GRP_DATAITEM
+Table :WWV_MIG_RPT_GRP_DATAITEM_DESC
+Table :WWV_MIG_RPT_GRP_DATAITEM_PRIV
+Table :WWV_MIG_RPT_GRP_FIELD
+Table :WWV_MIG_RPT_GRP_FILTER
+Table :WWV_MIG_RPT_GRP_FORMULA
+Table :WWV_MIG_RPT_GRP_ROWDELIM
+Table :WWV_MIG_RPT_GRP_SUMMARY
+Table :WWV_MIG_RPT_REPORTPRIVATE
+Table :WWV_MIG_RPTS
+Table :WWV_MIG_RPT_XMLTAGTABLEMAP
+Table :WLM_CLASSIFIER_PLAN
+Table :WLM_METRICS_STREAM
+Table :ACHAT
+Table :ADHERE
+Table :CATEGORIE
+Table :CLIENT
+Table :DELIVREORDONNANCE
+Table :ETAT
+Table :GARANTIE
+Table :LOCATION
+Table :PATIENT
+Table :POSSEDELOCATION
+Table :POSSEDEVENTE
+Table :PRESCRIPTEUR
+Table :PRODUIT
+Table :PRODUITLOUER
+Table :SITE
+Table :TAILLE
+Table :TVA
+Table :ADHERE
+Table :DETAIL
+Table :FACTURE
+Table :FRANCHISE
+Table :LOCALISE
+Table :MATERIEL
+Table :PATIENT
+Table :PERSONNE
+Table :PRESCRIPTEUR
+Table :PRESCRIT
+Table :SITE
+Table :TVA
+Table :ADHESION
+Table :ADRESSE
+Table :CATEGORIE
+Table :EMPRUNTER
+Table :EXEMPLAIRE
+Table :FACTURE
+Table :LOCATION
+Table :MATERIEL
+Table :MODEPAIEMENT
+Table :ORDONNANCE
+Table :PARTENAIRE
+Table :PATIENT
+Table :PAYER
+Table :PRESCRIPTEUR
+Table :PRESCRIR
+Table :SITE
+Table :TVA
+Table :UTILISER
+Table :VENTE
+Table :ADHERER
+Table :ADRESSE
+Table :COMMANDE
+Table :COMMANDEENATTENTEACHAT
+Table :COMMANDEENATTENTELOUE
+Table :CONCERNERCOMMANDEACHAT
+Table :CONCERNERCOMMANDELOCATION
+Table :CONCERNERMATERIEL
+Table :DETENIRMATERIEL
+Table :ESTLIVRE
+Table :FACTUREADHESION
+Table :FACTURECOMMANDE
+Table :HABITER
+Table :LISTER
+Table :LIVRAISON
+Table :LOG_DISPO_MATOS
+Table :MATERIELACHAT
+Table :MATERIELLOUE
+Table :MATERIELMEDICAL
+Table :ORDONNANCE
+Table :PARTENAIRE
+Table :PATIENT
+Table :PRESCRIPTEUR
+Table :SITE
+Table :TVA
+Table :TYPEMATERIEL
+Table :VILLE
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :AB_NB_TABLE
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF_TABLE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS_TABLE
+Table :RT1_TABLE
+Table :RT2_TABLE
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :MUSIQUE
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :T_AB_NB
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :COEFF_RS
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS
+Table :POIDS_RS
+Table :RT1_RS
+Table :RT1_ST
+Table :RT2_RS
+Table :RT2_ST
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ORDERS
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :PERSONNE
+Table :POIDS
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NB_AB
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :COEFF
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :POIDS
+Table :RT1
+Table :RT2
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NBTABLE
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NBT
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EMPRUNT_CATEGORIE
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ABONNE
+Table :ADHERENT
+Table :CARACTERISE
+Table :CATEGORIE
+Table :COMMANDE
+Table :EMPRUNT
+Table :EST_FOURNI_PAR
+Table :EXEMPLAIRE
+Table :FOURNISSEUR
+Table :INSCRIT
+Table :LIGNECOMMANDE
+Table :LIGNELOCATION
+Table :LIGNEVENTE
+Table :LIVRE
+Table :LOCATIONMAT
+Table :MARQUE
+Table :MATERIEL
+Table :MOT_CLEF
+Table :PATIENT
+Table :PRESCRIPTEUR
+Table :SITE
+Table :T_AB_NB
+Table :TVA
+Table :VENTEMAT
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ABONNE
+Table :CARACTERISE
+Table :CLUBS
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NBTAB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NB_AB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NB_AB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NB_ABB
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :DR$ACTIVELOGS
+Table :DR$CLASS
+Table :DR$DBO
+Table :DR$DELETE
+Table :DR$FEATURE_USED
+Table :DR$FREQTOKS
+Table :DR$INDEX
+Table :DR$INDEX_CDI_COLUMN
+Table :DR$INDEX_ERROR
+Table :DR$INDEX_OBJECT
+Table :DR$INDEX_PARTITION
+Table :DR$INDEX_SET
+Table :DR$INDEX_SET_INDEX
+Table :DR$INDEX_VALUE
+Table :DR$NUMBER_SEQUENCE
+Table :DR$NVTAB
+Table :DR$OBJECT
+Table :DR$OBJECT_ATTRIBUTE
+Table :DR$OBJECT_ATTRIBUTE_LOV
+Table :DR$ONLINE_PENDING
+Table :DR$PARALLEL
+Table :DR$PARAMETER
+Table :DR$PENDING
+Table :DR$POLICY_TAB
+Table :DR$PREFERENCE
+Table :DR$PREFERENCE_VALUE
+Table :DR$SDATA_UPDATE
+Table :DR$SECTION
+Table :DR$SECTION_GROUP
+Table :DR$SLOWQRYS
+Table :DR$SQE
+Table :DR$STATS
+Table :DR$STOPLIST
+Table :DR$STOPWORD
+Table :DR$SUB_LEXER
+Table :DR$THS
+Table :DR$THS_BT
+Table :DR$THS_FPHRASE
+Table :DR$THS_PHRASE
+Table :DR$UNINDEXED
+Table :DR$USER_EXTRACT_ENTDICT
+Table :DR$USER_EXTRACT_RULE
+Table :DR$USER_EXTRACT_STOP_ENTITY
+Table :DR$USER_EXTRACT_TKDICT
+Table :DR$WAITING
+Table :SYS_IOT_OVER_55427
+Table :SYS_IOT_OVER_55474
+Table :AQ_MNTR_MSGS_BUFFQ
+Table :AQ_MNTR_MSGS_PERSQ
+Table :AQ_MNTR_MSGS_PERSQSUBS
+Table :AQ_MNTR_MSGS_QUEUE
+Table :AQ_MNTR_MSGS_SUBS
+Table :BSLN_BASELINES
+Table :BSLN_METRIC_DEFAULTS
+Table :BSLN_STATISTICS
+Table :BSLN_THRESHOLD_PARAMS
+Table :BSLN_TIMEGROUPS
+Table :MGMT_BASELINE
+Table :MGMT_BASELINE_SQL
+Table :MGMT_CAPTURE
+Table :MGMT_CAPTURE_SQL
+Table :MGMT_DB_FEATURE_LOG
+Table :MGMT_DB_FILE_GTT
+Table :MGMT_DB_SIZE_GTT
+Table :MGMT_HISTORY
+Table :MGMT_HISTORY_SQL
+Table :MGMT_LATEST
+Table :MGMT_LATEST_SQL
+Table :MGMT_RESPONSE_CONFIG
+Table :MGMT_SNAPSHOT
+Table :MGMT_SNAPSHOT_SQL
+Table :MGMT_TEMPT_SQL
+Table :ACHAT
+Table :ADHERE
+Table :CATEGORIE
+Table :CLIENT
+Table :DELIVREORDONNANCE
+Table :ETAT
+Table :GARANTIE
+Table :LOCATION
+Table :PATIENT
+Table :POSSEDELOCATION
+Table :POSSEDEVENTE
+Table :PRESCRIPTEUR
+Table :PRODUIT
+Table :PRODUITLOUER
+Table :SITE
+Table :ACHAT
+Table :ADHERE
+Table :CATEGORIE
+Table :CLIENT
+Table :DELIVREORDONNANCE
+Table :ETAT
+Table :GARANTIE
+Table :LOCATION
+Table :PATIENT
+Table :POSSEDELOCATION
+Table :POSSEDEVENTE
+Table :PRESCRIPTEUR
+Table :PRODUIT
+Table :PRODUITLOUER
+Table :SITE
+Table :TAILLE
+Table :TVA
+Table :ACHAT
+Table :ADHERE
+Table :CATEGORIE
+Table :CLIENT
+Table :DELIVREORDONNANCE
+Table :ETAT
+Table :GARANTIE
+Table :LOCATION
+Table :PATIENT
+Table :POSSEDELOCATION
+Table :POSSEDEVENTE
+Table :PRESCRIPTEUR
+Table :PRODUIT
+Table :PRODUITLOUER
+Table :SITE
+Table :TAILLE
+Table :TVA
+Table :ACHAT
+Table :ADHERE
+Table :CATEGORIE
+Table :CLIENT
+Table :DELIVREORDONNANCE
+Table :ETAT
+Table :GARANTIE
+Table :LOCATION
+Table :PATIENT
+Table :POSSEDELOCATION
+Table :POSSEDEVENTE
+Table :PRESCRIPTEUR
+Table :PRODUIT
+Table :PRODUITLOUER
+Table :SITE
+Table :TAILLE
+Table :TVA
+Table :ABONNE
+Table :CARACTERISE
+Table :CLUBS
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :EXF$ASUDFLIST
+Table :EXF$ATTRLIST
+Table :EXF$ATTRSET
+Table :EXF$DEFIDXPARAM
+Table :EXF$ESETIDXPARAM
+Table :EXF$EXPRSET
+Table :EXF$EXPSETPRIVS
+Table :EXF$EXPSETSTATS
+Table :EXF$IDXSECOBJ
+Table :EXF$JAVAMSG
+Table :EXF$PARAMETER
+Table :EXF$PLAN_TABLE
+Table :EXF$PREDATTRMAP
+Table :EXF$VALIDIOPER
+Table :EXF$VALIDPRIVS
+Table :EXF$VERSION
+Table :RLM$COLLGRPBYSPEC
+Table :RLM$DMLEVTTRIGS
+Table :RLM$EQUALSPEC
+Table :RLM$ERRCODE
+Table :RLM$EVENTSTRUCT
+Table :RLM$INCRRRSCHACT
+Table :RLM$JOBQUEUE
+Table :RLM$ORDERCLSALS
+Table :RLM$PARSEDCOND
+Table :RLM$PRIMEVTTYPEMAP
+Table :RLM$RSPRIMEVENTS
+Table :RLM$RULESET
+Table :RLM$RULESETPRIVS
+Table :RLM$RULESETSTCODE
+Table :RLM$SCHACTERRS
+Table :RLM$SCHACTLIST
+Table :RLM$VALIDPRIVS
+Table :RLM4J$ATTRALIASES
+Table :RLM4J$EVTSTRUCTS
+Table :RLM4J$RULESET
+Table :SYS_IOT_OVER_55263
+Table :SYS_IOT_OVER_55273
+Table :SYS_IOT_OVER_57248
+Table :SYS_IOT_OVER_57256
+Table :SYS_IOT_OVER_57263
+Table :SYS_IOT_OVER_57266
+Table :SYS_IOT_OVER_57269
+Table :SYS_IOT_OVER_57289
+Table :SYS_IOT_OVER_57292
+Table :SYS_IOT_OVER_57295
+Table :SYS_IOT_OVER_57298
+Table :WWV_FLOW_FILE_OBJECTS$
+Table :ADHESION
+Table :ARTICLE
+Table :ARTICLE_ACHETE
+Table :ARTICLE_LOUE
+Table :CATEGORIE_ARTICLE
+Table :EMPLOYE
+Table :ETAT_FACTURE
+Table :EXEMPLAIRE
+Table :FACTURE
+Table :FORFAIT
+Table :ORDONNANCE
+Table :PATIENT
+Table :PRESCRIPTEUR
+Table :SITE
+Table :TAUX_TVA
+Table :TYPE_PAIEMENT
+Table :VILLE
+Table :COUNTRIES
+Table :DEPARTMENTS
+Table :EMPLOYEES
+Table :JOB_HISTORY
+Table :JOBS
+Table :LOCATIONS
+Table :REGIONS
+Table :ARTISTE
+Table :COMMENTAIRE
+Table :FILMS
+Table :JOUER
+Table :USERS
+Table :AQ$_ORDERS_QUEUETABLE_G
+Table :AQ$_ORDERS_QUEUETABLE_H
+Table :AQ$_ORDERS_QUEUETABLE_I
+Table :AQ$_ORDERS_QUEUETABLE_L
+Table :AQ$_ORDERS_QUEUETABLE_S
+Table :AQ$_ORDERS_QUEUETABLE_T
+Table :AQ$_STREAMS_QUEUE_TABLE_C
+Table :AQ$_STREAMS_QUEUE_TABLE_G
+Table :AQ$_STREAMS_QUEUE_TABLE_H
+Table :AQ$_STREAMS_QUEUE_TABLE_I
+Table :AQ$_STREAMS_QUEUE_TABLE_L
+Table :AQ$_STREAMS_QUEUE_TABLE_S
+Table :AQ$_STREAMS_QUEUE_TABLE_T
+Table :ORDERS_QUEUETABLE
+Table :STREAMS_QUEUE_TABLE
+Table :SYS_IOT_OVER_74057
+Table :SYS_IOT_OVER_74075
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TEMP_TADRESSES
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TEMP_TADRESSE
+Table :ODIPLOME
+Table :OETUDIANT
+Table :OETUDIANT2
+Table :AB_NB
+Table :AB_NB_DD
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TEMP_TADR
+Table :NT_TEMP_TADR2
+Table :O_DIPLOME
+Table :O_ETUDIANT
+Table :O_ETUDIANT2
+Table :RESULTAT_CAT_ABO
+Table :AB_NB
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TEMP_TADRESSE
+Table :OETUDIANT
+Table :TODIPLOME
+Table :TOETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :ADRESSETEMP
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANT
+Table :ETUDIANT
+Table :ETUDIANTS
+Table :NT_TEMP_TADRESSE
+Table :ODIPLOME
+Table :OETUDIANT
+Table :OETUDIANT2
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TMP_TADRESSE
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TMP_ADRESSES
+Table :NT_TMP_ADRESSE_TP4
+Table :OADRESSE
+Table :ODIPLOME_TP4
+Table :OETUDIANT
+Table :OETUDIANT_TP4
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TEMP_TADRESSE
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_OETUDIANTAGE_TADRESSE
+Table :NT_TEMPS_TADRESSE
+Table :ODIPLOME
+Table :OETUDIANT
+Table :OETUDIANTAGE
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANT_TEMP
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ODIPLOME
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANT_TEMP
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :DIPLOME
+Table :EMPRUNT
+Table :ETUDIANTTMP
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANT
+Table :TEMPETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TETUDIANT
+Table :NT_TETUDIANT2
+Table :ODIPLOME
+Table :TEMP_ADRESSE
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :CATEGORIE_ABONNE
+Table :EMPRUNT
+Table :ERREURS
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :NT_TETUDIANT
+Table :TEMP_ADRESSE
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANTS_TEMP
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANTS
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANT_TEMP
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANT_TEMP
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :ODIPLOME
+Table :OETUDIANT
+Table :AB_NB
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :ETUDIANTS_TEMP
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :OETUDIANTS
+Table :ADHESION
+Table :CATEGORIE
+Table :DISPOSELOCATION
+Table :DISPOSEVENTE
+Table :ETAT
+Table :FACTURELOCATION
+Table :FACTUREVENTE
+Table :FOURNISSEUR
+Table :HISTORIQUEVENTE
+Table :LIGNEVENTE
+Table :LISTEATTENTE
+Table :LOCATION
+Table :PARTENAIRES
+Table :PATIENT
+Table :PRESCRIPTEUR
+Table :PRESTATION
+Table :PRODUIT
+Table :PROPOSE
+Table :REAPPROVISIONNEMENT
+Table :SEQUENCE
+Table :SITE
+Table :SUIVI
+Table :TAILLE
+Table :TVA
+Table :TYPE
+Table :VENTE
+Table :CSW_CAPABILITIESINFO$
+Table :CSW_DOMAININFO$
+Table :CSW_HARVESTMETADATA$
+Table :CSW_PLUGIN_MAP$
+Table :CSW_RECORDDOMAINUPDATED$
+Table :CSW_RECORDTABLEMDUPDATED$
+Table :CSW_RECORDTABLEUPDATED$
+Table :CSW_RECORD_TYPES$
+Table :CSW_RECORDVIEWMAP$
+Table :CSW_RTXSDINFO$
+Table :CSW_TRG_TABLE_TEMP$
+Table :CURRENTSESSIONTOKENMAP_T$
+Table :FINAL_PARTITION
+Table :MD$RELATE
+Table :NDM_FINAL_PARTITION
+Table :NDM_PARTITION_TMP_2
+Table :NDM_PARTITION_TMP_3
+Table :NTV2_XML_DATA
+Table :OGIS_GEOMETRY_COLUMNS
+Table :OGIS_SPATIAL_REFERENCE_SYSTEMS
+Table :OLS_DIR_BUSINESS_CHAINS
+Table :OLS_DIR_BUSINESSES
+Table :OLS_DIR_CATEGORIES
+Table :OLS_DIR_CATEGORIZATIONS
+Table :OLS_DIR_CATEGORY_TYPES
+Table :OLS_DIR_SYNONYMS
+Table :OPENLS_CLASSIFICATIONS
+Table :OPENLS_NAMESPACES
+Table :OPENLS_NODES
+Table :OPENLSSERVICES
+Table :OPENLS_XPATHS
+Table :PARTITION_TMP_2
+Table :PARTITION_TMP_3
+Table :RO_TABLE
+Table :ROWTOKENMAP_T$
+Table :R_TABLE
+Table :SDO_ANIMATIONS_TABLE
+Table :SDO_ANNOTATION_TEXT_METADATA
+Table :SDO_CACHED_MAPS_TABLE
+Table :SDO_COORD_AXES
+Table :SDO_COORD_AXIS_NAMES
+Table :SDO_COORD_OP_METHODS
+Table :SDO_COORD_OP_PARAMS
+Table :SDO_COORD_OP_PARAM_USE
+Table :SDO_COORD_OP_PARAM_VALS
+Table :SDO_COORD_OP_PATHS
+Table :SDO_COORD_OPS
+Table :SDO_COORD_REF_SYS
+Table :SDO_COORD_SYS
+Table :SDO_CRS_GEOGRAPHIC_PLUS_HEIGHT
+Table :SDO_CS_CONTEXT_INFORMATION
+Table :SDO_CS_SRS
+Table :SDO_DATUMS
+Table :SDO_DATUMS_OLD_SNAPSHOT
+Table :SDO_ELLIPSOIDS
+Table :SDO_ELLIPSOIDS_OLD_SNAPSHOT
+Table :SDO_GEOM_METADATA_TABLE
+Table :SDO_GEOR_DDL__TABLE$$
+Table :SDO_GEOR_PLUGIN_REGISTRY
+Table :SDO_GEOR_SYSDATA_TABLE
+Table :SDO_GEOR_XMLSCHEMA_TABLE
+Table :SDO_GR_MOSAIC_0
+Table :SDO_GR_MOSAIC_1
+Table :SDO_GR_MOSAIC_2
+Table :SDO_GR_MOSAIC_3
+Table :SDO_GR_RDT_1
+Table :SDO_GR_RDT_2
+Table :SDO_INDEX_METADATA_TABLE
+Table :SDO_LIGHTSOURCES_TABLE
+Table :SDO_LRS_METADATA_TABLE
+Table :SDO_MAPS_TABLE
+Table :SDO_NETWORK_CONSTRAINTS
+Table :SDO_NETWORK_HISTORIES
+Table :SDO_NETWORK_LOCKS_WM
+Table :SDO_NETWORK_METADATA_TABLE
+Table :SDO_NETWORK_TIMESTAMPS
+Table :SDO_NETWORK_USER_DATA
+Table :SDO_PC_BLK_TABLE
+Table :SDO_PREFERRED_OPS_SYSTEM
+Table :SDO_PREFERRED_OPS_USER
+Table :SDO_PRIME_MERIDIANS
+Table :SDO_PROJECTIONS_OLD_SNAPSHOT
+Table :SDO_SCENES_TABLE
+Table :SDO_ST_TOLERANCE
+Table :SDO_STYLES_TABLE
+Table :SDO_THEMES_TABLE
+Table :SDO_TIN_BLK_TABLE
+Table :SDO_TIN_PC_SEQ
+Table :SDO_TIN_PC_SYSDATA_TABLE
+Table :SDO_TOPO_DATA$
+Table :SDO_TOPO_MAPS
+Table :SDO_TOPO_METADATA_TABLE
+Table :SDO_TOPO_RELATION_DATA
+Table :SDO_TOPO_TRANSACT_DATA
+Table :SDO_TXN_IDX_DELETES
+Table :SDO_TXN_IDX_EXP_UPD_RGN
+Table :SDO_TXN_IDX_INSERTS
+Table :SDO_UNITS_OF_MEASURE
+Table :SDO_VIEWFRAMES_TABLE
+Table :SDO_WFS_LOCAL_TXNS
+Table :SDO_WS_CONFERENCE
+Table :SDO_WS_CONFERENCE_PARTICIPANTS
+Table :SDO_WS_CONFERENCE_RESULTS
+Table :SDO_XML_SCHEMAS
+Table :SDO_3DTHEMES_TABLE
+Table :SDO_3DTXFMS_TABLE
+Table :SRSNAMESPACE_TABLE
+Table :TOKENSESSIONMAP_T$
+Table :WFS_CAPABILITIESINFO$
+Table :WFS_FEATUREINSTANCEMETADATA$
+Table :WFS_FEATURETABLEMDUPDATED$
+Table :WFS_FEATURETABLEUPDATED$
+Table :WFS_FEATURETYPE$
+Table :WFS_FEATURETYPEATTRS$
+Table :WFS_FEATURETYPECOMPLEXTAGS$
+Table :WFS_FEATURETYPENESTEDSDOS$
+Table :WFS_FEATURETYPESIMPLETAGATTRS$
+Table :WFS_FEATURETYPETAGS$
+Table :WFS_FEATURETYPEXMLCOLINFO$
+Table :WFS_FTTYPECOMPLEXTAGATTRS$
+Table :WFS_FTXSDINFO$
+Table :WFS_PROC_MAP$
+Table :WFS_TRG_TABLE_TEMP$
+Table :AB_NB_TABLE
+Table :ABONNE
+Table :CARACTERISE
+Table :CLIENT
+Table :COMMANDE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :FOURNISSEURS
+Table :LIVRE
+Table :MOT_CLEF
+Table :PAGES
+Table :ACTION_TABLE
+Table :CATEGORIES_TAB
+Table :CUSTOMERS
+Table :INVENTORIES
+Table :LINEITEM_TABLE
+Table :ORDER_ITEMS
+Table :ORDERS
+Table :PRODUCT_DESCRIPTIONS
+Table :PRODUCT_INFORMATION
+Table :PRODUCT_REF_LIST_NESTEDTAB
+Table :PROMOTIONS
+Table :PURCHASEORDER
+Table :SUBCATEGORY_REF_LIST_NESTEDTAB
+Table :WAREHOUSES
+Table :CWM$ARGUMENT
+Table :CWM$CLASSIFICATION
+Table :CWM$CLASSIFICATIONENTRY
+Table :CWM$CLASSIFICATIONTYPE
+Table :CWM$CUBE
+Table :CWM$CUBEDIMENSIONUSE
+Table :CWM$DIMENSION
+Table :CWM$DIMENSIONATTRIBUTE
+Table :CWM$DOMAIN
+Table :CWM$FACTLEVELGROUP
+Table :CWM$FACTLEVELUSE
+Table :CWM$FACTTABLEMAP
+Table :CWM$FACTUSE
+Table :CWM$FUNCTION
+Table :CWM$FUNCTIONUSE
+Table :CWM$HIERARCHY
+Table :CWM$ITEMMAP
+Table :CWM$ITEMUSE
+Table :CWM$LEVEL
+Table :CWM$LEVELATTRIBUTE
+Table :CWM$MEASURE
+Table :CWM$MEASUREDIMENSIONUSE
+Table :CWM$MODEL
+Table :CWM$OBJECTTYPE
+Table :CWM$PARAMETER
+Table :CWM$PROJECT
+Table :CWM2$AWCOMPOSITESPEC
+Table :CWM2$AWCOMPSPECMEMBERSHIP
+Table :CWM2$AWCUBEAGG
+Table :CWM2$AWCUBEAGGLEVEL
+Table :CWM2$AWCUBEAGGMEASURE
+Table :CWM2$AWCUBECOMPPLAN
+Table :CWM2$AWCUBECREATEACCESS
+Table :CWM2$AWCUBELOAD
+Table :CWM2$AWCUBELOADAGGPLAN
+Table :CWM2$AWCUBELOADFILTER
+Table :CWM2$AWCUBELOADMEASURE
+Table :CWM2$AWCUBELOADPARM
+Table :CWM2$AWCUBELOADPARMVALUE
+Table :CWM2$AWCUBELOADTYPE
+Table :CWM2$AWDIMCREATEACCESS
+Table :CWM2$AW_DIMENSIONMAP
+Table :CWM2$AWDIMLOAD
+Table :CWM2$AWDIMLOADFILTER
+Table :CWM2$AWDIMLOADPARM
+Table :CWM2$AWDIMLOADPARMVALUE
+Table :CWM2$AWDIMLOADTYPE
+Table :CWM2$AW_MEASUREMAP
+Table :CWM2$_AW_NEXT_PERM_CUST_MEAS
+Table :CWM2$_AW_NEXT_TEMP_CUST_MEAS
+Table :CWM2$_AW_PERM_CUST_MEAS_MAP
+Table :CWM2$_AW_TEMP_CUST_MEAS_MAP
+Table :CWM2$AWVIEWCOLS
+Table :CWM2$AWVIEWS
+Table :CWM2$CLASSIFICATIONVALUEPAIR
+Table :CWM2$CUBE
+Table :CWM2$CUBEDIMENSIONUSE
+Table :CWM2$DIMENSION
+Table :CWM2$DIMENSIONATTRIBUTE
+Table :CWM2$DIMHIERLVLMAP
+Table :CWM2$FACTDIMHIERMAP
+Table :CWM2$FACTDIMHIERTPLSDTL
+Table :CWM2$FACTKEYDIMHIERLVLMAP
+Table :CWM2$FACTKEYDIMHIERMAP
+Table :CWM2$HIERARCHY
+Table :CWM2$HIERCUSTOMSORT
+Table :CWM2$HIERLEVELREL
+Table :CWM2$LEVEL
+Table :CWM2$LEVELATTRIBUTE
+Table :CWM2$LEVELATTRIBUTEMAP
+Table :CWM2$MEASURE
+Table :CWM2$MEASURETABLEMAP
+Table :CWM2$MRALL_AWVIEWCOLS
+Table :CWM2$MRALL_AWVIEWS
+Table :CWM2$MRALL_CATALOG_ENTITY_USES
+Table :CWM2$MRALL_CATALOGS
+Table :CWM2$MRALL_CUBE_MEASURES
+Table :CWM2$MRALL_CWM1_AGGOP
+Table :CWM2$MRALL_CWM1_AGGORD
+Table :CWM2$MRALL_DESCRIPTORS
+Table :CWM2$MRALL_DIM_ATTRIBUTES
+Table :CWM2$MRALL_DIM_HIER_LEVEL_USES
+Table :CWM2$MRALL_DIM_HIERS
+Table :CWM2$MRALL_DIM_LEVEL_ATTR_MAPS
+Table :CWM2$MRALL_ENTITY_DESC_USES
+Table :CWM2$MRALL_ENTITY_EXT_PARMS
+Table :CWM2$MRALL_ENTITY_PARAMETERS
+Table :CWM2$MRALL_FACTTBLFCTMAPS
+Table :CWM2$MRALL_FACTTBLKEYMAPS
+Table :CWM2$MRALL_HIER_CUSTOM_SORT
+Table :CWM2$MRALL_HIERDIM_KEYCOL_MAP
+Table :CWM2$MRALL_HIERDIMS
+Table :CWM2$MRALL_JOIN_KEY_COL_USES
+Table :CWM2$MRALL_LISTDIMS
+Table :CWM2$MRALL_OLAP2_AGG_USES
+Table :CWM2$MRFACTTBLFCTMAPS
+Table :CWM2$MRFACTTBLKEYMAPS
+Table :CWM2$OLAPEXPORTCOMMANDTABLE
+Table :CWM2$OLAPEXPORTOBJECTTABLE
+Table :CWM2$OLAPMANAGERTABLE
+Table :CWM2$OLAPVALIDATETABLE
+Table :CWM2$STOREDDIMLVLTPLS
+Table :CWM2$STOREDDIMLVLTPLSDTL
+Table :CWM2$_TEMP_VALUES
+Table :MRAC_OLAP2_AW_ATTRIBUTES_T
+Table :MRAC_OLAP2_AW_CUBE_AGG_LVL_T
+Table :MRAC_OLAP2_AW_CUBE_AGG_MEAS_T
+Table :MRAC_OLAP2_AW_CUBE_AGG_OP_T
+Table :MRAC_OLAP2_AW_CUBE_AGG_SPECS_T
+Table :MRAC_OLAP2_AW_CUBE_DIM_USES_T
+Table :MRAC_OLAP2_AW_CUBE_MEASURES_T
+Table :MRAC_OLAP2_AW_CUBES_T
+Table :MRAC_OLAP2_AW_DIMENSIONS_T
+Table :MRAC_OLAP2_AW_DIM_LEVELS_T
+Table :MRAC_OLAP2_AW_HIER_LVL_ORD_T
+Table :MRAC_OLAP2_AW_MAP_ATTR_USE_T
+Table :MRAC_OLAP2_AW_MAP_DIM_USE_T
+Table :MRAC_OLAP2_AW_MAP_MEAS_USE_T
+Table :MRAC_OLAP2_AW_PHYS_OBJ_PROP_T
+Table :MRAC_OLAP2_AW_PHYS_OBJ_T
+Table :MRAC_OLAP2_AWS_T
+Table :OLAP_SESSION_CUBES
+Table :OLAP_SESSION_DIMS
+Table :OLAP_SESSION_OBJECTS
+Table :XML_LOAD_LOG
+Table :XML_LOAD_RECORDS
+Table :ORDDCM_ANON_ACTION_TYPES
+Table :ORDDCM_ANON_ATTRS
+Table :ORDDCM_ANON_ATTRS_TMP
+Table :ORDDCM_ANON_ATTRS_WRK
+Table :ORDDCM_ANON_RULES
+Table :ORDDCM_ANON_RULES_TMP
+Table :ORDDCM_ANON_RULES_WRK
+Table :ORDDCM_ANON_RULE_TYPES
+Table :ORDDCM_CT_ACTION
+Table :ORDDCM_CT_ACTION_TMP
+Table :ORDDCM_CT_ACTION_WRK
+Table :ORDDCM_CT_DAREFS
+Table :ORDDCM_CT_DAREFS_TMP
+Table :ORDDCM_CT_DAREFS_WRK
+Table :ORDDCM_CT_LOCATORPATHS
+Table :ORDDCM_CT_LOCATORPATHS_TMP
+Table :ORDDCM_CT_LOCATORPATHS_WRK
+Table :ORDDCM_CT_MACRO_DEP
+Table :ORDDCM_CT_MACRO_DEP_WRK
+Table :ORDDCM_CT_MACRO_PAR
+Table :ORDDCM_CT_MACRO_PAR_WRK
+Table :ORDDCM_CT_PRED
+Table :ORDDCM_CT_PRED_OPRD
+Table :ORDDCM_CT_PRED_OPRD_TMP
+Table :ORDDCM_CT_PRED_OPRD_WRK
+Table :ORDDCM_CT_PRED_PAR
+Table :ORDDCM_CT_PRED_PAR_TMP
+Table :ORDDCM_CT_PRED_PAR_WRK
+Table :ORDDCM_CT_PRED_SET
+Table :ORDDCM_CT_PRED_SET_TMP
+Table :ORDDCM_CT_PRED_SET_WRK
+Table :ORDDCM_CT_PRED_TMP
+Table :ORDDCM_CT_PRED_WRK
+Table :ORDDCM_CT_VLD_MSG
+Table :ORDDCM_DATA_MODEL
+Table :ORDDCM_DATA_MODEL_WRK
+Table :ORDDCM_DICT_ATTRS
+Table :ORDDCM_DICT_ATTRS_TMP
+Table :ORDDCM_DICT_ATTRS_WRK
+Table :ORDDCM_DOC_REFS
+Table :ORDDCM_DOC_REFS_TMP
+Table :ORDDCM_DOC_REFS_WRK
+Table :ORDDCM_DOCS
+Table :ORDDCM_DOCS_TMP
+Table :ORDDCM_DOCS_WRK
+Table :ORDDCM_DOC_TYPES
+Table :ORDDCM_INSTALL_DOCS
+Table :ORDDCM_INTERNAL_TAGS
+Table :ORDDCM_MAPPED_PATHS
+Table :ORDDCM_MAPPED_PATHS_TMP
+Table :ORDDCM_MAPPED_PATHS_WRK
+Table :ORDDCM_MAPPING_DOCS
+Table :ORDDCM_MAPPING_DOCS_TMP
+Table :ORDDCM_MAPPING_DOCS_WRK
+Table :ORDDCM_PREFS_DEF_VALUES_TAB
+Table :ORDDCM_PREFS_LOOKUP
+Table :ORDDCM_PREFS_VALID_VALUES_TAB
+Table :ORDDCM_PRV_ATTRS
+Table :ORDDCM_PRV_ATTRS_TMP
+Table :ORDDCM_PRV_ATTRS_WRK
+Table :ORDDCM_RT_PREF_PARAMS
+Table :ORDDCM_RT_PREF_PARAMS_TMP
+Table :ORDDCM_RT_PREF_PARAMS_WRK
+Table :ORDDCM_STD_ATTRS
+Table :ORDDCM_STD_ATTRS_TMP
+Table :ORDDCM_STD_ATTRS_WRK
+Table :ORDDCM_STORED_TAGS
+Table :ORDDCM_STORED_TAGS_TMP
+Table :ORDDCM_STORED_TAGS_WRK
+Table :ORDDCM_UID_DEFS
+Table :ORDDCM_UID_DEFS_TMP
+Table :ORDDCM_UID_DEFS_WRK
+Table :ORDDCM_VR_DT_MAP
+Table :ORD_CARTRIDGE_COMPONENTS
+Table :ORD_USAGE_RECS
+Table :SI_FEATURES_TAB
+Table :SI_IMAGE_FORMATS_TAB
+Table :SI_VALUES_TAB
+Table :OL$
+Table :OL$HINTS
+Table :OL$NODES
+Table :OWBRTPS
+Table :ONLINE_MEDIA
+Table :PRINT_MEDIA
+Table :TEXTDOCS_NESTEDTAB
+Table :ACHETER
+Table :ADHERER
+Table :ADRESSE
+Table :CATEGORIEMATERIEL
+Table :CATEGORIESERVICE
+Table :CONCERNER
+Table :CONSULTATION
+Table :COUTER
+Table :ETREIMPOSABLE
+Table :ETRESOUMIS
+Table :EXEMPLAIRELOUABLE
+Table :FACTURE
+Table :FRANCHISE
+Table :LOUER
+Table :MATERIEL
+Table :PATIENT
+Table :PAYS
+Table :PERSONNE
+Table :POSSEDERACHAT
+Table :POSSEDERLOUER
+Table :PRESCRIPTEUR
+Table :PRESCRIRE
+Table :REALISER
+Table :RESERVER
+Table :SITE
+Table :TVA
+Table :VILLE
+Table :BAR
+Table :COMMENTAIRES
+Table :FAVORIS
+Table :NOTES
+Table :QUARTIER
+Table :TEMP_BAR
+Table :THEME
+Table :UTILISATEUR
+Table :BONUS
+Table :DEPT
+Table :EMP
+Table :SALGRADE
+Table :ADRESSE
+Table :COMMANDE
+Table :CONCERNE
+Table :ETAT
+Table :EXEMPLAIRE
+Table :ORDONNANCE
+Table :PASSER_PATIENT
+Table :PASSER_PRESCRI
+Table :PATIENT
+Table :PRESCRIPTEUR
+Table :PRESCRIT
+Table :PRODUIT
+Table :PRODUITS_ATTENTE
+Table :SITE
+Table :TYPECOMMANDE
+Table :TYPEPRODUIT
+Table :ADHESION
+Table :A_LOUER
+Table :A_VENDRE
+Table :CATEGORIE
+Table :COMMANDELOCATION
+Table :COMMANDEVENTE
+Table :ETAT
+Table :ETRE
+Table :ETRE_A_L_ETAT
+Table :FABRICANT
+Table :FABRIQUER
+Table :FACTURE
+Table :FOURNIR
+Table :FOURNISSEUR
+Table :LIVRER
+Table :LOCATIF
+Table :MATERIEL
+Table :PARTENAIRE
+Table :PATIENT
+Table :PAYEMENT
+Table :PRESCRIPTEUR
+Table :RESPONSABLE_DE_FRANCHISE
+Table :SITE
+Table :SOUS_CATEGORIE
+Table :STOCKER
+Table :TVA
+Table :VENTE
+Table :CAL_MONTH_SALES_MV
+Table :CHANNELS
+Table :COSTS
+Table :COUNTRIES
+Table :CUSTOMERS
+Table :DIMENSION_EXCEPTIONS
+Table :DR$SUP_TEXT_IDX$I
+Table :DR$SUP_TEXT_IDX$K
+Table :DR$SUP_TEXT_IDX$N
+Table :DR$SUP_TEXT_IDX$R
+Table :FWEEK_PSCAT_SALES_MV
+Table :PRODUCTS
+Table :PROMOTIONS
+Table :SALES
+Table :SALES_TRANSACTIONS_EXT
+Table :SUPPLEMENTARY_DEMOGRAPHICS
+Table :TIMES
+Table :CONTACT
+Table :POSSEDE
+Table :RESEAU_SOCIAL
+Table :UTILISATEUR
+Table :ACCESS$
+Table :ALERT_QT
+Table :APPLY$_CHANGE_HANDLERS
+Table :APPLY$_CONF_HDLR_COLUMNS
+Table :APPLY$_CONSTRAINT_COLUMNS
+Table :APPLY$_DEST_OBJ
+Table :APPLY$_DEST_OBJ_CMAP
+Table :APPLY$_DEST_OBJ_OPS
+Table :APPLY$_ERROR
+Table :APPLY$_ERROR_HANDLER
+Table :APPLY$_ERROR_TXN
+Table :APPLY$_SOURCE_OBJ
+Table :APPLY$_SOURCE_SCHEMA
+Table :APPLY$_VIRTUAL_OBJ_CONS
+Table :APPROLE$
+Table :AQ$_ALERT_QT_G
+Table :AQ$_ALERT_QT_H
+Table :AQ$_ALERT_QT_I
+Table :AQ$_ALERT_QT_L
+Table :AQ$_ALERT_QT_S
+Table :AQ$_ALERT_QT_T
+Table :AQ$_AQ$_MEM_MC_G
+Table :AQ$_AQ$_MEM_MC_H
+Table :AQ$_AQ$_MEM_MC_I
+Table :AQ$_AQ$_MEM_MC_L
+Table :AQ$_AQ$_MEM_MC_S
+Table :AQ$_AQ$_MEM_MC_T
+Table :AQ$_AQ_PROP_TABLE_G
+Table :AQ$_AQ_PROP_TABLE_H
+Table :AQ$_AQ_PROP_TABLE_I
+Table :AQ$_AQ_PROP_TABLE_L
+Table :AQ$_AQ_PROP_TABLE_S
+Table :AQ$_AQ_PROP_TABLE_T
+Table :AQ_EVENT_TABLE
+Table :AQ$_KUPC$DATAPUMP_QUETAB_G
+Table :AQ$_KUPC$DATAPUMP_QUETAB_H
+Table :AQ$_KUPC$DATAPUMP_QUETAB_I
+Table :AQ$_KUPC$DATAPUMP_QUETAB_L
+Table :AQ$_KUPC$DATAPUMP_QUETAB_S
+Table :AQ$_KUPC$DATAPUMP_QUETAB_T
+Table :AQ$_MEM_MC
+Table :AQ$_MESSAGE_TYPES
+Table :AQ$_PENDING_MESSAGES
+Table :AQ$_PROPAGATION_STATUS
+Table :AQ_PROP_TABLE
+Table :AQ$_PUBLISHER
+Table :AQ$_QUEUE_STATISTICS
+Table :AQ$_QUEUE_TABLE_AFFINITIES
+Table :AQ$_REPLAY_INFO
+Table :AQ$_SCHEDULER$_EVENT_QTAB_G
+Table :AQ$_SCHEDULER$_EVENT_QTAB_H
+Table :AQ$_SCHEDULER$_EVENT_QTAB_I
+Table :AQ$_SCHEDULER$_EVENT_QTAB_L
+Table :AQ$_SCHEDULER$_EVENT_QTAB_S
+Table :AQ$_SCHEDULER$_EVENT_QTAB_T
+Table :AQ$_SCHEDULER_FILEWATCHER_QT_G
+Table :AQ$_SCHEDULER_FILEWATCHER_QT_H
+Table :AQ$_SCHEDULER_FILEWATCHER_QT_I
+Table :AQ$_SCHEDULER_FILEWATCHER_QT_L
+Table :AQ$_SCHEDULER_FILEWATCHER_QT_S
+Table :AQ$_SCHEDULER_FILEWATCHER_QT_T
+Table :AQ$_SCHEDULER$_REMDB_JOBQTAB_G
+Table :AQ$_SCHEDULER$_REMDB_JOBQTAB_H
+Table :AQ$_SCHEDULER$_REMDB_JOBQTAB_I
+Table :AQ$_SCHEDULER$_REMDB_JOBQTAB_L
+Table :AQ$_SCHEDULER$_REMDB_JOBQTAB_S
+Table :AQ$_SCHEDULER$_REMDB_JOBQTAB_T
+Table :AQ$_SCHEDULES
+Table :AQ$_SUBSCRIBER_TABLE
+Table :AQ$_SYS$SERVICE_METRICS_TAB_G
+Table :AQ$_SYS$SERVICE_METRICS_TAB_H
+Table :AQ$_SYS$SERVICE_METRICS_TAB_I
+Table :AQ$_SYS$SERVICE_METRICS_TAB_L
+Table :AQ$_SYS$SERVICE_METRICS_TAB_S
+Table :AQ$_SYS$SERVICE_METRICS_TAB_T
+Table :ARGUMENT$
+Table :ASSEMBLY$
+Table :ASSOCIATION$
+Table :ATEMPTAB$
+Table :ATTRCOL$
+Table :ATTRIBUTE$
+Table :ATTRIBUTE_TRANSFORMATIONS$
+Table :AUD$
+Table :AUDIT$
+Table :AUDIT_ACTIONS
+Table :AUX_STATS$
+Table :AW$
+Table :AW$AWCREATE
+Table :AW$AWCREATE10G
+Table :AW$AWMD
+Table :AW$AWREPORT
+Table :AW$AWXML
+Table :AW$EXPRESS
+Table :AW_OBJ$
+Table :AW_PRG$
+Table :AW_PROP$
+Table :AW_TRACK$
+Table :BOOTSTRAP$
+Table :CACHE_STATS_0$
+Table :CACHE_STATS_1$
+Table :CCOL$
+Table :CDC_CHANGE_COLUMNS$
+Table :CDC_CHANGE_SETS$
+Table :CDC_CHANGE_SOURCES$
+Table :CDC_CHANGE_TABLES$
+Table :CDC_PROPAGATED_SETS$
+Table :CDC_PROPAGATIONS$
+Table :CDC_SUBSCRIBED_COLUMNS$
+Table :CDC_SUBSCRIBED_TABLES$
+Table :CDC_SUBSCRIBERS$
+Table :CDC_SYSTEM$
+Table :CDEF$
+Table :CHNF$_CLAUSE_DEPENDENTS
+Table :CHNF$_CLAUSES
+Table :CHNFDIRECTLOAD$
+Table :CHNF$_GROUP_FILTER_IOT
+Table :CHNF$_QUERIES
+Table :CHNF$_QUERY_BINDS
+Table :CHNF$_QUERY_DELTAS
+Table :CHNF$_QUERY_DEPENDENCIES
+Table :CHNF$_QUERY_OBJECT
+Table :CHNF$_REG_QUERIES
+Table :CLU$
+Table :CLUSTER_DATABASES
+Table :CLUSTER_INSTANCES
+Table :CLUSTER_NODES
+Table :COL$
+Table :COLLECTION$
+Table :COLTYPE$
+Table :COL_USAGE$
+Table :COM$
+Table :COMPARISON$
+Table :COMPARISON_COL$
+Table :COMPARISON_ROW_DIF$
+Table :COMPARISON_SCAN$
+Table :COMPARISON_SCAN_VAL$
+Table :COMPRESSION$
+Table :CON$
+Table :CONTEXT$
+Table :CPOOL$
+Table :CRC$_RESULT_CACHE_STATS
+Table :DAM_CLEANUP_EVENTS$
+Table :DAM_CLEANUP_JOBS$
+Table :DAM_CONFIG_PARAM$
+Table :DAM_LAST_ARCH_TS$
+Table :DAM_PARAM_TAB$
+Table :DBFS_HS$_BACKUPFILETABLE
+Table :DBFS_HS$_CONTENTFNMAPTBL
+Table :DBFS_HS$_FS
+Table :DBFS_HS$_PROPERTY
+Table :DBFS_HS$_SFLOCATORTABLE
+Table :DBFS_HS$_STORECOMMANDS
+Table :DBFS_HS$_STOREIDTABLE
+Table :DBFS_HS$_STOREID2POLICYCTX
+Table :DBFS_HS$_STOREPROPERTIES
+Table :DBFS$_MOUNTS
+Table :DBFS_SFS$_FS
+Table :DBFS_SFS$_FST
+Table :DBFS_SFS$_FSTO
+Table :DBFS_SFS$_FSTP
+Table :DBFS_SFS$_SNAP
+Table :DBFS_SFS$_TAB
+Table :DBFS_SFS$_VOL
+Table :DBFS$_STATS
+Table :DBFS$_STORES
+Table :DBMS_ALERT_INFO
+Table :DBMS_LOCK_ALLOCATED
+Table :DBMS_PARALLEL_EXECUTE_CHUNKS$
+Table :DBMS_PARALLEL_EXECUTE_TASK$
+Table :DEFAULT_PWD$
+Table :DEFERRED_STG$
+Table :DEFROLE$
+Table :DEFSUBPART$
+Table :DEFSUBPARTLOB$
+Table :DEPENDENCY$
+Table :DIANA_VERSION$
+Table :DIM$
+Table :DIMATTR$
+Table :DIMJOINKEY$
+Table :DIMLEVEL$
+Table :DIMLEVELKEY$
+Table :DIR$
+Table :DIR$ALERT_HISTORY
+Table :DIR$DATABASE_ATTRIBUTES
+Table :DIR$ESCALATE_OPERATIONS
+Table :DIR$INSTANCE_ACTIONS
+Table :DIR$MIGRATE_OPERATIONS
+Table :DIR$NODE_ATTRIBUTES
+Table :DIR$QUIESCE_OPERATIONS
+Table :DIR$REASON_STRINGS
+Table :DIR$RESONATE_OPERATIONS
+Table :DIR$SERVICE_ATTRIBUTES
+Table :DIR$SERVICE_OPERATIONS
+Table :DIR$VICTIM_POLICY
+Table :DST$AFFECTED_TABLES
+Table :DST$ERROR_TABLE
+Table :DST$TRIGGER_TABLE
+Table :DUAL
+Table :DUC$
+Table :ECOL$
+Table :EDITION$
+Table :ENC$
+Table :EPG$_AUTH
+Table :ERROR$
+Table :EV$
+Table :EVCOL$
+Table :EXPACT$
+Table :EXPDEPACT$
+Table :EXPDEPOBJ$
+Table :EXPIMP_TTS_CT$
+Table :EXPPKGACT$
+Table :EXPPKGOBJ$
+Table :EXTERNAL_LOCATION$
+Table :EXTERNAL_TAB$
+Table :FET$
+Table :FGA$
+Table :FGACOL$
+Table :FGA_LOG$
+Table :FGR$_FILE_GROUP_EXPORT_INFO
+Table :FGR$_FILE_GROUP_FILES
+Table :FGR$_FILE_GROUPS
+Table :FGR$_FILE_GROUP_VERSIONS
+Table :FGR$_TABLE_INFO
+Table :FGR$_TABLESPACE_INFO
+Table :FILE$
+Table :FINALHIST$
+Table :FIXED_OBJ$
+Table :HIER$
+Table :HIERLEVEL$
+Table :HISTGRM$
+Table :HIST_HEAD$
+Table :HS$_BASE_CAPS
+Table :HS$_BASE_DD
+Table :HS_BULKLOAD_VIEW_OBJ
+Table :HS$_CLASS_CAPS
+Table :HS$_CLASS_DD
+Table :HS$_CLASS_INIT
+Table :HS$_FDS_CLASS
+Table :HS$_FDS_CLASS_DATE
+Table :HS$_FDS_INST
+Table :HS$_INST_CAPS
+Table :HS$_INST_DD
+Table :HS$_INST_INIT
+Table :HS$_PARALLEL_HISTOGRAM_DATA
+Table :HS$_PARALLEL_METADATA
+Table :HS$_PARALLEL_PARTITION_DATA
+Table :HS$_PARALLEL_SAMPLE_DATA
+Table :HS_PARTITION_COL_NAME
+Table :HS_PARTITION_COL_TYPE
+Table :ICOL$
+Table :ICOLDEP$
+Table :ID_GENS$
+Table :IDL_CHAR$
+Table :IDL_SB4$
+Table :IDL_UB1$
+Table :IDL_UB2$
+Table :IMPDP_STATS
+Table :INCEXP
+Table :INCFIL
+Table :INCVID
+Table :IND$
+Table :INDARRAYTYPE$
+Table :INDCOMPART$
+Table :IND_ONLINE$
+Table :INDOP$
+Table :INDPART$
+Table :INDPART_PARAM$
+Table :INDREBUILD$
+Table :IND_STATS$
+Table :INDSUBPART$
+Table :INDTYPES$
+Table :INSERT_TSN_LIST$
+Table :INVALIDATION_REGISTRY$
+Table :JAVA$COMPILER$OPTIONS
+Table :JAVAJAR$
+Table :JAVAJAROBJECTS$
+Table :JAVA$JVM$RJBC
+Table :JAVA$JVM$RUNTIME$PARAMETERS
+Table :JAVA$JVM$STATUS
+Table :JAVA$JVM$STEPS$DONE
+Table :JAVA$MC$
+Table :JAVA$MC$DEPS
+Table :JAVA$METHOD$METADATA
+Table :JAVANEGDEPS$
+Table :JAVAOBJ$
+Table :JAVA$POLICY$
+Table :JAVA$POLICY$SHARED$TABLE
+Table :JAVA$PREFS$
+Table :JAVA$RMJVM$AUX
+Table :JAVA$RMJVM$AUX2
+Table :JAVA$RMJVM$AUX3
+Table :JAVA$RUNTIME$EXEC$USER$
+Table :JAVASNM$
+Table :JIJOIN$
+Table :JIREFRESHSQL$
+Table :JOB$
+Table :KET$_AUTOTASK_STATUS
+Table :KET$_CLIENT_CONFIG
+Table :KET$_CLIENT_TASKS
+Table :KOPM$
+Table :KOTAD$
+Table :KOTADX$
+Table :KOTMD$
+Table :KOTTB$
+Table :KOTTBX$
+Table :KOTTD$
+Table :KU$_DATAPUMP_MASTER_10_1
+Table :KU$_DATAPUMP_MASTER_11_1
+Table :KU$_DATAPUMP_MASTER_11_1_0_7
+Table :KU$_DATAPUMP_MASTER_11_2
+Table :KU$_LIST_FILTER_TEMP
+Table :KU$_LIST_FILTER_TEMP_2
+Table :KU$NOEXP_TAB
+Table :KU_NOEXP_TAB
+Table :KUPC$DATAPUMP_QUETAB
+Table :KU_UTLUSE
+Table :LIBRARY$
+Table :LINK$
+Table :LOB$
+Table :LOBCOMPPART$
+Table :LOBFRAG$
+Table :LOC$
+Table :LOG$
+Table :LOGMNR_BUILDLOG
+Table :LOGMNRG_ATTRCOL$
+Table :LOGMNRG_ATTRIBUTE$
+Table :LOGMNRG_CCOL$
+Table :LOGMNRG_CDEF$
+Table :LOGMNRG_COL$
+Table :LOGMNRG_COLTYPE$
+Table :LOGMNRG_DICTIONARY$
+Table :LOGMNRG_ENC$
+Table :LOGMNRG_ICOL$
+Table :LOGMNRG_IND$
+Table :LOGMNRG_INDCOMPART$
+Table :LOGMNRG_INDPART$
+Table :LOGMNRG_INDSUBPART$
+Table :LOGMNRG_KOPM$
+Table :LOGMNRG_LOB$
+Table :LOGMNRG_LOBFRAG$
+Table :LOGMNRG_LOGMNR_BUILDLOG
+Table :LOGMNRG_NTAB$
+Table :LOGMNRG_OBJ$
+Table :LOGMNRG_OPQTYPE$
+Table :LOGMNRG_PARTOBJ$
+Table :LOGMNRG_PROPS$
+Table :LOGMNRG_REFCON$
+Table :LOGMNRG_SEED$
+Table :LOGMNRG_SUBCOLTYPE$
+Table :LOGMNRG_TAB$
+Table :LOGMNRG_TABCOMPART$
+Table :LOGMNRG_TABPART$
+Table :LOGMNRG_TABSUBPART$
+Table :LOGMNRG_TS$
+Table :LOGMNRG_TYPE$
+Table :LOGMNRG_USER$
+Table :MAP_COMPLIST$
+Table :MAP_ELEMENT$
+Table :MAP_EXTELEMENT$
+Table :MAP_FILE$
+Table :MAP_FILE_EXTENT$
+Table :MAP_OBJECT
+Table :MAP_SUBELEMENT$
+Table :METAFILTER$
+Table :METANAMETRANS$
+Table :METAPATHMAP$
+Table :METASCRIPT$
+Table :METASCRIPTFILTER$
+Table :METASTYLESHEET
+Table :METAVIEW$
+Table :METAXSL$
+Table :METAXSLPARAM$
+Table :METHOD$
+Table :MIGRATE$
+Table :MLOG$
+Table :MLOG_REFCOL$
+Table :MODEL$
+Table :MODELATT$
+Table :MODELSET$
+Table :MODELTAB$
+Table :MON_MODS$
+Table :MON_MODS_ALL$
+Table :NCOMP_DLL$
+Table :NET$_ACL
+Table :NOEXP$
+Table :NTAB$
+Table :OBJ$
+Table :OBJAUTH$
+Table :OBJECT_USAGE
+Table :OBJERROR$
+Table :OBJPRIV$
+Table :ODCI_PMO_ROWIDS$
+Table :ODCI_SECOBJ$
+Table :ODCI_WARNINGS$
+Table :OID$
+Table :OLAP_ATTRIBUTES$
+Table :OLAP_ATTRIBUTE_VISIBILITY$
+Table :OLAP_AW_DEPLOYMENT_CONTROLS$
+Table :OLAP_AW_VIEW_COLUMNS$
+Table :OLAP_AW_VIEWS$
+Table :OLAP_CALCULATED_MEMBERS$
+Table :OLAP_CUBE_BUILD_PROCESSES$
+Table :OLAP_CUBE_DIMENSIONS$
+Table :OLAP_CUBES$
+Table :OLAP_DESCRIPTIONS$
+Table :OLAP_DIMENSIONALITY$
+Table :OLAP_DIM_LEVELS$
+Table :OLAP_HIERARCHIES$
+Table :OLAP_HIER_LEVELS$
+Table :OLAPI_HISTORY
+Table :OLAPI_IFACE_OBJECT_HISTORY
+Table :OLAPI_IFACE_OP_HISTORY
+Table :OLAPI_MEMORY_HEAP_HISTORY
+Table :OLAPI_MEMORY_OP_HISTORY
+Table :OLAP_IMPL_OPTIONS$
+Table :OLAPI_SESSION_HISTORY
+Table :OLAP_MAPPINGS$
+Table :OLAP_MEAS_FOLDER_CONTENTS$
+Table :OLAP_MEASURE_FOLDERS$
+Table :OLAP_MEASURES$
+Table :OLAP_MODEL_ASSIGNMENTS$
+Table :OLAP_MODEL_PARENTS$
+Table :OLAP_MODELS$
+Table :OLAP_MULTI_OPTIONS$
+Table :OLAP_SYNTAX$
+Table :OLAP_TAB$
+Table :OLAP_TAB_COL$
+Table :OLAP_TAB_HIER$
+Table :OLAPTABLEVELS
+Table :OLAPTABLEVELTUPLES
+Table :OPANCILLARY$
+Table :OPARG$
+Table :OPBINDING$
+Table :OPERATOR$
+Table :OPQTYPE$
+Table :OPTSTAT_HIST_CONTROL$
+Table :OPTSTAT_USER_PREFS$
+Table :PARAMETER$
+Table :PARTCOL$
+Table :PARTLOB$
+Table :PARTOBJ$
+Table :PENDING_SESSIONS$
+Table :PENDING_SUB_SESSIONS$
+Table :PENDING_TRANS$
+Table :PLAN_TABLE$
+Table :PLSCOPE_ACTION$
+Table :PLSCOPE_IDENTIFIER$
+Table :PROCEDURE$
+Table :PROCEDUREC$
+Table :PROCEDUREINFO$
+Table :PROCEDUREJAVA$
+Table :PROCEDUREPLSQL$
+Table :PROFILE$
+Table :PROFNAME$
+Table :PROPERTIES_TAB
+Table :PROPS$
+Table :PROXY_DATA$
+Table :PROXY_INFO$
+Table :PROXY_ROLE_DATA$
+Table :PROXY_ROLE_INFO$
+Table :PS$
+Table :PSTUBTBL
+Table :RECENT_RESOURCE_INCARNATIONS$
+Table :RECO_SCRIPT$
+Table :RECO_SCRIPT_BLOCK$
+Table :RECO_SCRIPT_ERROR$
+Table :RECO_SCRIPT_PARAMS$
+Table :REC_TAB$
+Table :REC_VAR$
+Table :RECYCLEBIN$
+Table :REDEF$
+Table :REDEF_DEP_ERROR$
+Table :REDEF_OBJECT$
+Table :REFCON$
+Table :REG$
+Table :REGISTRY$
+Table :REGISTRY$DATABASE
+Table :REGISTRY$DEPENDENCIES
+Table :REGISTRY$ERROR
+Table :REGISTRY$HISTORY
+Table :REGISTRY$LOG
+Table :REGISTRY$PROGRESS
+Table :REGISTRY$SCHEMAS
+Table :REG_SNAP$
+Table :REGZ$
+Table :RESOURCE_CAPABILITY$
+Table :RESOURCE_CATEGORY$
+Table :RESOURCE_CONSUMER_GROUP$
+Table :RESOURCE_COST$
+Table :RESOURCE_GROUP_MAPPING$
+Table :RESOURCE_INSTANCE_CAPABILITY$
+Table :RESOURCE_IO_CALIBRATE$
+Table :RESOURCE_MAP
+Table :RESOURCE_MAPPING_PRIORITY$
+Table :RESOURCE_PLAN$
+Table :RESOURCE_PLAN_DIRECTIVE$
+Table :RESOURCE_STORAGE_POOL_MAPPING$
+Table :RESULT$
+Table :RGCHILD$
+Table :RGROUP$
+Table :RLS$
+Table :RLS_CTX$
+Table :RLS_GRP$
+Table :RLS_SC$
+Table :RULE$
+Table :RULE_EC$
+Table :RULE_MAP$
+Table :RULE_SET$
+Table :RULESET$
+Table :RULE_SET_EE$
+Table :RULE_SET_FOB$
+Table :RULE_SET_IEUAC$
+Table :RULE_SET_IOT$
+Table :RULE_SET_NL$
+Table :RULE_SET_PR$
+Table :RULE_SET_RDEP$
+Table :RULE_SET_RE$
+Table :RULE_SET_ROP$
+Table :RULE_SET_ROR$
+Table :RULE_SET_TE$
+Table :RULE_SET_VE$
+Table :SAM_SPARSITY_ADVICE
+Table :SCHEDULER$_CHAIN
+Table :SCHEDULER$_CLASS
+Table :SCHEDULER$_CREDENTIAL
+Table :SCHEDULER$_DESTINATIONS
+Table :SCHEDULER$_EVENT_LOG
+Table :SCHEDULER$_EVENT_QTAB
+Table :SCHEDULER$_EVTQ_SUB
+Table :SCHEDULER$_FILE_WATCHER
+Table :SCHEDULER$_FILEWATCHER_HISTORY
+Table :SCHEDULER_FILEWATCHER_QT
+Table :SCHEDULER$_FILEWATCHER_RESEND
+Table :SCHEDULER$_FWQ_ANT
+Table :SCHEDULER$_GLOBAL_ATTRIBUTE
+Table :SCHEDULER$_JOB
+Table :SCHEDULER$_JOB_ARGUMENT
+Table :SCHEDULER$_JOB_DESTINATIONS
+Table :SCHEDULER$_JOB_RUN_DETAILS
+Table :SCHEDULER$_LIGHTWEIGHT_JOB
+Table :SCHEDULER$_LWJOB_OBJ
+Table :SCHEDULER$_NOTIFICATION
+Table :SCHEDULER$_PROGRAM
+Table :SCHEDULER$_PROGRAM_ARGUMENT
+Table :SCHEDULER$_REMDB_JOBQTAB
+Table :SCHEDULER$_REMOTE_DBS
+Table :SCHEDULER$_REMOTE_JOB_STATE
+Table :SCHEDULER$_RJOB_SRC_DB_INFO
+Table :SCHEDULER$_RJQ_ANT
+Table :SCHEDULER$_SAVED_OIDS
+Table :SCHEDULER$_SCHEDULE
+Table :SCHEDULER$_SRCQ_INFO
+Table :SCHEDULER$_SRCQ_MAP
+Table :SCHEDULER$_STEP
+Table :SCHEDULER$_STEP_STATE
+Table :SCHEDULER$_WINDOW
+Table :SCHEDULER$_WINDOW_DETAILS
+Table :SCHEDULER$_WINDOW_GROUP
+Table :SCHEDULER$_WINGRP_MEMBER
+Table :SECOBJ$
+Table :SEG$
+Table :SEQ$
+Table :SERVICE$
+Table :SETTINGS$
+Table :SLOG$
+Table :SMB$CONFIG
+Table :SMON_SCN_TIME
+Table :SNAP$
+Table :SNAP_COLMAP$
+Table :SNAP_LOADERTIME$
+Table :SNAP_LOGDEP$
+Table :SNAP_OBJCOL$
+Table :SNAP_REFOP$
+Table :SNAP_REFTIME$
+Table :SNAP_SITE$
+Table :SNAP_XCMT$
+Table :SOURCE$
+Table :S_PROPS_TAB
+Table :SQL$
+Table :SQLLOG$
+Table :SQLOBJ$
+Table :SQLOBJ$AUXDATA
+Table :SQLOBJ$DATA
+Table :SQL$TEXT
+Table :SQL_TK_COLL_CHK$
+Table :SQL_TK_REF_CHK$
+Table :SQL_TK_ROW_CHK$
+Table :SQL_TK_TAB_DESC$
+Table :SQL_VERSION$
+Table :SSCR_CAP$
+Table :SSCR_RES$
+Table :STATS_TARGET$
+Table :STMT_AUDIT_OPTION_MAP
+Table :STREAMS$_APPLY_MILESTONE
+Table :STREAMS$_APPLY_PROCESS
+Table :STREAMS$_APPLY_PROGRESS
+Table :STREAMS$_APPLY_SPILL_MESSAGES
+Table :STREAMS$_APPLY_SPILL_MSGS_PART
+Table :STREAMS$_APPLY_SPILL_TXN
+Table :STREAMS$_APPLY_SPILL_TXN_LIST
+Table :STREAMS$_CAPTURE_PROCESS
+Table :STREAMS$_CAPTURE_SERVER
+Table :STREAMS$_COMPONENT
+Table :STREAMS$_COMPONENT_EVENT_IN
+Table :STREAMS$_COMPONENT_IN
+Table :STREAMS$_COMPONENT_LINK
+Table :STREAMS$_COMPONENT_LINK_IN
+Table :STREAMS$_COMPONENT_PROP
+Table :STREAMS$_COMPONENT_PROP_IN
+Table :STREAMS$_COMPONENT_STAT_IN
+Table :STREAMS$_COMPONENT_STAT_OUT
+Table :STREAMS$_DATABASE
+Table :STREAMS$_DEF_PROC
+Table :STREAMS$_DEST_OBJ_COLS
+Table :STREAMS$_DEST_OBJS
+Table :STREAMS$_EXTRA_ATTRS
+Table :STREAMS$_INTERNAL_TRANSFORM
+Table :STREAMS$_KEY_COLUMNS
+Table :STREAMS$_LOCAL_ACTIONS_IN
+Table :STREAMS$_LOCAL_FINDINGS_IN
+Table :STREAMS$_LOCAL_RECS_IN
+Table :STREAMS$_MESSAGE_CONSUMERS
+Table :STREAMS$_MESSAGE_RULES
+Table :STREAMS$_PATH_BOTTLENECK_OUT
+Table :STREAMS$_PATH_STAT_OUT
+Table :STREAMS$_PREPARE_DDL
+Table :STREAMS$_PREPARE_OBJECT
+Table :STREAMS$_PRIVILEGED_USER
+Table :STREAMS$_PROCESS_PARAMS
+Table :STREAMS$_PROPAGATION_PROCESS
+Table :STREAMS$_RULES
+Table :STREAMS$_SPLIT_MERGE
+Table :STREAMS$_STMT_HANDLERS
+Table :STREAMS$_STMT_HANDLER_STMTS
+Table :SUBCOLTYPE$
+Table :SUBPARTCOL$
+Table :SUM$
+Table :SUMAGG$
+Table :SUMDELTA$
+Table :SUMDEP$
+Table :SUMDETAIL$
+Table :SUMINLINE$
+Table :SUMJOIN$
+Table :SUMKEY$
+Table :SUMPARTLOG$
+Table :SUMPRED$
+Table :SUMQB$
+Table :SUPEROBJ$
+Table :SYN$
+Table :SYSAUTH$
+Table :SYS_FBA_BARRIERSCN
+Table :SYS_FBA_DL
+Table :SYS_FBA_FA
+Table :SYS_FBA_PARTITIONS
+Table :SYS_FBA_TRACKEDTABLES
+Table :SYS_FBA_TSFA
+Table :SYS_FBA_USERS
+Table :SYS_IOT_OVER_12214
+Table :SYS_IOT_OVER_12248
+Table :SYS_IOT_OVER_12278
+Table :SYS_IOT_OVER_12334
+Table :SYS_IOT_OVER_12537
+Table :SYS_IOT_OVER_12573
+Table :SYS_IOT_OVER_12752
+Table :SYS_IOT_OVER_12875
+Table :SYS_IOT_OVER_5140
+Table :SYS_IOT_OVER_5146
+Table :SYS_IOT_OVER_5150
+Table :SYS_IOT_OVER_5387
+Table :SYS_IOT_OVER_5422
+Table :SYS_IOT_OVER_5690
+Table :SYSNTEzVwHhkPSLOcLfNypQjsWg==
+Table :SYSNTpLMWb/EkS6WdZJoNt+7l/w==
+Table :SYSNTVy6QQTU4SJK1OOHxUa2zBg==
+Table :SYS$SERVICE_METRICS_TAB
+Table :SYSTEM_PRIVILEGE_MAP
+Table :TAB$
+Table :TABCOMPART$
+Table :TABLE_PRIVILEGE_MAP
+Table :TABPART$
+Table :TAB_STATS$
+Table :TABSUBPART$
+Table :TRANSACTION_BACKOUT_REPORT$
+Table :TRANSACTION_BACKOUT_STATE$
+Table :TRANSFORMATIONS$
+Table :TRANSIENT_IOT$
+Table :TRIGGER$
+Table :TRIGGERCOL$
+Table :TRIGGERDEP$
+Table :TRIGGERJAVAC$
+Table :TRIGGERJAVAF$
+Table :TRIGGERJAVAM$
+Table :TRIGGERJAVAS$
+Table :TRUSTED_LIST$
+Table :TS$
+Table :TSM_DST$
+Table :TSM_SRC$
+Table :TSQ$
+Table :TTS_ERROR$
+Table :TTS_TBS$
+Table :TTS_USR$
+Table :TYPE$
+Table :TYPED_VIEW$
+Table :TYPEHIERARCHY$
+Table :TYPE_MISC$
+Table :UET$
+Table :UGROUP$
+Table :UNDO$
+Table :USER$
+Table :USER_ASTATUS_MAP
+Table :USER_HISTORY$
+Table :USR_PROPERTIES_TAB
+Table :USTATS$
+Table :UTL_RECOMP_COMPILED
+Table :UTL_RECOMP_ERRORS
+Table :UTL_RECOMP_SORTED
+Table :VIEW$
+Table :VIEWCON$
+Table :VIEWTRCOL$
+Table :VTABLE$
+Table :WALLET$_ACL
+Table :WARNING_SETTINGS$
+Table :WRH$_ACTIVE_SESSION_HISTORY
+Table :WRH$_ACTIVE_SESSION_HISTORY_BL
+Table :WRH$_BG_EVENT_SUMMARY
+Table :WRH$_BUFFERED_QUEUES
+Table :WRH$_BUFFERED_SUBSCRIBERS
+Table :WRH$_BUFFER_POOL_STATISTICS
+Table :WRH$_CLUSTER_INTERCON
+Table :WRH$_COMP_IOSTAT
+Table :WRH$_CR_BLOCK_SERVER
+Table :WRH$_CURRENT_BLOCK_SERVER
+Table :WRH$_DATAFILE
+Table :WRH$_DB_CACHE_ADVICE
+Table :WRH$_DB_CACHE_ADVICE_BL
+Table :WRH$_DISPATCHER
+Table :WRH$_DLM_MISC
+Table :WRH$_DLM_MISC_BL
+Table :WRH$_DYN_REMASTER_STATS
+Table :WRH$_ENQUEUE_STAT
+Table :WRH$_EVENT_HISTOGRAM
+Table :WRH$_EVENT_HISTOGRAM_BL
+Table :WRH$_EVENT_NAME
+Table :WRH$_FILEMETRIC_HISTORY
+Table :WRH$_FILESTATXS
+Table :WRH$_FILESTATXS_BL
+Table :WRH$_IC_CLIENT_STATS
+Table :WRH$_IC_DEVICE_STATS
+Table :WRH$_INSTANCE_RECOVERY
+Table :WRH$_INST_CACHE_TRANSFER
+Table :WRH$_INST_CACHE_TRANSFER_BL
+Table :WRH$_INTERCONNECT_PINGS
+Table :WRH$_INTERCONNECT_PINGS_BL
+Table :WRH$_IOSTAT_DETAIL
+Table :WRH$_IOSTAT_FILETYPE
+Table :WRH$_IOSTAT_FILETYPE_NAME
+Table :WRH$_IOSTAT_FUNCTION
+Table :WRH$_IOSTAT_FUNCTION_NAME
+Table :WRH$_JAVA_POOL_ADVICE
+Table :WRH$_LATCH
+Table :WRH$_LATCH_BL
+Table :WRH$_LATCH_CHILDREN
+Table :WRH$_LATCH_CHILDREN_BL
+Table :WRH$_LATCH_MISSES_SUMMARY
+Table :WRH$_LATCH_MISSES_SUMMARY_BL
+Table :WRH$_LATCH_NAME
+Table :WRH$_LATCH_PARENT
+Table :WRH$_LATCH_PARENT_BL
+Table :WRH$_LIBRARYCACHE
+Table :WRH$_LOG
+Table :WRH$_MEM_DYNAMIC_COMP
+Table :WRH$_MEMORY_RESIZE_OPS
+Table :WRH$_MEMORY_TARGET_ADVICE
+Table :WRH$_METRIC_NAME
+Table :WRH$_MTTR_TARGET_ADVICE
+Table :WRH$_MUTEX_SLEEP
+Table :WRH$_OPTIMIZER_ENV
+Table :WRH$_OSSTAT
+Table :WRH$_OSSTAT_BL
+Table :WRH$_OSSTAT_NAME
+Table :WRH$_PARAMETER
+Table :WRH$_PARAMETER_BL
+Table :WRH$_PARAMETER_NAME
+Table :WRH$_PERSISTENT_QUEUES
+Table :WRH$_PERSISTENT_SUBSCRIBERS
+Table :WRH$_PGASTAT
+Table :WRH$_PGA_TARGET_ADVICE
+Table :WRH$_PLAN_OPERATION_NAME
+Table :WRH$_PLAN_OPTION_NAME
+Table :WRH$_PROCESS_MEMORY_SUMMARY
+Table :WRH$_RESOURCE_LIMIT
+Table :WRH$_ROWCACHE_SUMMARY
+Table :WRH$_ROWCACHE_SUMMARY_BL
+Table :WRH$_RSRC_CONSUMER_GROUP
+Table :WRH$_RSRC_PLAN
+Table :WRH$_RULE_SET
+Table :WRH$_SEG_STAT
+Table :WRH$_SEG_STAT_BL
+Table :WRH$_SEG_STAT_OBJ
+Table :WRH$_SERVICE_NAME
+Table :WRH$_SERVICE_STAT
+Table :WRH$_SERVICE_STAT_BL
+Table :WRH$_SERVICE_WAIT_CLASS
+Table :WRH$_SERVICE_WAIT_CLASS_BL
+Table :WRH$_SESSMETRIC_HISTORY
+Table :WRH$_SESS_TIME_STATS
+Table :WRH$_SGA
+Table :WRH$_SGASTAT
+Table :WRH$_SGASTAT_BL
+Table :WRH$_SGA_TARGET_ADVICE
+Table :WRH$_SHARED_POOL_ADVICE
+Table :WRH$_SHARED_SERVER_SUMMARY
+Table :WRH$_SQL_BIND_METADATA
+Table :WRH$_SQLCOMMAND_NAME
+Table :WRH$_SQL_PLAN
+Table :WRH$_SQLSTAT
+Table :WRH$_SQLSTAT_BL
+Table :WRH$_SQL_SUMMARY
+Table :WRH$_SQLTEXT
+Table :WRH$_SQL_WORKAREA_HISTOGRAM
+Table :WRH$_STAT_NAME
+Table :WRH$_STREAMS_APPLY_SUM
+Table :WRH$_STREAMS_CAPTURE
+Table :WRH$_STREAMS_POOL_ADVICE
+Table :WRH$_SYSMETRIC_HISTORY
+Table :WRH$_SYSMETRIC_SUMMARY
+Table :WRH$_SYSSTAT
+Table :WRH$_SYSSTAT_BL
+Table :WRH$_SYSTEM_EVENT
+Table :WRH$_SYSTEM_EVENT_BL
+Table :WRH$_SYS_TIME_MODEL
+Table :WRH$_SYS_TIME_MODEL_BL
+Table :WRH$_TABLESPACE_SPACE_USAGE
+Table :WRH$_TABLESPACE_STAT
+Table :WRH$_TABLESPACE_STAT_BL
+Table :WRH$_TEMPFILE
+Table :WRH$_TEMPSTATXS
+Table :WRH$_THREAD
+Table :WRH$_TOPLEVELCALL_NAME
+Table :WRH$_UNDOSTAT
+Table :WRH$_WAITCLASSMETRIC_HISTORY
+Table :WRH$_WAITSTAT
+Table :WRH$_WAITSTAT_BL
+Table :WRI$_ADV_ACTIONS
+Table :WRI$_ADV_ADDM_FDG
+Table :WRI$_ADV_ADDM_INST
+Table :WRI$_ADV_ADDM_TASKS
+Table :WRI$_ADV_ASA_RECO_DATA
+Table :WRI$_ADV_DEF_EXEC_TYPES
+Table :WRI$_ADV_DEFINITIONS
+Table :WRI$_ADV_DEF_PARAMETERS
+Table :WRI$_ADV_DIRECTIVE_DEFS
+Table :WRI$_ADV_DIRECTIVE_INSTANCES
+Table :WRI$_ADV_DIRECTIVE_META
+Table :WRI$_ADV_EXEC_PARAMETERS
+Table :WRI$_ADV_EXECUTIONS
+Table :WRI$_ADV_FINDINGS
+Table :WRI$_ADV_INST_FDG
+Table :WRI$_ADV_JOURNAL
+Table :WRI$_ADV_MESSAGE_GROUPS
+Table :WRI$_ADV_OBJECTS
+Table :WRI$_ADV_OBJSPACE_CHROW_DATA
+Table :WRI$_ADV_OBJSPACE_TREND_DATA
+Table :WRI$_ADV_PARAMETERS
+Table :WRI$_ADV_RATIONALE
+Table :WRI$_ADV_REC_ACTIONS
+Table :WRI$_ADV_RECOMMENDATIONS
+Table :WRI$_ADV_SQLA_COLVOL
+Table :WRI$_ADV_SQLA_FAKE_REG
+Table :WRI$_ADV_SQLA_MAP
+Table :WRI$_ADV_SQLA_STMTS
+Table :WRI$_ADV_SQLA_SUM
+Table :WRI$_ADV_SQLA_TABLES
+Table :WRI$_ADV_SQLA_TABVOL
+Table :WRI$_ADV_SQLA_TMP
+Table :WRI$_ADV_SQLT_BINDS
+Table :WRI$_ADV_SQLT_PLAN_HASH
+Table :WRI$_ADV_SQLT_PLANS
+Table :WRI$_ADV_SQLT_PLAN_STATS
+Table :WRI$_ADV_SQLT_RTN_PLAN
+Table :WRI$_ADV_SQLT_STATISTICS
+Table :WRI$_ADV_SQLW_COLVOL
+Table :WRI$_ADV_SQLW_STMTS
+Table :WRI$_ADV_SQLW_SUM
+Table :WRI$_ADV_SQLW_TABLES
+Table :WRI$_ADV_SQLW_TABVOL
+Table :WRI$_ADV_TASKS
+Table :WRI$_ADV_USAGE
+Table :WRI$_AGGREGATION_ENABLED
+Table :WRI$_ALERT_HISTORY
+Table :WRI$_ALERT_OUTSTANDING
+Table :WRI$_ALERT_THRESHOLD
+Table :WRI$_ALERT_THRESHOLD_LOG
+Table :WRI$_DBU_CPU_USAGE
+Table :WRI$_DBU_CPU_USAGE_SAMPLE
+Table :WRI$_DBU_FEATURE_METADATA
+Table :WRI$_DBU_FEATURE_USAGE
+Table :WRI$_DBU_HIGH_WATER_MARK
+Table :WRI$_DBU_HWM_METADATA
+Table :WRI$_DBU_USAGE_SAMPLE
+Table :WRI$_OPTSTAT_AUX_HISTORY
+Table :WRI$_OPTSTAT_HISTGRM_HISTORY
+Table :WRI$_OPTSTAT_HISTHEAD_HISTORY
+Table :WRI$_OPTSTAT_IND_HISTORY
+Table :WRI$_OPTSTAT_OPR
+Table :WRI$_OPTSTAT_SYNOPSIS$
+Table :WRI$_OPTSTAT_SYNOPSIS_HEAD$
+Table :WRI$_OPTSTAT_SYNOPSIS_PARTGRP
+Table :WRI$_OPTSTAT_TAB_HISTORY
+Table :WRI$_REPT_COMPONENTS
+Table :WRI$_REPT_FILES
+Table :WRI$_REPT_FORMATS
+Table :WRI$_REPT_REPORTS
+Table :WRI$_SCH_CONTROL
+Table :WRI$_SCH_VOTES
+Table :WRI$_SEGADV_CNTRLTAB
+Table :WRI$_SEGADV_OBJLIST
+Table :WRI$_SQLMON_USAGE
+Table :WRI$_SQLSET_BINDS
+Table :WRI$_SQLSET_DEFINITIONS
+Table :WRI$_SQLSET_MASK
+Table :WRI$_SQLSET_PLAN_LINES
+Table :WRI$_SQLSET_PLANS
+Table :WRI$_SQLSET_PLANS_TOCAP
+Table :WRI$_SQLSET_REFERENCES
+Table :WRI$_SQLSET_STATEMENTS
+Table :WRI$_SQLSET_STATISTICS
+Table :WRI$_SQLSET_STS_TOPACK
+Table :WRI$_SQLSET_WORKSPACE
+Table :WRI$_SQLSET_WORKSPACE_PLANS
+Table :WRI$_TRACING_ENABLED
+Table :WRM$_BASELINE
+Table :WRM$_BASELINE_DETAILS
+Table :WRM$_BASELINE_TEMPLATE
+Table :WRM$_COLORED_SQL
+Table :WRM$_DATABASE_INSTANCE
+Table :WRM$_SNAP_ERROR
+Table :WRM$_SNAPSHOT
+Table :WRM$_WR_CONTROL
+Table :WRM$_WR_USAGE
+Table :WRR$_CAPTURES
+Table :WRR$_CAPTURE_STATS
+Table :WRR$_CAPTURE_UC_GRAPH
+Table :WRR$_CONNECTION_MAP
+Table :WRR$_FILTERS
+Table :WRR$_REPLAY_CALL_FILTER
+Table :WRR$_REPLAY_COMMITS
+Table :WRR$_REPLAY_DATA
+Table :WRR$_REPLAY_DEP_GRAPH
+Table :WRR$_REPLAY_DIVERGENCE
+Table :WRR$_REPLAY_FILTER_SET
+Table :WRR$_REPLAY_REFERENCES
+Table :WRR$_REPLAYS
+Table :WRR$_REPLAY_SCN_ORDER
+Table :WRR$_REPLAY_SEQ_DATA
+Table :WRR$_REPLAY_SQL_BINDS
+Table :WRR$_REPLAY_SQL_TEXT
+Table :WRR$_REPLAY_STATS
+Table :WRR$_REPLAY_UC_GRAPH
+Table :WRR$_SEQUENCE_EXCEPTIONS
+Table :XDB_INSTALLATION_TAB
+Table :XS$PARAMETERS
+Table :XS$SESSION_APPNS
+Table :XS$SESSION_ROLES
+Table :XS$SESSIONS
+Table :XSTREAM$_SERVER
+Table :XSTREAM$_SUBSET_RULES
+Table :XSTREAM$_SYSGEN_OBJS
+Table :XS$VERIFIERS
+Table :AQ$_MGMT_LOADER_QTABLE_G
+Table :AQ$_MGMT_LOADER_QTABLE_H
+Table :AQ$_MGMT_LOADER_QTABLE_I
+Table :AQ$_MGMT_LOADER_QTABLE_L
+Table :AQ$_MGMT_LOADER_QTABLE_S
+Table :AQ$_MGMT_LOADER_QTABLE_T
+Table :AQ$_MGMT_NOTIFY_QTABLE_G
+Table :AQ$_MGMT_NOTIFY_QTABLE_H
+Table :AQ$_MGMT_NOTIFY_QTABLE_I
+Table :AQ$_MGMT_NOTIFY_QTABLE_L
+Table :AQ$_MGMT_NOTIFY_QTABLE_S
+Table :AQ$_MGMT_NOTIFY_QTABLE_T
+Table :DB_USER_PREFERENCES
+Table :EM_COMPARISON_SUMMARY
+Table :EMDW_TRACE_CONFIG
+Table :EMDW_TRACE_DATA
+Table :EM_IPW_INFO
+Table :EM_PAGE_CONDITION_METADATA
+Table :EM_PAGE_CUST_METADATA
+Table :EM_PAGE_CUSTOM_CONDITIONS
+Table :EM_PAGE_CUSTOMIZATIONS
+Table :ESM_COLLECTION
+Table :EUME2E_ASSOCS_LOOKUP
+Table :MGMT_ADMIN_LICENSES
+Table :MGMT_ADMIN_METRIC_THRESHOLDS
+Table :MGMT_AGENT_SEC_INFO
+Table :MGMT_ALL_TARGET_PROPS
+Table :MGMT_ANNOTATION
+Table :MGMT_ARU_CREDENTIALS
+Table :MGMT_ARU_FAMILY_PRODUCT_MAP
+Table :MGMT_ARU_LANGUAGES
+Table :MGMT_ARU_OUI_COMPONENTS
+Table :MGMT_ARU_PLATFORMS
+Table :MGMT_ARU_PRODUCT_RELEASE_MAP
+Table :MGMT_ARU_PRODUCTS
+Table :MGMT_ARU_RELEASES
+Table :MGMT_AUDIT_CUSTOM_ATTRIBS
+Table :MGMT_AUDIT_DESTINATION
+Table :MGMT_AUDIT_LOGS
+Table :MGMT_AUDIT_MASTER
+Table :MGMT_AVAILABILITY
+Table :MGMT_AVAILABILITY_MARKER
+Table :MGMT_AVAILABILITY_RBK
+Table :MGMT_AVAILABLE_SEARCHES
+Table :MGMT_BACKUP_CONFIGURATION
+Table :MGMT_BAM_DATA_HUBS
+Table :MGMT_BAM_DATA_ISESSIONS
+Table :MGMT_BAM_DATA_OSESSIONS
+Table :MGMT_BAM_ISESSION_DATASOURCE
+Table :MGMT_BAM_ISESSION_DIAG
+Table :MGMT_BAM_ISESSION_KPIS
+Table :MGMT_BAM_OSESSION_ALERTS
+Table :MGMT_BAM_OSESSION_DIAG
+Table :MGMT_BAM_OSESSION_METRICS
+Table :MGMT_BAM_OSESSION_STATUS
+Table :MGMT_BCN_AVAIL_DEF
+Table :MGMT_BCN_AVAIL_JOB
+Table :MGMT_BCN_AVAIL_LOG
+Table :MGMT_BCN_BCNSTEP_PROPS
+Table :MGMT_BCN_BCNTXN_PROPS
+Table :MGMT_BCN_STEP_DEFN
+Table :MGMT_BCN_STEPGROUP_DEFN
+Table :MGMT_BCN_STEPGROUP_STEPS
+Table :MGMT_BCN_STEP_PROPS
+Table :MGMT_BCN_TARGET
+Table :MGMT_BCN_TXN_AUDIT
+Table :MGMT_BCN_TXN_DEFN
+Table :MGMT_BCN_TXN_PROPS
+Table :MGMT_BLACKOUT_FLAT_TARGETS
+Table :MGMT_BLACKOUT_HISTORY
+Table :MGMT_BLACKOUT_PROXY_TARGETS
+Table :MGMT_BLACKOUT_REASON
+Table :MGMT_BLACKOUTS
+Table :MGMT_BLACKOUT_SCHEDULE
+Table :MGMT_BLACKOUT_STATE
+Table :MGMT_BLACKOUT_TARGET_DETAILS
+Table :MGMT_BLACKOUT_WINDOWS
+Table :MGMT_BSLN_BASELINES
+Table :MGMT_BSLN_DATASOURCES
+Table :MGMT_BSLN_INTERVALS
+Table :MGMT_BSLN_METRICS
+Table :MGMT_BSLN_RAWDATA
+Table :MGMT_BSLN_STATISTICS
+Table :MGMT_BSLN_THRESHOLD_PARMS
+Table :MGMT_BUG_ADV_HOME_PATCH
+Table :MGMT_BUG_ADVISORY
+Table :MGMT_BUG_ADVISORY_BUG
+Table :MGMT_BUG_AVAILABLE_PATCH
+Table :MGMT_BUG_FIX_APPLICABLE_COMP
+Table :MGMT_BUG_FIX_APPLIC_COMP_LIST
+Table :MGMT_BUG_PATCH_CERTIFICATE
+Table :MGMT_BUG_PATCH_FIXES_BUG
+Table :MGMT_BUG_PATCH_PLATFORM
+Table :MGMT_CALLBACKS
+Table :MGMT_CATEGORIES
+Table :MGMT_CATEGORY_CLASSES
+Table :MGMT_CATEGORY_MAP
+Table :MGMT_CHANGE_AGENT_URL
+Table :MGMT_CM_BASELINE_CONS_GROUPS
+Table :MGMT_CM_BASELINE_DEPENDENCIES
+Table :MGMT_CM_BASELINE_DEPENDENTS
+Table :MGMT_CM_BASELINE_INIT_PARAMS
+Table :MGMT_CM_BASELINE_OBJECTS
+Table :MGMT_CM_BASELINE_OBJGRANTS
+Table :MGMT_CM_BASELINE_PROXYGRANTS
+Table :MGMT_CM_BASELINE_QUOTAGRANTS
+Table :MGMT_CM_BASELINE_ROLEGRANTS
+Table :MGMT_CM_BASELINES
+Table :MGMT_CM_BASELINE_SYSGRANTS
+Table :MGMT_CM_BASELINE_VERSIONS
+Table :MGMT_CM_COMPARISON_INIT_PRMS
+Table :MGMT_CM_COMPARISON_OBJECTS
+Table :MGMT_CM_COMPARISONS
+Table :MGMT_CM_COMPARISON_VERSIONS
+Table :MGMT_CM_SCHEMA_MAPS
+Table :MGMT_CM_SCOPESPEC_NAMES
+Table :MGMT_CM_SCOPESPECS
+Table :MGMT_CM_SYNCH_IMPACT_REPORTS
+Table :MGMT_CM_SYNCH_OBJECTS
+Table :MGMT_CM_SYNCHRONIZATIONS
+Table :MGMT_CM_SYNCH_SCRIPTS
+Table :MGMT_CM_SYNCH_VERSIONS
+Table :MGMT_COLLECTION_CREDENTIALS
+Table :MGMT_COLLECTION_METRIC_TASKS
+Table :MGMT_COLLECTIONS
+Table :MGMT_COLLECTION_TASK_CONTEXT
+Table :MGMT_COLLECTION_TASKS
+Table :MGMT_COLLECTION_TEMPLATE_CREDS
+Table :MGMT_COLLECTION_WORKERS
+Table :MGMT_COLL_ITEM_METRICS
+Table :MGMT_COLL_ITEM_PROPERTIES
+Table :MGMT_COLL_ITEMS
+Table :MGMT_COMP_RESULT_TO_JOB_MAP
+Table :MGMT_COMP_SNAPSHOT_TO_STEP_MAP
+Table :MGMT_CONFIG_ACTIVITIES
+Table :MGMT_CONTAINER_CREDENTIALS
+Table :MGMT_CORRECTIVE_ACTION
+Table :MGMT_CPF_METRIC_SOURCE
+Table :MGMT_CREATED_USERS
+Table :MGMT_CREDENTIALS
+Table :MGMT_CREDENTIAL_SET_COLUMNS
+Table :MGMT_CREDENTIAL_SET_COL_VALS
+Table :MGMT_CREDENTIAL_SETS
+Table :MGMT_CREDENTIALS2
+Table :MGMT_CREDENTIAL_TYPE_COLUMNS
+Table :MGMT_CREDENTIAL_TYPE_COL_VALS
+Table :MGMT_CREDENTIAL_TYPE_REF
+Table :MGMT_CREDENTIAL_TYPES
+Table :MGMT_CS_CONFIG_STANDARD
+Table :MGMT_CS_EVAL_SUMM_RQS
+Table :MGMT_CS_EVAL_SUMM_RULE
+Table :MGMT_CS_EVAL_SUMM_RULEFOLDER
+Table :MGMT_CS_HIERARCHY
+Table :MGMT_CS_INCLUSION
+Table :MGMT_CS_INCLUSION_PARAMETER
+Table :MGMT_CS_KEYWORD
+Table :MGMT_CS_PARAMETER
+Table :MGMT_CS_PARAMETER_CHOICES
+Table :MGMT_CS_REUSABLE_QUERY
+Table :MGMT_CS_RQS_HIERARCHY
+Table :MGMT_CS_RQS_INCLUSION
+Table :MGMT_CS_RULE
+Table :MGMT_CS_RULE_FIX_LINK
+Table :MGMT_CS_RULEFOLDER
+Table :MGMT_CS_RULE_SIMPLE_TEST
+Table :MGMT_CS_RULE_VIOL_CTX
+Table :MGMT_CS_SCHEDULED_EVAL
+Table :MGMT_CSTMZ_CHARTS
+Table :MGMT_CSTMZ_CHART_SELTARGETS
+Table :MGMT_CSTMZ_CUSTOM_COLUMNS
+Table :MGMT_CSTMZ_DEFAULT_CHART
+Table :MGMT_CSTMZ_SUMMARY_CHART_DEF
+Table :MGMT_CURRENT_AVAILABILITY
+Table :MGMT_CURRENT_METRIC_ERRORS
+Table :MGMT_CURRENT_METRICS
+Table :MGMT_CURRENT_VIOLATION
+Table :MGMT_DB_CONTROLFILES_ECM
+Table :MGMT_DB_DATAFILES_ECM
+Table :MGMT_DB_DBNINSTANCEINFO_ECM
+Table :MGMT_DB_FEATUREUSAGE
+Table :MGMT_DB_HDM_METRIC_HELPER
+Table :MGMT_DB_INIT_PARAMS_ECM
+Table :MGMT_DB_INVOBJS_ECM
+Table :MGMT_DB_LATEST_HDM_FINDINGS
+Table :MGMT_DB_LICENSE_ECM
+Table :MGMT_DBNET_TNS_ADMINS
+Table :MGMT_DB_OPTIONS_ECM
+Table :MGMT_DB_RECSEGMENTSETTINGS_ECM
+Table :MGMT_DB_RECTSSETTINGS_ECM
+Table :MGMT_DB_RECUSERSETTINGS_ECM
+Table :MGMT_DB_REDOLOGS_ECM
+Table :MGMT_DB_ROLLBACK_SEGS_ECM
+Table :MGMT_DB_SGA_ECM
+Table :MGMT_DB_TABLESPACES_ECM
+Table :MGMT_DELTA_COMPARISON_DELTAS
+Table :MGMT_DELTA_COMP_DELTA_DETAILS
+Table :MGMT_DELTA_COMP_KEY_COLS
+Table :MGMT_DELTA_COMP_PROPERTIES
+Table :MGMT_DELTA_COMP_SUMMARIES
+Table :MGMT_DELTA_ENTRY
+Table :MGMT_DELTA_ENTRY_VALUES
+Table :MGMT_DELTA_IDS
+Table :MGMT_DELTA_ID_VALUES
+Table :MGMT_DELTA_SAVED_COMPARISON
+Table :MGMT_DELTA_SNAP
+Table :MGMT_DELTA_SUMMARY_ERRORS
+Table :MGMT_DEPLOYMENT_SECTIONS
+Table :MGMT_DIROBJ_USERS_HOTLIST
+Table :MGMT_DM_ALITEMS
+Table :MGMT_DM_COLUMN_RULES
+Table :MGMT_DM_INFCONS_COLUMNS
+Table :MGMT_DM_JOB_EXECUTIONS
+Table :MGMT_DM_RULEENTRY
+Table :MGMT_DM_RULETEMPLATES
+Table :MGMT_DM_SCOPESPECS
+Table :MGMT_DM_SS_COLUMNS
+Table :MGMT_DUPLICATE_TARGETS
+Table :MGMT_ECM_ARU_MAP
+Table :MGMT_ECM_CLUSTER_NODE_INFO
+Table :MGMT_ECM_CSA
+Table :MGMT_ECM_CSA_APPID_TARGET_MAP
+Table :MGMT_ECM_CSA_COOKIES
+Table :MGMT_ECM_CSA_CUSTOM
+Table :MGMT_ECM_CSA_FAILED
+Table :MGMT_ECM_CSA_GENERAL_INFO
+Table :MGMT_ECM_CSA_OUT_OF_BOX
+Table :MGMT_ECM_CSA_RULES
+Table :MGMT_ECM_CSA_SNAPSHOT_INFO
+Table :MGMT_ECM_GEN_SNAPSHOT
+Table :MGMT_ECM_HOST_CONFIGS_TO_DEL
+Table :MGMT_ECM_HOSTPATCH_COMPL_HIST
+Table :MGMT_ECM_HOSTPATCH_GROUP_REPOS
+Table :MGMT_ECM_HOSTPATCH_GROUPS
+Table :MGMT_ECM_HOSTPATCH_HOST_COMPL
+Table :MGMT_ECM_HOSTPATCH_HOSTS
+Table :MGMT_ECM_HOSTPATCH_REPOS
+Table :MGMT_ECM_HOSTPATCH_REPOS_PKGS
+Table :MGMT_ECM_HW
+Table :MGMT_ECM_HW_CPU
+Table :MGMT_ECM_HW_IOCARD
+Table :MGMT_ECM_HW_NIC
+Table :MGMT_ECM_LOADED_FILES
+Table :MGMT_ECM_MD_ALL_TBL_COLUMNS
+Table :MGMT_ECM_MD_HIST_TBLS
+Table :MGMT_ECM_OS
+Table :MGMT_ECM_OS_COMPONENT
+Table :MGMT_ECM_OS_FILESYSTEM
+Table :MGMT_ECM_OS_PROPERTY
+Table :MGMT_ECM_OS_REGISTERED_SW
+Table :MGMT_ECM_OS_REGISTERED_SW_COMP
+Table :MGMT_ECM_PATCH_CACHE
+Table :MGMT_ECM_RESOURCES
+Table :MGMT_ECM_SAVEDHOSTCONFIG
+Table :MGMT_ECM_SNAP_COMPONENT_INFO
+Table :MGMT_ECM_SNAPSHOT
+Table :MGMT_ECM_SNAPSHOT_MD_COLUMNS
+Table :MGMT_ECM_SNAPSHOT_MD_TABLES
+Table :MGMT_ECM_SNAPSHOT_METADATA
+Table :MGMT_ECM_ULN_CH_ADV
+Table :MGMT_ECM_ULN_CHANNEL_PKGS
+Table :MGMT_ECM_ULN_CHANNELS
+Table :MGMT_ECM_ULN_SS_CHANNELS
+Table :MGMT_ECM_ULN_STAGE_SERVERS
+Table :MGMT_EMD_PING
+Table :MGMT_EMD_PING_CHECK
+Table :MGMT_EMX_CELL_C_CONFIG
+Table :MGMT_EMX_CELL_CD_CONFIG
+Table :MGMT_EMX_CELL_GD_CONFIG
+Table :MGMT_EMX_CELL_IORM_CONFIG
+Table :MGMT_EMX_CELL_L_CONFIG
+Table :MGMT_EMX_CELL_PD_CONFIG
+Table :MGMT_ENTERPRISE_CREDENTIALS
+Table :MGMT_ERROR_MASTER
+Table :MGMT_ESA_REPORT
+Table :MGMT_E2E_DETAILS
+Table :MGMT_E2E_DETAILS_1DAY
+Table :MGMT_E2E_DETAILS_1HOUR
+Table :MGMT_E2E_JDBC
+Table :MGMT_E2E_JDBC_1DAY
+Table :MGMT_E2E_JDBC_1HOUR
+Table :MGMT_E2E_SQL
+Table :MGMT_E2E_SQL_CONN
+Table :MGMT_E2E_SQL_STMT
+Table :MGMT_E2E_SQL_1DAY
+Table :MGMT_E2E_SQL_1HOUR
+Table :MGMT_E2E_SUMMARY
+Table :MGMT_E2E_SUMMARY_1DAY
+Table :MGMT_E2E_SUMMARY_1HOUR
+Table :MGMT_FAILED_CONFIG_ACTIVITIES
+Table :MGMT_FAILOVER_CALLBACKS
+Table :MGMT_FAILOVER_TABLE
+Table :MGMT_FBP_PATCHING_GUIDS
+Table :MGMT_FEATURE_PATCHES
+Table :MGMT_FEATURES_MAPPING
+Table :MGMT_FLAT_ROLE_GRANTS
+Table :MGMT_FLAT_TARGET_ASSOC
+Table :MGMT_GENSVC_AVAIL_BEACONS
+Table :MGMT_GENSVC_AVAIL_CONFIG
+Table :MGMT_GENSVC_AVAIL_EVENTS
+Table :MGMT_GENSVC_AVAIL_JOB
+Table :MGMT_GENSVC_AVAIL_TESTS
+Table :MGMT_GENSVC_JOBS_DETAILS
+Table :MGMT_GENSVC_TEST_AVAIL
+Table :MGMT_GENSVC_TEST_AVAIL_MARKER
+Table :MGMT_GENSVC_TEST_CUR_AVAIL
+Table :MGMT_GENSVC_TMPL_VARS
+Table :MGMT_GENSVC_UPDBCN_JOB
+Table :MGMT_GENSVC_UPDBCN_JOB_TESTS
+Table :MGMT_GROUP_CHART
+Table :MGMT_GROUP_CHART_SELTARGETS
+Table :MGMT_GROUP_CUSTOM_COLUMNS
+Table :MGMT_GROUP_DEFAULT_CHART
+Table :MGMT_GROUP_SUMMARY_CHART_DEF
+Table :MGMT_HA_BACKUP
+Table :MGMT_HA_CLS_INTR_CONN
+Table :MGMT_HA_DG_TARGET_SUMMARY
+Table :MGMT_HA_FILES_ECM
+Table :MGMT_HA_INFO_ECM
+Table :MGMT_HA_INIT_PARAMS_ECM
+Table :MGMT_HA_MTTR
+Table :MGMT_HA_RAC_INTR_CONN
+Table :MGMT_HA_RMAN_CONFIG_ECM
+Table :MGMT_HC_CPU_DETAILS
+Table :MGMT_HC_FS_MOUNT_DETAILS
+Table :MGMT_HC_HARDWARE_MASTER
+Table :MGMT_HC_IOCARD_DETAILS
+Table :MGMT_HC_NIC_DETAILS
+Table :MGMT_HC_OS_COMPONENTS
+Table :MGMT_HC_OS_PROPERTIES
+Table :MGMT_HC_OS_SUMMARY
+Table :MGMT_HC_SYSTEM_SUMMARY
+Table :MGMT_HC_VENDOR_SW_COMPONENTS
+Table :MGMT_HC_VENDOR_SW_SUMMARY
+Table :MGMT_HOST_CREDENTIALS
+Table :MGMT_HTTP_SESSION_CALLBACKS
+Table :MGMT_HTTP_SESSION_OBJECTS
+Table :MGMT_INDEX_SIZES
+Table :MGMT_INV_COMPONENT
+Table :MGMT_INV_COMPONENT_PATCH
+Table :MGMT_INV_CONTAINER
+Table :MGMT_INV_CONTAINER_PROPERTY
+Table :MGMT_INV_DEPENDENCY_RULE
+Table :MGMT_INV_FILE
+Table :MGMT_INV_PATCH
+Table :MGMT_INV_PATCHED_FILE
+Table :MGMT_INV_PATCHED_FILE_COMP
+Table :MGMT_INV_PATCH_FIXED_BUG
+Table :MGMT_INV_PATCHSET
+Table :MGMT_INV_SUMMARY
+Table :MGMT_INV_VERSIONED_PATCH
+Table :MGMT_IP_ELEM_DEFAULT_PARAMS
+Table :MGMT_IP_ELEM_PARAM_CLASSES
+Table :MGMT_IP_ELEM_TARGET_TYPES
+Table :MGMT_IP_EMAIL_REPORT
+Table :MGMT_IP_PURGE_POLICY
+Table :MGMT_IP_REPORT_DEF
+Table :MGMT_IP_REPORT_DEF_ELEMENTS
+Table :MGMT_IP_REPORT_DEF_JIT_TYPES
+Table :MGMT_IP_REPORT_ELEM_DEF
+Table :MGMT_IP_REPORT_ELEM_IMAGE
+Table :MGMT_IP_REPORT_ELEM_PARAMS
+Table :MGMT_IP_REPORT_ELEM_TARGETS
+Table :MGMT_IP_SQL_STATEMENTS
+Table :MGMT_IP_STORED_REPORT
+Table :MGMT_JOB
+Table :MGMT_JOB_ASSOC_PARAMS
+Table :MGMT_JOB_BLACKOUT_ASSOC
+Table :MGMT_JOB_CALLBACKS
+Table :MGMT_JOB_COMMAND
+Table :MGMT_JOB_COMMAND_BLOCK_PROCS
+Table :MGMT_JOB_CREDENTIALS
+Table :MGMT_JOB_CRED_PARAMS
+Table :MGMT_JOB_DISPLAY_ERROR_CODES
+Table :MGMT_JOB_EMD_STATUS_QUEUE
+Table :MGMT_JOB_EVENT
+Table :MGMT_JOB_EXEC_CRED_INFO
+Table :MGMT_JOB_EXEC_EVENT_PARAMS
+Table :MGMT_JOB_EXEC_LOCKS
+Table :MGMT_JOB_EXECPLAN
+Table :MGMT_JOB_EXEC_SUMMARY
+Table :MGMT_JOB_EXECUTION
+Table :MGMT_JOB_EXT_TARGETS
+Table :MGMT_JOB_FLAT_TARGETS
+Table :MGMT_JOB_HISTORY
+Table :MGMT_JOB_LARGE_PARAMS
+Table :MGMT_JOB_LOCK_INFO
+Table :MGMT_JOB_LOCK_TARGETS
+Table :MGMT_JOB_NOTIFY_STATES
+Table :MGMT_JOB_OUTPUT
+Table :MGMT_JOB_PARAMETER
+Table :MGMT_JOB_PARAM_SOURCE
+Table :MGMT_JOB_PROP_PARAMS
+Table :MGMT_JOB_PURGE_CRITERIA
+Table :MGMT_JOB_PURGE_POLICIES
+Table :MGMT_JOB_PURGE_TARGETS
+Table :MGMT_JOB_PURGE_VALUES
+Table :MGMT_JOB_QUEUES
+Table :MGMT_JOB_SCHEDULE
+Table :MGMT_JOB_SEC_INFO
+Table :MGMT_JOB_SINGLE_TARGET_TYPES
+Table :MGMT_JOB_SQL_PARAMS
+Table :MGMT_JOB_STATE_CHANGES
+Table :MGMT_JOB_STEP_COMMAND_LOG
+Table :MGMT_JOB_STEP_PARAMS
+Table :MGMT_JOB_STEP_TARGETS
+Table :MGMT_JOB_SUBST_PARAMS
+Table :MGMT_JOB_TARGET
+Table :MGMT_JOB_TYPE_DISPLAY_INFO
+Table :MGMT_JOB_TYPE_DISPLAY_PARAM
+Table :MGMT_JOB_TYPE_INFO
+Table :MGMT_JOB_TYPE_MAX_VERSIONS
+Table :MGMT_JOB_TYPE_PARAM_DROPDOWNS
+Table :MGMT_JOB_TYPE_PARAM_DSPLY_INFO
+Table :MGMT_JOB_TYPE_PARAM_URI_INFO
+Table :MGMT_JOB_TYPE_URI_INFO
+Table :MGMT_JOB_USER_PARAMS
+Table :MGMT_JOB_VALUE_PARAMS
+Table :MGMT_LAST_SYNC_LOAD_DETAILS
+Table :MGMT_LAST_VIOLATION
+Table :MGMT_LICENSABLE_TARGET_TYPES
+Table :MGMT_LICENSE_CONFIRMATION
+Table :MGMT_LICENSE_DEFINITIONS
+Table :MGMT_LICENSED_TARGETS
+Table :MGMT_LICENSES
+Table :MGMT_LOADER_DESIGNATORS
+Table :MGMT_LOADER_QTABLE
+Table :MGMT_LOGIN_ASSISTANTS
+Table :MGMT_LONG_TEXT
+Table :MGMT_MANAGEMENT_PLUGINS
+Table :MGMT_MASTER_AGENT
+Table :MGMT_MASTER_CHANGED_CALLBACK
+Table :MGMT_MESSAGES
+Table :MGMT_METADATA_SETS
+Table :MGMT_METRIC_COLLECTIONS_REP
+Table :MGMT_METRIC_DEPENDENCY
+Table :MGMT_METRIC_DEPENDENCY_DEF
+Table :MGMT_METRIC_DEPENDENCY_DETAILS
+Table :MGMT_METRIC_ERRORS
+Table :MGMT_METRICS
+Table :MGMT_METRICS_COMPOSITE_KEYS
+Table :MGMT_METRICS_EXT
+Table :MGMT_METRICS_RAW
+Table :MGMT_METRICS_1DAY
+Table :MGMT_METRICS_1HOUR
+Table :MGMT_METRIC_VERSIONS
+Table :MGMT_MNTR_SET_COPIES
+Table :MGMT_MP_CONTRIBUTOR_FILE
+Table :MGMT_MP_CONTRIBUTORS
+Table :MGMT_MP_DEPLOYMENT_ERRORS
+Table :MGMT_MP_DEPLOYMENTS
+Table :MGMT_MP_FILE_PROPS
+Table :MGMT_MP_FILES
+Table :MGMT_MP_GROUP_MEMBERS
+Table :MGMT_MP_GROUPS
+Table :MGMT_MP_HOMEPAGE_REPORTS
+Table :MGMT_MP_MECHANISMS
+Table :MGMT_MP_NLS_SUBSTITUTIONS
+Table :MGMT_MP_PROPS
+Table :MGMT_NESTED_JOB_CRED_INFO
+Table :MGMT_NESTED_JOB_TARGETS
+Table :MGMT_NET_EVENTS
+Table :MGMT_NOTIFICATION_LOG
+Table :MGMT_NOTIFY_DEVICE_PARAMS
+Table :MGMT_NOTIFY_DEVICES
+Table :MGMT_NOTIFY_DEV_SCHEDULES
+Table :MGMT_NOTIFY_EMAIL_GATEWAY
+Table :MGMT_NOTIFY_FORMAT_HANDLERS
+Table :MGMT_NOTIFY_INPUT_QTABLE
+Table :MGMT_NOTIFY_JOB_RULE_CONFIGS
+Table :MGMT_NOTIFY_NOTIFYEES
+Table :MGMT_NOTIFY_PROFILES
+Table :MGMT_NOTIFY_QTABLE
+Table :MGMT_NOTIFY_QUEUES
+Table :MGMT_NOTIFY_REQUEUE
+Table :MGMT_NOTIFY_RULE_CONFIGS
+Table :MGMT_NOTIFY_RULES
+Table :MGMT_NOTIFY_SCHEDULES
+Table :MGMT_OB_ADMIN_CLIENT_DB
+Table :MGMT_OMS_PARAMETERS
+Table :MGMT_OPERATIONS_MASTER
+Table :MGMT_OSM_DISK_GROUP_ECM
+Table :MGMT_OUI_ARU_MAP
+Table :MGMT_PAF_APPLICATIONS
+Table :MGMT_PAF_COMP_JOBTYPE_MAPPINGS
+Table :MGMT_PAF_ENCRYPTED_STRINGS
+Table :MGMT_PAF_INSTANCES
+Table :MGMT_PAF_JOBTYPE_PARAMS
+Table :MGMT_PAF_JOBTYPES
+Table :MGMT_PAF_MSG_QTABLE_1
+Table :MGMT_PAF_MSG_QTABLE_2
+Table :MGMT_PAF_NOTIFICATION_LOG
+Table :MGMT_PAF_OMS_STATUS
+Table :MGMT_PAF_PARAM_GROUPS
+Table :MGMT_PAF_PAR_FILES
+Table :MGMT_PAF_PROCEDURES
+Table :MGMT_PAF_STATES
+Table :MGMT_PAF_TEXTUAL_DATA
+Table :MGMT_PARAMETERS
+Table :MGMT_PDP_COLUMN_METADATA
+Table :MGMT_PDP_HOST_SETTING
+Table :MGMT_PDP_METADATA
+Table :MGMT_PDP_PARAM_METADATA
+Table :MGMT_PDP_SETTING_METADATA
+Table :MGMT_PDP_SETTINGS
+Table :MGMT_PDP_SETTING_VALUES
+Table :MGMT_PERFORMANCE_NAMES
+Table :MGMT_PLANPROBLEM_FACTORS
+Table :MGMT_POLICIES
+Table :MGMT_POLICY_ASSOC
+Table :MGMT_POLICY_ASSOC_CFG
+Table :MGMT_POLICY_ASSOC_CFG_PARAMS
+Table :MGMT_POLICY_ASSOC_EVAL_DETAILS
+Table :MGMT_POLICY_ASSOC_EVAL_SUMM
+Table :MGMT_POLICY_BIND_VARS
+Table :MGMT_POLICY_PARAMETERS
+Table :MGMT_POLICY_TYPE_VERSIONS
+Table :MGMT_POLICY_VIOL_CTXT_DEF
+Table :MGMT_PRIV_GRANTS
+Table :MGMT_PRIV_INCLUDES
+Table :MGMT_PRIVS
+Table :MGMT_PROV_ASN_DEPENDENCIES
+Table :MGMT_PROV_ASN_TARGETS
+Table :MGMT_PROV_ASSIGNMENT
+Table :MGMT_PROV_BOOTSERVER
+Table :MGMT_PROV_CLUSTER
+Table :MGMT_PROV_CLUSTER_NODES
+Table :MGMT_PROV_COLLECTION
+Table :MGMT_PROV_DEFAULT_IMAGE
+Table :MGMT_PROV_HARDWARE
+Table :MGMT_PROV_HISTORY
+Table :MGMT_PROV_IP_RANGE
+Table :MGMT_PROV_IP_RESERVED
+Table :MGMT_PROV_NET_CONFIG
+Table :MGMT_PROV_OPERATION
+Table :MGMT_PROV_RPM_REP
+Table :MGMT_PROV_STAGED_COMPS
+Table :MGMT_PROV_STAGING_DIRS
+Table :MGMT_PROV_SUITE_INSTANCE
+Table :MGMT_PROV_SUITE_INST_MEMBERS
+Table :MGMT_PROV_TGT_STATUS
+Table :MGMT_PURGE_POLICY
+Table :MGMT_PURGE_POLICY_GROUP
+Table :MGMT_PURGE_POLICY_TARGET_STATE
+Table :MGMT_RAC_SERVICES
+Table :MGMT_RCA_EVENT
+Table :MGMT_RCA_EVENT_ASSOC
+Table :MGMT_RCA_METRIC_PROPS
+Table :MGMT_RCA_METRIC_TEST
+Table :MGMT_RCA_RECOVERY
+Table :MGMT_RCA_RUN
+Table :MGMT_RCA_SUMMARY
+Table :MGMT_RCA_TARGET_PROPS
+Table :MGMT_RCA_TEST_RESULT
+Table :MGMT_RCA_TRACE
+Table :MGMT_RCVCAT_CONFIG
+Table :MGMT_RCVCAT_REPOS
+Table :MGMT_REBUILD_INDEXES
+Table :MGMT_REPOS_TIME_COEFFICIENT
+Table :MGMT_ROLE_GRANTS
+Table :MGMT_ROLES
+Table :MGMT_ROWSET_HANDLERS
+Table :MGMT_RT_BOOTSTRAP_TIMES
+Table :MGMT_RT_COOKIE_DATA
+Table :MGMT_RT_DOMAIN_BOOTSTRAP
+Table :MGMT_RT_DOMAIN_DIST_BOOTSTRAP
+Table :MGMT_RT_DOMAIN_DIST_1DAY
+Table :MGMT_RT_DOMAIN_DIST_1HOUR
+Table :MGMT_RT_DOMAIN_1DAY
+Table :MGMT_RT_DOMAIN_1HOUR
+Table :MGMT_RT_INCOMPLETE_LOADS
+Table :MGMT_RT_INCOMPLETE_LOADS_1DAY
+Table :MGMT_RT_INCOMPLETE_LOADS_1HOUR
+Table :MGMT_RT_IP_BOOTSTRAP
+Table :MGMT_RT_IP_DIST_BOOTSTRAP
+Table :MGMT_RT_IP_DIST_1DAY
+Table :MGMT_RT_IP_DIST_1HOUR
+Table :MGMT_RT_IP_1DAY
+Table :MGMT_RT_IP_1HOUR
+Table :MGMT_RT_METRICS_RAW
+Table :MGMT_RT_PR_MAPPING
+Table :MGMT_RT_PR_MAPPING_1DAY
+Table :MGMT_RT_PR_MAPPING_1HOUR
+Table :MGMT_RT_REGION_ENTRIES
+Table :MGMT_RT_REGION_MAPPING
+Table :MGMT_RT_REGIONS
+Table :MGMT_RT_TARGET_PROPERTIES
+Table :MGMT_RT_URL_BOOTSTRAP
+Table :MGMT_RT_URL_DIST_BOOTSTRAP
+Table :MGMT_RT_URL_DIST_1DAY
+Table :MGMT_RT_URL_DIST_1HOUR
+Table :MGMT_RT_URLS
+Table :MGMT_RT_URL_1DAY
+Table :MGMT_RT_URL_1HOUR
+Table :MGMT_SEC_INFO
+Table :MGMT_SEVERITY_RBK
+Table :MGMT_SL_METRICS
+Table :MGMT_SL_METRICS_HISTORY
+Table :MGMT_SL_RULES
+Table :MGMT_SL_RULES_HISTORY
+Table :MGMT_SNAPSHOT_METRIC_MAP
+Table :MGMT_SPACE_METRICS
+Table :MGMT_SQL_BIND_VARS
+Table :MGMT_SQL_EVALUATION
+Table :MGMT_SQL_METRIC_HELPER
+Table :MGMT_SQL_PLAN
+Table :MGMT_SQLPROBLEM_FACTORS
+Table :MGMT_SQL_REUSE
+Table :MGMT_SQL_SUMMARY
+Table :MGMT_STORAGE_REPORT_ALIAS
+Table :MGMT_STORAGE_REPORT_DATA
+Table :MGMT_STORAGE_REPORT_ISSUES
+Table :MGMT_STORAGE_REPORT_KEYS
+Table :MGMT_STORAGE_REPORT_UI_TARGETS
+Table :MGMT_STORAGE_TMP_NFS_DATA
+Table :MGMT_STRING_METRIC_HISTORY
+Table :MGMT_SWLIB_DATA_DIRECTORIES
+Table :MGMT_SWLIB_DIRECTORIES
+Table :MGMT_SWLIB_ENTITIES
+Table :MGMT_SWLIB_ENTITY_DATA
+Table :MGMT_SWLIB_ENTITY_DOCUMENTS
+Table :MGMT_SWLIB_ENTITY_PARAMETERS
+Table :MGMT_SWLIB_ENTITY_PLATFORMS
+Table :MGMT_SWLIB_ENTITY_REFERENCES
+Table :MGMT_SWLIB_ENTITY_REVISIONS
+Table :MGMT_SWLIB_MATURITY_STATUS
+Table :MGMT_SWLIB_REVISION_PARAMETERS
+Table :MGMT_SYSTEM_CHANGES
+Table :MGMT_SYSTEM_ERROR_LOG
+Table :MGMT_SYSTEM_PERFORMANCE_LOG
+Table :MGMT_TABLE_SIZES
+Table :MGMT_TARGET_ADD_CALLBACKS
+Table :MGMT_TARGET_AGENT_ASSOC
+Table :MGMT_TARGET_ASSOC
+Table :MGMT_TARGET_ASSOC_DEFS
+Table :MGMT_TARGET_ASSOC_ERROR
+Table :MGMT_TARGET_ASSOC_INSTANCE
+Table :MGMT_TARGET_ASSOC_PROP
+Table :MGMT_TARGET_ASSOC_PROP_DEFS
+Table :MGMT_TARGET_ASSOCS
+Table :MGMT_TARGET_ASSOC_STATUS
+Table :MGMT_TARGET_BASELINES
+Table :MGMT_TARGET_BASELINES_DATA
+Table :MGMT_TARGET_CREDENTIALS
+Table :MGMT_TARGET_DELETE_CALLBACKS
+Table :MGMT_TARGET_DELETE_EXCEPTIONS
+Table :MGMT_TARGET_PENDING_ASSOCS
+Table :MGMT_TARGET_PROP_DEFS
+Table :MGMT_TARGET_PROPERTIES
+Table :MGMT_TARGET_ROLLUP_TIMES
+Table :MGMT_TARGETS
+Table :MGMT_TARGETS_DELETE
+Table :MGMT_TARGET_TEMP_LIST
+Table :MGMT_TARGET_TYPE_COMPONENT_MAP
+Table :MGMT_TARGET_TYPES
+Table :MGMT_TARGET_TYPE_VERSIONS
+Table :MGMT_TASK_QTABLE
+Table :MGMT_TASK_WORKER_COUNTS
+Table :MGMT_TEMPLATE_COPIES
+Table :MGMT_TEMPLATES
+Table :MGMT_TEST
+Table :MGMT_TEST_DEFAULT_PROMOTION
+Table :MGMT_TEST_DEFAULT_THRESHOLDS
+Table :MGMT_TEST_MCOLUMNS
+Table :MGMT_TEST_METRIC_PROPS
+Table :MGMT_TEST_METRICS
+Table :MGMT_TEST_PROP
+Table :MGMT_TEST_PROP_CHOICES
+Table :MGMT_TEST_PROP_LEVEL
+Table :MGMT_TEST_PROP_QUALIFIERS
+Table :MGMT_TEST_PROP_UIGROUP
+Table :MGMT_TEST_QUALIFIERS
+Table :MGMT_TEST_TARGET_MAP
+Table :MGMT_TEXTINDEX
+Table :MGMT_TEXTINDEX_LOGS_INFO
+Table :MGMT_TEXT_INDEX_STATS
+Table :MGMT_TOPO_PAGE_BG_IMAGE
+Table :MGMT_TOPO_PAGE_OBJ_POS
+Table :MGMT_TOPO_PAGE_PREF
+Table :MGMT_TYPE_PROPERTIES
+Table :MGMT_UPDATE_COLL_CREDS_DATA
+Table :MGMT_UPDATE_CREDENTIALS_DATA
+Table :MGMT_UPDATE_OPERATIONS
+Table :MGMT_UPDATE_OPERATIONS_DATA
+Table :MGMT_UPDATE_OPERATIONS_DETAILS
+Table :MGMT_UPDATE_PDP_DATA
+Table :MGMT_UPDATE_PDP_DATA_COPY
+Table :MGMT_UPDATE_PDP_DATA_MAP
+Table :MGMT_UPDATE_PROPERTIES_DATA
+Table :MGMT_UPDATE_TEMPLATE_DATA_MAP
+Table :MGMT_UPDATE_THRESHOLDS_DATA
+Table :MGMT_URL_CACHE
+Table :MGMT_URL_PROXY
+Table :MGMT_USER_CALLBACKS
+Table :MGMT_USER_CAS
+Table :MGMT_USER_CONTEXT
+Table :MGMT_USER_FOLDERS
+Table :MGMT_USER_JOBS
+Table :MGMT_USER_PREFERENCES
+Table :MGMT_USER_REPORT_DEFS
+Table :MGMT_USER_SESSION
+Table :MGMT_USER_SUBTAB_COL_PREFS
+Table :MGMT_USER_TARGETS
+Table :MGMT_USER_TEMPLATES
+Table :MGMT_V_CLUSTER_MEMBER_LIST
+Table :MGMT_V_CLUSTER_RAC_POL_DETAIL
+Table :MGMT_VERSIONS
+Table :MGMT_VIEW_USER_CREDENTIALS
+Table :MGMT_VIOLATION_CONTEXT
+Table :MGMT_VIOLATIONS
+Table :MGMT_V_RAC_ASSOC_MEMBER_LIST
+Table :MGMT_V_RAC_MEMBER_LIST
+Table :PARAM_VALUES_TAB
+Table :SYS_IOT_OVER_66888
+Table :SYS_IOT_OVER_67125
+Table :SYS_IOT_OVER_67128
+Table :SYS_IOT_OVER_67226
+Table :SYS_IOT_OVER_67239
+Table :SYS_IOT_OVER_67242
+Table :SYS_IOT_OVER_67296
+Table :SYS_IOT_OVER_67299
+Table :SYS_IOT_OVER_67302
+Table :SYS_IOT_OVER_67307
+Table :SYS_IOT_OVER_67743
+Table :SYS_IOT_OVER_67749
+Table :SYS_IOT_OVER_67753
+Table :SYS_IOT_OVER_67758
+Table :SYS_IOT_OVER_67871
+Table :SYS_IOT_OVER_69641
+Table :SYS_IOT_OVER_70055
+Table :AQ$_INTERNET_AGENT_PRIVS
+Table :AQ$_INTERNET_AGENTS
+Table :AQ$_QUEUES
+Table :AQ$_QUEUE_TABLES
+Table :AQ$_SCHEDULES
+Table :DEF$_AQCALL
+Table :DEF$_AQERROR
+Table :DEF$_CALLDEST
+Table :DEF$_DEFAULTDEST
+Table :DEF$_DESTINATION
+Table :DEF$_ERROR
+Table :DEF$_LOB
+Table :DEF$_ORIGIN
+Table :DEF$_PROPAGATOR
+Table :DEF$_PUSHED_TRANSACTIONS
+Table :HELP
+Table :LOGMNR_AGE_SPILL$
+Table :LOGMNR_ATTRCOL$
+Table :LOGMNR_ATTRIBUTE$
+Table :LOGMNR_CCOL$
+Table :LOGMNRC_DBNAME_UID_MAP
+Table :LOGMNR_CDEF$
+Table :LOGMNRC_GSBA
+Table :LOGMNRC_GSII
+Table :LOGMNRC_GTCS
+Table :LOGMNRC_GTLO
+Table :LOGMNR_COL$
+Table :LOGMNR_COLTYPE$
+Table :LOGMNR_DICTIONARY$
+Table :LOGMNR_DICTSTATE$
+Table :LOGMNR_ENC$
+Table :LOGMNR_ERROR$
+Table :LOGMNR_FILTER$
+Table :LOGMNR_GLOBAL$
+Table :LOGMNR_GT_TAB_INCLUDE$
+Table :LOGMNR_GT_USER_INCLUDE$
+Table :LOGMNR_GT_XID_INCLUDE$
+Table :LOGMNR_ICOL$
+Table :LOGMNR_IND$
+Table :LOGMNR_INDCOMPART$
+Table :LOGMNR_INDPART$
+Table :LOGMNR_INDSUBPART$
+Table :LOGMNR_KOPM$
+Table :LOGMNR_LOB$
+Table :LOGMNR_LOBFRAG$
+Table :LOGMNR_LOG$
+Table :LOGMNR_LOGMNR_BUILDLOG
+Table :LOGMNR_NTAB$
+Table :LOGMNR_OBJ$
+Table :LOGMNR_OPQTYPE$
+Table :LOGMNR_PARAMETER$
+Table :LOGMNR_PARTOBJ$
+Table :LOGMNRP_CTAS_PART_MAP
+Table :LOGMNR_PROCESSED_LOG$
+Table :LOGMNR_PROPS$
+Table :LOGMNR_REFCON$
+Table :LOGMNR_RESTART_CKPT$
+Table :LOGMNR_RESTART_CKPT_TXINFO$
+Table :LOGMNR_SEED$
+Table :LOGMNR_SESSION$
+Table :LOGMNR_SESSION_ACTIONS$
+Table :LOGMNR_SESSION_EVOLVE$
+Table :LOGMNR_SPILL$
+Table :LOGMNR_SUBCOLTYPE$
+Table :LOGMNR_TAB$
+Table :LOGMNR_TABCOMPART$
+Table :LOGMNR_TABPART$
+Table :LOGMNR_TABSUBPART$
+Table :LOGMNRT_MDDL$
+Table :LOGMNR_TS$
+Table :LOGMNR_TYPE$
+Table :LOGMNR_UID$
+Table :LOGMNR_USER$
+Table :LOGSTDBY$APPLY_MILESTONE
+Table :LOGSTDBY$APPLY_PROGRESS
+Table :LOGSTDBY$EDS_TABLES
+Table :LOGSTDBY$EVENTS
+Table :LOGSTDBY$FLASHBACK_SCN
+Table :LOGSTDBY$HISTORY
+Table :LOGSTDBY$PARAMETERS
+Table :LOGSTDBY$PLSQL
+Table :LOGSTDBY$SCN
+Table :LOGSTDBY$SKIP
+Table :LOGSTDBY$SKIP_SUPPORT
+Table :LOGSTDBY$SKIP_TRANSACTION
+Table :MVIEW$_ADV_AJG
+Table :MVIEW$_ADV_BASETABLE
+Table :MVIEW$_ADV_CLIQUE
+Table :MVIEW$_ADV_ELIGIBLE
+Table :MVIEW$_ADV_EXCEPTIONS
+Table :MVIEW$_ADV_FILTER
+Table :MVIEW$_ADV_FILTERINSTANCE
+Table :MVIEW$_ADV_FJG
+Table :MVIEW$_ADV_GC
+Table :MVIEW$_ADV_INDEX
+Table :MVIEW$_ADV_INFO
+Table :MVIEW$_ADV_JOURNAL
+Table :MVIEW$_ADV_LEVEL
+Table :MVIEW$_ADV_LOG
+Table :MVIEW$_ADV_OUTPUT
+Table :MVIEW$_ADV_OWB
+Table :MVIEW$_ADV_PARAMETERS
+Table :MVIEW$_ADV_PARTITION
+Table :MVIEW$_ADV_PLAN
+Table :MVIEW$_ADV_PRETTY
+Table :MVIEW$_ADV_ROLLUP
+Table :MVIEW$_ADV_SQLDEPEND
+Table :MVIEW$_ADV_TEMP
+Table :MVIEW$_ADV_WORKLOAD
+Table :OL$
+Table :OL$HINTS
+Table :OL$NODES
+Table :REPCAT$_AUDIT_ATTRIBUTE
+Table :REPCAT$_AUDIT_COLUMN
+Table :REPCAT$_COLUMN_GROUP
+Table :REPCAT$_CONFLICT
+Table :REPCAT$_DDL
+Table :REPCAT$_EXCEPTIONS
+Table :REPCAT$_EXTENSION
+Table :REPCAT$_FLAVOR_OBJECTS
+Table :REPCAT$_FLAVORS
+Table :REPCAT$_GENERATED
+Table :REPCAT$_GROUPED_COLUMN
+Table :REPCAT$_INSTANTIATION_DDL
+Table :REPCAT$_KEY_COLUMNS
+Table :REPCAT$_OBJECT_PARMS
+Table :REPCAT$_OBJECT_TYPES
+Table :REPCAT$_PARAMETER_COLUMN
+Table :REPCAT$_PRIORITY
+Table :REPCAT$_PRIORITY_GROUP
+Table :REPCAT$_REFRESH_TEMPLATES
+Table :REPCAT$_REPCAT
+Table :REPCAT$_REPCATLOG
+Table :REPCAT$_REPCOLUMN
+Table :REPCAT$_REPGROUP_PRIVS
+Table :REPCAT$_REPOBJECT
+Table :REPCAT$_REPPROP
+Table :REPCAT$_REPSCHEMA
+Table :REPCAT$_RESOL_STATS_CONTROL
+Table :REPCAT$_RESOLUTION
+Table :REPCAT$_RESOLUTION_METHOD
+Table :REPCAT$_RESOLUTION_STATISTICS
+Table :REPCAT$_RUNTIME_PARMS
+Table :REPCAT$_SITE_OBJECTS
+Table :REPCAT$_SITES_NEW
+Table :REPCAT$_SNAPGROUP
+Table :REPCAT$_TEMPLATE_OBJECTS
+Table :REPCAT$_TEMPLATE_PARMS
+Table :REPCAT$_TEMPLATE_REFGROUPS
+Table :REPCAT$_TEMPLATE_SITES
+Table :REPCAT$_TEMPLATE_STATUS
+Table :REPCAT$_TEMPLATE_TARGETS
+Table :REPCAT$_TEMPLATE_TYPES
+Table :REPCAT$_USER_AUTHORIZATIONS
+Table :REPCAT$_USER_PARM_VALUES
+Table :SQLPLUS_PRODUCT_PROFILE
+Table :ADHERENT
+Table :CATEGORIE
+Table :COMMANDE
+Table :EST_FOURNI_PAR
+Table :FOURNISSEUR
+Table :INSCRIT
+Table :LIGNECOMMANDE
+Table :LIGNELOCATION
+Table :LIGNEVENTE
+Table :LOCATIONMAT
+Table :MARQUE
+Table :MATERIEL
+Table :PATIENT
+Table :PRESCRIPTEUR
+Table :SITE
+Table :TVA
+Table :VENTEMAT
+Table :ABONNE
+Table :CARACTERISE
+Table :EMPRUNT
+Table :EXEMPLAIRE
+Table :LIVRE
+Table :MOT_CLEF
+Table :AQ$_WM$EVENT_QUEUE_TABLE_G
+Table :AQ$_WM$EVENT_QUEUE_TABLE_H
+Table :AQ$_WM$EVENT_QUEUE_TABLE_I
+Table :AQ$_WM$EVENT_QUEUE_TABLE_L
+Table :AQ$_WM$EVENT_QUEUE_TABLE_S
+Table :AQ$_WM$EVENT_QUEUE_TABLE_T
+Table :SYS_IOT_OVER_13393
+Table :WM$ADT_FUNC_TABLE
+Table :WM$BATCH_COMPRESSIBLE_TABLES
+Table :WM$CONS_COLUMNS
+Table :WM$CONSTRAINTS_TABLE
+Table :WM$ENV_VARS
+Table :WM$EVENT_AUX_PARAMS_NT
+Table :WM$EVENT_QUEUE_TABLE
+Table :WM$EVENTS_INFO
+Table :WM$HINT_TABLE
+Table :WM$INSTEADOF_TRIGS_TABLE
+Table :WM$LOCKROWS_INFO
+Table :WM$LOG_TABLE
+Table :WM$LOG_TABLE_ERRORS
+Table :WM$MODIFIED_TABLES
+Table :WM$MP_GRAPH_WORKSPACES_TABLE
+Table :WM$MP_PARENT_WORKSPACES_TABLE
+Table :WM$MW_TABLE
+Table :WM$NESTED_COLUMNS_TABLE
+Table :WM$NEXTVER_TABLE
+Table :WM$REMOVED_WORKSPACES_TABLE
+Table :WM$REPLICATION_DETAILS_TABLE
+Table :WM$REPLICATION_TABLE
+Table :WM$RESOLVE_WORKSPACES_TABLE
+Table :WM$RIC_LOCKING_TABLE
+Table :WM$RIC_TABLE
+Table :WM$RIC_TRIGGERS_TABLE
+Table :WM$SYSPARAM_ALL_VALUES
+Table :WM$TMP_DBA_CONSTRAINTS
+Table :WM$UDTRIG_DISPATCH_PROCS
+Table :WM$UDTRIG_INFO
+Table :WM$VERSIONED_TABLES
+Table :WM$VERSIONED_TABLES_UNDO_CODE
+Table :WM$VERSION_HIERARCHY_TABLE
+Table :WM$VERSION_TABLE
+Table :WM$VT_ERRORS_TABLE
+Table :WM$WORKSPACE_PRIV_TABLE
+Table :WM$WORKSPACE_SAVEPOINTS_TABLE
+Table :WM$WORKSPACES_TABLE
+Table :aggregatePrivilege108_TAB
+Table :APP_ROLE_MEMBERSHIP
+Table :APP_USERS_AND_ROLES
+Table :description104_TAB
+Table :description94_TAB
+Table :fallback42_TAB
+Table :fallback43_TAB
+Table :fallback61_TAB
+Table :fallback62_TAB
+Table :Folder36_TAB
+Table :ftp-log21_TAB
+Table :http-log30_TAB
+Table :include47_TAB
+Table :include66_TAB
+Table :MIGR9202STATUS
+Table :PRIN_PT
+Table :privilege107_TAB
+Table :SC_PT
+Table :SERVLET
+Table :SYS_NTbdZNFJftQWmq3B57MqXULg==
+Table :SYS_NTc3Zv3D6hQc+s1+vTPGbIZQ==
+Table :SYS_NTg8d8ndweQT6nwYudBukkMg==
+Table :SYS_NTKgXnD/TSTY27I+GhJQgJrA==
+Table :SYS_NTQrPctFeoTZixbB1v5Lxe3Q==
+Table :SYS_NTSVvFM2YQRqa29Di4D11/Pg==
+Table :SYS_NTWfBAcbMFSxypC58JfqmQ7g==
+Table :SYS_NTw1mVzgeATgi/P0HTIWbM9Q==
+Table :SYS_NTYkUI4OY1RZaCAquTEdYCtw==
+Table :SYS_NT+4L6mXBfTHSYIwswa7bmVg==
+Table :title103_TAB
+Table :title93_TAB
+Table :XDB$ACL
+Table :XDBACL_PATH_TAB
+Table :XDB$ALL_MODEL
+Table :XDB$ANY
+Table :XDB$ANYATTR
+Table :XDB$ATTRGROUP_DEF
+Table :XDB$ATTRGROUP_REF
+Table :XDB$ATTRIBUTE
+Table :XDB$CHECKOUTS
+Table :XDB$CHOICE_MODEL
+Table :XDB$COLUMN_INFO
+Table :XDB$COMPLEX_TYPE
+Table :XDB$CONFIG
+Table :XDB$D_LINK
+Table :XDB$DXPTAB
+Table :XDB$ELEMENT
+Table :XDB$GROUP_DEF
+Table :XDB$GROUP_REF
+Table :XDB$H_INDEX
+Table :XDB$H_LINK
+Table :xdb-log13_TAB
+Table :XDB$MOUNTS
+Table :XDB$NLOCKS
+Table :XDB$NONCEKEY
+Table :XDB$PATH_INDEX_PARAMS
+Table :XDB$REPOS
+Table :XDB$RESCONFIG
+Table :XDB$RESOURCE
+Table :XDB$ROOT_INFO
+Table :XDB$SCHEMA
+Table :XDB$SEQUENCE_MODEL
+Table :XDB$SIMPLE_TYPE
+Table :XDB$STATS
+Table :XDB$TTSET
+Table :XDB$WORKSPACE
+Table :XDB$XDB_READY
+Table :XDB$XIDX_IMP_T
+Table :XDB$XIDX_PARAM_T
+Table :XDB$XTAB
+Table :XDB$XTABCOLS
+Table :XDB$XTABNMSP
+Table :X$NM4O5GVJW67C95OB541F393D17GP
+Table :X$PT4O5GVJW67C95OB541F393D17GP
+Table :X$QN4O5GVJW67C95OB541F393D17GP
+Table :XS$CACHE_ACTIONS
+Table :XS$CACHE_DELETE
+Table :XS$DATA_SECURITY
+Table :XS$PRINCIPALS
+Table :XS$ROLESETS
+Table :XS$SECURITYCLASS
+requeteLister test junit
+requeteSupprimer
+DELETE FROM patient WHERE numero = '1' AND date = '0'
+TEST requete mise a jour---------
+TEST requeteAjouter---------
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
