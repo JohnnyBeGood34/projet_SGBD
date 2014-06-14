@@ -61,7 +61,7 @@ public class Request_factory_oracle implements IBDD
         DumpOracleDB dumpClass = new DumpOracleDB();
         try
           {
-            String dump = dumpClass.dumpOracleDB();
+            String dump = dumpClass.dumpDB();
             dumpClass.writeDumpFile(dump, chemin);
           } catch (SQLException | IOException ex)
           {
@@ -79,7 +79,7 @@ public class Request_factory_oracle implements IBDD
         DumpOracleDB dumpClass = new DumpOracleDB();
         try
           {
-            dump = dumpClass.dumpOracleDB();
+            dump = dumpClass.dumpDB();
           } catch (SQLException | IOException ex)
           {
             Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);

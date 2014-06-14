@@ -22,13 +22,14 @@ import java.util.Date;
  *
  * @author JOHN
  */
-public class DumpOracleDB
+public class DumpOracleDB implements IDumpDb
   {
 
     //Get instance du singleton de connexion
     private Connection connexion = Oracle_connexion.getInstance();
-
-    public String dumpOracleDB() throws SQLException, IOException
+    
+    @Override
+    public String dumpDb() throws SQLException, IOException      
       {
         String entete = "-------------------\r\n";
         entete += "--Dump de la base--\r\n";
@@ -86,7 +87,7 @@ public class DumpOracleDB
          */
         for (String vue : listeVues)
           {
-            if (!vue.equals("null"))
+            if (vue != null)
               {
                 creationVue += "-- -----------------\r\n";
                 creationVue += "-- creation de la vue --" + vue + " --\r\n";
@@ -107,7 +108,7 @@ public class DumpOracleDB
          */
         for (String trigger : listeTriggers)
           {
-            if (!trigger.equals("null"))
+            if (trigger != null)
               {
                 creationTrigger += "-- -----------------\r\n";
                 creationTrigger += "-- creation du trigger --" + trigger + " --\r\n";
@@ -127,7 +128,7 @@ public class DumpOracleDB
          */
         for (String sequence : listeSequences)
           {
-            if (!sequence.equals("null"))
+            if (sequence != null)
               {
                 creationSequence += "-- -----------------\r\n";
                 creationSequence += "-- creation de la sequence --" + sequence + " --\r\n";
@@ -148,7 +149,7 @@ public class DumpOracleDB
          */
         for (String procedure : listeProcedures)
           {
-            if (!procedure.equals("null"))
+            if (procedure != null)
               {
                 creationProcedure += "-- -----------------\r\n";
                 creationProcedure += "-- creation de la procedure --" + procedure + " --\r\n";
@@ -161,7 +162,7 @@ public class DumpOracleDB
                   }
               }
           }
-        statement.close();;
+        statement.close();
         //Construction de la chaine de requete
         String dumpDb = entete + "\n" + creation + "\n" + insertion + "\n" + creationVue + "\n" + creationSequence + "\n" + creationTrigger + "\n" + creationProcedure + "\n";
         return dumpDb;
@@ -172,12 +173,14 @@ public class DumpOracleDB
      *
      * @param contenu type String Contenu du fichier à écrire
      * @param chemin type String Chemin où enregitrer le fichier
+     * @throws java.io.IOException
      */
+    @Override
     public void writeDumpFile(String contenu, String chemin) throws IOException
       {
         Date date = new Date();
         String dateFichier = new SimpleDateFormat("dd-MM-yyyy").format(date);
-        File fichier = new File(chemin + "dump_" + dateFichier + ".sql");
+        File fichier = new File(chemin + "dump_db_" + dateFichier + ".sql");
 
         FileWriter filewriter = new FileWriter(fichier);
         try (BufferedWriter bufferwriter = new BufferedWriter(filewriter))
@@ -194,7 +197,8 @@ public class DumpOracleDB
      * @return ArrayList<String> la liste des tables de la BD
      * @throws java.sql.SQLException
      */
-    private ArrayList<String> listerTables() throws SQLException
+    @Override
+    public ArrayList<String> listerTables() throws SQLException
       {
 
         ArrayList<String> listeTables = new ArrayList<>();
@@ -217,7 +221,8 @@ public class DumpOracleDB
      * @return liste des vues de la base de données
      * @throws SQLException 
      */
-    private ArrayList<String> listerVues() throws SQLException
+    @Override
+    public ArrayList<String> listerVues() throws SQLException
       {
         ArrayList<String> listeVues = new ArrayList();
         try (Statement statement = connexion.createStatement())
@@ -236,7 +241,8 @@ public class DumpOracleDB
      * @return liste des triggers de la base de données
      * @throws SQLException 
      */
-    private ArrayList<String> listerTriggers() throws SQLException
+    @Override
+    public ArrayList<String> listerTriggers() throws SQLException
       {
         ArrayList<String> listeTriggers = new ArrayList();
         try (Statement statement = connexion.createStatement())
@@ -256,7 +262,8 @@ public class DumpOracleDB
      * @return liste s"quences de la base de données
      * @throws SQLException 
      */
-    private ArrayList<String> listerSequences() throws SQLException
+    @Override
+    public ArrayList<String> listerSequences() throws SQLException
       {
         ArrayList<String> listeSequence = new ArrayList();
         try (Statement statement = connexion.createStatement())
@@ -275,7 +282,8 @@ public class DumpOracleDB
      * @return liste des procédures de la base de données
      * @throws SQLException 
      */
-    private ArrayList<String> listerProcedures() throws SQLException
+    @Override
+    public ArrayList<String> listerProcedures() throws SQLException
       {
         ArrayList<String> listeProcedures = new ArrayList();
         try (Statement statement = connexion.createStatement())
@@ -290,4 +298,5 @@ public class DumpOracleDB
           }
         return listeProcedures;
       }
+
   }
