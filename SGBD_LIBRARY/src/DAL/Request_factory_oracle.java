@@ -54,24 +54,26 @@ public class Request_factory_oracle implements IBDD
       }
     /*
      * Fonction permettant de creer le fichier .sql du dump de la base de données
-    */
+     */
+
     @Override
     public void dumpDb(String chemin)
       {
         DumpOracleDB dumpClass = new DumpOracleDB();
         try
           {
-            String dump = dumpClass.dumpDB();
+            String dump = dumpClass.dumpDb();
             dumpClass.writeDumpFile(dump, chemin);
           } catch (SQLException | IOException ex)
           {
             Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
           }
-        
+
       }
     /*
      * Fonction permettant d'obtenir le dump de la base de données sous forme de String
-    */
+     */
+
     @Override
     public String getDumpDb()
       {
@@ -79,13 +81,14 @@ public class Request_factory_oracle implements IBDD
         DumpOracleDB dumpClass = new DumpOracleDB();
         try
           {
-            dump = dumpClass.dumpDB();
+            dump = dumpClass.dumpDb();
           } catch (SQLException | IOException ex)
           {
             Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
           }
         return dump;
       }
+
     /**
      * requeteLister sert à construire une requete de selection dynamique avec
      *
@@ -262,7 +265,15 @@ public class Request_factory_oracle implements IBDD
             try
               {
                 methode = nomClasse.getMethod(nomMethode);
-                this._parametres.add(String.valueOf(methode.invoke(objet)));
+                String resultMethode;
+                if (methode.invoke(objet) instanceof Float)
+                  {
+                    resultMethode = String.valueOf(methode.invoke(objet)).replaceAll("\\.", ",");
+                  } else
+                  {
+                    resultMethode = String.valueOf(methode.invoke(objet));
+                  }
+                this._parametres.add(resultMethode);
               } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
               {
                 Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
@@ -309,6 +320,180 @@ public class Request_factory_oracle implements IBDD
             sql = "DELETE FROM " + table + whereClause;
           }
         this._requete = sql;
+      }
+
+    /**
+     * Permet de retourner une procédure stockée pour lister Cela implique le la
+     * procédure pour lister doit être sous la forme "listerNomclasse"
+     *
+     * @param classe nom de la classe = nom de la tale en bdd
+     * @param values les valeurs de restrictions
+     */
+    @Override
+    public void procedureLister(String classe, ArrayList<String> values)
+      {
+        String nomProcedure;
+        //Détermination du nom de la procédure à appeler
+        nomProcedure = "{CALL lister" + classe + "}";
+        //On stoque le nom de la procédure dans la requete
+        this._requete = nomProcedure;
+        //les parametres de restriction dans les paramètres
+        this._parametres = values;
+      }
+
+    /**
+     * Methode permettant de construire la préparation de la procédure stockée
+     * pour modifier (update)
+     *
+     * @param objet
+     */
+    @Override
+    public void procedureModifier(Object objet)
+      {
+        Method methode;
+        //Exemple de procédure ajouterMaterielmedical => ajouter + nom de la classe
+        //Récupération du com de la classe
+        String classe = objet.getClass().getSimpleName();
+
+        String nomProcedure = "{CALL modifier" + classe + "(";
+
+        //ArrayList contiendra la liste des attributs de la table (Classe)
+        ArrayList<Field[]> fields = new ArrayList();
+        Class nomClasse = objet.getClass();
+        if (!objet.getClass().getSuperclass().getSimpleName().equals("Object"))
+          {
+            //On récupère les attributs de la superClasse ainsi que ceux de la classe de l'objet
+            fields.add(objet.getClass().getSuperclass().getDeclaredFields());
+            fields.add(objet.getClass().getDeclaredFields());
+          } else
+          {
+            fields.add(objet.getClass().getDeclaredFields());
+          }
+        //Construction d'un arrayList d'attributs sous forme de string
+        //Pour les utiliser dans la construction de la requete
+        ArrayList<String> fieldsString = getFieldstoString(fields);
+
+        int compteur = 0;
+
+        for (String attribut : fieldsString)
+          {
+            //Tant qu'on est pas au dernier tour de boucle
+            if (compteur != fieldsString.size() - 1)
+              {
+                nomProcedure += "?,";
+              } else
+              {
+                nomProcedure += "?)}";
+              }
+            String nomMethode = "get_" + attribut;
+            try
+              {
+                //On récupère la methode de l'objet
+                methode = nomClasse.getMethod(nomMethode);
+                try
+                  {
+                    String resultMethode;
+                    //methode.invoke permet d'appeller une methode construite en string
+                    //Remplace les . par des virgules si il y en a, permettant à la base de données oracle d'interpreter correctement les float
+                    //Si l'attribut est de type Float, on enleve le point on le remplace par une virgule
+                    if (methode.invoke(objet) instanceof Float)
+                      {
+                        resultMethode = String.valueOf(methode.invoke(objet)).replaceAll("\\.", ",");
+                      } else
+                      {
+                        resultMethode = String.valueOf(methode.invoke(objet));
+                      }
+
+                    this._parametres.add(resultMethode);
+                  } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
+                  {
+                    Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+              } catch (NoSuchMethodException | SecurityException ex)
+              {
+                Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            compteur++;
+          }
+        //La requete prends la procédure
+        this._requete = nomProcedure;
+      }
+
+    /**
+     * Fonction permettant de retourner une procédure pour insérer
+     *
+     * @param objet un objet à insérer en procédure stockée
+     */
+    @Override
+    public void procedureAjouter(Object objet)
+      {
+        Method methode;
+        //Exemple de procédure ajouterMaterielmedical => ajouter + nom de la classe
+        //Récupération du com de la classe
+        String classe = objet.getClass().getSimpleName();
+
+        String nomProcedure = "{CALL ajouter" + classe + "(";
+
+        //ArrayList contiendra la liste des attributs de la table (Classe)
+        ArrayList<Field[]> fields = new ArrayList();
+        Class nomClasse = objet.getClass();
+        if (!objet.getClass().getSuperclass().getSimpleName().equals("Object"))
+          {
+            //On récupère les attributs de la superClasse ainsi que ceux de la classe de l'objet
+            fields.add(objet.getClass().getSuperclass().getDeclaredFields());
+            fields.add(objet.getClass().getDeclaredFields());
+          } else
+          {
+            fields.add(objet.getClass().getDeclaredFields());
+          }
+        //Construction d'un arrayList d'attributs sous forme de string
+        //Pour les utiliser dans la construction de la requete
+        ArrayList<String> fieldsString = getFieldstoString(fields);
+
+        int compteur = 0;
+
+        for (String attribut : fieldsString)
+          {
+            //Tant qu'on est pas au dernier tour de boucle
+            if (compteur != fieldsString.size() - 1)
+              {
+                nomProcedure += "?,";
+              } else
+              {
+                nomProcedure += "?)}";
+              }
+            String nomMethode = "get_" + attribut;
+            try
+              {
+                //On récupère la methode de l'objet
+                methode = nomClasse.getMethod(nomMethode);
+                try
+                  {
+                    String resultMethode;
+                    //methode.invoke permet d'appeller une methode construite en string
+                    //Remplace les . par des virgules si il y en a, permettant à la base de données oracle d'interpreter correctement les float
+                    //Si l'attribut est de type Float, on enleve le point on le remplace par une virgule
+                    if (methode.invoke(objet) instanceof Float)
+                      {
+                        resultMethode = String.valueOf(methode.invoke(objet)).replaceAll("\\.", ",");
+                      } else
+                      {
+                        resultMethode = String.valueOf(methode.invoke(objet));
+                      }
+
+                    this._parametres.add(resultMethode);
+                  } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex)
+                  {
+                    Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+              } catch (NoSuchMethodException | SecurityException ex)
+              {
+                Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
+              }
+            compteur++;
+          }
+        //La requete prends la procédure
+        this._requete = nomProcedure;
       }
 
     /**

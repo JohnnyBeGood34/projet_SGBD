@@ -20,4 +20,7 @@ public interface IBDD {
     public abstract ArrayList<String> getParametres();
     public abstract void dumpDb(String chemin);
     public abstract String getDumpDb();
+    public abstract void procedureLister(String classe,ArrayList<String> values);
+    public abstract void procedureAjouter(Object objet);
+    public abstract void procedureModifier(Object objet);
 }
