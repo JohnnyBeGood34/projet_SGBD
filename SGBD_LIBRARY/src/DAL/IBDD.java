@@ -23,4 +23,5 @@ public interface IBDD {
     public abstract void procedureLister(String classe,ArrayList<String> values);
     public abstract void procedureAjouter(Object objet);
     public abstract void procedureModifier(Object objet);
+    public abstract void procedureSupprimer(String classe,ArrayList<String> values);
 }

@@ -90,6 +90,11 @@ public class Request_factory_oracle implements IBDD
       }
 
     /**
+     ***********************************************
+     ******************REQUETES*********************
+     ***********************************************/
+    
+    /**
      * requeteLister sert à construire une requete de selection dynamique avec
      *
      * @param classe type String, qui est le nom de la classe (table) que l'on
@@ -292,6 +297,8 @@ public class Request_factory_oracle implements IBDD
      * veut attaquer en base.
      * @param fields type ArrayList<String>, peut être null, représente les
      * champs de restriction
+     * @param restriction arrayList de d'opérateurs de restrictions pour les
+     * resutes
      * @param value type ArrayList<String>, peut être null, représente les
      * valeurs de restriction correspondant aux champs
      */
@@ -323,6 +330,11 @@ public class Request_factory_oracle implements IBDD
       }
 
     /**
+     * *********************************************
+     *************PROCEDURES STOQUEES***************
+        **********************************************
+     */
+    /**
      * Permet de retourner une procédure stockée pour lister Cela implique le la
      * procédure pour lister doit être sous la forme "listerNomclasse"
      *
@@ -334,7 +346,7 @@ public class Request_factory_oracle implements IBDD
       {
         String nomProcedure;
         //Détermination du nom de la procédure à appeler
-        nomProcedure = "{CALL lister" + classe + "}";
+        nomProcedure = "{CALL lister" + classe + " (?)}";
         //On stoque le nom de la procédure dans la requete
         this._requete = nomProcedure;
         //les parametres de restriction dans les paramètres
@@ -417,6 +429,22 @@ public class Request_factory_oracle implements IBDD
           }
         //La requete prends la procédure
         this._requete = nomProcedure;
+      }
+
+    /**
+     * Focntion permettant de construire l'appel de la procédure pour supprimer
+     *
+     * @param classe Nom de la classe = nom de la table en bdd
+     * @param values Valeurs de restrictions
+     */
+    @Override
+    public void procedureSupprimer(String classe, ArrayList<String> values)
+      {
+        String nomProcedure = "CALL {supprimer" + classe + " (?)}";
+        //On stoque le nom de la procédure dans la requete
+        this._requete = nomProcedure;
+        //les parametres de restriction dans les paramètres
+        this._parametres = values;
       }
 
     /**
