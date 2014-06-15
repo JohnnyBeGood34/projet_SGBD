@@ -50,6 +50,7 @@ public class DumpOracleDBTest
 
     /**
      * Test of dumpOracleDB method, of class DumpOracleDB.
+     * @throws java.lang.Exception
      */
     @Test
     public void testDumpOracleDB() throws Exception
@@ -66,14 +67,19 @@ public class DumpOracleDBTest
 
     /**
      * Test of writeDumpFile method, of class DumpOracleDB.
+     * @throws java.io.IOException
      */
     @Test
     public void testWriteDumpFile() throws IOException {
         System.out.println("writeDumpFile");
-        //String = "";
         DumpOracleDB instance = new DumpOracleDB();
-        //String dump = instance.dumpDB();
-       // instance.writeDumpFile(dump, "a:/dev/");
+        try
+          {
+            instance.writeDumpFile(instance.dumpDb(),"a:/dev/");
+          } catch (SQLException ex)
+          {
+            Logger.getLogger(DumpOracleDBTest.class.getName()).log(Level.SEVERE, null, ex);
+          }
     }
     
   }
