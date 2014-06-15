@@ -130,8 +130,8 @@ public class Manager_DAOTest
         champs.add("idPartenaire");
         valeurs.add("337");
         restriction.add("=");
-        JSONObject result=manager.delete("PartenairePrescripteur",champs,restriction,valeurs);
-        System.out.println(result);
+        /*JSONObject result=manager.delete("PartenairePrescripteur",champs,restriction,valeurs);
+        System.out.println(result);*/
         //assertEquals(expResult, result);
 
       }
