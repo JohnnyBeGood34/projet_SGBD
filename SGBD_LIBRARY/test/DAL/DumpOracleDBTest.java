@@ -68,17 +68,12 @@ public class DumpOracleDBTest
      * Test of writeDumpFile method, of class DumpOracleDB.
      */
     @Test
-    public void testWriteDumpFile() {
+    public void testWriteDumpFile() throws IOException {
         System.out.println("writeDumpFile");
         //String = "";
         DumpOracleDB instance = new DumpOracleDB();
-        
-        try {
-            String dump = instance.dumpDB();
-            instance.writeDumpFile(dump, "a:/dev/");
-        } catch (IOException | SQLException ex) {
-            Logger.getLogger(DumpOracleDBTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //String dump = instance.dumpDB();
+       // instance.writeDumpFile(dump, "a:/dev/");
     }
     
   }
