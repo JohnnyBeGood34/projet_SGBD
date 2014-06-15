@@ -31,7 +31,7 @@ public class DumpOracleDB implements IDumpDb
     @Override
     public String dumpDb() throws SQLException, IOException
       {
-        final ArrayList<String> listeTables = listerTables();
+        ArrayList<String> listeTables = listerTables();
         ArrayList<String> listeVues = listerVues();
         ArrayList<String> listeTriggers = listerTriggers();
         ArrayList<String> listeSequences = listerSequences();
@@ -41,7 +41,7 @@ public class DumpOracleDB implements IDumpDb
         String creationTrigger;
         String creationSequence;
         String creationProcedure;
-        final String createTable;
+        String createTable;
         try (Statement statement = connexion.createStatement())
           {
             createTable = constructTables(listeTables, statement);
