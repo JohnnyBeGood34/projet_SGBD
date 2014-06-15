@@ -78,11 +78,12 @@ public class Manager_DAO
     /*
      * Fonction permettant de crer le fichier .sql du dump de la base de données
      */
+
     public void dumpDb(String cheminFichierDump)
       {
         requestFactory.dumpDb(cheminFichierDump);
       }
-    
+
     /*
      * Fonction permettant de récupérer le dump de la base de données sous forme de String
      */
@@ -90,7 +91,7 @@ public class Manager_DAO
       {
         return requestFactory.getDumpDb();
       }
-    
+
     /**
      * Permet d'executer une requete lister et de renvoyer une liste de
      * résultats dans un objet JSON.
@@ -112,39 +113,42 @@ public class Manager_DAO
         //Récupération de la requete
         String requete = requestFactory.getRequeteString();
 
-        //Creation du statement bdd
-        Statement statement = connexion.createStatement();
         //Exécution de la requete lister
-        ResultSet resultSet = statement.executeQuery(requete);
-        //Récupération des noms de colonnes
-        ResultSetMetaData metadata = resultSet.getMetaData();
-        //Récupération du nb de lignes 
-        int columnCount = metadata.getColumnCount();
-        ArrayList<String> columns = new ArrayList();
-        //On récupère le nom des colonnes avec les metadatas
-        for (int i = 1; i < columnCount; i++)
+        //Creation du statement bdd
+        try (Statement statement = connexion.createStatement())
           {
-            String columnName = metadata.getColumnName(i);
-            columns.add(columnName);
-          }
-        //Tant qu'il y a des enregistrements
-        int compteur = 0;
-        while (resultSet.next())
-          {
-            //On déclare un objet JSON qui va récupérer les résultats
-            JSONObject jsonResult = new JSONObject();
-            for (String columnName : columns)
+            //Exécution de la requete lister
+            ResultSet resultSet = statement.executeQuery(requete);
+            //Récupération des noms de colonnes
+            ResultSetMetaData metadata = resultSet.getMetaData();
+            //Récupération du nb de lignes
+            int columnCount = metadata.getColumnCount();
+            ArrayList<String> columns = new ArrayList();
+            //On récupère le nom des colonnes avec les metadatas
+            for (int i = 1; i < columnCount; i++)
               {
-                //On récupère le résultat pour la colonne
-                String value = resultSet.getString(columnName);
-                //On met dans la JSON déclaré au dessus nomColonne : Valeur
-                jsonResult.put(columnName, value);
+                String columnName = metadata.getColumnName(i);
+                columns.add(columnName);
               }
-            resultat.put(compteur, jsonResult);
-            compteur++;
+            //Tant qu'il y a des enregistrements
+            int compteur = 0;
+            while (resultSet.next())
+              {
+                //On déclare un objet JSON qui va récupérer les résultats
+                JSONObject jsonResult = new JSONObject();
+                for (String columnName : columns)
+                  {
+                    //On récupère le résultat pour la colonne
+                    String value = resultSet.getString(columnName);
+                    //On met dans la JSON déclaré au dessus nomColonne : Valeur
+                    jsonResult.put(columnName, value);
+                  }
+                resultat.put(compteur, jsonResult);
+                compteur++;
+              }
+            connexion = null;
+            statement.close();
           }
-        connexion = null;
-        statement.close();
         return resultat;
       }
 
@@ -183,7 +187,10 @@ public class Manager_DAO
                 prepare.setString(i, parametresRequete.get(i - 1));
               }
             prepare.executeUpdate();
-            try ( /* On récupère le dernier ID inséré */Statement statement = connexion.createStatement())
+
+            prepare.close();
+            /* On récupère le dernier ID inséré */
+            try (Statement statement = connexion.createStatement())
               {
                 /**
                  * A METTRE DANS UN TRANSACTION
@@ -197,7 +204,6 @@ public class Manager_DAO
                   }
                 statement.close();
               }
-            prepare.close();
           } catch (SQLException e)
           {
             System.out.println(e.getMessage());
@@ -212,7 +218,7 @@ public class Manager_DAO
               {
                 connexion = null;
               }
-            
+
           }
         return resultat;
       }
@@ -249,7 +255,7 @@ public class Manager_DAO
             String id = parametresRequete.get(0);
             parametresRequete.remove(0);
             parametresRequete.add(id);
-            
+
             //Pour chaque entrée de l'array de parametres
             for (int i = 1; i <= parametresRequete.size(); i++)
               {
@@ -257,7 +263,7 @@ public class Manager_DAO
                 String nouveauFloat = parametresRequete.get(i - 1).replaceAll("\\.", ",");
                 prepare.setString(i, nouveauFloat);
               }
-            
+
             prepare.executeUpdate();
             prepare.close();
           } catch (SQLException e)
@@ -297,11 +303,11 @@ public class Manager_DAO
         Connection connexion = this.getConnexion();
         requestFactory.requeteSupprimer(classe, fields, restriction, values);
         String requete = requestFactory.getRequeteString();
-        
+
         try (Statement statement = connexion.createStatement())
           {
             ResultSet resultSet = statement.executeQuery(requete);
-            
+
             /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OK*/
             resultat.put("result", resultSet.getString(1));
             statement.close();

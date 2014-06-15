@@ -27,9 +27,167 @@ public class DumpOracleDB implements IDumpDb
 
     //Get instance du singleton de connexion
     private Connection connexion = Oracle_connexion.getInstance();
-    
+
     @Override
-    public String dumpDb() throws SQLException, IOException      
+    public String dumpDb() throws SQLException, IOException
+      {
+        final ArrayList<String> listeTables = listerTables();
+        ArrayList<String> listeVues = listerVues();
+        ArrayList<String> listeTriggers = listerTriggers();
+        ArrayList<String> listeSequences = listerSequences();
+        ArrayList<String> listeProcedures = listerProcedures();
+
+        String creationVue;
+        String creationTrigger;
+        String creationSequence;
+        String creationProcedure;
+        final String createTable;
+        try (Statement statement = connexion.createStatement())
+          {
+            createTable = constructTables(listeTables, statement);
+            creationVue = constructVues(listeVues, statement);
+            creationTrigger = constructTriggers(listeTriggers, statement);
+            creationSequence = constructSequences(listeSequences, statement);
+            creationProcedure = constructProcedures(listeProcedures, statement);
+            statement.close();
+          }
+
+        //Construction de la chaine de requete
+        String dumpDb = createTable + "\n" + creationVue + "\n" + creationSequence + "\n" + creationTrigger + "\n" + creationProcedure + "\n";
+        return dumpDb;
+      }
+    /**
+     * Fonction permettant de construire les requetes de creation des procedures en bdd
+     * @param listeProcedures la liste des procédures de la base de données
+     * @param statement l'objet statement
+     * @return requete de creation des procédures de la base de données
+     * @throws SQLException 
+     */
+    private String constructProcedures(ArrayList<String> listeProcedures, Statement statement) throws SQLException
+      {
+        String creationProcedure = "";
+        /*
+         * Pour chaque sequence
+         */
+        for (String procedure : listeProcedures)
+          {
+            if (procedure != null)
+              {
+                creationProcedure += "-- -----------------\r\n";
+                creationProcedure += "-- creation de la procedure --" + procedure + " --\r\n";
+                creationProcedure += "----------------------\r\n";
+                ResultSet resultSetProcedure = statement.executeQuery("select dbms_metadata.get_ddl('PROCEDURE','" + procedure + "')from dual");
+                while (resultSetProcedure.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationProcedure += resultSetProcedure.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+        return creationProcedure;
+      }
+    /**
+     * Fonction permettant la construction des requetes de creation des séquences de la base de données
+     * @param listeSequences la liste des séquences de la base de données
+     * @param statement l'objet statement
+     * @return requete de construction des séquences de la base de données
+     * @throws SQLException 
+     */
+    private String constructSequences(ArrayList<String> listeSequences, Statement statement) throws SQLException
+      {
+        String creationSequence = "";
+        /*
+         * Pour chaque sequence
+         */
+        for (String sequence : listeSequences)
+          {
+            if (sequence != null)
+              {
+                creationSequence += "-- -----------------\r\n";
+                creationSequence += "-- creation de la sequence --" + sequence + " --\r\n";
+                creationSequence += "----------------------\r\n";
+                ResultSet resultSetSequence = statement.executeQuery("select dbms_metadata.get_ddl('SEQUENCE','" + sequence + "')from dual");
+                while (resultSetSequence.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationSequence += resultSetSequence.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+        return creationSequence;
+      }
+    /**
+     * Fonction permettant de construire les requetes de creation des triggers de la base de données
+     * @param listeTriggers liste des triggers de la base de données
+     * @param statement l'objet statement
+     * @return requetes permettant la construction des trigfers de la base de données
+     * @throws SQLException 
+     */
+    private String constructTriggers(ArrayList<String> listeTriggers, Statement statement) throws SQLException
+      {
+        String creationTrigger = "";
+        /*
+         * Pour chaque trigger
+         */
+        for (String trigger : listeTriggers)
+          {
+            if (trigger != null)
+              {
+                creationTrigger += "-- -----------------\r\n";
+                creationTrigger += "-- creation du trigger --" + trigger + " --\r\n";
+                creationTrigger += "----------------------\r\n";
+                ResultSet resultSetTrigger = statement.executeQuery("select dbms_metadata.get_ddl('TRIGGER','" + trigger + "')from dual");
+                while (resultSetTrigger.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationTrigger += resultSetTrigger.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+        return creationTrigger;
+      }
+    /**
+     * Fonction permettant al construction des requetes de creation des vues de la base de données
+     * @param listeVues liste des vues de la base de données
+     * @param statement l'objet statement
+     * @return requetes de creation des vues de la base de données
+     * @throws SQLException 
+     */
+    private String constructVues(ArrayList<String> listeVues, Statement statement) throws SQLException
+      {
+        String creationVue = "";
+        /*
+         * Pour chaque vue
+         */
+        for (String vue : listeVues)
+          {
+            if (vue != null)
+              {
+                creationVue += "-- -----------------\r\n";
+                creationVue += "-- creation de la vue --" + vue + " --\r\n";
+                creationVue += "----------------------\r\n";
+                ResultSet resultSetVue = statement.executeQuery("select dbms_metadata.get_ddl('VIEW','" + vue + "')from dual");
+                while (resultSetVue.next())
+                  {
+                    //On récupère le create et on le concatene
+                    creationVue += resultSetVue.getString(1) + "\r\n\n";
+                  }
+              }
+          }
+        return creationVue;
+      }
+
+    /**
+     * Fonction permettant de construire les create tables ainsi que les
+     * insertions
+     *
+     * @param listeTables liste des tables de la base de données
+     * @param statement statement déclaré dans le 'main'
+     * @return chaine de construction et d'insertion des tables de la base de
+     * données
+     * @throws SQLException
+     */
+    private String constructTables(ArrayList<String> listeTables, Statement statement) throws SQLException
       {
         String entete = "-------------------\r\n";
         entete += "--Dump de la base--\r\n";
@@ -37,10 +195,6 @@ public class DumpOracleDB implements IDumpDb
 
         String creation = "";
         String insertion = "\r\n\n";
-        ArrayList<String> listeTables = listerTables();
-        //Statement
-        Statement statement = connexion.createStatement();
-
         //Pour chaque tables
         for (String table : listeTables)
           {
@@ -49,7 +203,7 @@ public class DumpOracleDB implements IDumpDb
             creation += "----------------------\r\n";
             /* Requête permettant de récupérer tous les create table */
             ResultSet resultSetTable = statement.executeQuery("select dbms_metadata.get_ddl('TABLE','" + table + "')from dual");
-            
+
             //Pour chaques create table
             while (resultSetTable.next())
               {
@@ -79,93 +233,7 @@ public class DumpOracleDB implements IDumpDb
               }
             insertion += "\r\n";
           }
-
-        String creationVue = "";
-        ArrayList<String> listeVues = listerVues();
-        /*
-         * Pour chaque vue
-         */
-        for (String vue : listeVues)
-          {
-            if (vue != null)
-              {
-                creationVue += "-- -----------------\r\n";
-                creationVue += "-- creation de la vue --" + vue + " --\r\n";
-                creationVue += "----------------------\r\n";
-                ResultSet resultSetVue = statement.executeQuery("select dbms_metadata.get_ddl('VIEW','" + vue + "')from dual");
-                while (resultSetVue.next())
-                  {
-                    //On récupère le create et on le concatene
-                    creationVue += resultSetVue.getString(1) + "\r\n\n";
-                  }
-              }
-          }
-
-        String creationTrigger = "";
-        ArrayList<String> listeTriggers = listerTriggers();
-        /*
-         * Pour chaque trigger
-         */
-        for (String trigger : listeTriggers)
-          {
-            if (trigger != null)
-              {
-                creationTrigger += "-- -----------------\r\n";
-                creationTrigger += "-- creation du trigger --" + trigger + " --\r\n";
-                creationTrigger += "----------------------\r\n";
-                ResultSet resultSetTrigger = statement.executeQuery("select dbms_metadata.get_ddl('TRIGGER','" + trigger + "')from dual");
-                while (resultSetTrigger.next())
-                  {
-                    //On récupère le create et on le concatene
-                    creationTrigger += resultSetTrigger.getString(1) + "\r\n\n";
-                  }
-              }
-          }
-        String creationSequence = "";
-        ArrayList<String> listeSequences = listerSequences();
-        /*
-         * Pour chaque sequence
-         */
-        for (String sequence : listeSequences)
-          {
-            if (sequence != null)
-              {
-                creationSequence += "-- -----------------\r\n";
-                creationSequence += "-- creation de la sequence --" + sequence + " --\r\n";
-                creationSequence += "----------------------\r\n";
-                ResultSet resultSetSequence = statement.executeQuery("select dbms_metadata.get_ddl('SEQUENCE','" + sequence + "')from dual");
-                while (resultSetSequence.next())
-                  {
-                    //On récupère le create et on le concatene
-                    creationSequence += resultSetSequence.getString(1) + "\r\n\n";
-                  }
-              }
-          }
-
-        String creationProcedure = "";
-        ArrayList<String> listeProcedures = listerProcedures();
-        /*
-         * Pour chaque sequence
-         */
-        for (String procedure : listeProcedures)
-          {
-            if (procedure != null)
-              {
-                creationProcedure += "-- -----------------\r\n";
-                creationProcedure += "-- creation de la procedure --" + procedure + " --\r\n";
-                creationProcedure += "----------------------\r\n";
-                ResultSet resultSetProcedure = statement.executeQuery("select dbms_metadata.get_ddl('PROCEDURE','" + procedure + "')from dual");
-                while (resultSetProcedure.next())
-                  {
-                    //On récupère le create et on le concatene
-                    creationProcedure += resultSetProcedure.getString(1) + "\r\n\n";
-                  }
-              }
-          }
-        statement.close();
-        //Construction de la chaine de requete
-        String dumpDb = entete + "\n" + creation + "\n" + insertion + "\n" + creationVue + "\n" + creationSequence + "\n" + creationTrigger + "\n" + creationProcedure + "\n";
-        return dumpDb;
+        return entete + "\n" + creation + "\n" + insertion;
       }
 
     /**
@@ -174,16 +242,19 @@ public class DumpOracleDB implements IDumpDb
      * @param contenu type String Contenu du fichier à écrire
      * @param chemin type String Chemin où enregitrer le fichier
      * @throws java.io.IOException
+     *
+     */
+    @Override
+    public void writeDumpFile(String contenu, String chemin) throws IOException
+      {
 
-    */
-    public void writeDumpFile (String contenu,String chemin) throws IOException{
-      
-      Date date =new Date(); 
-      String dateFichier=new SimpleDateFormat("dd-MM-yyyy").format(date);
-      File fichier = new File(chemin+"dump_"+dateFichier+".sql");  
-      
-      FileWriter filewriter=new FileWriter(fichier);
-        try (BufferedWriter bufferwriter = new BufferedWriter(filewriter)) {
+        Date date = new Date();
+        String dateFichier = new SimpleDateFormat("dd-MM-yyyy").format(date);
+        File fichier = new File(chemin + "dump_" + dateFichier + ".sql");
+
+        FileWriter filewriter = new FileWriter(fichier);
+        try (BufferedWriter bufferwriter = new BufferedWriter(filewriter))
+          {
 
           }
 
@@ -216,9 +287,10 @@ public class DumpOracleDB implements IDumpDb
           }
         return listeTables;
       }
+
     /**
      * @return liste des vues de la base de données
-     * @throws SQLException 
+     * @throws SQLException
      */
     @Override
     public ArrayList<String> listerVues() throws SQLException
@@ -236,9 +308,10 @@ public class DumpOracleDB implements IDumpDb
           }
         return listeVues;
       }
+
     /**
      * @return liste des triggers de la base de données
-     * @throws SQLException 
+     * @throws SQLException
      */
     @Override
     public ArrayList<String> listerTriggers() throws SQLException
@@ -257,9 +330,10 @@ public class DumpOracleDB implements IDumpDb
 
         return listeTriggers;
       }
+
     /**
      * @return liste s"quences de la base de données
-     * @throws SQLException 
+     * @throws SQLException
      */
     @Override
     public ArrayList<String> listerSequences() throws SQLException
@@ -277,9 +351,10 @@ public class DumpOracleDB implements IDumpDb
           }
         return listeSequence;
       }
+
     /**
      * @return liste des procédures de la base de données
-     * @throws SQLException 
+     * @throws SQLException
      */
     @Override
     public ArrayList<String> listerProcedures() throws SQLException
