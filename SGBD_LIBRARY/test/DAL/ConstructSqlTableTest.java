@@ -51,8 +51,8 @@ public class ConstructSqlTableTest
     @Test
     public void testRun() throws SQLException
       {
-        Thread test = new ConstructSqlTable();
-        test.start();
+        //Thread test = new ConstructSqlTable();
+        //test.start();
       }
 
   }

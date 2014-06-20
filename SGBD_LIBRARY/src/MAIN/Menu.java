@@ -40,15 +40,20 @@ public class Menu {
 /*******************************************************************FONCTION DE MENU ******************************************************/
     
     public void ChoixClasse() throws ClassNotFoundException {
+        
         clearList();
+        
         do {
             System.out.println("BIENVENUE DANS LE PROJET SGBD DE DUPRE_S, AFFRE_J, CHASSANG_C ET SALLES_K");
             System.out.println("1 - MaterielMedicalMaterielAchat");
             System.out.println("2 - MaterielMedicalMaterielLoue");
             System.out.println("3 - PartenairePatient");
             System.out.println("4 - PartenairePrescripteur");
-            System.out.println("5 - Quitter");
+            System.out.println("5 - Dump de la base");
+            System.out.println("6 - Quitter");
+            
             _intChoixClasse = ConsoleReader.readInt("Choix numéro ");
+            
             if (_intChoixClasse == 1 || _intChoixClasse == 2 || _intChoixClasse == 3 || _intChoixClasse == 4) {
                 if (_intChoixClasse == 1) {
                     _nomClasse = "MaterielMedicalMaterielAchat";
@@ -63,13 +68,33 @@ public class Menu {
                     _nomClasse = "PartenairePrescripteur";
                 }
                 menuChoixMethode();
-            } else if (_intChoixClasse == 5) {
+            }
+            else if(_intChoixClasse == 5){
+                dumpBD();
+            }
+            
+            else if (_intChoixClasse == 6) {
                 System.exit(0);
             } else {
                 erreur();
                 ChoixClasse();
             }
-        } while (_intChoixClasse != 5);
+        } while (_intChoixClasse != 6);
+    }
+    
+    private void dumpBD(){
+        
+        manager = new Manager_DAO("Oracle");
+        String chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
+        System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+chemin + " ?");
+        String reponse =ConsoleReader.readString("O/N");
+        
+        if(reponse.toUpperCase() == "O"){
+            
+            manager.dumpDb(chemin);
+            System.out.println("Création OK");
+        }
+        
     }
     
 /*******************************************************************FONCTION DE SOUS MENU ******************************************************/
@@ -298,4 +323,6 @@ public class Menu {
     private void erreur() {
         System.out.println("Valeur incorrecte saisie, veuillez recommencer");
     }
+
+   
 }
