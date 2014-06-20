@@ -313,6 +313,7 @@ public class DumpOracleDB implements IDumpDb
                 listeTables.add(nomTable);
               }
             statement.close();
+            resultSet.close();
           }
         return listeTables;
       }
@@ -334,6 +335,7 @@ public class DumpOracleDB implements IDumpDb
                 listeVues.add(nomVue);
               }
             statement.close();
+            resultSet.close();
           }
         return listeVues;
       }
@@ -355,6 +357,7 @@ public class DumpOracleDB implements IDumpDb
                 listeTriggers.add(nomVue);
               }
             statement.close();
+            resultSet.close();
           }
 
         return listeTriggers;
@@ -377,6 +380,7 @@ public class DumpOracleDB implements IDumpDb
                 listeSequence.add(nomSequence);
               }
             statement.close();
+            resultSet.close();
           }
         return listeSequence;
       }
@@ -398,6 +402,7 @@ public class DumpOracleDB implements IDumpDb
                 listeProcedures.add(nomProcedure);
               }
             statement.close();
+            resultSet.close();
           }
         return listeProcedures;
       }
