@@ -41,7 +41,7 @@ public class Oracle_connexion
               {
                 try
                   {
-                    properties.load(Oracle_connexion.class.getClassLoader().getResourceAsStream("connexion.properties"));
+                    properties.load(Oracle_connexion.class.getClassLoader().getResourceAsStream("connexion_oracle.properties"));
                     connection = DriverManager.getConnection(properties.getProperty("dba_access"), properties.getProperty("dba_user"), properties.getProperty("dba_password"));
                   } catch (SQLException ex)
                   {

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author JOHN
  */
-public class ConstructSqlTable extends Thread
+public class ConstructSqlTable implements Runnable
   {
     Connection connexion = Oracle_connexion.getInstance();
     
@@ -30,8 +30,8 @@ public class ConstructSqlTable extends Thread
             Statement statement = connexion.createStatement();
             System.out.println("APRES CONNEXION");
             ArrayList<String> listeTables = new ArrayList<>();
-            /* Requête permettant de récupérer tous les noms de table */
-            /* Requête permettant de récupérer tous les noms de table */
+            // Requête permettant de récupérer tous les noms de table 
+            // Requête permettant de récupérer tous les noms de table 
             ResultSet resultSet = statement.executeQuery("SELECT table_name FROM user_tables");
 
             while (resultSet.next())
