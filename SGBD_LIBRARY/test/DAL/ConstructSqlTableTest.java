@@ -51,13 +51,11 @@ public class ConstructSqlTableTest
     @Test
     public void testRun() throws SQLException
       {
-<<<<<<< HEAD
         Thread test = new Thread(new ConstructSqlTable());
         test.start();
-=======
+
         //Thread test = new ConstructSqlTable();
         //test.start();
->>>>>>> 3d7b12d20936152ae236b6c413e9dad2906ce1c8
       }
 
   }
