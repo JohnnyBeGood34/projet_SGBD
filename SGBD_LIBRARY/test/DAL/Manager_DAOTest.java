@@ -135,4 +135,13 @@ public class Manager_DAOTest
         //assertEquals(expResult, result);
 
       }
+    
+    @Test
+    public void testDumpDb() throws Exception
+      {
+          System.out.println("test DAO Dump");
+         Manager_DAO manager=new Manager_DAO("Oracle");
+         
+        // manager.dumpDb("C:/Users/Easy/Desktop");
+      }
   }

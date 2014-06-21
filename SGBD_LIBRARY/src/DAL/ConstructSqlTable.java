@@ -19,10 +19,26 @@ import java.util.logging.Logger;
  */
 public class ConstructSqlTable implements Runnable
   {
-    Connection connexion = Oracle_connexion.getInstance();
-    
+
+
+     Connection connexion = Oracle_connexion.getInstance();
+    private volatile String result;
+
+    final Statement statement;
+
+    public ConstructSqlTable() throws SQLException
+      {
+        this.statement = connexion.createStatement();
+      }
+
+    public String getResult()
+      {
+        return result;
+      }
+
+
     @Override
-    public void run()
+    public  void run()
       {
         try
           {

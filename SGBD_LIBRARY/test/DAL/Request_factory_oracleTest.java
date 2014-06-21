@@ -126,5 +126,12 @@ public class Request_factory_oracleTest
         System.out.println(instance.getRequeteString());
       }
     
-       
+    
+    @Test
+    public void testDumpDb()
+      {
+          
+          Request_factory_oracle instance = new Request_factory_oracle();
+          //instance.dumpDb("");
+      }
   }
