@@ -100,10 +100,10 @@ public class Request_factory_oracle implements IBDD
      *
      * @param classe type String, qui est le nom de la classe (table) que l'on
      * veut attaquer en base.
-     * @param fields type ArrayList<String>, peut être null, représente les
+     * @param fields type ArrayList, peut être null, représente les
      * champs de restriction
      * @param restriction
-     * @param value type ArrayList<String>, peut être null, représente les
+     * @param value type ArrayList, peut être null, représente les
      * valeurs de restriction correspondant aux champs
      */
     @Override
@@ -336,7 +336,7 @@ public class Request_factory_oracle implements IBDD
         **********************************************
      */
     /**
-     * Permet de retourner une procédure stockée pour lister Cela implique le la
+     * Permet de retourner une procédure stockée pour lister Cela implique que la
      * procédure pour lister doit être sous la forme "listerNomclasse"
      *
      * @param classe nom de la classe = nom de la tale en bdd

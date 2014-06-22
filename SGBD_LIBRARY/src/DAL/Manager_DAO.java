@@ -42,10 +42,16 @@ public class Manager_DAO
          * La request factory spécifique est chargée en fonction du type de base
          * de données
          */
-        if (bddTypeName.equals("Oracle"))
+        switch (bddTypeName)
           {
-            this.bddType = bddTypeName;
-            this.requestFactory = new Request_factory_oracle();
+            case "Oracle":
+                this.bddType = bddTypeName;
+                this.requestFactory = new Request_factory_oracle();
+                break;
+            case "MySql":
+                this.bddType = bddTypeName;
+                this.requestFactory = new Request_factory_mysql();
+                break;
           }
       }
 
@@ -57,6 +63,24 @@ public class Manager_DAO
     public void setRequestFactory(IBDD requestFactory)
       {
         this.requestFactory = requestFactory;
+      }
+
+    public void setBdd(String bddName)
+      {
+        this.bddType = bddName;
+        switch (bddName)
+          {
+            case "Oracle":
+                IBDD requestFactoryOracle = new Request_factory_oracle();
+                setRequestFactory(requestFactoryOracle);
+                break;
+            case "MySql":
+                IBDD requestFactorymysql = new Request_factory_mysql();
+                setRequestFactory(requestFactorymysql);
+                break;
+            case "SqlServer":
+                break;
+          }
       }
 
     /**
