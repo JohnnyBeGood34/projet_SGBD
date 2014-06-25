@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -337,8 +338,12 @@ public class Menu {
             case "O":                                                                       
                 System.out.println("En cours de création... ");
                 try{
+                    
+                long begin=System.currentTimeMillis();
                 manager.dumpDb(_chemin);
-                System.out.println("Création du fichier finie ! ");
+                long end=System.currentTimeMillis();
+                System.out.println("Fichier créé en " + (end-begin)/1000+" secondes ! ");
+                
                 }
                 catch(Exception e){
                      System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
