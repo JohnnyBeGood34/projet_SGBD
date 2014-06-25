@@ -10,6 +10,7 @@ import BOL.MaterielMedicalMaterielLoue;
 import BOL.PartenairePatient;
 import BOL.PartenairePrescripteur;
 import DAL.Manager_DAO;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
@@ -107,15 +108,26 @@ public class Menu {
      
     //Fonction permettant de choisir le dump à faire
     private void menuDumpBD() throws ClassNotFoundException{
+        
         int _intChoixDump;
+        
         do{
             System.out.println("1 - Dump de la base vers un chemin");
             System.out.println("2 - Dump sous forme de String");
             System.out.println("3 - Retour");
-            _intChoixDump = ConsoleReader.readInt("Choix numéro ?");  
-            if (_intChoixDump == 1) {dumpBD();}
-            else if(_intChoixDump == 2){getDumpBD();}
-            else{erreur();}       
+            _intChoixDump = ConsoleReader.readInt("Choix numéro ?"); 
+            
+            if (_intChoixDump == 1) {                                                    
+                    dumpBD();                   
+                 
+                }    
+            
+            else if(_intChoixDump == 2){
+                getDumpBD();
+            }
+            else{
+                erreur();
+            }       
         }while(_intChoixDump !=3);        
     }
     
@@ -313,18 +325,26 @@ public class Menu {
     }
     
 /********************************************************************FONCTION DUMB DE LA BASE AVEC CHEMIN D'ACCES*************************************/  
-    private void dumpBD(){
+    private void dumpBD() {
+        
         manager = new Manager_DAO("Oracle");
         String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
         System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+ _chemin + " ?");
         String _reponse =ConsoleReader.readString("O/N");
 
         if(null != _reponse.toUpperCase())switch (_reponse.toUpperCase()) {
-            case "O":
-                System.out.println("En cour de création...");
+            
+            case "O":                                                                       
+                System.out.println("En cours de création... ");
+                try{
                 manager.dumpDb(_chemin);
-                System.out.println("CRÉATION FINI");
+                System.out.println("Création du fichier finie ! ");
+                }
+                catch(Exception e){
+                     System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
+                }                             
                 break;
+                
             case "N":
                 System.out.println("Veuillez recommencer");
                 break;
@@ -336,7 +356,7 @@ public class Menu {
 /********************************************************************FONCTION DUMB DE LA BASE SOUS FORME DE STRING*************************************/  
     private void getDumpBD(){
         manager = new Manager_DAO("Oracle");
-        System.out.println("En cour de création...");
+        System.out.println("En cours de création...");
         String _responseDump = manager.getDumpDb();
         System.out.println(_responseDump);
     }

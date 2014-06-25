@@ -4,6 +4,7 @@
  */
 package DAL;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +26,7 @@ public class Manager_DAO
     private IBDD requestFactory;
     //Connexion Singleton
     private String bddType;
-
+    Connection connexion = null;
     /*
      //File d'attente de requetes, resultats <requete,resultat requete>
      private static HashMap<String, ArrayList<Object>> _requestQueue;
@@ -90,7 +91,7 @@ public class Manager_DAO
      */
     private Connection getConnexion()
       {
-        Connection connexion = null;
+        
         switch (this.bddType)
           {
             case "Oracle":
@@ -103,7 +104,7 @@ public class Manager_DAO
      * Fonction permettant de crer le fichier .sql du dump de la base de données
      */
 
-    public void dumpDb(String cheminFichierDump)
+    public void dumpDb(String cheminFichierDump) throws SQLException, IOException
       {
         requestFactory.dumpDb(cheminFichierDump);
       }
