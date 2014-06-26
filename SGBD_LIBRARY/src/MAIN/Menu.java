@@ -138,11 +138,13 @@ public class Menu {
             
             case "O":                                                                       
                 this.boolProcedure = true;
-                
+                break;
             case "N":                                                                    
                 this.boolProcedure = false;
+                break;
             default:
                 erreur();
+                menuProcedure();
                 break;
         }
     }
@@ -168,6 +170,7 @@ public class Menu {
     
 /******************************************************FONCTION AJOUTER**************************************************************************/
     private void methodeAjouter() throws ClassNotFoundException{
+        menuProcedure();
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
         Field[] fieldsClass = classCourante.getDeclaredFields();
@@ -178,7 +181,6 @@ public class Menu {
         for (int i = 0, k = fieldsClass.length; i < k; i++) {
             listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
         }
-        menuProcedure();
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
            MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(0, Integer.parseInt(listChampsClass.get(0)), Integer.parseInt(listChampsClass.get(1)),
@@ -229,6 +231,7 @@ public class Menu {
 /******************************************************FONCTION MODIFIER**************************************************************************/
     
     private void methodeModifier() throws ClassNotFoundException{
+        menuProcedure();
         saisiValues();
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
@@ -241,7 +244,6 @@ public class Menu {
         for (int i = 0, k = fieldsClass.length; i < k; i++) {
             listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
         }
-        menuProcedure();
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
                 MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(0)), 
@@ -295,7 +297,8 @@ public class Menu {
     
 /******************************************************FONCTION SUPPRIMER**************************************************************************/
     
-    private void methodeSupprimer(){
+    private void methodeSupprimer() throws ClassNotFoundException{
+        menuProcedure();
         saisiFields();
         saisiRestriction();
         saisiValues();
