@@ -36,6 +36,7 @@
    
   
   <target name="run" depends="build">
+  <copy file="main.src.dir/connexion_oracle.properties" todir="test.src.dir/DAL" />
     <junit printsummary="on" haltonfailure="yes">
         <classpath>
           <path refid="classpath.test" />
