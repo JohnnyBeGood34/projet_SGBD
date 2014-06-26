@@ -31,6 +31,7 @@ public class Manager_DAO
      * File d'attente de requetes, resultats <requete,resultat requete>
      * private static HashMap<String, ArrayList<Object>> _requestQueue;
      */
+
     /**
      * Constructeur de la classe Manager_DAO.
      *
@@ -184,21 +185,27 @@ public class Manager_DAO
      * forme get_nomAttribut.
      *
      * @param objet, un objet métier.
+     * @param isProcedure
      * @return Un JSON contenant l'id de l'objet inséré.
      * @throws SQLException
      */
-    public JSONObject insert(Object objet) throws SQLException
+    public JSONObject insert(Object objet, Boolean isProcedure) throws SQLException
       {
-
         JSONObject resultat = new JSONObject();
         Connection connexion = null;
         PreparedStatement prepare = null;
         try
           {
             connexion = this.getConnexion();
-            //La factory renvoi la requete insert préparée avec les valeurs dans un array
-            requestFactory.requeteAjouter(objet);
-
+            if (!isProcedure)
+              {
+                //La factory renvoi la requete insert préparée avec les valeurs dans un array
+                requestFactory.requeteAjouter(objet);
+              } else
+              {
+                //Si c'est un appel de procedure
+                requestFactory.procedureAjouter(objet);
+              }
             //On récupère la requete pour l'exécuter ainsi que l'array de valeurs
             String requete = requestFactory.getRequeteString();
             //On récupère la liste des paramètres poru la requete préparée
@@ -255,10 +262,11 @@ public class Manager_DAO
      * données. Les accesseurs doivent être écrits sous la forme get_nomAttribut
      *
      * @param objet, un objet métier.
+     * @param isProcedure
      * @return
      * @throws SQLException
      */
-    public JSONObject update(Object objet) throws SQLException
+    public JSONObject update(Object objet, Boolean isProcedure) throws SQLException
       {
 
         JSONObject resultat = new JSONObject();
@@ -267,8 +275,16 @@ public class Manager_DAO
         try
           {
             connexion = this.getConnexion();
-            //La factory renvoi la requete insert préparée avec les valeurs dans un array
-            requestFactory.requeteMiseAJour(objet);
+            if (!isProcedure)
+              {
+                //La factory renvoi la requete insert préparée avec les valeurs dans un array
+                requestFactory.requeteMiseAJour(objet);
+              } else
+              {
+                //Si c'est un appel de procedure
+                requestFactory.procedureAjouter(objet);
+              }
+
             //On récupère la requete pour l'exécuter ainsi que l'array de valeurs
             String requete = requestFactory.getRequeteString();
             ArrayList<String> parametresRequete = requestFactory.getParametres();
@@ -319,9 +335,11 @@ public class Manager_DAO
      * requete
      * @param values, un arrayList de valeurs, correspondants aux champs
      * permettant de faire la restriction
+     * @param isProcedure
      * @return un JSON disant si le delete s'est bien passé.
+     * @throws java.sql.SQLException
      */
-    public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws SQLException
+    public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values, Boolean isProcedure) throws SQLException
       {
         JSONObject resultat = new JSONObject();
         Connection connexion = this.getConnexion();
