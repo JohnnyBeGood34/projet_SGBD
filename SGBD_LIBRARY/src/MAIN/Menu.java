@@ -360,24 +360,24 @@ public class Menu {
             case "O":                                                                       
                 System.out.println("En cours de création... ");
                 
-                Thread threadDump=new Thread( new Runnable(
-                        
-                ) {
+                Thread threadDump=new Thread( new Runnable() {
+                    
                     @Override
                     public void run() {
                         
-                    try{                    
+                    try
+                    {                    
                     long begin=System.currentTimeMillis();
                     manager.dumpDb(_chemin);
                     long end=System.currentTimeMillis();
-                    System.out.println("Fichier cree en " + (end-begin)/1000+" secondes ! ");
-                
+                    System.out.println("Fichier cree en " + (end-begin)/1000+" secondes  à l'emplacement : "+_chemin);               
+                    }
+                    catch(SQLException | IOException e)
+                    {
+                     System.out.println("Probleme de creation du fichier. Veuillez recommencer. ");
+                    }    
                   }
-                   catch(SQLException | IOException e){
-                     System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
-                  }    
-                }
-                }                
+                 }                
                 );
                 threadDump.start();
                 break;
