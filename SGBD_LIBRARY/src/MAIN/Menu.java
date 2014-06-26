@@ -10,6 +10,7 @@ import BOL.MaterielMedicalMaterielLoue;
 import BOL.PartenairePatient;
 import BOL.PartenairePrescripteur;
 import DAL.Manager_DAO;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
@@ -37,9 +38,10 @@ public class Menu {
     private Manager_DAO manager ;
     
     
-/*******************************************************************FONCTION DE MENU ******************************************************/
-    
+   
     public void ChoixClasse() throws ClassNotFoundException {
+/*******************************************************************FONCTION DE MENU ******************************************************/
+ 
         do {
             //Je nettoie toutes les listes avant de faire de nouvelle modification
             clearList();
@@ -112,10 +114,17 @@ public class Menu {
             System.out.println("1 - Dump de la base vers un chemin");
             System.out.println("2 - Dump sous forme de String");
             System.out.println("3 - Retour");
-            _intChoixDump = ConsoleReader.readInt("Choix numéro ?");  
-            if (_intChoixDump == 1) {dumpBD();}
-            else if(_intChoixDump == 2){getDumpBD();}
-            else{erreur();}       
+            _intChoixDump = ConsoleReader.readInt("Choix numéro ?"); 
+            
+            if (_intChoixDump == 1) {                                                    
+                    dumpBD();  
+                }  
+            else if(_intChoixDump == 2){
+                getDumpBD();
+            }
+            else{
+                erreur();
+            }       
         }while(_intChoixDump !=3);        
     }
     
@@ -156,7 +165,7 @@ public class Menu {
                    listChampsClass.get(2), listChampsClass.get(3), Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6),
                    Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),Integer.parseInt(listChampsClass.get(9)),  Integer.parseInt(listChampsClass.get(10)));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -168,7 +177,7 @@ public class Menu {
                     Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6), Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),
                     Integer.parseInt(listChampsClass.get(9)), listChampsClass.get(10), Integer.parseInt(listChampsClass.get(11)));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -178,7 +187,7 @@ public class Menu {
             PartenairePatient objet = new PartenairePatient(0, listChampsClass.get(0), listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4),
                     listChampsClass.get(5),listChampsClass.get(6));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -188,7 +197,7 @@ public class Menu {
             PartenairePrescripteur objet = new PartenairePrescripteur(0, listChampsClass.get(0), listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4),
                     listChampsClass.get(5),listChampsClass.get(6));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -219,7 +228,7 @@ public class Menu {
                         Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),
                     Integer.parseInt(listChampsClass.get(9)),  Integer.parseInt(listChampsClass.get(10)));
                 try {
-                    manager.update(objet);
+                    manager.update(objet,false);
                 } catch (SQLException ex) {
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -232,7 +241,7 @@ public class Menu {
                     listChampsClass.get(8),
                 Integer.parseInt(listChampsClass.get(9)), listChampsClass.get(10),Integer.parseInt(listChampsClass.get(11)));
             try {
-                manager.update(objet);
+                manager.update(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -243,7 +252,7 @@ public class Menu {
             PartenairePatient objet = new PartenairePatient(Integer.parseInt(values.get(0)), listChampsClass.get(0), listChampsClass.get(1),
                 listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6));
             try {
-                manager.update(objet);
+                manager.update(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -254,7 +263,7 @@ public class Menu {
             PartenairePrescripteur objet = new PartenairePrescripteur(Integer.parseInt(values.get(0)), listChampsClass.get(0), listChampsClass.get(1),
                 listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6));
             try {
-                manager.update(objet);
+                manager.update(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -269,7 +278,8 @@ public class Menu {
         saisiRestriction();
         saisiValues();
         try {
-            manager.delete(_nomClasse, fields, restriction, values);
+            JSONObject resultat = manager.delete(_nomClasse, fields, restriction, values,false);
+            System.out.println(resultat.get("result"));
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -313,18 +323,30 @@ public class Menu {
     }
     
 /********************************************************************FONCTION DUMB DE LA BASE AVEC CHEMIN D'ACCES*************************************/  
-    private void dumpBD(){
+    //Fonction qui génère un fichier .sql de l'ensemble de la base de donnée est le met sur un chemin spécifique
+    private void dumpBD() {
         manager = new Manager_DAO("Oracle");
         String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
         System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+ _chemin + " ?");
         String _reponse =ConsoleReader.readString("O/N");
 
         if(null != _reponse.toUpperCase())switch (_reponse.toUpperCase()) {
-            case "O":
-                System.out.println("En cour de création...");
+            
+            case "O":                                                                       
+                System.out.println("En cours de création... ");
+                try{
+                    
+                long begin=System.currentTimeMillis();
                 manager.dumpDb(_chemin);
-                System.out.println("CRÉATION FINI");
+                long end=System.currentTimeMillis();
+                System.out.println("Fichier créé en " + (end-begin)/1000+" secondes ! ");
+                
+                }
+                catch(SQLException | IOException e){
+                     System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
+                }                             
                 break;
+                
             case "N":
                 System.out.println("Veuillez recommencer");
                 break;
@@ -336,7 +358,7 @@ public class Menu {
 /********************************************************************FONCTION DUMB DE LA BASE SOUS FORME DE STRING*************************************/  
     private void getDumpBD(){
         manager = new Manager_DAO("Oracle");
-        System.out.println("En cour de création...");
+        System.out.println("En cours de création...");
         String _responseDump = manager.getDumpDb();
         System.out.println(_responseDump);
     }

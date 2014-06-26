@@ -4,6 +4,7 @@
  */
 package DAL;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,11 +26,12 @@ public class Manager_DAO
     private IBDD requestFactory;
     //Connexion Singleton
     private String bddType;
-
+    private Connection connexion = null;
     /*
-     //File d'attente de requetes, resultats <requete,resultat requete>
-     private static HashMap<String, ArrayList<Object>> _requestQueue;
+     * File d'attente de requetes, resultats <requete,resultat requete>
+     * private static HashMap<String, ArrayList<Object>> _requestQueue;
      */
+
     /**
      * Constructeur de la classe Manager_DAO.
      *
@@ -60,7 +62,7 @@ public class Manager_DAO
      *
      * @param requestFactory une fabrique de requetes de type InterfaceBDD
      */
-    public void setRequestFactory(IBDD requestFactory)
+    private void setRequestFactory(IBDD requestFactory)
       {
         this.requestFactory = requestFactory;
       }
@@ -75,8 +77,8 @@ public class Manager_DAO
                 setRequestFactory(requestFactoryOracle);
                 break;
             case "MySql":
-                IBDD requestFactorymysql = new Request_factory_mysql();
-                setRequestFactory(requestFactorymysql);
+                IBDD requestFactoryMysql = new Request_factory_mysql();
+                setRequestFactory(requestFactoryMysql);
                 break;
             case "SqlServer":
                 break;
@@ -90,7 +92,6 @@ public class Manager_DAO
      */
     private Connection getConnexion()
       {
-        Connection connexion = null;
         switch (this.bddType)
           {
             case "Oracle":
@@ -103,7 +104,7 @@ public class Manager_DAO
      * Fonction permettant de crer le fichier .sql du dump de la base de données
      */
 
-    public void dumpDb(String cheminFichierDump)
+    public void dumpDb(String cheminFichierDump) throws SQLException, IOException
       {
         requestFactory.dumpDb(cheminFichierDump);
       }
@@ -184,21 +185,27 @@ public class Manager_DAO
      * forme get_nomAttribut.
      *
      * @param objet, un objet métier.
+     * @param isProcedure
      * @return Un JSON contenant l'id de l'objet inséré.
      * @throws SQLException
      */
-    public JSONObject insert(Object objet) throws SQLException
+    public JSONObject insert(Object objet, Boolean isProcedure) throws SQLException
       {
-
         JSONObject resultat = new JSONObject();
         Connection connexion = null;
         PreparedStatement prepare = null;
         try
           {
             connexion = this.getConnexion();
-            //La factory renvoi la requete insert préparée avec les valeurs dans un array
-            requestFactory.requeteAjouter(objet);
-
+            if (!isProcedure)
+              {
+                //La factory renvoi la requete insert préparée avec les valeurs dans un array
+                requestFactory.requeteAjouter(objet);
+              } else
+              {
+                //Si c'est un appel de procedure
+                requestFactory.procedureAjouter(objet);
+              }
             //On récupère la requete pour l'exécuter ainsi que l'array de valeurs
             String requete = requestFactory.getRequeteString();
             //On récupère la liste des paramètres poru la requete préparée
@@ -255,10 +262,11 @@ public class Manager_DAO
      * données. Les accesseurs doivent être écrits sous la forme get_nomAttribut
      *
      * @param objet, un objet métier.
+     * @param isProcedure
      * @return
      * @throws SQLException
      */
-    public JSONObject update(Object objet) throws SQLException
+    public JSONObject update(Object objet, Boolean isProcedure) throws SQLException
       {
 
         JSONObject resultat = new JSONObject();
@@ -267,8 +275,16 @@ public class Manager_DAO
         try
           {
             connexion = this.getConnexion();
-            //La factory renvoi la requete insert préparée avec les valeurs dans un array
-            requestFactory.requeteMiseAJour(objet);
+            if (!isProcedure)
+              {
+                //La factory renvoi la requete insert préparée avec les valeurs dans un array
+                requestFactory.requeteMiseAJour(objet);
+              } else
+              {
+                //Si c'est un appel de procedure
+                requestFactory.procedureAjouter(objet);
+              }
+
             //On récupère la requete pour l'exécuter ainsi que l'array de valeurs
             String requete = requestFactory.getRequeteString();
             ArrayList<String> parametresRequete = requestFactory.getParametres();
@@ -319,9 +335,11 @@ public class Manager_DAO
      * requete
      * @param values, un arrayList de valeurs, correspondants aux champs
      * permettant de faire la restriction
+     * @param isProcedure
      * @return un JSON disant si le delete s'est bien passé.
+     * @throws java.sql.SQLException
      */
-    public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws SQLException
+    public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values, Boolean isProcedure) throws SQLException
       {
         JSONObject resultat = new JSONObject();
         Connection connexion = this.getConnexion();
@@ -333,7 +351,8 @@ public class Manager_DAO
             ResultSet resultSet = statement.executeQuery(requete);
 
             /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OK*/
-            resultat.put("result", resultSet.getString(1));
+            resultat.put("result", fields + " " + restriction + " " + values + " a bien été supprimé!");
+            resultSet.close();
             statement.close();
           }
         return resultat;

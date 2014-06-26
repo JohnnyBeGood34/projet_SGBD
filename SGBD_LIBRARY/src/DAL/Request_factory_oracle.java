@@ -58,17 +58,13 @@ public class Request_factory_oracle implements IBDD
      */
 
     @Override
-    public void dumpDb(String chemin)
+    public void dumpDb(String chemin) throws SQLException, IOException
       {
         DumpOracleDB dumpClass = new DumpOracleDB();
-        try
-          {
+        
             String dump = dumpClass.dumpDb();
             dumpClass.writeDumpFile(dump, chemin);
-          } catch (SQLException | IOException ex)
-          {
-            Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
-          }
+                                  
 
       }
     /*
