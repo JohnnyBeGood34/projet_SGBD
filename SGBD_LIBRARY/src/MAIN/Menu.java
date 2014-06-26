@@ -165,7 +165,7 @@ public class Menu {
                    listChampsClass.get(2), listChampsClass.get(3), Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6),
                    Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),Integer.parseInt(listChampsClass.get(9)),  Integer.parseInt(listChampsClass.get(10)));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -177,7 +177,7 @@ public class Menu {
                     Float.parseFloat(listChampsClass.get(4)), Integer.parseInt(listChampsClass.get(5)), listChampsClass.get(6), Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),
                     Integer.parseInt(listChampsClass.get(9)), listChampsClass.get(10), Integer.parseInt(listChampsClass.get(11)));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -187,7 +187,7 @@ public class Menu {
             PartenairePatient objet = new PartenairePatient(0, listChampsClass.get(0), listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4),
                     listChampsClass.get(5),listChampsClass.get(6));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -197,7 +197,7 @@ public class Menu {
             PartenairePrescripteur objet = new PartenairePrescripteur(0, listChampsClass.get(0), listChampsClass.get(1), listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4),
                     listChampsClass.get(5),listChampsClass.get(6));
             try {
-                manager.insert(objet);
+                manager.insert(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -228,7 +228,7 @@ public class Menu {
                         Float.parseFloat(listChampsClass.get(7)), listChampsClass.get(8),
                     Integer.parseInt(listChampsClass.get(9)),  Integer.parseInt(listChampsClass.get(10)));
                 try {
-                    manager.update(objet);
+                    manager.update(objet,false);
                 } catch (SQLException ex) {
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -241,7 +241,7 @@ public class Menu {
                     listChampsClass.get(8),
                 Integer.parseInt(listChampsClass.get(9)), listChampsClass.get(10),Integer.parseInt(listChampsClass.get(11)));
             try {
-                manager.update(objet);
+                manager.update(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -252,7 +252,7 @@ public class Menu {
             PartenairePatient objet = new PartenairePatient(Integer.parseInt(values.get(0)), listChampsClass.get(0), listChampsClass.get(1),
                 listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6));
             try {
-                manager.update(objet);
+                manager.update(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -263,7 +263,7 @@ public class Menu {
             PartenairePrescripteur objet = new PartenairePrescripteur(Integer.parseInt(values.get(0)), listChampsClass.get(0), listChampsClass.get(1),
                 listChampsClass.get(2), listChampsClass.get(3), listChampsClass.get(4), listChampsClass.get(5), listChampsClass.get(6));
             try {
-                manager.update(objet);
+                manager.update(objet,false);
             } catch (SQLException ex) {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -278,7 +278,7 @@ public class Menu {
         saisiRestriction();
         saisiValues();
         try {
-            JSONObject resultat = manager.delete(_nomClasse, fields, restriction, values);
+            JSONObject resultat = manager.delete(_nomClasse, fields, restriction, values,false);
             System.out.println(resultat.get("result"));
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
