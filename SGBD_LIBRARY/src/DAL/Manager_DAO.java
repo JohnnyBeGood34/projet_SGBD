@@ -26,10 +26,10 @@ public class Manager_DAO
     private IBDD requestFactory;
     //Connexion Singleton
     private String bddType;
-    Connection connexion = null;
+    private Connection connexion = null;
     /*
-     //File d'attente de requetes, resultats <requete,resultat requete>
-     private static HashMap<String, ArrayList<Object>> _requestQueue;
+     * File d'attente de requetes, resultats <requete,resultat requete>
+     * private static HashMap<String, ArrayList<Object>> _requestQueue;
      */
     /**
      * Constructeur de la classe Manager_DAO.
@@ -61,7 +61,7 @@ public class Manager_DAO
      *
      * @param requestFactory une fabrique de requetes de type InterfaceBDD
      */
-    public void setRequestFactory(IBDD requestFactory)
+    private void setRequestFactory(IBDD requestFactory)
       {
         this.requestFactory = requestFactory;
       }
@@ -76,8 +76,8 @@ public class Manager_DAO
                 setRequestFactory(requestFactoryOracle);
                 break;
             case "MySql":
-                IBDD requestFactorymysql = new Request_factory_mysql();
-                setRequestFactory(requestFactorymysql);
+                IBDD requestFactoryMysql = new Request_factory_mysql();
+                setRequestFactory(requestFactoryMysql);
                 break;
             case "SqlServer":
                 break;
@@ -91,7 +91,6 @@ public class Manager_DAO
      */
     private Connection getConnexion()
       {
-        
         switch (this.bddType)
           {
             case "Oracle":
@@ -334,7 +333,8 @@ public class Manager_DAO
             ResultSet resultSet = statement.executeQuery(requete);
 
             /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OK*/
-            resultat.put("result", resultSet.getString(1));
+            resultat.put("result", fields + " " + restriction + " " + values + " a bien été supprimé!");
+            resultSet.close();
             statement.close();
           }
         return resultat;

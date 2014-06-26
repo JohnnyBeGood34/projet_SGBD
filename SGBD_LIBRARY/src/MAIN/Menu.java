@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,9 +38,10 @@ public class Menu {
     private Manager_DAO manager ;
     
     
-/*******************************************************************FONCTION DE MENU ******************************************************/
-    
+   
     public void ChoixClasse() throws ClassNotFoundException {
+/*******************************************************************FONCTION DE MENU ******************************************************/
+ 
         do {
             //Je nettoie toutes les listes avant de faire de nouvelle modification
             clearList();
@@ -109,9 +109,7 @@ public class Menu {
      
     //Fonction permettant de choisir le dump à faire
     private void menuDumpBD() throws ClassNotFoundException{
-        
         int _intChoixDump;
-        
         do{
             System.out.println("1 - Dump de la base vers un chemin");
             System.out.println("2 - Dump sous forme de String");
@@ -119,10 +117,8 @@ public class Menu {
             _intChoixDump = ConsoleReader.readInt("Choix numéro ?"); 
             
             if (_intChoixDump == 1) {                                                    
-                    dumpBD();                   
-                 
-                }    
-            
+                    dumpBD();  
+                }  
             else if(_intChoixDump == 2){
                 getDumpBD();
             }
@@ -282,7 +278,8 @@ public class Menu {
         saisiRestriction();
         saisiValues();
         try {
-            manager.delete(_nomClasse, fields, restriction, values);
+            JSONObject resultat = manager.delete(_nomClasse, fields, restriction, values);
+            System.out.println(resultat.get("result"));
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -326,8 +323,8 @@ public class Menu {
     }
     
 /********************************************************************FONCTION DUMB DE LA BASE AVEC CHEMIN D'ACCES*************************************/  
+    //Fonction qui génère un fichier .sql de l'ensemble de la base de donnée est le met sur un chemin spécifique
     private void dumpBD() {
-        
         manager = new Manager_DAO("Oracle");
         String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
         System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+ _chemin + " ?");
@@ -345,7 +342,7 @@ public class Menu {
                 System.out.println("Fichier créé en " + (end-begin)/1000+" secondes ! ");
                 
                 }
-                catch(Exception e){
+                catch(SQLException | IOException e){
                      System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
                 }                             
                 break;
