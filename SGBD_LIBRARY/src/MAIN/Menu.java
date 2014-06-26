@@ -351,7 +351,7 @@ public class Menu {
     //Fonction qui génère un fichier .sql de l'ensemble de la base de donnée est le met sur un chemin spécifique
     private void dumpBD() {
         manager = new Manager_DAO("Oracle");
-        String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
+       final String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
         System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+ _chemin + " ?");
         String _reponse =ConsoleReader.readString("O/N");
 
@@ -359,17 +359,27 @@ public class Menu {
             
             case "O":                                                                       
                 System.out.println("En cours de création... ");
-                try{
-                    
-                long begin=System.currentTimeMillis();
-                manager.dumpDb(_chemin);
-                long end=System.currentTimeMillis();
-                System.out.println("Fichier créé en " + (end-begin)/1000+" secondes ! ");
                 
-                }
-                catch(SQLException | IOException e){
+                Thread threadDump=new Thread( new Runnable(
+                        
+                ) {
+                    @Override
+                    public void run() {
+                        
+                    try{                    
+                    long begin=System.currentTimeMillis();
+                    manager.dumpDb(_chemin);
+                    long end=System.currentTimeMillis();
+                    System.out.println("Fichier cree en " + (end-begin)/1000+" secondes ! ");
+                
+                  }
+                   catch(SQLException | IOException e){
                      System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
-                }                             
+                  }    
+                }
+                }                
+                );
+                threadDump.start();
                 break;
                 
             case "N":
