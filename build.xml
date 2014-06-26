@@ -48,6 +48,7 @@
   </target>
    
   <target name="clean">
+  <copy file="${main.src.dir}/connexion_oracle.properties" todir="${test.src.dir}"/>
     <delete>
         <fileset dir="${basedir}" includes="**/*.class" />
     </delete>
