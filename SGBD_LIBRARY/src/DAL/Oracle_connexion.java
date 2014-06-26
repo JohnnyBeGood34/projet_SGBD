@@ -29,7 +29,9 @@ public class Oracle_connexion
     private static Connection connection = null;
 
     /**
-     *
+     * getInstance retourne une instance unique de connexion
+     * Le fichier .properties doit contenir le propriétées dba_access,dba_user et dba_password obligatoirement 
+     * pour avoir les identifients de connexion.
      * @return une unique instance de l'objet Connexion.
      */
     public static Connection getInstance()

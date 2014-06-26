@@ -189,7 +189,7 @@ public class Manager_DAO
      * @return Un JSON contenant l'id de l'objet inséré.
      * @throws SQLException
      */
-    public JSONObject insert(Object objet, Boolean isProcedure) throws SQLException
+    public JSONObject insert(Object objet, boolean isProcedure) throws SQLException
       {
         JSONObject resultat = new JSONObject();
         Connection connexion = null;
@@ -266,7 +266,7 @@ public class Manager_DAO
      * @return
      * @throws SQLException
      */
-    public JSONObject update(Object objet, Boolean isProcedure) throws SQLException
+    public JSONObject update(Object objet, boolean isProcedure) throws SQLException
       {
 
         JSONObject resultat = new JSONObject();
