@@ -10,9 +10,11 @@ import BOL.MaterielMedicalMaterielLoue;
 import BOL.PartenairePatient;
 import BOL.PartenairePrescripteur;
 import DAL.Manager_DAO;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,9 +32,9 @@ public class Menu {
     private String _restrictionSaisi;
     private String _valuesSaisi;
     private String _fieldsSaisi;
-    private final ArrayList<String> restriction = new ArrayList();
-    private final ArrayList<String> values = new ArrayList();
-    private final ArrayList<String> fields = new ArrayList();
+    private final ArrayList<String> restriction = new ArrayList<>();
+    private final ArrayList<String> values = new ArrayList<>();
+    private final ArrayList<String> fields = new ArrayList<>();
     private final ArrayList<String> listChampsClass = new ArrayList<>();
     private Manager_DAO manager ;
     
@@ -40,10 +42,9 @@ public class Menu {
 /*******************************************************************FONCTION DE MENU ******************************************************/
     
     public void ChoixClasse() throws ClassNotFoundException {
-        
-        clearList();
-        
         do {
+            //Je nettoie toutes les listes avant de faire de nouvelle modification
+            clearList();
             System.out.println("BIENVENUE DANS LE PROJET SGBD DE DUPRE_S, AFFRE_J, CHASSANG_C ET SALLES_K");
             System.out.println("1 - MaterielMedicalMaterielAchat");
             System.out.println("2 - MaterielMedicalMaterielLoue");
@@ -52,7 +53,7 @@ public class Menu {
             System.out.println("5 - Dump de la base");
             System.out.println("6 - Quitter");
             
-            _intChoixClasse = ConsoleReader.readInt("Choix numéro ");
+            _intChoixClasse = ConsoleReader.readInt("Choix numéro ?");
             
             if (_intChoixClasse == 1 || _intChoixClasse == 2 || _intChoixClasse == 3 || _intChoixClasse == 4) {
                 if (_intChoixClasse == 1) {
@@ -70,38 +71,23 @@ public class Menu {
                 menuChoixMethode();
             }
             else if(_intChoixClasse == 5){
-                dumpBD();
+                menuDumpBD();
             }
-            
             else if (_intChoixClasse == 6) {
                 System.exit(0);
             } else {
                 erreur();
-                ChoixClasse();
             }
         } while (_intChoixClasse != 6);
     }
     
-    private void dumpBD(){
-        
-        manager = new Manager_DAO("Oracle");
-        String chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
-        System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+chemin + " ?");
-        String reponse =ConsoleReader.readString("O/N");
-        
-        if(reponse.toUpperCase() == "O"){
-            
-            manager.dumpDb(chemin);
-            System.out.println("Création OK");
-        }
-        
-    }
-    
 /*******************************************************************FONCTION DE SOUS MENU ******************************************************/
     
-    // Fonction permettande de choisir la modif à faire en base
+    // Fonction permettant de choisir la modif à faire en base
     private void menuChoixMethode() throws ClassNotFoundException{
         do {
+            //Je nettoie toutes les listes avant de faire de nouvelle modification
+            clearList();
             //Je déclare ici mon manager afin de le réinstancié à chaque chargement du sous menu pour de pas concaténer les objets
             manager = new Manager_DAO("Oracle");
             System.out.println(_nomClasse);
@@ -110,16 +96,41 @@ public class Menu {
             System.out.println("3 - Modifier");
             System.out.println("4 - Supprimer");
             System.out.println("5 - Retour aux choix des classes");
-            _intChoixMethode = ConsoleReader.readInt("Choix numéro ");
+            _intChoixMethode = ConsoleReader.readInt("Choix numéro ?");
             if (_intChoixMethode == 1) {methodeLister();}
             else if (_intChoixMethode == 2) {methodeAjouter();}
             else if (_intChoixMethode == 3) {methodeModifier();}
             else if (_intChoixMethode == 4) {methodeSupprimer();}
             else if (_intChoixMethode == 5) {ChoixClasse();}
-            else{erreur(); menuChoixMethode();}
+            else{erreur();}
         } while (_intChoixMethode != 5);
     }
-    
+/******************************************************************FONCTION DE MENU DUMP*********************************************************/
+     
+    //Fonction permettant de choisir le dump à faire
+    private void menuDumpBD() throws ClassNotFoundException{
+        
+        int _intChoixDump;
+        
+        do{
+            System.out.println("1 - Dump de la base vers un chemin");
+            System.out.println("2 - Dump sous forme de String");
+            System.out.println("3 - Retour");
+            _intChoixDump = ConsoleReader.readInt("Choix numéro ?"); 
+            
+            if (_intChoixDump == 1) {                                                    
+                    dumpBD();                   
+                 
+                }    
+            
+            else if(_intChoixDump == 2){
+                getDumpBD();
+            }
+            else{
+                erreur();
+            }       
+        }while(_intChoixDump !=3);        
+    }
     
     
 /******************************************************FONCTION LISTER**************************************************************************/
@@ -137,14 +148,10 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("JSON RESULTAT" + resultat.toJSONString());
-        
-        clearList();
     }
     
     
 /******************************************************FONCTION AJOUTER**************************************************************************/
-/*******************************Ne marche pas car pas de trigger insert**************************************************/
-    
     private void methodeAjouter() throws ClassNotFoundException{
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
@@ -199,12 +206,10 @@ public class Menu {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        clearList();
     }
     
     
 /******************************************************FONCTION MODIFIER**************************************************************************/
-/************************MaterielMedicalMaterielAchat et MaterielMedicalMaterielLoue marche pas, LES AUTRES MARCHENT************************************/
     
     private void methodeModifier() throws ClassNotFoundException{
         saisiValues();
@@ -267,13 +272,10 @@ public class Menu {
                 Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        //Je nettoie la listChampsClass pour de prochaine modification
-        clearList();
     }
     
     
 /******************************************************FONCTION SUPPRIMER**************************************************************************/
-/************************************LA FONCTION et trigger marche mais le code_behind ne marche pas, JohnY à toi de jouer :-)************************************/
     
     private void methodeSupprimer(){
         saisiFields();
@@ -284,7 +286,6 @@ public class Menu {
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        clearList();
     }
     
 /******************************TOUT LE RESTE SONT DES FONCTIONS D'APPEL GENERALISER**********************************************/
@@ -298,7 +299,7 @@ public class Menu {
     }
     //Fonction d'enregistrement de la values saisi par l'utilisateur
     private void saisiValues(){
-        _valuesSaisi = ConsoleReader.readString("Quel valeur du champ voulez-vous utiliser?  ");
+        _valuesSaisi = ConsoleReader.readString("Quel id voulez-vous utiliser?  ");
         values.add(_valuesSaisi);
     }
     //Fonction d'enregistrement de la restriction saisi par l'utilisateur
@@ -323,6 +324,46 @@ public class Menu {
     private void erreur() {
         System.out.println("Valeur incorrecte saisie, veuillez recommencer");
     }
+    
+/********************************************************************FONCTION DUMB DE LA BASE AVEC CHEMIN D'ACCES*************************************/  
+    private void dumpBD() {
+        
+        manager = new Manager_DAO("Oracle");
+        String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
+        System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+ _chemin + " ?");
+        String _reponse =ConsoleReader.readString("O/N");
 
+        if(null != _reponse.toUpperCase())switch (_reponse.toUpperCase()) {
+            
+            case "O":                                                                       
+                System.out.println("En cours de création... ");
+                try{
+                    
+                long begin=System.currentTimeMillis();
+                manager.dumpDb(_chemin);
+                long end=System.currentTimeMillis();
+                System.out.println("Fichier créé en " + (end-begin)/1000+" secondes ! ");
+                
+                }
+                catch(Exception e){
+                     System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
+                }                             
+                break;
+                
+            case "N":
+                System.out.println("Veuillez recommencer");
+                break;
+            default:
+                erreur();
+                break;
+        }
+    }
+/********************************************************************FONCTION DUMB DE LA BASE SOUS FORME DE STRING*************************************/  
+    private void getDumpBD(){
+        manager = new Manager_DAO("Oracle");
+        System.out.println("En cours de création...");
+        String _responseDump = manager.getDumpDb();
+        System.out.println(_responseDump);
+    }
    
 }
