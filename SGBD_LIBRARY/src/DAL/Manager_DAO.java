@@ -192,11 +192,11 @@ public class Manager_DAO
     public JSONObject insert(Object objet, boolean isProcedure) throws SQLException
       {
         JSONObject resultat = new JSONObject();
-        Connection connexion = null;
+        Connection connexionFonction = null;
         PreparedStatement prepare = null;
         try
           {
-            connexion = this.getConnexion();
+            connexionFonction = this.getConnexion();
             if (!isProcedure)
               {
                 //La factory renvoi la requete insert préparée avec les valeurs dans un array
@@ -211,7 +211,7 @@ public class Manager_DAO
             //On récupère la liste des paramètres poru la requete préparée
             ArrayList<String> parametresRequete = requestFactory.getParametres();
 
-            prepare = connexion.prepareStatement(requete);
+            prepare = connexionFonction.prepareStatement(requete);
             //Pour chaque entrée de l'array de parametres
             for (int i = 1; i <= parametresRequete.size(); i++)
               {
@@ -221,7 +221,7 @@ public class Manager_DAO
 
             prepare.close();
             /* On récupère le dernier ID inséré */
-            try (Statement statement = connexion.createStatement())
+            try (Statement statement = connexionFonction.createStatement())
               {
                 /**
                  * A METTRE DANS UN TRANSACTION
@@ -245,9 +245,9 @@ public class Manager_DAO
                 prepare.close();
               }
 
-            if (connexion != null)
+            if (connexionFonction != null)
               {
-                connexion = null;
+                connexionFonction = null;
               }
 
           }
@@ -270,11 +270,11 @@ public class Manager_DAO
       {
 
         JSONObject resultat = new JSONObject();
-        Connection connexion = null;
+        Connection connexionFonction = null;
         PreparedStatement prepare = null;
         try
           {
-            connexion = this.getConnexion();
+            connexionFonction = this.getConnexion();
             if (!isProcedure)
               {
                 //La factory renvoi la requete insert préparée avec les valeurs dans un array
@@ -289,7 +289,7 @@ public class Manager_DAO
             String requete = requestFactory.getRequeteString();
             ArrayList<String> parametresRequete = requestFactory.getParametres();
 
-            prepare = connexion.prepareStatement(requete);
+            prepare = connexionFonction.prepareStatement(requete);
 
             //On enlève l'id pour le mettre en dernier de la liste des parametres de requete preparees
             String id = parametresRequete.get(0);
@@ -317,9 +317,9 @@ public class Manager_DAO
                 prepare.close();
               }
 
-            if (connexion != null)
+            if (connexionFonction != null)
               {
-                connexion = null;
+                connexionFonction = null;
               }
           }
         return resultat;
@@ -342,11 +342,11 @@ public class Manager_DAO
     public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values, Boolean isProcedure) throws SQLException
       {
         JSONObject resultat = new JSONObject();
-        Connection connexion = this.getConnexion();
+        Connection connexionFonction = this.getConnexion();
         requestFactory.requeteSupprimer(classe, fields, restriction, values);
         String requete = requestFactory.getRequeteString();
 
-        try (Statement statement = connexion.createStatement())
+        try (Statement statement = connexionFonction.createStatement())
           {
             ResultSet resultSet = statement.executeQuery(requete);
 
