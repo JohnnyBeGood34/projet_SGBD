@@ -12,6 +12,7 @@
     <pathelement location="SGBD_LIBRARY/lib/junit-4.10.jar" />
 	<pathelement location="SGBD_LIBRARY/lib/json-simple-1.1.1.jar" />
 	<pathelement location="SGBD_LIBRARY/lib/ojdbc5.jar" />
+	<pathelement location="main.src.dir/connexion_oracle.properties"/>
     <pathelement location="${main.build.dir}"/>
     <path refid="classpath.base" />
   </path>
@@ -48,7 +49,7 @@
   </target>
    
   <target name="clean">
-  <copy file="${main.src.dir}/connexion_oracle.properties" todir="${test.src.dir}"/>
+  
     <delete>
         <fileset dir="${basedir}" includes="**/*.class" />
     </delete>
