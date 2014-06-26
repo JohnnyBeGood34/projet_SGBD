@@ -26,7 +26,7 @@
   </target>
 
   <target  name="jar" depends="compile">
-  <jar destfile="${main.build.dir}/framework.jar" basedir="${main.build.dir}/classes" manifest="SGBD_LIBRARY/build/manifest.mf" />
+  <jar destfile="${main.build.dir}/framework.jar" basedir="SGBD_LIBRARY/build/classes" manifest="SGBD_LIBRARY/build/manifest.mf" />
   </target>
   
   <target name="build" depends="jar">
