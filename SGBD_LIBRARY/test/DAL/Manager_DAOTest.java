@@ -4,8 +4,8 @@
  */
 package DAL;
 
-import BOL.Partenaire;
 import BOL.PartenairePatient;
+import BOL.PartenairePrescripteur;
 import java.util.ArrayList;
 import org.json.simple.JSONObject;
 import org.junit.After;
@@ -98,16 +98,16 @@ public class Manager_DAOTest
       {
         System.out.println("TEST SUR LA METHODE ---insert---");
         //TEST REQUETE NORMALE
-        Partenaire objet = new PartenairePatient(10, "requete", "simple", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
-        boolean isProcedure = false;
-        Manager_DAO instance = new Manager_DAO("Oracle");
-        JSONObject result = instance.insert(objet, isProcedure);
-        System.out.println("REQUETE INSERT NORMALE++++++++++++" + result.toJSONString());
-        //TEST PROCEDURE
-        objet = new PartenairePatient(20, "requete", "procedure", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
-        isProcedure = true;
-        JSONObject resultProcedure = instance.insert(objet, isProcedure);
-        System.out.println("REQUETE INSERT PAR PROCEDURE++++++++++"+resultProcedure);
+        PartenairePrescripteur objet = new PartenairePrescripteur(10, "requete", "simple", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+         boolean isProcedure = false;
+         Manager_DAO instance = new Manager_DAO("Oracle");
+         /*JSONObject result = instance.insert(objet, isProcedure);
+         System.out.println("REQUETE INSERT NORMALE++++++++++++" + result.toJSONString());*/
+         //TEST PROCEDURE
+         PartenairePrescripteur objetProcedure = new PartenairePrescripteur(20, "requete", "procedure", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+         boolean isProcedureProc = true;
+         /*JSONObject resultProcedure = instance.insert(objetProcedure, isProcedureProc);
+         System.out.println("REQUETE INSERT PAR PROCEDURE++++++++++" + resultProcedure);*/
       }
 
     /**
@@ -116,15 +116,16 @@ public class Manager_DAOTest
     @Test
     public void testUpdate() throws Exception
       {
-        System.out.println("update");
-        Object objet = null;
-        boolean isProcedure = false;
-        Manager_DAO instance = null;
-        JSONObject expResult = null;
-        JSONObject result = instance.update(objet, isProcedure);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("TEST SUR LA METHODE ---update---");
+        PartenairePrescripteur objet = new PartenairePrescripteur(174, "updated by simple request", "simple", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+         boolean isProcedure = false;
+         Manager_DAO instance = new Manager_DAO("Oracle");
+         /*JSONObject result = instance.update(objet, isProcedure);
+
+         System.out.println("RESULT UPDATE SIMPLE------" + result);*/
+         PartenairePrescripteur objet2 = new PartenairePrescripteur(173, "updated by simple request", "simple", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+         /*JSONObject resultProcedure = instance.update(objet2, true);
+         System.out.println("RESULT PROCEDURE UPDATE-----------" + resultProcedure);*/
       }
 
     /**
@@ -133,18 +134,18 @@ public class Manager_DAOTest
     @Test
     public void testDelete() throws Exception
       {
-        System.out.println("delete");
-        String classe = "";
-        ArrayList<String> fields = null;
-        ArrayList<String> restriction = null;
-        ArrayList<String> values = null;
-        Boolean isProcedure = null;
-        Manager_DAO instance = null;
-        JSONObject expResult = null;
-        JSONObject result = instance.delete(classe, fields, restriction, values, isProcedure);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("TEST SUR LA METHODE ---delete---");
+        String classe = "PartenairePatient";
+        ArrayList<String> fields = new ArrayList();
+        ArrayList<String> restriction = new ArrayList();
+        ArrayList<String> values = new ArrayList();
+        fields.add("nom");
+        restriction.add("=");
+        values.add("updated by simple request");
+        Boolean isProcedure = false;
+        Manager_DAO instance = new Manager_DAO("Oracle");
+        /*JSONObject result = instance.delete(classe, fields, restriction, values, isProcedure);
+        System.out.println(result);*/
       }
 
   }
