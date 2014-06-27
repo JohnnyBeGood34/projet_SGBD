@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 
 /**
- *
+ * Manager DAO, permet d'effectuer des actions en base de données dynamiquement en fonction des objets
+ * reçut dans les methodes.
  * @author JOHN
  */
 public class Manager_DAO
@@ -26,16 +27,12 @@ public class Manager_DAO
     //Connexion Singleton
     private String bddType;
     private Connection connexion = null;
-    /*
-     * File d'attente de requetes, resultats <requete,resultat requete>
-     * private static HashMap<String, ArrayList<Object>> _requestQueue;
-     */
 
     /**
      * Constructeur de la classe Manager_DAO.
      *
      * @param bddTypeName String, qui est le nom de la base de données que l'on
-     * veut utiliser
+     * veut utiliser sous forme de String, Oracle, Mysql, SqlServer
      */
     public Manager_DAO(String bddTypeName)
       {
@@ -58,7 +55,7 @@ public class Manager_DAO
 
     /**
      * SetrequestFactory, permet de changer le type de fabrique de requete
-     *
+     * methode privée, accessible uniquement depuis le manager lui même
      * @param requestFactory une fabrique de requetes de type InterfaceBDD
      */
     private void setRequestFactory(IBDD requestFactory)
@@ -67,8 +64,9 @@ public class Manager_DAO
       }
 
     /**
-     *
-     * @param bddName
+     * setBdd, permet de changer de type de base de données à la volée.
+     * Quand on change le type de base de donnée, la fabrique correspondante est chargée
+     * @param bddName le nom du SGBD à utiliser
      */
     public void setBdd(String bddName)
       {
@@ -108,23 +106,19 @@ public class Manager_DAO
      */
 
     /**
-     *
-     * @param cheminFichierDump
-     * @throws SQLException
-     * @throws IOException
+     * dumpDb permet de faire un dump complet de la base de données
+     * @param cheminFichierDump, chemin du dossier dans lequel on souhaite récupérer le fichier .sql
+     * @throws SQLException exception en cas de fail requete SQL
+     * @throws IOException exception en cas de fail entrée/sorties
      */
     public void dumpDb(String cheminFichierDump) throws SQLException, IOException
       {
         requestFactory.dumpDb(cheminFichierDump);
       }
 
-    /*
-     * Fonction permettant de récupérer le dump de la base de données sous forme de String
-     */
-
     /**
-     *
-     * @return
+     * Fonction permettant de récupérer le dump de la base de données sous forme de String
+     * @return String, le sql du dump de la base de données sous forme de String
      */
     
     public String getDumpDb()
@@ -138,15 +132,15 @@ public class Manager_DAO
      *
      * @param classe un nom de classe sur laquelle on veut faire la requete
      * @param fields un arrayList de champs pour les restrictions
-     * @param restriction
+     * @param restriction, une restriction
      * @param values un arraylist de valeur pour les restrictions
      * @return Objet JSON avec les resultats de la requete
-     * @throws java.lang.ClassNotFoundException
-     * @throws java.lang.NoSuchMethodException
-     * @throws java.lang.IllegalAccessException
-     * @throws java.lang.InstantiationException
-     * @throws java.lang.reflect.InvocationTargetException
-     * @throws java.sql.SQLException
+     * @throws java.lang.ClassNotFoundException exception si le systeme de trouve pas la classe de l'objet recut
+     * @throws java.lang.NoSuchMethodException exception si on ne trouve pas la methode que l'on veut appeller
+     * @throws java.lang.IllegalAccessException exception SQL Acces
+     * @throws java.lang.InstantiationException exception sur instanciation d'un objet
+     * @throws java.lang.reflect.InvocationTargetException exception sur invocation de methode dynamique
+     * @throws java.sql.SQLException exception en cas de fail requete SQL
      */
     public JSONObject select(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException
       {
@@ -204,11 +198,11 @@ public class Manager_DAO
      * de données. Les attributs de classes doivent aussi porter le même nom que
      * les champs en base de données. Les accesseurs doivent être écrits sous la
      * forme get_nomAttribut.
-     *
      * @param objet, un objet métier.
-     * @param isProcedure
+     * @param isProcedure, un booleein permettant d'indiquer si l'insertion doit être faite avec appel de procédure
+     * Cela implique que la procédure d'ajout s'appelle ajouterNomClasse
      * @return Un JSON contenant l'id de l'objet inséré.
-     * @throws SQLException
+     * @throws SQLException exception en cas de fail de requete SQL
      */
     public JSONObject insert(Object objet, boolean isProcedure) throws SQLException
       {
@@ -281,11 +275,11 @@ public class Manager_DAO
      * portent le même nom que les tables en base de données. Les attributs de
      * classes doivent aussi porter le même nom que les champs en base de
      * données. Les accesseurs doivent être écrits sous la forme get_nomAttribut
-     *
      * @param objet, un objet métier.
-     * @param isProcedure
-     * @return
-     * @throws SQLException
+     * @param isProcedure, permet de savoir si la mise a jour doit être effectué avec appel de procédure
+     * Cela implique que la procédure de mise à jour doit s'appeller modifierNomClasse
+     * @return un objet JSON
+     * @throws SQLException exception en cas de fail de requete SQL
      */
     public JSONObject update(Object objet, boolean isProcedure) throws SQLException
       {
@@ -349,16 +343,14 @@ public class Manager_DAO
     /**
      * Permet de faire un DELETE en base de données en focntion des paramètres
      * reçuts.
-     *
      * @param classe, le nom de la classe de l'objet que l'on veut supprimer
      * @param fields, un ArrayList de champs sur lesquels on veut faire la
-     * @param restriction, arrayList de restriction pour la construction de la
-     * requete
+     * @param restriction, arrayList de restriction pour la construction de la requete
      * @param values, un arrayList de valeurs, correspondants aux champs
      * permettant de faire la restriction
-     * @param isProcedure
+     * @param isProcedure, permet d'indiquer si la suppression doit être effectué avec appel de procédure
      * @return un JSON disant si le delete s'est bien passé.
-     * @throws java.sql.SQLException
+     * @throws java.sql.SQLException exception en cas de fail de requete SQL
      */
     public JSONObject delete(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values, Boolean isProcedure) throws SQLException
       {

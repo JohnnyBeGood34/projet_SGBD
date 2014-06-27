@@ -32,19 +32,25 @@ public class DumpOracleDB implements IDumpDb
     private Connection connexion = Oracle_connexion.getInstance();
     
     /**
-     *
-     * @return
-     * @throws SQLException
-     * @throws IOException
+     * dumpDb retourne le SQL du dump de la base de données sous forme de string
+     * @return la requete de dump de la base de données
+     * @throws SQLException exception en cas de fail de requetes
+     * @throws IOException exception en cas de fail entrée/sorties
      */
     @Override
     public String dumpDb() throws SQLException, IOException
       {
-        final ArrayList<String> listeTables = listerTables();
+        //Liste des tables
+        ArrayList<String> listeTables = listerTables();
+        //Liste des vues
         ArrayList<String> listeVues = listerVues();
+        //liste des triggers
         ArrayList<String> listeTriggers = listerTriggers();
+        //liste des séquences
         ArrayList<String> listeSequences = listerSequences();
+        //liste des procédures
         ArrayList<String> listeProcedures = listerProcedures();
+        //Déclaration des requetes de creations
         String creationTable = "";
         String creationVue = "";
         String creationTrigger = "";
@@ -52,11 +58,17 @@ public class DumpOracleDB implements IDumpDb
         String creationProcedure = "";
         try (Statement statement = connexion.createStatement())
           {
+            //Récupération de la requete de creation et insertions des tables
             creationTable = constructTables(listeTables, statement);
+            //Récupération des creation des vues
             creationVue = constructVues(listeVues, statement);
+            //Récupération des constructions de triggers
             creationTrigger = constructTriggers(listeTriggers, statement);
+            //Récupération des creations de séquences
             creationSequence = constructSequences(listeSequences, statement);
+            //Récupération des creations de procédures
             creationProcedure = constructProcedures(listeProcedures, statement);
+            //Fermeture du statement
             statement.close();
           } catch (InterruptedException | InvocationTargetException ex)
           {
@@ -276,7 +288,7 @@ public class DumpOracleDB implements IDumpDb
      *
      * @param contenu type String Contenu du fichier à écrire
      * @param chemin type String Chemin où enregitrer le fichier
-     * @throws java.io.IOException
+     * @throws java.io.IOException exception en cas de fail entrée/sorties
      *
      */
     @Override
@@ -297,10 +309,8 @@ public class DumpOracleDB implements IDumpDb
 
     /**
      * Methode retournant la liste des Tables de la BD
-     *
-     *
-     * @return ArrayList<String> la liste des tables de la BD
-     * @throws java.sql.SQLException
+     * @return ArrayList la liste des tables de la BD
+     * @throws java.sql.SQLException exception en cas de fail requete SQL
      */
     @Override
     public ArrayList<String> listerTables() throws SQLException
@@ -326,7 +336,7 @@ public class DumpOracleDB implements IDumpDb
 
     /**
      * @return liste des vues de la base de données
-     * @throws SQLException
+     * @throws SQLException exception en cas de fail requete SQL
      */
     @Override
     public ArrayList<String> listerVues() throws SQLException
@@ -348,7 +358,7 @@ public class DumpOracleDB implements IDumpDb
 
     /**
      * @return liste des triggers de la base de données
-     * @throws SQLException
+     * @throws SQLException exception en cas de fail requete SQL
      */
     @Override
     public ArrayList<String> listerTriggers() throws SQLException
@@ -371,7 +381,7 @@ public class DumpOracleDB implements IDumpDb
 
     /**
      * @return liste s"quences de la base de données
-     * @throws SQLException
+     * @throws SQLException exception en cas de fail requete SQL
      */
     @Override
     public ArrayList<String> listerSequences() throws SQLException
@@ -393,7 +403,7 @@ public class DumpOracleDB implements IDumpDb
 
     /**
      * @return liste des procédures de la base de données
-     * @throws SQLException
+     * @throws SQLException exception en cas de fail requete SQL
      */
     @Override
     public ArrayList<String> listerProcedures() throws SQLException
