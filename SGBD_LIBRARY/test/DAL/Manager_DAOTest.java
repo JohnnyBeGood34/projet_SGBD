@@ -5,6 +5,7 @@
  */
 package DAL;
 
+import BOL.PartenairePatient;
 import BOL.PartenairePrescripteur;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
@@ -88,14 +89,15 @@ public class Manager_DAOTest
 
     /**
      * Test of lister method, of class Manager_DAO.
+     * @throws java.lang.Exception
      */
     @Test
     public void testAjouter() throws Exception
       {
         System.out.println("Ajouter");
         Manager_DAO manager = new Manager_DAO("Oracle");
-        Object objet = new PartenairePrescripteur(50, "stef", "dupre", "20/09/1983", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        //manager.insert(objet);
+        Object objet = new PartenairePatient(56, "TROUDEBALLE", "BITEAUCUL", "20/09/1983", "0612457889", "jonatyhan@gmail.com", "aze","ee");
+        manager.insert(objet,true);
         //assertEquals(expResult, result);
       }
 

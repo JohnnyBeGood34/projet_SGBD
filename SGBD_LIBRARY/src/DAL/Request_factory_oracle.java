@@ -43,38 +43,36 @@ public class Request_factory_oracle implements IBDD
       }
 
     /**
-     * ArrayList<String>, contenant les paramètre permettant d'exécuter les
+     * ArrayList contenant les paramètre permettant d'exécuter les
      * requetes préparées.
-     *
-     * @return ArrayList<String>
+     * @return ArrayList de parametres pour la requete préparée
      */
     @Override
     public ArrayList<String> getParametres()
       {
         return this._parametres;
       }
-    /*
-     * Fonction permettant de creer le fichier .sql du dump de la base de données
-     */
 
+    /**
+     * Fonction permettant de creer le fichier .sql du dump de la base de données
+     * @param chemin, chemin vers lequel on veut générer le fichier .sql
+     * @throws SQLException exception en cas de fail de requete SQL
+     * @throws IOException exception en cas de fail entrée/sorties
+     */
     @Override
-    public void dumpDb(String chemin)
+    public void dumpDb(String chemin) throws SQLException, IOException
       {
         DumpOracleDB dumpClass = new DumpOracleDB();
-        try
-          {
+        
             String dump = dumpClass.dumpDb();
             dumpClass.writeDumpFile(dump, chemin);
-          } catch (SQLException | IOException ex)
-          {
-            Logger.getLogger(Request_factory_oracle.class.getName()).log(Level.SEVERE, null, ex);
-          }
+                                  
 
       }
-    /*
+    /**
      * Fonction permettant d'obtenir le dump de la base de données sous forme de String
+     * @return la requete de dump de la base de données sous forme de string
      */
-
     @Override
     public String getDumpDb()
       {
@@ -97,12 +95,11 @@ public class Request_factory_oracle implements IBDD
     
     /**
      * requeteLister sert à construire une requete de selection dynamique avec
-     *
      * @param classe type String, qui est le nom de la classe (table) que l'on
      * veut attaquer en base.
      * @param fields type ArrayList, peut être null, représente les
      * champs de restriction
-     * @param restriction
+     * @param restriction, les restriction à appliquer dans les clauses where
      * @param value type ArrayList, peut être null, représente les
      * valeurs de restriction correspondant aux champs
      */
@@ -293,14 +290,13 @@ public class Request_factory_oracle implements IBDD
     /**
      * requeteSupprimer sert à construire une requete de suppression dynamique
      * avec
-     *
      * @param classe type String, qui est le nom de la classe (table) que l'on
      * veut attaquer en base.
-     * @param fields type ArrayList<String>, peut être null, représente les
+     * @param fields type ArrayList peut être null, représente les
      * champs de restriction
      * @param restriction arrayList de d'opérateurs de restrictions pour les
      * resutes
-     * @param value type ArrayList<String>, peut être null, représente les
+     * @param value type ArrayList peut être null, représente les
      * valeurs de restriction correspondant aux champs
      */
     @Override
@@ -338,7 +334,6 @@ public class Request_factory_oracle implements IBDD
     /**
      * Permet de retourner une procédure stockée pour lister Cela implique que la
      * procédure pour lister doit être sous la forme "listerNomclasse"
-     *
      * @param classe nom de la classe = nom de la tale en bdd
      * @param values les valeurs de restrictions
      */
@@ -355,10 +350,10 @@ public class Request_factory_oracle implements IBDD
       }
 
     /**
-     * Methode permettant de construire la préparation de la procédure stockée
+     * Methode permettant de construire l'appel de la procédure stockée
      * pour modifier (update)
      *
-     * @param objet
+     * @param objet, un objet du BOL
      */
     @Override
     public void procedureModifier(Object objet)
@@ -449,7 +444,7 @@ public class Request_factory_oracle implements IBDD
       }
 
     /**
-     * Fonction permettant de retourner une procédure pour insérer
+     * Fonction permettant de retourner un appel de procédure pour insérer
      *
      * @param objet un objet à insérer en procédure stockée
      */
@@ -527,7 +522,7 @@ public class Request_factory_oracle implements IBDD
 
     /**
      * @param fields, est un ArrayList de tableau de champs (Fields).
-     * @return ArrayList<Srting>, contenant les champs sous forme de Strings.
+     * @return ArrayList contenant les champs sous forme de Strings.
      */
     private ArrayList<String> getFieldstoString(ArrayList<Field[]> fields)
       {

@@ -13,14 +13,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Classe permettant de retourner une instance unique de connexion pour une base de données oracle
+ * Pour récupérer les identifiants de connexion, la classe va chercher un fichier .properties qui s'appelle
+ * connexion_oracle.properties. Le fichier doit absolument porter le même nom.
  * @author JOHN
  */
 public class Oracle_connexion
   {
     private Oracle_connexion(){}
     /*
-     *Identifients de connexion pour bdd Oracle
+     *Identifients de connexion pour bdd Oracle stockés dans un fichier .properties
      */
     private static final Properties properties = new Properties();
     /**
@@ -29,8 +31,10 @@ public class Oracle_connexion
     private static Connection connection = null;
 
     /**
-     *
-     * @return une unique instance de l'objet Connexion.
+     * getInstance retourne une instance unique de connexion
+     * Le fichier .properties doit contenir le propriétées dba_access,dba_user et dba_password obligatoirement 
+     * pour avoir les identifients de connexion.
+     * @return une unique instance de l'objet Connexion synchronisée
      */
     public static Connection getInstance()
       {
