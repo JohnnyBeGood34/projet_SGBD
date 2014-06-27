@@ -238,9 +238,7 @@ public class Manager_DAO
             /* On récupère le dernier ID inséré */
             try (Statement statement = connexionFonction.createStatement())
               {
-                /**
-                 * A METTRE DANS UN TRANSACTION
-                 */
+                
                 String lastId = "SELECT * FROM ( SELECT * FROM " + objet.getClass().getSimpleName() + " ORDER BY 1 DESC ) WHERE ROWNUM = 1 ";
                 ResultSet rs = statement.executeQuery(lastId);
 
@@ -283,7 +281,6 @@ public class Manager_DAO
      */
     public JSONObject update(Object objet, boolean isProcedure) throws SQLException
       {
-
         JSONObject resultat = new JSONObject();
         Connection connexionFonction = null;
         PreparedStatement prepare = null;
@@ -361,11 +358,11 @@ public class Manager_DAO
 
         try (Statement statement = connexionFonction.createStatement())
           {
-            ResultSet resultSet = statement.executeQuery(requete);
-
-            /*RECUPERER LE MESSAGE DU RESULTSET A LA PLACE DU OK*/
-            resultat.put("result", fields + " " + restriction + " " + values + " a bien été supprimé!");
-            resultSet.close();
+            try (ResultSet resultSet = statement.executeQuery(requete))
+              {
+                resultat.put("result", fields + " " + restriction + " " + values + " a bien été supprimé!");
+                resultSet.close();
+              }
             statement.close();
           }
         return resultat;
