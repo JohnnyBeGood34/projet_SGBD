@@ -21,7 +21,6 @@ import org.json.simple.JSONObject;
  */
 public class Manager_DAO
   {
-
     //requestFactory, oracle par defaut.
     private IBDD requestFactory;
     //Connexion Singleton
