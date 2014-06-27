@@ -66,6 +66,10 @@ public class Manager_DAO
         this.requestFactory = requestFactory;
       }
 
+    /**
+     *
+     * @param bddName
+     */
     public void setBdd(String bddName)
       {
         this.bddType = bddName;
@@ -103,6 +107,12 @@ public class Manager_DAO
      * Fonction permettant de crer le fichier .sql du dump de la base de données
      */
 
+    /**
+     *
+     * @param cheminFichierDump
+     * @throws SQLException
+     * @throws IOException
+     */
     public void dumpDb(String cheminFichierDump) throws SQLException, IOException
       {
         requestFactory.dumpDb(cheminFichierDump);
@@ -111,6 +121,12 @@ public class Manager_DAO
     /*
      * Fonction permettant de récupérer le dump de la base de données sous forme de String
      */
+
+    /**
+     *
+     * @return
+     */
+    
     public String getDumpDb()
       {
         return requestFactory.getDumpDb();
@@ -125,11 +141,17 @@ public class Manager_DAO
      * @param restriction
      * @param values un arraylist de valeur pour les restrictions
      * @return Objet JSON avec les resultats de la requete
+     * @throws java.lang.ClassNotFoundException
+     * @throws java.lang.NoSuchMethodException
+     * @throws java.lang.IllegalAccessException
+     * @throws java.lang.InstantiationException
+     * @throws java.lang.reflect.InvocationTargetException
+     * @throws java.sql.SQLException
      */
     public JSONObject select(String classe, ArrayList<String> fields, ArrayList<String> restriction, ArrayList<String> values) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException
       {
         //Récupération de la connexion
-        Connection connexion = this.getConnexion();
+        Connection connexionFonction = this.getConnexion();
         //Objet JSON qui contiendra le résultat
         JSONObject resultat = new JSONObject();
         //Creation de la requete lister
@@ -139,7 +161,7 @@ public class Manager_DAO
 
         //Exécution de la requete lister
         //Creation du statement bdd
-        try (Statement statement = connexion.createStatement())
+        try (Statement statement = connexionFonction.createStatement())
           {
             //Exécution de la requete lister
             ResultSet resultSet = statement.executeQuery(requete);
@@ -170,7 +192,7 @@ public class Manager_DAO
                 resultat.put(compteur, jsonResult);
                 compteur++;
               }
-            connexion = null;
+            connexionFonction = null;
             statement.close();
           }
         return resultat;

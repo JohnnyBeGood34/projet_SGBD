@@ -57,6 +57,12 @@ public class Request_factory_oracle implements IBDD
      * Fonction permettant de creer le fichier .sql du dump de la base de données
      */
 
+    /**
+     *
+     * @param chemin
+     * @throws SQLException
+     * @throws IOException
+     */
     @Override
     public void dumpDb(String chemin) throws SQLException, IOException
       {
@@ -71,6 +77,10 @@ public class Request_factory_oracle implements IBDD
      * Fonction permettant d'obtenir le dump de la base de données sous forme de String
      */
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getDumpDb()
       {

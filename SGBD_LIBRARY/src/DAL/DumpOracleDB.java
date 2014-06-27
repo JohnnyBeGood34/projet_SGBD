@@ -31,6 +31,12 @@ public class DumpOracleDB implements IDumpDb
     //Get instance du singleton de connexion
     private Connection connexion = Oracle_connexion.getInstance();
     
+    /**
+     *
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     */
     @Override
     public String dumpDb() throws SQLException, IOException
       {

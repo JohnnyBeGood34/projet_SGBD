@@ -15,11 +15,55 @@ import java.util.ArrayList;
  */
 public interface IDumpDb
   {
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     */
     abstract String dumpDb() throws SQLException, IOException;
+
+    /**
+     *
+     * @param contenu
+     * @param chemin
+     * @throws IOException
+     */
     abstract void writeDumpFile(String contenu, String chemin) throws IOException;
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     abstract ArrayList<String> listerTables() throws SQLException;
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     abstract ArrayList<String> listerVues() throws SQLException;
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     abstract ArrayList<String> listerTriggers() throws SQLException;
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     abstract ArrayList<String> listerSequences() throws SQLException;
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     abstract ArrayList<String> listerProcedures() throws SQLException;
   }
