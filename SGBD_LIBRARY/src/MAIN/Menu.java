@@ -138,11 +138,13 @@ public class Menu {
             
             case "O":                                                                       
                 this.boolProcedure = true;
-                
+                break;
             case "N":                                                                    
                 this.boolProcedure = false;
+                break;
             default:
                 erreur();
+                menuProcedure();
                 break;
         }
     }
@@ -168,6 +170,7 @@ public class Menu {
     
 /******************************************************FONCTION AJOUTER**************************************************************************/
     private void methodeAjouter() throws ClassNotFoundException{
+        menuProcedure();
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
         Field[] fieldsClass = classCourante.getDeclaredFields();
@@ -178,7 +181,6 @@ public class Menu {
         for (int i = 0, k = fieldsClass.length; i < k; i++) {
             listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
         }
-        menuProcedure();
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
            MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(0, Integer.parseInt(listChampsClass.get(0)), Integer.parseInt(listChampsClass.get(1)),
@@ -229,6 +231,7 @@ public class Menu {
 /******************************************************FONCTION MODIFIER**************************************************************************/
     
     private void methodeModifier() throws ClassNotFoundException{
+        menuProcedure();
         saisiValues();
         Class classCourante = Class.forName("BOL." + _nomClasse);
         Field[] fieldsSuperClass = classCourante.getSuperclass().getDeclaredFields();
@@ -241,7 +244,6 @@ public class Menu {
         for (int i = 0, k = fieldsClass.length; i < k; i++) {
             listChampsClass.add(ConsoleReader.readString(fieldsClass[i].getName()));
         }
-        menuProcedure();
         /************ SI MaterielMedicalMaterielAchat *********************/
         if (_intChoixClasse == 1) {
                 MaterielMedicalMaterielAchat objet = new MaterielMedicalMaterielAchat(Integer.parseInt(values.get(0)), Integer.parseInt(listChampsClass.get(0)), 
@@ -295,7 +297,8 @@ public class Menu {
     
 /******************************************************FONCTION SUPPRIMER**************************************************************************/
     
-    private void methodeSupprimer(){
+    private void methodeSupprimer() throws ClassNotFoundException{
+        menuProcedure();
         saisiFields();
         saisiRestriction();
         saisiValues();
@@ -348,7 +351,7 @@ public class Menu {
     //Fonction qui génère un fichier .sql de l'ensemble de la base de donnée est le met sur un chemin spécifique
     private void dumpBD() {
         manager = new Manager_DAO("Oracle");
-        String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
+       final String _chemin =ConsoleReader.readString("Chemin d'enregistrement du fichier ?");
         System.out.println("Confirmez-vous la création du fichier de dump de la BD vers "+ _chemin + " ?");
         String _reponse =ConsoleReader.readString("O/N");
 
@@ -356,17 +359,27 @@ public class Menu {
             
             case "O":                                                                       
                 System.out.println("En cours de création... ");
-                try{
-                    
-                long begin=System.currentTimeMillis();
-                manager.dumpDb(_chemin);
-                long end=System.currentTimeMillis();
-                System.out.println("Fichier créé en " + (end-begin)/1000+" secondes ! ");
                 
-                }
-                catch(SQLException | IOException e){
-                     System.out.println("Probleme d'enregistrement du fichier. Veuillez recommencer. ");
-                }                             
+                Thread threadDump=new Thread( new Runnable() {
+                    
+                    @Override
+                    public void run() {
+                        
+                    try
+                    {                    
+                    long begin=System.currentTimeMillis();
+                    manager.dumpDb(_chemin);
+                    long end=System.currentTimeMillis();
+                    System.out.println("Fichier cree en " + (end-begin)/1000+" secondes  à l'emplacement : "+_chemin);               
+                    }
+                    catch(SQLException | IOException e)
+                    {
+                     System.out.println("Probleme de creation du fichier. Veuillez recommencer. ");
+                    }    
+                  }
+                 }                
+                );
+                threadDump.start();
                 break;
                 
             case "N":

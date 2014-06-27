@@ -12,7 +12,6 @@
     <pathelement location="SGBD_LIBRARY/lib/junit-4.10.jar" />
 	<pathelement location="SGBD_LIBRARY/lib/json-simple-1.1.1.jar" />
 	<pathelement location="SGBD_LIBRARY/lib/ojdbc5.jar" />
-	
     <pathelement location="${main.build.dir}"/>
     <path refid="classpath.base" />
   </path>
@@ -20,16 +19,19 @@
   <target name="test" depends="run, clean" />
 
   <target name="compile">
-    <mkdir dir="${main.build.dir}"/>
-	 <copy file="${main.src.dir}/connexion_oracle.properties" todir="${main.build.dir}" />
+    <mkdir dir="${main.build.dir}"/>	 
     <javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false">
       <classpath refid="classpath.test"/>
     </javac>
   </target>
 
-  <target name="build" depends="compile">
-    <mkdir dir="${test.build.dir}"/>
-	
+  <target  name="jar" depends="compile">
+  <jar destfile="${main.build.dir}/framework.jar" basedir="SGBD_LIBRARY/build/classes" manifest="SGBD_LIBRARY/build/manifest.mf" />
+  </target>
+  
+  <target name="build" depends="jar">
+  <copy file="${main.src.dir}/connexion_oracle.properties" todir="${test.build.dir}"/>
+    <mkdir dir="${test.build.dir}"/>	
     <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
         <classpath refid="classpath.test"/> 
     </javac>
