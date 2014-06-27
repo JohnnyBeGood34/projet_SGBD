@@ -1,15 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet EPSI Montpellier 2014.
+ * Jonathan Affre, Stephane Dupre, Kevin Salles, Cyrille Chanssang.
  */
-
 package DAL;
 
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,61 +13,122 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
+ * Classe de test pour le dump de la base de données oracle
  *
  * @author JOHN
  */
 public class DumpOracleDBTest
   {
-    
+
     public DumpOracleDBTest()
       {
       }
-    
+
     @BeforeClass
     public static void setUpClass()
       {
       }
-    
+
     @AfterClass
     public static void tearDownClass()
       {
       }
-    
+
     @Before
     public void setUp()
       {
       }
-    
+
     @After
     public void tearDown()
       {
       }
 
     /**
-     * Test of dumpOracleDB method, of class DumpOracleDB.
-     * @throws java.lang.Exception
+     * Test of dumpDb method, of class DumpOracleDB.
      */
     @Test
-    public void testDumpOracleDB() throws Exception
+    public void testDumpDb() throws Exception
       {
-        System.out.println("dumpOracleDB");
+        System.out.println("TEST SUR LA METHODE ---dumpDb---");
         DumpOracleDB instance = new DumpOracleDB();
-        String expResult = "";
-        //String result = instance.dumpOracleDB();
-          //System.out.println(result);
-        //assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        String result = instance.dumpDb();
+        System.out.println(result);
       }
 
     /**
      * Test of writeDumpFile method, of class DumpOracleDB.
-     * @throws java.io.IOException
      */
     @Test
-    public void testWriteDumpFile() throws IOException {
-        System.out.println("writeDumpFile");
-        
-    }
-    
+    public void testWriteDumpFile() throws Exception
+      {
+        System.out.println("TEST SUR LA METHODE ---writeDumpFile---");
+        DumpOracleDB instance = new DumpOracleDB();
+        String contenu = instance.dumpDb();
+        /*String chemin = "a:/dev/";
+        // test pour voir si le fichier de dump est bien créé et déplacé dans le bon dossier
+        instance.writeDumpFile(contenu, chemin);*/
+      }
+
+    /**
+     * Test of listerTables method, of class DumpOracleDB.
+     */
+    @Test
+    public void testListerTables() throws Exception
+      {
+        System.out.println("TEST SUR LA METHODE ---listerTables---");
+        DumpOracleDB instance = new DumpOracleDB();
+        ArrayList<String> result = instance.listerTables();
+        //Liste des tables de la base de données
+        System.out.println(result);
+      }
+
+    /**
+     * Test of listerVues method, of class DumpOracleDB.
+     */
+    @Test
+    public void testListerVues() throws Exception
+      {
+        System.out.println("TEST SUR LA METHODE ---listerVues---");
+        DumpOracleDB instance = new DumpOracleDB();
+        ArrayList<String> result = instance.listerVues();
+        System.out.println(result);
+      }
+
+    /**
+     * Test of listerTriggers method, of class DumpOracleDB.
+     */
+    @Test
+    public void testListerTriggers() throws Exception
+      {
+        System.out.println("TEST SUR LA METHODE ---listerTriggers---");
+        DumpOracleDB instance = new DumpOracleDB();
+        ArrayList<String> result = instance.listerTriggers();
+        System.out.println(result);
+      }
+
+    /**
+     * Test of listerSequences method, of class DumpOracleDB.
+     */
+    @Test
+    public void testListerSequences() throws Exception
+      {
+        System.out.println("TEST SUR LA METHODE ---listerSequences---");
+        DumpOracleDB instance = new DumpOracleDB();
+        ArrayList<String> result = instance.listerSequences();
+        System.out.println(result);
+      }
+
+    /**
+     * Test of listerProcedures method, of class DumpOracleDB.
+     */
+    @Test
+    public void testListerProcedures() throws Exception
+      {
+        System.out.println("TEST SUR LA METHODE ---listerProcedures---");
+        DumpOracleDB instance = new DumpOracleDB();
+        ArrayList<String> result = instance.listerProcedures();
+        System.out.println(result);
+      }
+
   }

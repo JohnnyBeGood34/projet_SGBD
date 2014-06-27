@@ -1,17 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Projet EPSI Montpellier 2014.
+ * Jonathan Affre, Stephane Dupre, Kevin Salles, Cyrille Chanssang.
  */
 package DAL;
 
 import BOL.PartenairePatient;
-import BOL.PartenairePrescripteur;
-import java.sql.Connection;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import org.json.simple.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -52,98 +46,104 @@ public class Manager_DAOTest
       }
 
     /**
-     * Test of setRequestFactory method, of class Manager_DAO.
+     * Test of dumpDb method, of class Manager_DAO.
      */
     @Test
-    public void testSetRequestFactory()
+    public void testDumpDb() throws Exception
       {
-       /* System.out.println("setRequestFactory");
-        IBDD requestFactory = null;
-        Manager_DAO instance = new Manager_DAO("Oracle");
-        instance.setRequestFactory(requestFactory);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-          */
+        System.out.println("TEST SUR LA METHODE ---dumpDb---");
+        /*String cheminFichierDump = "a:/dev/";
+         Manager_DAO instance = new Manager_DAO("Oracle");
+         //Check si el fichier à bien été créé au bon endroit
+         instance.dumpDb(cheminFichierDump);*/
       }
 
     /**
-     * Test of lister method, of class Manager_DAO.
+     * Test of getDumpDb method, of class Manager_DAO.
      */
     @Test
-    public void testLister() throws Exception
+    public void testGetDumpDb()
       {
-        System.out.println("lister");
-        Manager_DAO manager = new Manager_DAO("Oracle");
+        System.out.println("TEST SUR LA METHODE ---getDumpDb--");
+        Manager_DAO instance = new Manager_DAO("Oracle");
+        String result = instance.getDumpDb();
+        //System.out.println(result);
+      }
+
+    /**
+     * Test of select method, of class Manager_DAO.
+     */
+    @Test
+    public void testSelect() throws Exception
+      {
+        System.out.println("TEST SUR LA METHODE ---select--");
         String classe = "PartenairePatient";
         ArrayList<String> fields = new ArrayList();
-        fields.add("datedenaissance");
         ArrayList<String> restriction = new ArrayList();
-        restriction.add("like");
         ArrayList<String> values = new ArrayList();
-        values.add("02/06/82");
-        JSONObject result = manager.select(classe, fields, restriction, values);
-        
-        //System.out.println("JSON RESULTAT" + result.toJSONString());
-        //assertEquals(expResult, result);
+        fields.add("nom");
+        restriction.add("=");
+        values.add("Neil");
+        Manager_DAO instance = new Manager_DAO("Oracle");
+        JSONObject result = instance.select(classe, fields, restriction, values);
+        assertEquals("{\"0\":{\"DATEDENAISSANCE\":\"2049-11-01 00:00:00.0\",\"MAIL\":\"pede.malesuada@vitaeerat.net\",\"IDPARTENAIRE\":\"4\",\"NOM\":\"Neil\",\"PRENOM\":\"Dillon\",\"TELEPHONEPARTENAIRE\":\"0259408706\",\"NUMEROSECU\":\"1552264107184277\"}}", result.toJSONString());
       }
 
     /**
-     * Test of lister method, of class Manager_DAO.
-     * @throws java.lang.Exception
+     * Test of insert method, of class Manager_DAO.
      */
     @Test
-    public void testAjouter() throws Exception
+    public void testInsert() throws Exception
       {
-        System.out.println("Ajouter");
-        Manager_DAO manager = new Manager_DAO("Oracle");
-        Object objet = new PartenairePatient(56, "TROUDEBALLE", "BITEAUCUL", "20/09/1983", "0612457889", "jonatyhan@gmail.com", "aze","ee");
-        manager.insert(objet,true);
-        //assertEquals(expResult, result);
+        System.out.println("TEST SUR LA METHODE ---insert---");
+        //TEST REQUETE NORMALE
+        Object objet = new PartenairePatient(10, "requete", "simple", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+        boolean isProcedure = false;
+        Manager_DAO instance = new Manager_DAO("Oracle");;
+        JSONObject result = instance.insert(objet, isProcedure);
+        System.out.println("REQUETE INSERT NORMALE++++++++++++" + result.toJSONString());
+        //TEST PROCEDURE
+        /*objet = new PartenairePatient(0, "requete", "procedure", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+        isProcedure = true;
+        JSONObject resultProcedure = instance.insert(objet, isProcedure);
+        System.out.println("REQUETE INSERT PAR PROCEDURE++++++++++"+resultProcedure);*/
       }
 
     /**
-     * Test of lister method, of class Manager_DAO.
+     * Test of update method, of class Manager_DAO.
      */
     @Test
     public void testUpdate() throws Exception
       {
-        System.out.println("Update");
-        Manager_DAO manager = new Manager_DAO("Oracle");               
-              
-        Object objet = new PartenairePrescripteur(102, "stef", "stef","30/05/2014", "0612457889", "jonatyhan@gmail.com", "aze", "azeaz");
-        
-        //manager.update(objet);
-        //assertEquals(expResult, result);
-
+        System.out.println("update");
+        Object objet = null;
+        boolean isProcedure = false;
+        Manager_DAO instance = null;
+        JSONObject expResult = null;
+        JSONObject result = instance.update(objet, isProcedure);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
       }
-    
+
     /**
-     * Test of lister method, of class Manager_DAO.
+     * Test of delete method, of class Manager_DAO.
      */
     @Test
     public void testDelete() throws Exception
       {
-        System.out.println("Delete");
-        Manager_DAO manager = new Manager_DAO("Oracle");  
-        
-        ArrayList<String> champs= new ArrayList();
-        ArrayList<String> valeurs=new ArrayList();
-        ArrayList<String> restriction=new ArrayList();
-        champs.add("idPartenaire");
-        valeurs.add("337");
-        restriction.add("=");
-        /*JSONObject result=manager.delete("PartenairePrescripteur",champs,restriction,valeurs);
-        System.out.println(result);*/
-        //assertEquals(expResult, result);
+        System.out.println("delete");
+        String classe = "";
+        ArrayList<String> fields = null;
+        ArrayList<String> restriction = null;
+        ArrayList<String> values = null;
+        Boolean isProcedure = null;
+        Manager_DAO instance = null;
+        JSONObject expResult = null;
+        JSONObject result = instance.delete(classe, fields, restriction, values, isProcedure);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+      }
 
-      }
-    
-    @Test
-    public void testDumpDb() throws Exception
-      {
-          System.out.println("test DAO Dump");
-         Manager_DAO manager=new Manager_DAO("Oracle");
-         
-        // manager.dumpDb("C:/Users/Easy/Desktop");
-      }
   }

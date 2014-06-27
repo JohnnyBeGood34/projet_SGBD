@@ -7,6 +7,7 @@ package DAL;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
+import static java.sql.Connection.TRANSACTION_SERIALIZABLE;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -212,6 +213,8 @@ public class Manager_DAO
         try
           {
             connexionFonction = this.getConnexion();
+            //Mode transaction sérializable pour récupérer l'id que l'on vient d'inserer
+            connexionFonction.setTransactionIsolation(TRANSACTION_SERIALIZABLE);
             if (!isProcedure)
               {
                 //La factory renvoi la requete insert préparée avec les valeurs dans un array
@@ -238,7 +241,6 @@ public class Manager_DAO
             /* On récupère le dernier ID inséré */
             try (Statement statement = connexionFonction.createStatement())
               {
-                
                 String lastId = "SELECT * FROM ( SELECT * FROM " + objet.getClass().getSimpleName() + " ORDER BY 1 DESC ) WHERE ROWNUM = 1 ";
                 ResultSet rs = statement.executeQuery(lastId);
 
