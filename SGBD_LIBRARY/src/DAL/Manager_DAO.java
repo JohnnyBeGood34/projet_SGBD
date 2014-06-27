@@ -357,7 +357,7 @@ public class Manager_DAO
         Connection connexionFonction = this.getConnexion();
         requestFactory.requeteSupprimer(classe, fields, restriction, values);
         String requete = requestFactory.getRequeteString();
-
+          System.out.println("REQUETE SUPPRIMER++++++++++++++++++"+requete);
         try (Statement statement = connexionFonction.createStatement())
           {
             try (ResultSet resultSet = statement.executeQuery(requete))

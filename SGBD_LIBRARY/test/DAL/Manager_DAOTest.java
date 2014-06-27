@@ -135,7 +135,7 @@ public class Manager_DAOTest
     public void testDelete() throws Exception
       {
         System.out.println("TEST SUR LA METHODE ---delete---");
-        String classe = "PartenairePatient";
+        String classe = "PartenairePrescripteur";
         ArrayList<String> fields = new ArrayList();
         ArrayList<String> restriction = new ArrayList();
         ArrayList<String> values = new ArrayList();
