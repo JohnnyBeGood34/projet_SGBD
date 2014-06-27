@@ -15,39 +15,46 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Kevin
+ * @author JOHN
  */
-public class MenuTest {
+public class MenuTest
+  {
     
-    public MenuTest() {
-    }
+    public MenuTest()
+      {
+      }
     
     @BeforeClass
-    public static void setUpClass() {
-    }
+    public static void setUpClass()
+      {
+      }
     
     @AfterClass
-    public static void tearDownClass() {
-    }
+    public static void tearDownClass()
+      {
+      }
     
     @Before
-    public void setUp() {
-    }
+    public void setUp()
+      {
+      }
     
     @After
-    public void tearDown() {
-    }
+    public void tearDown()
+      {
+      }
 
     /**
      * Test of ChoixClasse method, of class Menu.
      */
     @Test
-    public void testChoixClasse() throws Exception {
+    public void testChoixClasse() throws Exception
+      {
         System.out.println("ChoixClasse");
         Menu instance = new Menu();
         instance.ChoixClasse();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+      }
     
-}
+  }

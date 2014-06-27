@@ -4,6 +4,7 @@
  */
 package DAL;
 
+import BOL.Partenaire;
 import BOL.PartenairePatient;
 import java.util.ArrayList;
 import org.json.simple.JSONObject;
@@ -97,13 +98,13 @@ public class Manager_DAOTest
       {
         System.out.println("TEST SUR LA METHODE ---insert---");
         //TEST REQUETE NORMALE
-        PartenairePatient objet = new PartenairePatient(10, "requete", "simple", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+        Partenaire objet = new PartenairePatient(10, "requete", "simple", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
         boolean isProcedure = false;
-        Manager_DAO instance = new Manager_DAO("Oracle");;
+        Manager_DAO instance = new Manager_DAO("Oracle");
         JSONObject result = instance.insert(objet, isProcedure);
         System.out.println("REQUETE INSERT NORMALE++++++++++++" + result.toJSONString());
         //TEST PROCEDURE
-        objet = new PartenairePatient(0, "requete", "procedure", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
+        objet = new PartenairePatient(20, "requete", "procedure", "16/06/1998", "0612457889", "mail@factisse.fr", "0612454547897", "654987654");
         isProcedure = true;
         JSONObject resultProcedure = instance.insert(objet, isProcedure);
         System.out.println("REQUETE INSERT PAR PROCEDURE++++++++++"+resultProcedure);
