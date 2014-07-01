@@ -24,10 +24,10 @@
       <classpath refid="classpath.test"/>
     </javac>
   </target>
-
+	<!--
   <target  name="jar" depends="compile">
   <jar destfile="${main.build.dir}/framework.jar" basedir="SGBD_LIBRARY/build/classes" manifest="SGBD_LIBRARY/build/manifest.mf" />
-  </target>
+  </target>-->
   
   <target name="build" depends="jar">
   <copy file="${main.src.dir}/connexion_oracle.properties" todir="${test.build.dir}"/>
@@ -40,7 +40,6 @@
    
   
   <target name="run" depends="build">
- 
     <junit printsummary="on" haltonfailure="yes">
         <classpath>
           <path refid="classpath.test" />
