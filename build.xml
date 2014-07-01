@@ -29,7 +29,7 @@
   <jar destfile="${main.build.dir}/framework.jar" basedir="SGBD_LIBRARY/build/classes" manifest="SGBD_LIBRARY/build/manifest.mf" />
   </target>-->
   
-  <target name="build" depends="jar">
+  <target name="build" depends="compile">
   <copy file="${main.src.dir}/connexion_oracle.properties" todir="${test.build.dir}"/>
     <mkdir dir="${test.build.dir}"/>	
     <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
